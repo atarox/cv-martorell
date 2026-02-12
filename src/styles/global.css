@@ -1,0 +1,39 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Design tokens (CSS variables) */
+:root {
+  --bg: #E2F4FB;
+  --fg: #0D1C23;
+  --muted: #6A8B96;
+  --brand: #76AFC2;
+  --brand-dark: #0D1C23;
+  --accent: #2B6E7F;
+  --warn: #F2CB40;
+  --alert: #C4372B;
+}
+
+.dark {
+  --bg: #0D1C23;
+  --fg: #E2F4FB;
+  --muted: #9fb5be;
+  --brand: #76AFC2; /* mantiene identidad */
+  --brand-dark: #E2F4FB;
+  --accent: #76AFC2;
+  --warn: #E8C75E;
+  --alert: #DB5A4F;
+}
+/* Utilidades que combinan variables con Tailwind */
+@layer utilities {
+  .bg-app { background-color: var(--bg); }
+  .text-app { color: var(--fg); }
+  .text-muted { color: var(--muted); }
+  .ring-brand { --tw-ring-color: var(--brand); }
+}
+
+/* Base tipográfico fino */
+@layer base {
+  html { scroll-behavior: smooth; }
+  body { @apply antialiased; }
+}

@@ -1,0 +1,56 @@
+---
+import "../styles/global.css";
+
+interface Props {
+  title?: string;
+  description?: string;
+  ogImage?: string;
+}
+
+const {
+  title = "CV Martorell",
+  description = "Club Voleibol Martorell – Formando jugadores y creando equipo",
+  ogImage = "/og-image.jpg",
+} = Astro.props as Props;
+---
+
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#0D1C23" />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:locale" content="es_ES" />
+
+    <!-- Slot para metas específicas de cada página -->
+    <slot name="head" />
+  </head>
+
+  <body class="bg-app text-app min-h-screen flex flex-col antialiased">
+    <!-- Skip link accesibilidad -->
+	<a
+	  href="#contenido"
+	  class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50
+			 focus:bg-white focus:text-brand-dark focus:px-4 focus:py-2 focus:rounded-md
+			 focus:shadow-lg"
+	>
+	  Ir al contenido
+	</a>
+
+    <!-- (Opcional) Estilos si no hay JS -->
+    <noscript>
+      <style>
+        .js-only { display: none !important; }
+      </style>
+    </noscript>
+  </body>
+</html>

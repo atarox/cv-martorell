@@ -1,0 +1,164 @@
+---
+/**
+ * Footer.astro
+ * - Identidad visual: colores del club (Tailwind + tokens).
+ * - Accesibilidad AA: roles, `aria-label`, foco visible, contraste.
+ * - SEO: datos de contacto claros, links semánticos.
+ * - Conversión: CTA para patrocinadores y redes sociales.
+ * - Extras: año automático, microcopy, modo oscuro compatible.
+ */
+
+const year = new Date().getFullYear();
+
+const navLinks = [
+  { href: "/equipos", label: "Equipos" },
+  { href: "/calendario", label: "Calendario" },
+  { href: "/contacto", label: "Contacto" },
+];
+
+const policyLinks = [
+  { href: "/legal/aviso-legal", label: "Aviso legal" },
+  { href: "/legal/privacidad", label: "Privacidad" },
+  { href: "/legal/cookies", label: "Cookies" },
+];
+
+const socials = [
+  { href: "https://instagram.com/TU_CUENTA", label: "Instagram", icon: "instagram" },
+  { href: "https://facebook.com/TU_CUENTA", label: "Facebook", icon: "facebook" },
+  { href: "https://www.tiktok.com/@TU_CUENTA", label: "TikTok", icon: "tiktok" },
+];
+---
+
+<footer class="mt-16 bg-brand-dark text-white">
+  <!-- Banda superior con CTA patrocinio -->
+  <div class="container mx-auto px-6 py-8">
+    <div class="md:flex md:items-center md:justify-between gap-6">
+      <div class="md:max-w-2xl">
+        <h2 class="text-xl md:text-2xl font-semibold tracking-tight">
+          ¿Quieres impulsar el voleibol en Martorell?
+        </h2>
+        <p class="mt-2 text-white/80">
+          Únete como sponsor: visibilidad local y digital, presencia en equipaciones y eventos.
+        </p>
+      </div>
+      <div class="mt-4 md:mt-0 flex gap-3">
+        <a
+          href="/dossier-sponsors.pdf"
+          class="inline-flex items-center justify-center rounded-pill bg-white text-brand-dark px-5 py-2.5
+                 border border-white/20 hover:bg-ui-bg transition-colors
+                 focus:outline-none focus:ring-2 focus:ring-white/40"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Descargar dossier
+        </a>
+        <a
+          href="/contacto"
+          class="inline-flex items-center justify-center rounded-pill bg-brand-light text-brand-dark px-5 py-2.5
+                 hover:bg-white transition-colors
+                 focus:outline-none focus:ring-2 focus:ring-white/40"
+        >
+          Contactar
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Contenido inferior: columnas y redes -->
+  <div class="container mx-auto px-6 py-10 grid md:grid-cols-3 gap-8">
+    <!-- Columna: identidad y contacto -->
+    <div>
+      <div class="flex items-center gap-3 mb-4">
+        <img src="/logo.png" alt="CV Martorell" class="h-10" />
+        <span class="text-lg font-semibold">CV Martorell</span>
+      </div>
+      <address class="not-italic text-white/80 mb-4">
+        Pabellón municipal<br />
+        08635 Martorell, Barcelona<br />
+        <a href="mailto:info@cv-martorell.cat" class="underline hover:text-brand-light focus:outline-none focus:ring-2 focus:ring-white/40">
+          info@cv-martorell.cat
+        </a><br />
+        <a href="tel:+34123456789" class="underline hover:text-brand-light focus:outline-none focus:ring-2 focus:ring-white/40">
+          +34 123 456 789
+        </a>
+      </address>
+      <div class="flex gap-3" aria-label="Redes sociales">
+        {socials.map((s) => (
+          <a
+            href={s.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center justify-center h-10 w-10 rounded-full bg-white/10 hover:bg-white/20
+                   focus:outline-none focus:ring-2 focus:ring-white/40"
+            aria-label={s.label}
+          >
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" class="text-white" aria-hidden="true">
+              <circle cx="12" cy="12" r="10" />
+            </svg>
+          </a>
+        ))}
+      </div>
+    </div>
+
+    <!-- Columna: navegación -->
+    <nav aria-label="Navegación secundaria" class="grid grid-cols-2 gap-x-6">
+      <div>
+        <h3 class="text-white/90 font-medium">Club</h3>
+        <ul class="mt-3 space-y-2">
+          {navLinks.map((l) => (
+            <li>
+              <a href={l.href} class="text-white/80 hover:text-white focus:outline-none focus:ring-2 focus:ring-white/40">
+                {l.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+      <div>
+        <h3 class="text-white/90 font-medium">Legal</h3>
+        <ul class="mt-3 space-y-2">
+          {policyLinks.map((l) => (
+            <li>
+              <a href={l.href} class="text-white/80 hover:text-white focus:outline-none focus:ring-2 focus:ring-white/40">
+                {l.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Columna: newsletter -->
+    <div>
+      <h3 class="text-white/90 font-medium">Mantente al día</h3>
+      <p class="mt-2 text-white/70">
+        Recibe novedades, eventos y resultados del club.
+      </p>
+      <form action="/api/subscribe" method="POST" class="mt-3 flex gap-2">
+        <input
+          type="email"
+          name="email"
+          required
+          placeholder="tu@email.com"
+          class="flex-1 rounded-md bg-white/10 text-white placeholder-white/60 px-3 py-2
+                 border border-white/20 focus:outline-none focus:ring-2 focus:ring-white/40"
+        />
+        <button
+          type="submit"
+          class="rounded-md bg-brand-light text-brand-dark px-4 py-2 font-medium
+                 hover:bg-white transition-colors focus:outline-none focus:ring-2 focus:ring-white/40"
+        >
+          Suscribirme
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Separador sutil -->
+  <div class="h-px bg-white/15"></div>
+
+  <!-- Línea inferior -->
+  <div class="container mx-auto px-6 py-6 text-center text-white/70">
+    © {year} CV Martorell. Todos los derechos reservados.
+  </div>
+</footer>

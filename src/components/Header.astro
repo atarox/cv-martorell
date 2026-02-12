@@ -1,0 +1,85 @@
+---
+/**
+ * Header.astro
+ * - Header responsive con menú móvil accesible.
+ * - Uso de paleta tailwind (brand-dark, brand-light, secondary-blue, ui-bg).
+ * - Logo SVG (reemplaza /logo.svg por el tuyo).
+ * - Navegación con foco accesible.
+ */
+
+interface NavItem {
+  href: string;
+  label: string;
+}
+
+const nav: NavItem[] = [
+  { href: "/", label: "Inicio" },
+  { href: "/equipos", label: "Equipos" },
+  { href: "/calendario", label: "Calendario" },
+  { href: "/contacto", label: "Contacto" },
+];
+---
+
+<header class="sticky top-0 z-40 bg-brand-dark text-white shadow-soft">
+  <div class="container mx-auto px-6 h-16 flex items-center justify-between">
+
+    <!-- Logo + nombre -->
+    <a href="/" class="flex items-center gap-3 focus:outline-none focus:ring-2 focus:ringan>
+    </a>
+
+    <!-- Navegación desktop -->
+    <nav class="hidden md:flex items-center gap-6" aria-label="Navegación principal">
+      {nav.map((item) => (
+        <a
+          href={item.href}
+          class="text-white/90 hover:text-white transition-colors px-1 py-1
+                 focus:outline-none focus:ring-2 focus:ring-brand-light/60"
+        >
+          {item.label}
+        </a>
+      ))}
+      <!-- CTAs opcionales -->
+      <a
+        href="/dossier-sponsors.pdf"
+        class="rounded-pill bg-brand-light text-brand-dark px-4 py-2 ml-2
+               shadow-soft hover:bg-white transition-colors
+               focus:outline-none focus:ring-2 focus:ring-brand-light/60"
+     20 transition-colors
+             focus:outline-none focus:ring-2 focus:ring-brand-light/60"
+      aria-label="Abrir menú"
+    >
+      <svg class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16" />
+      </svg>
+    </button>
+  </div>
+
+  <!-- Menú móvil -->
+  <div
+    id="mobileMenu"
+    class="md:hidden hidden flex-col bg-brand-dark/95 backdrop-blur border-t border-brand-light/20 px-6 py-4"
+  >
+    {nav.map((item) => (
+      <a
+        href={item.href}
+        class="block py-3 text-white/90 hover:text-white transition-colors
+              "
+      >
+        {item.label}
+      </a>
+    ))}
+
+    <a
+      href="/contacto?motivo=sponsorship"
+      class="mt-2 block rounded-pill bg-brand-light textú móvil -->
+  <script is:inline>
+    const btn = document.getElementById('menuToggle');
+    const menu = document.getElementById('mobileMenu');
+
+    btn?.addEventListener('click', () => {
+      const open = menu.classList.toggle('hidden');
+      btn.setAttribute('aria-expanded', String(open));
+    });
+  </script>
+</header>

@@ -1,0 +1,201 @@
+---
+/**
+ * SponsorGrid.astro
+ * - Sponsors por niveles: principal, colaborador, amigo.
+ * - Tarjetas con estilo premium, accesibles y con foco visible.
+ * - CTA de captación con dossier y contacto.
+ * - URLs con UTM para medir tráfico.
+ */
+
+interface Sponsor {
+  name: string;
+  logo: string;
+  url: string;
+  tier: "principal" | "colaborador" | "amigo";
+  alt?: string;
+}
+
+const sponsors: Sponsor[] = [
+  {
+    name: "Maipizza",
+    logo: "/images/sponsors/sponsor1.png",
+    url: "https://ejemplo.com?utm_source=cv-martorell&utm_medium=web&utm_campaign=sponsors&utm_content=maipizza",
+    tier: "principal",
+    alt: "Maipizza, patrocinador principal del CV Martorell",
+  },
+  {
+    name: "La Secre",
+    logo: "/images/sponsors/sponsor2.png",
+    url: "https://ejemplo.com?utm_source=cv-martorell&utm_medium=web&utm_campaign=sponsors&utm_content=lasecre",
+    tier: "colaborador",
+    alt: "La Secre, sponsor colaborador del CV Martorell",
+  },
+  {
+    name: "Sanjo",
+    logo: "/images/sponsors/sponsor3.png",
+    url: "https://ejemplo.com?utm_source=cv-martorell&utm_medium=web&utm_campaign=sponsors&utm_content=sanjo",
+    tier: "amigo",
+    alt: "Sanjo, sponsor amigo del CV Martorell",
+  },
+  {
+    name: "El Cortijo",
+    logo: "/images/sponsors/sponsor4.png",
+    url: "https://ejemplo.com?utm_source=cv-martorell&utm_medium=web&utm_campaign=sponsors&utm_content=cortijo",
+    tier: "colaborador",
+    alt: "El Cortijo, sponsor amigo del CV Martorell",
+  },
+];
+
+const principales = sponsors.filter((s) => s.tier === "principal");
+const colaboradores = sponsors.filter((s) => s.tier === "colaborador");
+const amigos = sponsors.filter((s) => s.tier === "amigo");
+---
+
+<section class="py-16 bg-ui-bg">
+  <div class="max-w-6xl mx-auto px-6">
+    <header class="text-center mb-8">
+      <h2 class="text-2xl md:text-3xl font-bold text-brand-dark tracking-tight">
+        Nuestros Sponsors
+      </h2>
+      <p class="text-ui-text mt-2">
+        Gracias a su apoyo, el club sigue creciendo. ¡Conócelos!
+      </p>
+    </header>
+
+    <!-- ⭐ Tier: Principal -->
+    {principales.length > 0 && (
+      <div class="mb-10" aria-labelledby="tier-principal">
+        <h3 id="tier-principal" class="sr-only">Patrocinadores principales</h3>
+        <ul class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          {principales.map((s) => (
+            <li class="group">
+              <a
+                href={s.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="block rounded-2xl bg-white/80 backdrop-blur border border-brand-light/40
+                       shadow-hard hover:shadow-[0_16px_40px_rgba(0,0,0,0.18)]
+                       transition-[transform,box-shadow] duration-300 ease-out
+                       focus:outline-none focus:ring-4 focus:ring-brand-light/40"
+                aria-label={`Abrir sitio de ${s.name} (se abre en nueva pestaña)`}
+              >
+                <div class="p-6 flex items-center justify-center">
+                  <img
+                    src={s.logo}
+                    alt={s.alt || s.name}
+                    class="object-contain w-full h-full max-h-24 md:max-h-28"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+                <div class="px-6 pb-6 -mt-2">
+                  <div class="rounded-xl bg-brand-dark text-white text-center px-4 py-2 font-medium">
+                    Patrocinador principal
+                  </div>
+                </div>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    )}
+
+    <!-- 🟦 Tier: Colaborador -->
+    {colaboradores.length > 0 && (
+      <div class="mb-8" aria-labelledby="tier-colaborador">
+        <h3 id="tier-colaborador" class="sr-only">Sponsors colaboradores</h3>
+        <ul class="grid grid-cols-2 md:grid-cols-3 gap-6">
+          {colaboradores.map((s) => (
+            <li class="group">
+              <a
+                href={s.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="block rounded-xl bg-white/70 border border-brand-light/30 shadow-soft
+                       hover:shadow-hard transition-[transform,box-shadow] duration-300 ease-out
+                       focus:outline-none focus:ring-4 focus:ring-brand-light/30"
+                aria-label={`Abrir sitio de ${s.name} (se abre en nueva pestaña)`}
+              >
+                <div class="p-5 flex items-center justify-center">
+                  <img
+                    src={s.logo}
+                    alt={s.alt || s.name}
+                    class="object-contain w-full h-full max-h-16 md:max-h-20"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    )}
+
+    <!-- 🟨 Tier: Amigo -->
+    {amigos.length > 0 && (
+      <div class="mb-4" aria-labelledby="tier-amigo">
+        <h3 id="tier-amigo" class="sr-only">Sponsors amigos</h3>
+        <ul class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-4">
+          {amigos.map((s) => (
+            <li>
+              <a
+                href={s.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="block rounded-lg bg-white/60 border border-brand-light/20 shadow-soft
+                       hover:shadow-hard transition-shadow
+                       focus:outline-none focus:ring-4 focus:ring-brand-light/20"
+                aria-label={`Abrir sitio de ${s.name} (se abre en nueva pestaña)`}
+              >
+                <div class="p-3 flex items-center justify-center">
+                  <img
+                    src={s.logo}
+                    alt={s.alt || s.name}
+                    class="object-contain w-full h-full max-h-10 md:max-h-12"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    )}
+
+    <!-- 📣 CTA Captación de patrocinio -->
+    <div class="mt-10">
+      <div class="rounded-2xl border border-brand-light/30 bg-white/80 shadow-soft p-6 md:p-8">
+        <div class="md:flex md:items-center md:justify-between gap-6">
+          <div class="md:max-w-2xl">
+            <h3 class="text-xl md:text-2xl font-semibold text-brand-dark">
+              ¿Quieres ser sponsor del CV Martorell?
+            </h3>
+            <p class="text-ui-text mt-2">
+              Visibilidad local y digital, presencia en equipaciones y eventos, activaciones en redes y más.
+            </p>
+          </div>
+          <div class="mt-4 md:mt-0 flex gap-3">
+            <a
+              href="/dossier-sponsors.pdf"
+              class="inline-flex items-center justify-center rounded-pill bg-white text-brand-dark px-5 py-2.5
+                     border border-brand-light/40 hover:bg-ui-bg transition-colors"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Descargar dossier
+            </a>
+            <a
+              href="/contacto"
+              class="inline-flex items-center justify-center rounded-pill bg-brand-dark text-white px-5 py-2.5
+                     hover:bg-secondary-blue transition-colors"
+            >
+              Contactar
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

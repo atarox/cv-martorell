@@ -1,0 +1,91 @@
+---
+/**
+ * ClubActivity.astro
+ * - Identidad de color usando Tailwind (paleta del club).
+ * - Accesibilidad (roles, ids, aria).
+ * - Rendimiento (skeleton + min-height para evitar CLS).
+ * - Carga correcta del widget Behold.
+ */
+---
+
+<section class="py-16 bg-ui-bg">
+  <div class="max-w-6xl mx-auto px-6">
+    <!-- Encabezados semánticos -->
+    <h2
+      id="el-club-esta-vivo"
+      class="text-3xl font-bold text-brand-dark mb-2 tracking-tight"
+    >
+      El club está vivo
+    </h2>
+    <p class="text-ui-text mb-8">
+      Entrenos, partidos y momentos que nos definen
+    </p>
+
+    <!-- Contenedor del feed -->
+    <div class="rounded-xl overflow-hidden bg-white/70 shadow-soft">
+      <div
+        class="behold-container relative"
+        role="region"
+        aria-labelledby="el-club-esta-vivo"
+      >
+        <!-- Skeleton de carga -->
+        <div class="behold-skeleton grid grid-cols-2 md:grid-cols-3 gap-2 p-2">
+          <div class="aspect-[4/3] bg-ui-bg animate-pulse rounded"></div>
+          <div class="aspect-[4/3] bg-ui-bg animate-pulse rounded"></div>
+          <div class="aspect-[4/3] bg-ui-bg animate-pulse rounded"></div>
+          <div class="aspect-[4/3] bg-ui-bg animate-pulse rounded"></div>
+          <div class="aspect-[4/3] bg-ui-bg animate-pulse rounded"></div>
+          <div class="aspect-[4/3] bg-ui-bg animate-pulse rounded"></div>
+        </div>
+
+        <!-- Widget Behold -->
+        <behold-widget
+          feed-id="nnRTrJZgZn0albuCTE5Q"
+          class="block"
+        ></behold-widget>
+      </div>
+    </div>
+
+    <!-- CTA Instagram (UNO SOLO) -->
+    <div class="text-center mt-8">
+      <a
+        href="https://instagram.com/TU_CUENTA"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center gap-2 rounded-pill bg-brand-dark text-white px-6 py-3
+               shadow-soft hover:bg-secondary-blue transition-colors
+               focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-dark"
+        aria-label="Síguenos en Instagram"
+      >
+        Síguenos en Instagram
+      </a>
+    </div>
+  </div>
+
+  <!-- Script oficial de Behold (IMPRESCINDIBLE) -->
+  <script type="module" src="https://w.behold.so/widget.js"></script>
+
+  <!-- Fallback sin JS -->
+  <noscript>
+    <div class="max-w-6xl mx-auto px-6 mt-6 text-center text-ui-text">
+      Activa JavaScript para ver el feed del club o visita
+      <a
+        href="https://instagram.com/TU_CUENTA"
+        class="underline"
+      >
+        Instagram
+      </a>.
+    </div>
+  </noscript>
+
+  <!-- Estilos globales mínimos -->
+  <style is:global>
+    .behold-container {
+      min-height: 420px;
+    }
+
+    .behold-container:has(behold-widget) .behold-skeleton {
+      display: none;
+    }
+  </style>
+</section>
