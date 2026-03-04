@@ -1,0 +1,25 @@
+---
+const title = "Azul y negro, orgullo de Martorell";
+const subtitle = "Cantera, competición y compromiso en el Baix Llobregat";
+const heroImage = "/images/club/presentacion.jpg";
+const logo = "/android-chrome-512x512.png"; // escudo temporal
+---
+
+<section class="relative h-[80vh] max-h-[600px] flex items-center justify-center overflow-hidden">
+  <!-- Imagen de fondo -->
+  <img src={heroImage} alt="Presentación equipo CV Martorell"
+       class="absolute inset-0 w-full h-full object-cover" />
+
+  <!-- Overlay oscuro -->
+  <div class="absolute inset-0 bg-black/50"></div>
+
+  <!-- Escudo superpuesto -->
+  <img src={logo} alt="Escudo CV Martorell"
+       class="relative z-10 w-32 md:w-48" />
+
+  <!-- Contenido -->
+  <div class="relative z-10 text-center text-white px-6 max-w-4xl mt-4">
+    <h1 class="text-4xl md:text-5xl font-bold">{title}</h1>
+    <p class="mt-2 text-lg md:text-xl text-white/90">{subtitle}</p>
+  </div>
+</section>

@@ -1,5 +1,7 @@
 ---
 import "../styles/global.css";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
 
 interface Props {
   title?: string;
@@ -36,21 +38,26 @@ const {
   </head>
 
   <body class="bg-app text-app min-h-screen flex flex-col antialiased">
-    <!-- Skip link accesibilidad -->
-	<a
-	  href="#contenido"
-	  class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50
-			 focus:bg-white focus:text-brand-dark focus:px-4 focus:py-2 focus:rounded-md
-			 focus:shadow-lg"
-	>
-	  Ir al contenido
-	</a>
 
-    <!-- (Opcional) Estilos si no hay JS -->
-    <noscript>
-      <style>
-        .js-only { display: none !important; }
-      </style>
-    </noscript>
+    <!-- Skip link accesibilidad -->
+    <a
+      href="#contenido"
+      class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50
+             focus:bg-white focus:text-brand-dark focus:px-4 focus:py-2 focus:rounded-md
+             focus:shadow-lg"
+    >
+      Ir al contenido
+    </a>
+
+    <!-- Header siempre visible sobre hero -->
+    <Header />
+
+    <!-- Contenido principal -->
+    <main id="contenido" class="flex-grow">
+      <slot />
+    </main>
+
+    <Footer />
+
   </body>
 </html>
