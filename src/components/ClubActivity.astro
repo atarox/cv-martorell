@@ -1,34 +1,34 @@
 ---
 /**
  * ClubActivity.astro
- * - Identidad de color usando Tailwind (paleta del club).
- * - Accesibilidad (roles, ids, aria).
- * - Rendimiento (skeleton + min-height para evitar CLS).
- * - Carga correcta del widget Behold.
+ * - Identitat de color amb Tailwind (paleta del club).
+ * - Accessibilitat (roles, ids, aria).
+ * - Rendiment (skeleton + min-height per evitar CLS).
+ * - Carrega correcta del widget Behold.
  */
 ---
 
 <section class="py-16 bg-ui-bg">
   <div class="max-w-6xl mx-auto px-6">
-    <!-- Encabezados semánticos -->
+    <!-- Encapçalaments semàntics -->
     <h2
       id="el-club-esta-vivo"
       class="text-3xl font-bold text-brand-dark mb-2 tracking-tight"
     >
-      El club está vivo
+      El club està viu
     </h2>
     <p class="text-ui-text mb-8">
-      Entrenos, partidos y momentos que nos definen
+      Entrenaments, partits i moments que ens defineixen
     </p>
 
-    <!-- Contenedor del feed -->
+    <!-- Contenidor del feed -->
     <div class="rounded-xl overflow-hidden bg-white/70 shadow-soft">
       <div
         class="behold-container relative"
         role="region"
         aria-labelledby="el-club-esta-vivo"
       >
-        <!-- Skeleton de carga -->
+        <!-- Skeleton de càrrega -->
         <div class="behold-skeleton grid grid-cols-2 md:grid-cols-3 gap-2 p-2">
           <div class="aspect-[4/3] bg-ui-bg animate-pulse rounded"></div>
           <div class="aspect-[4/3] bg-ui-bg animate-pulse rounded"></div>
@@ -46,18 +46,18 @@
       </div>
     </div>
 
-    <!-- CTA Instagram (UNO SOLO) -->
+    <!-- CTA Instagram (UN SOL) -->
     <div class="text-center mt-8">
       <a
-        href="https://instagram.com/TU_CUENTA"
+        href="https://instagram.com/clubvoleimartorell"
         target="_blank"
         rel="noopener noreferrer"
         class="inline-flex items-center gap-2 rounded-pill bg-brand-dark text-white px-6 py-3
                shadow-soft hover:bg-secondary-blue transition-colors
                focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-dark"
-        aria-label="Síguenos en Instagram"
+        aria-label="Segueix-nos a Instagram"
       >
-        Síguenos en Instagram
+        Segueix-nos a Instagram
       </a>
     </div>
   </div>
@@ -65,12 +65,12 @@
   <!-- Script oficial de Behold (IMPRESCINDIBLE) -->
   <script type="module" src="https://w.behold.so/widget.js"></script>
 
-  <!-- Fallback sin JS -->
+  <!-- Fallback sense JS -->
   <noscript>
     <div class="max-w-6xl mx-auto px-6 mt-6 text-center text-ui-text">
-      Activa JavaScript para ver el feed del club o visita
+      Activa JavaScript per veure el feed del club o visita
       <a
-        href="https://instagram.com/TU_CUENTA"
+        href="https://instagram.com/clubvoleimartorell"
         class="underline"
       >
         Instagram
@@ -78,7 +78,7 @@
     </div>
   </noscript>
 
-  <!-- Estilos globales mínimos -->
+  <!-- Estils globals mínims -->
   <style is:global>
     .behold-container {
       min-height: 420px;

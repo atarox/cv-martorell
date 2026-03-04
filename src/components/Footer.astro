@@ -1,62 +1,62 @@
 ---
 /**
- * Footer.astro
- * - Identidad visual: colores del club (Tailwind + tokens).
- * - Accesibilidad AA: roles, `aria-label`, foco visible, contraste.
- * - SEO: datos de contacto claros, links semánticos.
- * - Conversión: CTA para patrocinadores y redes sociales.
- * - Extras: año automático, microcopy, modo oscuro compatible.
+ * Footer.astro – Premium edition
+ * - Tipografia més marcada i CTA destacats
+ * - Botons amb hover i transició
+ * - Icones socials reals i interactives
+ * - Accessibilitat i SEO intactes
  */
 
 const year = new Date().getFullYear();
 
 const navLinks = [
-  { href: "/equipos", label: "Equipos" },
-  { href: "/calendario", label: "Calendario" },
-  { href: "/contacto", label: "Contacto" },
+  { href: "/equipos", label: "Equips" },
+  { href: "/calendario", label: "Calendari" },
+  { href: "/contacto", label: "Contacte" },
 ];
 
 const policyLinks = [
-  { href: "/legal/aviso-legal", label: "Aviso legal" },
-  { href: "/legal/privacidad", label: "Privacidad" },
+  { href: "/legal/aviso-legal", label: "Avís legal" },
+  { href: "/legal/privacidad", label: "Privacitat" },
   { href: "/legal/cookies", label: "Cookies" },
 ];
 
 const socials = [
-  { href: "https://instagram.com/TU_CUENTA", label: "Instagram", icon: "instagram" },
+  { href: "https://instagram.com/clubvoleimartorell", label: "Instagram", icon: "instagram" },
   { href: "https://facebook.com/TU_CUENTA", label: "Facebook", icon: "facebook" },
   { href: "https://www.tiktok.com/@TU_CUENTA", label: "TikTok", icon: "tiktok" },
 ];
 ---
 
 <footer class="mt-16 bg-brand-dark text-white">
-  <!-- Banda superior con CTA patrocinio -->
-  <div class="container mx-auto px-6 py-8">
+
+  <!-- Banda superior amb CTA patrocinis -->
+  <div class="container mx-auto px-6 py-8 backdrop-blur-sm rounded-xl shadow-lg">
     <div class="md:flex md:items-center md:justify-between gap-6">
       <div class="md:max-w-2xl">
-        <h2 class="text-xl md:text-2xl font-semibold tracking-tight">
-          ¿Quieres impulsar el voleibol en Martorell?
+        <h2 class="text-2xl md:text-3xl font-extrabold tracking-tight">
+          Vols impulsar el vòlei a Martorell?
         </h2>
         <p class="mt-2 text-white/80">
-          Únete como sponsor: visibilidad local y digital, presencia en equipaciones y eventos.
+          Uneix-te com a patrocinador: visibilitat local i digital, presència a equips i esdeveniments.
         </p>
       </div>
       <div class="mt-4 md:mt-0 flex gap-3">
         <a
-          href="/dossier-sponsors.pdf"
+          href="/docs/dossier-patrocinadors.pdf"
           class="inline-flex items-center justify-center rounded-pill bg-white text-brand-dark px-5 py-2.5
-                 border border-white/20 hover:bg-ui-bg transition-colors
-                 focus:outline-none focus:ring-2 focus:ring-white/40"
+                 border border-white/20 hover:bg-ui-bg hover:scale-105 transition-transform transition-colors duration-300
+                 focus:outline-none focus:ring-2 focus:ring-white/40 shadow-lg"
           target="_blank"
           rel="noopener noreferrer"
         >
-          Descargar dossier
+          Descarregar dossier
         </a>
         <a
           href="/contacto"
           class="inline-flex items-center justify-center rounded-pill bg-brand-light text-brand-dark px-5 py-2.5
-                 hover:bg-white transition-colors
-                 focus:outline-none focus:ring-2 focus:ring-white/40"
+                 hover:bg-white hover:scale-105 transition-transform transition-colors duration-300
+                 focus:outline-none focus:ring-2 focus:ring-white/40 shadow-lg"
         >
           Contactar
         </a>
@@ -64,47 +64,60 @@ const socials = [
     </div>
   </div>
 
-  <!-- Contenido inferior: columnas y redes -->
+  <!-- Contingut inferior: columnes i xarxes -->
   <div class="container mx-auto px-6 py-10 grid md:grid-cols-3 gap-8">
-    <!-- Columna: identidad y contacto -->
+    <!-- Columna: identitat i contacte -->
     <div>
       <div class="flex items-center gap-3 mb-4">
         <img src="/logo.png" alt="CV Martorell" class="h-10" />
-        <span class="text-lg font-semibold">CV Martorell</span>
+        <span class="text-lg md:text-xl font-semibold">CV Martorell</span>
       </div>
       <address class="not-italic text-white/80 mb-4">
         Pavelló Municipal Can Cases<br />
-		Carrer Josep Vilar s/n<br />
+        Carrer Josep Vilar s/n<br />
         08635 Martorell, Barcelona<br />
         <a href="mailto:administracio@clubvoleimartorell.com" class="underline hover:text-brand-light focus:outline-none focus:ring-2 focus:ring-white/40">
           administracio@clubvoleimartorell.com
         </a><br />
         <a href="tel:+34937750050" class="underline hover:text-brand-light focus:outline-none focus:ring-2 focus:ring-white/40">
-          +34937750050
+          +34 937 75 00 50
         </a>
       </address>
-      <div class="flex gap-3" aria-label="Redes sociales">
+
+      <!-- Xarxes socials amb icones reals -->
+      <div class="flex gap-4 mt-2" aria-label="Xarxes socials">
         {socials.map((s) => (
           <a
             href={s.href}
             target="_blank"
             rel="noopener noreferrer"
-            class="inline-flex items-center justify-center h-10 w-10 rounded-full bg-white/10 hover:bg-white/20
-                   focus:outline-none focus:ring-2 focus:ring-white/40"
+            class="transition-transform duration-200 hover:scale-110 focus:outline-none focus:ring-2 focus:ring-white/40"
             aria-label={s.label}
           >
-            <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" class="text-white" aria-hidden="true">
-              <circle cx="12" cy="12" r="10" />
-            </svg>
+            {s.icon === "instagram" && (
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6 text-white hover:text-[#E4405F]">
+                <path d="M7.75 2h8.5C19.55 2 22 4.45 22 7.75v8.5C22 19.55 19.55 22 16.25 22h-8.5C4.45 22 2 19.55 2 16.25v-8.5C2 4.45 4.45 2 7.75 2zm0 1.5C5.68 3.5 4 5.18 4 7.25v8.5C4 18.32 5.68 20 7.75 20h8.5c2.07 0 3.75-1.68 3.75-3.75v-8.5C20 5.68 18.32 3.5 16.25 3.5h-8.5zM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 1.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7zm4.75-.88a1.12 1.12 0 1 1 0 2.25 1.12 1.12 0 0 1 0-2.25z"/>
+              </svg>
+            )}
+            {s.icon === "facebook" && (
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6 text-white hover:text-[#1877F2]">
+                <path d="M22 12a10 10 0 1 0-11.5 9.88v-6.99h-2.1V12h2.1V9.79c0-2.07 1.23-3.22 3.12-3.22.9 0 1.84.16 1.84.16v2.02h-1.04c-1.03 0-1.35.64-1.35 1.3V12h2.3l-.37 2.89h-1.93v6.99A10 10 0 0 0 22 12z"/>
+              </svg>
+            )}
+            {s.icon === "tiktok" && (
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6 text-white hover:text-[#000000]">
+                <path d="M12 2c5.52 0 10 4.48 10 10v10a2 2 0 0 1-2 2h-4v-7.24a3.5 3.5 0 1 1-3.5-3.5V12a7.5 7.5 0 1 0 7.5 7.5h-1.5V12a10 10 0 0 1-10-10z"/>
+              </svg>
+            )}
           </a>
         ))}
       </div>
     </div>
 
-    <!-- Columna: navegación -->
-    <nav aria-label="Navegación secundaria" class="grid grid-cols-2 gap-x-6">
+    <!-- Columna: navegació i legal -->
+    <nav aria-label="Navegació secundària" class="grid grid-cols-2 gap-x-6">
       <div>
-        <h3 class="text-white/90 font-medium">Club</h3>
+        <h3 class="text-white/90 font-extrabold">Club</h3>
         <ul class="mt-3 space-y-2">
           {navLinks.map((l) => (
             <li>
@@ -116,7 +129,7 @@ const socials = [
         </ul>
       </div>
       <div>
-        <h3 class="text-white/90 font-medium">Legal</h3>
+        <h3 class="text-white/90 font-extrabold">Legal</h3>
         <ul class="mt-3 space-y-2">
           {policyLinks.map((l) => (
             <li>
@@ -131,9 +144,9 @@ const socials = [
 
     <!-- Columna: newsletter -->
     <div>
-      <h3 class="text-white/90 font-medium">Mantente al día</h3>
+      <h3 class="text-white/90 font-extrabold">Mantén-te al dia</h3>
       <p class="mt-2 text-white/70">
-        Recibe novedades, eventos y resultados del club.
+        Rep novetats, esdeveniments i resultats del club.
       </p>
       <form action="/api/subscribe" method="POST" class="mt-3 flex gap-2">
         <input
@@ -147,19 +160,21 @@ const socials = [
         <button
           type="submit"
           class="rounded-md bg-brand-light text-brand-dark px-4 py-2 font-medium
-                 hover:bg-white transition-colors focus:outline-none focus:ring-2 focus:ring-white/40"
+                 hover:bg-white hover:scale-105 transition-transform transition-colors duration-300
+                 focus:outline-none focus:ring-2 focus:ring-white/40"
         >
-          Suscribirme
+          Subscriure'm
         </button>
       </form>
     </div>
   </div>
 
-  <!-- Separador sutil -->
+  <!-- Separador subtil -->
   <div class="h-px bg-white/15"></div>
 
-  <!-- Línea inferior -->
+  <!-- Línia inferior -->
   <div class="container mx-auto px-6 py-6 text-center text-white/70">
-    © {year} CV Martorell. Todos los derechos reservados.
+    © {year} CV Martorell. Tots els drets reservats.
   </div>
+
 </footer>

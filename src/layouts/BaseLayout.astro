@@ -11,13 +11,13 @@ interface Props {
 
 const {
   title = "CV Martorell",
-  description = "Club Voleibol Martorell – Formando jugadores y creando equipo",
+  description = "Club Voleibol Martorell – Formant jugadors i creant equip",
   ogImage = "/og-image.jpg",
 } = Astro.props as Props;
 ---
 
 <!DOCTYPE html>
-<html lang="es" class="scroll-smooth">
+<html lang="ca" class="scroll-smooth">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -31,28 +31,28 @@ const {
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
     <meta property="og:image" content={ogImage} />
-    <meta property="og:locale" content="es_ES" />
+    <meta property="og:locale" content="ca_ES" />
 
-    <!-- Slot para metas específicas de cada página -->
+    <!-- Slot per a metadades específiques de cada pàgina -->
     <slot name="head" />
   </head>
 
   <body class="bg-app text-app min-h-screen flex flex-col antialiased">
 
-    <!-- Skip link accesibilidad -->
+    <!-- Skip link accessibilitat -->
     <a
       href="#contenido"
       class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50
              focus:bg-white focus:text-brand-dark focus:px-4 focus:py-2 focus:rounded-md
              focus:shadow-lg"
     >
-      Ir al contenido
+      Anar al contingut
     </a>
 
-    <!-- Header siempre visible sobre hero -->
+    <!-- Header sempre visible sobre el Hero -->
     <Header />
 
-    <!-- Contenido principal -->
+    <!-- Contingut principal -->
     <main id="contenido" class="flex-grow">
       <slot />
     </main>
