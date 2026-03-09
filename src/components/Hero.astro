@@ -1,25 +1,46 @@
 ---
-const title = "Blau i negre, orgull de Martorell";
+const title = "Blau i negre,";
+const titleAccent = "orgull de Martorell";
 const subtitle = "Cantera, competició i compromís al Baix Llobregat";
 const heroImage = "/images/club/presentacion.jpg";
-const logo = "/android-chrome-512x512.png"; // escudo temporal
+const logo = "/android-chrome-512x512.png";
 ---
 
-<section class="relative h-[80vh] max-h-[600px] flex items-center justify-center overflow-hidden">
-  <!-- Imagen de fondo -->
-  <img src={heroImage} alt="Presentación equipo CV Martorell"
-       class="absolute inset-0 w-full h-full object-cover" />
+<section class="relative h-screen max-h-[700px] min-h-[520px] flex items-end overflow-hidden">
 
-  <!-- Overlay oscuro -->
-  <div class="absolute inset-0 bg-black/50"></div>
+  <!-- Imatge de fons -->
+  <img
+    src={heroImage}
+    alt="Equip CV Martorell"
+    class="absolute inset-0 w-full h-full object-cover object-top"
+  />
 
-  <!-- Escudo superpuesto -->
-  <img src={logo} alt="Escudo CV Martorell"
-       class="relative z-10 w-32 md:w-48" />
+  <!-- Gradient overlay: transparent a dalt, fosc a baix -->
+  <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/60 to-transparent"></div>
 
-  <!-- Contenido -->
-  <div class="relative z-10 text-center text-white px-6 max-w-4xl mt-4">
-    <h1 class="text-4xl md:text-5xl font-bold">{title}</h1>
-    <p class="mt-2 text-lg md:text-xl text-white/90">{subtitle}</p>
+  <!-- Contingut: escudo + text en fila, ancrat a baix -->
+  <div class="relative z-10 w-full container mx-auto px-6 pb-16 pt-8">
+    <div class="flex flex-col sm:flex-row items-center sm:items-end gap-6 sm:gap-8">
+
+      <!-- Escudo -->
+      <img
+        src={logo}
+        alt="Escudo CV Martorell"
+        class="w-24 h-24 md:w-32 md:h-32 flex-shrink-0 drop-shadow-2xl"
+      />
+
+      <!-- Text -->
+      <div class="text-center sm:text-left">
+        <h1 class="text-4xl md:text-6xl lg:text-7xl font-extrabold text-white leading-tight tracking-tight drop-shadow-md">
+          {title}<br/>
+          <span class="text-brand-light">{titleAccent}</span>
+        </h1>
+        <p class="mt-3 text-white/70 text-base md:text-lg max-w-lg">
+          {subtitle}
+        </p>
+      </div>
+
+    </div>
   </div>
+
 </section>

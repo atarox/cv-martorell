@@ -12,20 +12,23 @@ const nav: NavItem[] = [
 ];
 ---
 
-<header class="absolute top-0 left-0 w-full z-20">
+<header
+  id="site-header"
+  class="fixed top-0 left-0 w-full z-20 transition-all duration-300"
+>
   <div class="container mx-auto px-6 h-16 flex items-center justify-between">
     <!-- Logo -->
     <a href="/" class="flex items-center gap-3">
-      <img src="/android-chrome-512x512.png" alt="CV Martorell" class="w-10 h-10 md:w-12 md:h-12"/>
-      <span class="text-white font-bold text-xl">CV Martorell</span>
+      <img src="/android-chrome-512x512.png" alt="CV Martorell" class="w-9 h-9 md:w-10 md:h-10"/>
+      <span class="text-white font-bold text-lg">CV Martorell</span>
     </a>
 
     <!-- Navegación desktop -->
-    <nav class="hidden md:flex items-center gap-6" aria-label="Navegación principal">
+    <nav class="hidden md:flex items-center gap-6" aria-label="Navegació principal">
       {nav.map((item) => (
         <a
           href={item.href}
-          class="text-white/90 hover:text-white transition-colors px-1 py-1
+          class="text-white/90 hover:text-white transition-colors px-1 py-1 text-sm font-medium
                  focus:outline-none focus:ring-2 focus:ring-white/60"
         >
           {item.label}
@@ -37,7 +40,7 @@ const nav: NavItem[] = [
     <button
       id="menuToggle"
       class="md:hidden text-white focus:outline-none focus:ring-2 focus:ring-white/60"
-      aria-label="Abrir menú"
+      aria-label="Obrir menú"
       aria-expanded="false"
     >
       <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -50,12 +53,12 @@ const nav: NavItem[] = [
   <!-- Menú móvil -->
   <div
     id="mobileMenu"
-    class="md:hidden hidden flex-col bg-black/70 backdrop-blur border-t border-white/20 px-6 py-4"
+    class="md:hidden hidden flex-col border-t border-white/20 px-6 py-4 bg-brand-dark/95 backdrop-blur"
   >
     {nav.map((item) => (
       <a
         href={item.href}
-        class="block py-3 text-white/90 hover:text-white transition-colors"
+        class="block py-3 text-white/90 hover:text-white transition-colors text-sm font-medium"
       >
         {item.label}
       </a>
@@ -63,11 +66,26 @@ const nav: NavItem[] = [
   </div>
 
   <script is:inline>
+    const header = document.getElementById('site-header');
     const btn = document.getElementById('menuToggle');
     const menu = document.getElementById('mobileMenu');
+
+    // Sticky scroll: transparent → solid
+    function updateHeader() {
+      if (window.scrollY > 60) {
+        header.classList.add('bg-brand-dark/95', 'backdrop-blur', 'shadow-hard');
+      } else {
+        header.classList.remove('bg-brand-dark/95', 'backdrop-blur', 'shadow-hard');
+      }
+    }
+    window.addEventListener('scroll', updateHeader, { passive: true });
+    updateHeader();
+
+    // Menú móvil
     btn?.addEventListener('click', () => {
-      const open = menu.classList.toggle('hidden');
-      btn.setAttribute('aria-expanded', String(open));
+      const isOpen = !menu.classList.contains('hidden');
+      menu.classList.toggle('hidden');
+      btn.setAttribute('aria-expanded', String(!isOpen));
     });
   </script>
 </header>

@@ -1,0 +1,198 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const page = {
+  title: "Equips – CV Martorell",
+  description: "Tots els equips del Club Voleibol Martorell: aleví, infantil, cadet, juvenil, júnior i sènior, masculí i femení.",
+};
+
+interface Equip {
+  categoria: string;
+  genere: "Masculí" | "Femení";
+  icon: string;
+  edats: string;
+  color: string;
+  accent: string;
+}
+
+const equips: Equip[] = [
+  { categoria: "Aleví",     genere: "Masculí", icon: "🏐", edats: "Sub-12", color: "from-sky-900/80 to-brand-dark/90",    accent: "#76AFC2" },
+  { categoria: "Aleví",     genere: "Femení",  icon: "🏐", edats: "Sub-12", color: "from-sky-900/80 to-brand-dark/90",    accent: "#76AFC2" },
+  { categoria: "Infantil",  genere: "Masculí", icon: "🏐", edats: "Sub-14", color: "from-teal-900/80 to-brand-dark/90",   accent: "#2B6E7F" },
+  { categoria: "Infantil",  genere: "Femení",  icon: "🏐", edats: "Sub-14", color: "from-teal-900/80 to-brand-dark/90",   accent: "#2B6E7F" },
+  { categoria: "Cadet",     genere: "Masculí", icon: "🏐", edats: "Sub-16", color: "from-cyan-900/80 to-brand-dark/90",   accent: "#F2CB40" },
+  { categoria: "Cadet",     genere: "Femení",  icon: "🏐", edats: "Sub-16", color: "from-cyan-900/80 to-brand-dark/90",   accent: "#F2CB40" },
+  { categoria: "Juvenil",   genere: "Masculí", icon: "🏐", edats: "Sub-18", color: "from-indigo-900/80 to-brand-dark/90", accent: "#C4372B" },
+  { categoria: "Juvenil",   genere: "Femení",  icon: "🏐", edats: "Sub-18", color: "from-indigo-900/80 to-brand-dark/90", accent: "#C4372B" },
+  { categoria: "Júnior",    genere: "Masculí", icon: "🏐", edats: "Sub-20", color: "from-slate-800/80 to-brand-dark/90",  accent: "#76AFC2" },
+  { categoria: "Júnior",    genere: "Femení",  icon: "🏐", edats: "Sub-20", color: "from-slate-800/80 to-brand-dark/90",  accent: "#76AFC2" },
+  { categoria: "Sènior",    genere: "Masculí", icon: "🏐", edats: "Absolut", color: "from-zinc-800/80 to-brand-dark/90",  accent: "#F2CB40" },
+  { categoria: "Sènior",    genere: "Femení",  icon: "🏐", edats: "Absolut", color: "from-zinc-800/80 to-brand-dark/90",  accent: "#F2CB40" },
+];
+
+const categories = [...new Set(equips.map(e => e.categoria))];
+---
+
+<BaseLayout title={page.title} description={page.description}>
+
+  <!-- Hero compacte -->
+  <div class="relative bg-brand-dark overflow-hidden">
+    <div class="absolute inset-0 opacity-10"
+         style="background-image: radial-gradient(circle at 20% 50%, #76AFC2 0%, transparent 60%), radial-gradient(circle at 80% 20%, #2B6E7F 0%, transparent 50%);"></div>
+    <div class="relative container mx-auto px-6 pt-32 pb-16 text-center">
+      <p class="text-brand-light text-sm font-semibold uppercase tracking-widest mb-3">Club Voleibol Martorell</p>
+      <h1 class="text-4xl md:text-6xl font-extrabold text-white tracking-tight">Els nostres equips</h1>
+      <p class="mt-4 text-white/60 text-lg max-w-xl mx-auto">
+        Sis categories, dos gèneres, un sol club. De l'aleví al sènior, tots juguen amb el cor.
+      </p>
+    </div>
+  </div>
+
+  <!-- Filtre per categoria -->
+  <div class="sticky top-0 z-10 bg-ui-bg/90 backdrop-blur border-b border-brand-light/20 shadow-sm">
+    <div class="container mx-auto px-6 py-3 flex gap-2 overflow-x-auto scrollbar-hide">
+      <button
+        data-filter="tots"
+        class="filter-btn active flex-shrink-0 rounded-pill px-4 py-1.5 text-sm font-semibold
+               bg-brand-dark text-white transition-all"
+      >
+        Tots
+      </button>
+      {categories.map(cat => (
+        <button
+          data-filter={cat.toLowerCase()}
+          class="filter-btn flex-shrink-0 rounded-pill px-4 py-1.5 text-sm font-semibold
+                 bg-white/60 text-brand-dark border border-brand-light/30
+                 hover:bg-brand-dark hover:text-white transition-all"
+        >
+          {cat}
+        </button>
+      ))}
+    </div>
+  </div>
+
+  <!-- Grid d'equips -->
+  <section class="container mx-auto px-4 md:px-6 py-16">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" id="equips-grid">
+      {equips.map((equip) => (
+        <article
+          data-categoria={equip.categoria.toLowerCase()}
+          class="equip-card group relative rounded-2xl overflow-hidden shadow-soft
+                 hover:shadow-hard transition-all duration-300 hover:-translate-y-1 cursor-pointer bg-brand-dark"
+        >
+          <!-- Fons degradat -->
+          <div class={`absolute inset-0 bg-gradient-to-br ${equip.color} opacity-100`}></div>
+
+          <!-- Accent línea superior -->
+          <div class="absolute top-0 left-0 right-0 h-1" style={`background-color: ${equip.accent};`}></div>
+
+          <!-- Contingut -->
+          <div class="relative p-6 flex flex-col gap-4">
+            <!-- Capçalera -->
+            <div class="flex items-start justify-between">
+              <div>
+                <span class="text-xs font-bold uppercase tracking-widest"
+                      style={`color: ${equip.accent};`}>
+                  {equip.edats}
+                </span>
+                <h2 class="text-2xl font-extrabold text-white mt-1">{equip.categoria}</h2>
+              </div>
+              <div class="flex items-center gap-1.5 rounded-pill px-3 py-1 text-xs font-semibold bg-white/10 text-white/80 border border-white/10">
+                {equip.genere === "Masculí" ? (
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M9 2a7 7 0 1 0 4.95 11.95L16 16H14v2h4v-4h-2l-2.05-2.05A7 7 0 0 0 9 2zm0 2a5 5 0 1 1 0 10A5 5 0 0 1 9 4z"/>
+                  </svg>
+                ) : (
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 2a7 7 0 1 0 0 14A7 7 0 0 0 12 2zm0 2a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm-1 12h2v3h3v2h-3v1h-2v-1H8v-2h3v-3z"/>
+                  </svg>
+                )}
+                {equip.genere}
+              </div>
+            </div>
+
+            <!-- Info placeholder -->
+            <div class="rounded-xl bg-white/5 border border-white/10 p-4 space-y-2">
+              <div class="flex items-center gap-2 text-white/60 text-sm">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
+                </svg>
+                <span>Entrenador/a per confirmar</span>
+              </div>
+              <div class="flex items-center gap-2 text-white/60 text-sm">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                </svg>
+                <span>Horari per confirmar</span>
+              </div>
+              <div class="flex items-center gap-2 text-white/60 text-sm">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                </svg>
+                <span>Pavelló Municipal Can Cases</span>
+              </div>
+            </div>
+
+            <!-- CTA -->
+            <a
+              href="/contacto"
+              class="mt-1 inline-flex items-center gap-2 text-sm font-semibold transition-all duration-200
+                     group-hover:gap-3"
+              style={`color: ${equip.accent};`}
+            >
+              Contacta per inscriure't
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+              </svg>
+            </a>
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <!-- Crida a l'acció -->
+  <section class="bg-brand-dark py-16">
+    <div class="container mx-auto px-6 text-center">
+      <h2 class="text-2xl md:text-3xl font-extrabold text-white mb-3">Vols unir-te al club?</h2>
+      <p class="text-white/60 mb-8 max-w-lg mx-auto">
+        Estem oberts a nous jugadors i jugadores en totes les categories. Posa't en contacte amb nosaltres i t'informem.
+      </p>
+      <a
+        href="/contacto"
+        class="inline-flex items-center gap-2 rounded-pill bg-brand-light text-brand-dark px-8 py-3
+               font-bold hover:bg-white transition-colors shadow-lg"
+      >
+        Contactar amb el club
+      </a>
+    </div>
+  </section>
+
+</BaseLayout>
+
+<style>
+  .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+  .scrollbar-hide::-webkit-scrollbar { display: none; }
+  .filter-btn.active { background-color: #0D1C23; color: white; }
+  .equip-card.hidden { display: none; }
+</style>
+
+<script is:inline>
+  const btns = document.querySelectorAll('.filter-btn');
+  const cards = document.querySelectorAll('.equip-card');
+
+  btns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      btns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const filter = btn.dataset.filter;
+      cards.forEach(card => {
+        if (filter === 'tots' || card.dataset.categoria === filter) {
+          card.classList.remove('hidden');
+        } else {
+          card.classList.add('hidden');
+        }
+      });
+    });
+  });
+</script>
