@@ -76,12 +76,17 @@ const logo = "/android-chrome-512x512.png";
         <!-- Stats ràpides -->
         <div class="flex gap-6 mt-6">
           {[
-            { num: "1975", label: "Fundació" },
-            { num: "+180", label: "Jugadors" },
-            { num: "+18",  label: "Equips" },
+            { num: "1975", label: "Fundació", target: 1975, prefix: "",  suffix: "" },
+            { num: "+180", label: "Jugadors", target: 180,  prefix: "+", suffix: "" },
+            { num: "+18",  label: "Equips",   target: 18,   prefix: "+", suffix: "" },
           ].map(s => (
             <div>
-              <p class="text-white font-extrabold text-xl md:text-2xl leading-none">{s.num}</p>
+              <p class="text-white font-extrabold text-xl md:text-2xl leading-none stat-number"
+                 data-target={s.target}
+                 data-prefix={s.prefix}
+                 data-suffix={s.suffix}>
+                {s.num}
+              </p>
               <p class="text-white/40 text-xs mt-0.5 uppercase tracking-wider">{s.label}</p>
             </div>
           ))}
@@ -100,7 +105,6 @@ const logo = "/android-chrome-512x512.png";
 </section>
 
 <style>
-  /* Animació entrada del títol */
   @keyframes slide-up {
     to { opacity: 1; transform: translateY(0); }
   }
@@ -177,7 +181,7 @@ const logo = "/android-chrome-512x512.png";
     }
   });
 
-  // Subtítol + stats
+  // Subtítol + stats (apareixen)
   tl.run(900, () => {
     const sub = document.getElementById('hero-sub');
     if (sub) {
@@ -185,6 +189,34 @@ const logo = "/android-chrome-512x512.png";
       sub.style.opacity = '1';
       sub.style.transform = 'translateY(0)';
     }
+  });
+
+  // Contador animat de stats
+  tl.run(1000, () => {
+    const stats = document.querySelectorAll('.stat-number');
+
+    function easeOutExpo(t) {
+      return t === 1 ? 1 : 1 - Math.pow(2, -10 * t);
+    }
+
+    stats.forEach(el => {
+      const target = parseInt(el.dataset.target);
+      const prefix = el.dataset.prefix || '';
+      const suffix = el.dataset.suffix || '';
+      const duration = 1400;
+      const startTime = performance.now();
+
+      function tick(now) {
+        const elapsed = now - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        const eased = easeOutExpo(progress);
+        const current = Math.round(eased * target);
+        el.textContent = prefix + current + suffix;
+        if (progress < 1) requestAnimationFrame(tick);
+      }
+
+      requestAnimationFrame(tick);
+    });
   });
 
   // Scroll indicator
