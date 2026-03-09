@@ -52,20 +52,20 @@ const logo = "/android-chrome-512x512.png";
 
       <!-- Títol word by word -->
       <h1 class="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold text-white leading-[0.95] tracking-tight mb-4">
-        <span class="block overflow-hidden">
+        <span class="block overflow-hidden pb-3">
           <span id="hero-line1" class="block opacity-0" style="transform: translateY(100%);">
             {title1}
           </span>
         </span>
-        <span class="block overflow-hidden">
+        <span class="block overflow-hidden pb-3">
           <span id="hero-line2" class="block opacity-0 text-brand-light" style="transform: translateY(100%);">
             {title2}
           </span>
         </span>
       </h1>
 
-      <!-- Subtítol + separador -->
-      <div id="hero-sub" class="opacity-0" style="transform: translateY(16px);">
+      <!-- Subtítol + stats -->
+      <div id="hero-sub" class="opacity-0 pb-10 md:pb-0" style="transform: translateY(16px);">
         <div class="flex items-center gap-4 mb-3">
           <div class="w-8 h-px bg-brand-light/60"></div>
           <p class="text-white/60 text-sm md:text-base font-medium tracking-wide uppercase">
@@ -91,8 +91,8 @@ const logo = "/android-chrome-512x512.png";
     </div>
   </div>
 
-  <!-- Scroll indicator -->
-  <div id="hero-scroll" class="absolute bottom-6 left-1/2 -translate-x-1/2 opacity-0 flex flex-col items-center gap-1">
+  <!-- Scroll indicator: only desktop -->
+  <div id="hero-scroll" class="hidden md:flex absolute bottom-6 left-1/2 -translate-x-1/2 opacity-0 flex-col items-center gap-1">
     <span class="text-white/30 text-xs uppercase tracking-[0.2em]">Descobreix</span>
     <div class="w-px h-8 bg-gradient-to-b from-white/30 to-transparent animate-pulse"></div>
   </div>
