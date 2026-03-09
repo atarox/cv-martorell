@@ -1,46 +1,220 @@
 ---
-const title = "Blau i negre,";
-const titleAccent = "orgull de Martorell";
+const title1 = "Blau i negre,";
+const title2 = "orgull de Martorell";
 const subtitle = "Cantera, competició i compromís al Baix Llobregat";
 const heroImage = "/images/club/presentacion.jpg";
 const logo = "/android-chrome-512x512.png";
 ---
 
-<section class="relative h-screen max-h-[700px] min-h-[520px] flex items-end overflow-hidden">
+<section id="hero" class="relative h-screen min-h-[600px] max-h-[900px] overflow-hidden flex items-end">
 
-  <!-- Imatge de fons -->
-  <img
-    src={heroImage}
-    alt="Equip CV Martorell"
-    class="absolute inset-0 w-full h-full object-cover object-top"
-  />
+  <!-- CAPA 1: Foto parallax -->
+  <div id="hero-bg" class="absolute inset-0 scale-110 will-change-transform">
+    <img
+      src={heroImage}
+      alt="Equip CV Martorell"
+      class="w-full h-full object-cover object-center"
+      fetchpriority="high"
+    />
+  </div>
 
-  <!-- Gradient overlay: transparent a dalt, fosc a baix -->
-  <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/60 to-transparent"></div>
+  <!-- CAPA 2: Gradient cinematogràfic multicapa -->
+  <div class="absolute inset-0"
+       style="background:
+         linear-gradient(to top, #0D1C23 0%, #0D1C23cc 25%, transparent 60%),
+         linear-gradient(to right, #0D1C2399 0%, transparent 50%),
+         linear-gradient(135deg, #0D1C2340 0%, transparent 60%);"></div>
 
-  <!-- Contingut: escudo + text en fila, ancrat a baix -->
-  <div class="relative z-10 w-full container mx-auto px-6 pb-16 pt-8">
-    <div class="flex flex-col sm:flex-row items-center sm:items-end gap-6 sm:gap-8">
+  <!-- CAPA 3: Grain de película -->
+  <div class="absolute inset-0 opacity-[0.035] pointer-events-none"
+       style="background-image: url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22200%22 height=%22200%22><filter id=%22n%22><feTurbulence type=%22fractalNoise%22 baseFrequency=%220.9%22 numOctaves=%224%22 stitchTiles=%22stitch%22/></filter><rect width=%22200%22 height=%22200%22 filter=%22url(%23n)%22 opacity=%221%22/></svg>');"></div>
 
-      <!-- Escudo -->
-      <img
-        src={logo}
-        alt="Escudo CV Martorell"
-        class="w-24 h-24 md:w-32 md:h-32 flex-shrink-0 drop-shadow-2xl"
-      />
+  <!-- CAPA 4: Flash d'entrada (línia de llum) -->
+  <div id="hero-flash" class="absolute inset-0 pointer-events-none"
+       style="background: linear-gradient(105deg, transparent 0%, rgba(118,175,194,0.15) 50%, transparent 100%);
+              transform: translateX(-100%);"></div>
 
-      <!-- Text -->
-      <div class="text-center sm:text-left">
-        <h1 class="text-4xl md:text-6xl lg:text-7xl font-extrabold text-white leading-tight tracking-tight drop-shadow-md">
-          {title}<br/>
-          <span class="text-brand-light">{titleAccent}</span>
-        </h1>
-        <p class="mt-3 text-white/70 text-base md:text-lg max-w-lg">
-          {subtitle}
-        </p>
+  <!-- CONTINGUT -->
+  <div class="relative z-10 w-full container mx-auto px-6 pb-16 md:pb-20">
+    <div class="max-w-4xl">
+
+      <!-- Escudo amb entrada -->
+      <div id="hero-logo" class="mb-6 opacity-0" style="transform: scale(0.6) translateY(10px);">
+        <div class="relative inline-block">
+          <img src={logo} alt="Escudo CV Martorell"
+               class="w-20 h-20 md:w-28 md:h-28 drop-shadow-2xl relative z-10" />
+          <!-- Halo daurat -->
+          <div id="hero-halo"
+               class="absolute inset-0 rounded-full opacity-0"
+               style="box-shadow: 0 0 0 0px rgba(242,203,64,0); transition: box-shadow 0.6s ease, opacity 0.3s ease;"></div>
+        </div>
+      </div>
+
+      <!-- Títol word by word -->
+      <h1 class="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold text-white leading-[0.95] tracking-tight mb-4">
+        <span class="block overflow-hidden">
+          <span id="hero-line1" class="block opacity-0" style="transform: translateY(100%);">
+            {title1}
+          </span>
+        </span>
+        <span class="block overflow-hidden">
+          <span id="hero-line2" class="block opacity-0 text-brand-light" style="transform: translateY(100%);">
+            {title2}
+          </span>
+        </span>
+      </h1>
+
+      <!-- Subtítol + separador -->
+      <div id="hero-sub" class="opacity-0" style="transform: translateY(16px);">
+        <div class="flex items-center gap-4 mb-3">
+          <div class="w-8 h-px bg-brand-light/60"></div>
+          <p class="text-white/60 text-sm md:text-base font-medium tracking-wide uppercase">
+            {subtitle}
+          </p>
+        </div>
+
+        <!-- Stats ràpides -->
+        <div class="flex gap-6 mt-6">
+          {[
+            { num: "1975", label: "Fundació" },
+            { num: "+180", label: "Jugadors" },
+            { num: "+18",  label: "Equips" },
+          ].map(s => (
+            <div>
+              <p class="text-white font-extrabold text-xl md:text-2xl leading-none">{s.num}</p>
+              <p class="text-white/40 text-xs mt-0.5 uppercase tracking-wider">{s.label}</p>
+            </div>
+          ))}
+        </div>
       </div>
 
     </div>
   </div>
 
+  <!-- Scroll indicator -->
+  <div id="hero-scroll" class="absolute bottom-6 left-1/2 -translate-x-1/2 opacity-0 flex flex-col items-center gap-1">
+    <span class="text-white/30 text-xs uppercase tracking-[0.2em]">Descobreix</span>
+    <div class="w-px h-8 bg-gradient-to-b from-white/30 to-transparent animate-pulse"></div>
+  </div>
+
 </section>
+
+<style>
+  /* Animació entrada del títol */
+  @keyframes slide-up {
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes fade-up {
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes scale-in {
+    to { opacity: 1; transform: scale(1) translateY(0); }
+  }
+  @keyframes flash-sweep {
+    0%   { transform: translateX(-100%); opacity: 1; }
+    100% { transform: translateX(200%);  opacity: 0; }
+  }
+  @keyframes fade-in {
+    to { opacity: 1; }
+  }
+</style>
+
+<script is:inline>
+(function() {
+  const tl = {
+    run(delay, fn) { setTimeout(fn, delay); return tl; }
+  };
+
+  // Flash d'entrada
+  tl.run(100, () => {
+    const flash = document.getElementById('hero-flash');
+    if (flash) {
+      flash.style.transition = 'transform 0.9s cubic-bezier(0.4,0,0.2,1), opacity 0.9s ease';
+      flash.style.transform = 'translateX(200%)';
+      flash.style.opacity = '0';
+    }
+  });
+
+  // Escudo
+  tl.run(200, () => {
+    const logo = document.getElementById('hero-logo');
+    if (logo) {
+      logo.style.transition = 'opacity 0.5s ease, transform 0.6s cubic-bezier(0.34,1.56,0.64,1)';
+      logo.style.opacity = '1';
+      logo.style.transform = 'scale(1) translateY(0)';
+    }
+  });
+
+  // Halo daurat
+  tl.run(700, () => {
+    const halo = document.getElementById('hero-halo');
+    if (halo) {
+      halo.style.opacity = '1';
+      halo.style.boxShadow = '0 0 40px 12px rgba(242,203,64,0.25)';
+      setTimeout(() => {
+        halo.style.boxShadow = '0 0 20px 4px rgba(242,203,64,0.08)';
+      }, 600);
+    }
+  });
+
+  // Línia 1
+  tl.run(450, () => {
+    const l1 = document.getElementById('hero-line1');
+    if (l1) {
+      l1.style.transition = 'opacity 0.6s ease, transform 0.6s cubic-bezier(0.16,1,0.3,1)';
+      l1.style.opacity = '1';
+      l1.style.transform = 'translateY(0)';
+    }
+  });
+
+  // Línia 2
+  tl.run(620, () => {
+    const l2 = document.getElementById('hero-line2');
+    if (l2) {
+      l2.style.transition = 'opacity 0.6s ease, transform 0.6s cubic-bezier(0.16,1,0.3,1)';
+      l2.style.opacity = '1';
+      l2.style.transform = 'translateY(0)';
+    }
+  });
+
+  // Subtítol + stats
+  tl.run(900, () => {
+    const sub = document.getElementById('hero-sub');
+    if (sub) {
+      sub.style.transition = 'opacity 0.7s ease, transform 0.7s ease';
+      sub.style.opacity = '1';
+      sub.style.transform = 'translateY(0)';
+    }
+  });
+
+  // Scroll indicator
+  tl.run(1400, () => {
+    const sc = document.getElementById('hero-scroll');
+    if (sc) {
+      sc.style.transition = 'opacity 1s ease';
+      sc.style.opacity = '1';
+    }
+  });
+
+  // Parallax
+  let ticking = false;
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      requestAnimationFrame(() => {
+        const bg = document.getElementById('hero-bg');
+        const hero = document.getElementById('hero');
+        if (bg && hero) {
+          const scrolled = window.scrollY;
+          const heroH = hero.offsetHeight;
+          if (scrolled < heroH) {
+            bg.style.transform = `scale(1.1) translateY(${scrolled * 0.25}px)`;
+          }
+        }
+        ticking = false;
+      });
+      ticking = true;
+    }
+  }, { passive: true });
+
+})();
+</script>
