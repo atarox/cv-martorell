@@ -8,7 +8,9 @@
  */
 ---
 
-<section class="py-16 bg-ui-bg">
+<!-- OLA D'ENTRADA: ClubActivity (#E2F4FB) ve del Hero (#0D1C23) — ja inclosa al Hero -->
+
+<section class="relative pt-16 pb-32 bg-ui-bg">
   <div class="max-w-6xl mx-auto px-6">
     <!-- Encapçalaments semàntics -->
     <h2
@@ -20,7 +22,6 @@
     <p class="text-ui-text mb-8">
       El Club Voleibol Martorell en acció.
     </p>
-
     <!-- Contenidor del feed -->
     <div class="rounded-xl overflow-hidden bg-white/70 shadow-soft">
       <div
@@ -37,7 +38,6 @@
           <div class="aspect-[4/3] bg-ui-bg animate-pulse rounded"></div>
           <div class="aspect-[4/3] bg-ui-bg animate-pulse rounded"></div>
         </div>
-
         <!-- Widget Behold -->
         <behold-widget
           feed-id="nnRTrJZgZn0albuCTE5Q"
@@ -45,7 +45,6 @@
         ></behold-widget>
       </div>
     </div>
-
     <!-- CTA Instagram (UN SOL) -->
     <div class="text-center mt-8">
       <a
@@ -62,9 +61,16 @@
     </div>
   </div>
 
+  <!-- OLA DE SORTIDA: ClubActivity (#E2F4FB) → SponsorGrid (#0D1C23) -->
+  <div class="absolute bottom-0 left-0 right-0 pointer-events-none" style="line-height: 0;">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 80" preserveAspectRatio="none"
+         style="display:block; width:100%; height:80px;">
+      <path d="M0,20 C480,80 960,0 1440,40 L1440,80 L0,80 Z" fill="#0D1C23"/>
+    </svg>
+  </div>
+
   <!-- Script oficial de Behold (IMPRESCINDIBLE) -->
   <script type="module" src="https://w.behold.so/widget.js"></script>
-
   <!-- Fallback sense JS -->
   <noscript>
     <div class="max-w-6xl mx-auto px-6 mt-6 text-center text-ui-text">
@@ -77,13 +83,11 @@
       </a>.
     </div>
   </noscript>
-
   <!-- Estils globals mínims -->
   <style is:global>
     .behold-container {
       min-height: 420px;
     }
-
     .behold-container:has(behold-widget) .behold-skeleton {
       display: none;
     }
