@@ -3,101 +3,125 @@ interface Sponsor {
   name: string;
   logo: string;
   url: string;
-  tier: "principal" | "colaborador" | "amic";
+  tier: "or" | "plata" | "bronze" | "col·laborador";
   alt?: string;
 }
 
 const sponsors: Sponsor[] = [
-  { name: "Maipizza", logo: "/images/sponsors/sponsor1.png", url: "#", tier: "principal", alt: "Maipizza, patrocinador principal" },
-  { name: "La Secre", logo: "/images/sponsors/sponsor2.png", url: "#", tier: "colaborador", alt: "La Secre, patrocinador col·laborador" },
-  { name: "Sanjo", logo: "/images/sponsors/sponsor3.png", url: "#", tier: "amic", alt: "Sanjo, patrocinador amic" },
-  { name: "El Cortijo", logo: "/images/sponsors/sponsor4.png", url: "#", tier: "colaborador", alt: "El Cortijo, patrocinador col·laborador" },
+  { name: "Maipizza",   logo: "/images/sponsors/sponsor1.png", url: "#", tier: "or",           alt: "Maipizza, patrocinador or" },
+  { name: "La Secre",   logo: "/images/sponsors/sponsor2.png", url: "#", tier: "plata",        alt: "La Secre, patrocinador plata" },
+  { name: "El Cortijo", logo: "/images/sponsors/sponsor4.png", url: "#", tier: "bronze",       alt: "El Cortijo, patrocinador bronze" },
+  { name: "Sanjo",      logo: "/images/sponsors/sponsor3.png", url: "#", tier: "col·laborador", alt: "Sanjo, col·laborador" },
 ];
 
-const principals = sponsors.filter((s) => s.tier === "principal");
-const colaboradors = sponsors.filter((s) => s.tier === "colaborador");
-const amics = sponsors.filter((s) => s.tier === "amic");
+const tiers = [
+  {
+    key: "or",
+    label: "Or",
+    desc: "Des de 3.000 €",
+    accent: "#F2CB40",
+    bg: "from-yellow-900/70 to-brand-dark/90",
+    badge: "border-yellow-400/40 text-yellow-300 bg-yellow-400/10",
+    grid: "grid-cols-1 sm:grid-cols-2",
+    imgH: "min-h-[140px]",
+  },
+  {
+    key: "plata",
+    label: "Plata",
+    desc: "Des de 1.000 €",
+    accent: "#CBD5E1",
+    bg: "from-slate-600/70 to-brand-dark/90",
+    badge: "border-slate-300/40 text-slate-200 bg-slate-300/10",
+    grid: "grid-cols-2 md:grid-cols-3",
+    imgH: "min-h-[110px]",
+  },
+  {
+    key: "bronze",
+    label: "Bronze",
+    desc: "Des de 500 €",
+    accent: "#C97C3A",
+    bg: "from-orange-900/70 to-brand-dark/90",
+    badge: "border-orange-400/40 text-orange-300 bg-orange-400/10",
+    grid: "grid-cols-2 md:grid-cols-4",
+    imgH: "min-h-[90px]",
+  },
+  {
+    key: "col·laborador",
+    label: "Col·laborador",
+    desc: "Des de 200 €",
+    accent: "#76AFC2",
+    bg: "from-sky-900/70 to-brand-dark/90",
+    badge: "border-sky-400/40 text-sky-300 bg-sky-400/10",
+    grid: "grid-cols-3 md:grid-cols-5",
+    imgH: "min-h-[70px]",
+  },
+];
 ---
 
 <section class="py-16 bg-ui-bg" aria-labelledby="patrocinadors">
   <div class="max-w-6xl mx-auto px-6">
-    <h2 id="patrocinadors" class="text-2xl md:text-3xl font-extrabold tracking-tight text-brand-dark mb-8 text-center">
+
+    <h2 id="patrocinadors" class="text-2xl md:text-3xl font-extrabold tracking-tight text-brand-dark mb-2 text-center">
       Els nostres patrocinadors
     </h2>
+    <p class="text-ui-text text-center mb-10">Gràcies a ells el voleibol segueix viu a Martorell.</p>
 
-    {/** Principals */}
-    {principals.length > 0 && (
-      <ul class="grid grid-cols-1 sm:grid-cols-2 gap-8 mb-12">
-        {principals.map((s) => (
-          <li class="group">
-            <a
-              href={s.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              class="block rounded-2xl bg-white/50 backdrop-blur-sm border border-brand-light/30
-                     shadow-lg hover:shadow-2xl transform hover:-translate-y-1 hover:scale-105
-                     transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-brand-light/40"
-              aria-label={`Obrir el lloc de ${s.name} (s'obre en nova pestanya)`}
-            >
-              <div class="p-6 flex items-center justify-center">
-                <img src={s.logo} alt={s.alt || s.name} class="object-contain w-full max-h-28" loading="lazy" />
-              </div>
-              <div class="px-6 pb-6 -mt-2">
-                <div class="rounded-xl bg-brand-dark text-white text-center px-4 py-2 font-medium">
-                  Patrocinador principal
-                </div>
-              </div>
-            </a>
-          </li>
-        ))}
-      </ul>
-    )}
+    {tiers.map(tier => {
+      const tierSponsors = sponsors.filter(s => s.tier === tier.key);
+      if (tierSponsors.length === 0) return null;
+      return (
+        <div class="mb-12">
+          <div class="flex items-center gap-3 mb-5">
+            <span class={`text-xs font-bold rounded-pill px-3 py-1 border ${tier.badge}`}>
+              {tier.label} · {tier.desc}
+            </span>
+            <div class="flex-1 h-px bg-brand-light/20"></div>
+          </div>
+          <ul class={`grid gap-5 ${tier.grid}`}>
+            {tierSponsors.map(s => (
+              <li>
+                <a
+                  href={s.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class={`group block rounded-2xl overflow-hidden bg-gradient-to-br ${tier.bg} shadow-soft
+                          hover:shadow-hard transform hover:-translate-y-1 hover:scale-[1.02]
+                          transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-white/20`}
+                  aria-label={`Obrir el lloc de ${s.name}`}
+                >
+                  <div class="h-0.5 w-full" style={`background-color: ${tier.accent};`}></div>
+                  <div class={`flex items-center justify-center p-6 ${tier.imgH}`}>
+                    <img
+                      src={s.logo}
+                      alt={s.alt || s.name}
+                      class="object-contain w-full max-h-full opacity-90 group-hover:opacity-100 transition-opacity"
+                      loading="lazy"
+                    />
+                  </div>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      );
+    })}
 
-    {/** Col·laboradors */}
-    {colaboradors.length > 0 && (
-      <ul class="grid grid-cols-2 md:grid-cols-3 gap-6 mb-12">
-        {colaboradors.map((s) => (
-          <li class="group">
-            <a
-              href={s.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              class="block rounded-xl bg-white/40 backdrop-blur-sm border border-brand-light/20
-                     shadow-md hover:shadow-lg transform hover:-translate-y-1 hover:scale-105
-                     transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-brand-light/30"
-              aria-label={`Obrir el lloc de ${s.name} (s'obre en nova pestanya)`}
-            >
-              <div class="p-5 flex items-center justify-center">
-                <img src={s.logo} alt={s.alt || s.name} class="object-contain w-full max-h-20" loading="lazy" />
-              </div>
-            </a>
-          </li>
-        ))}
-      </ul>
-    )}
-
-    {/** Amics */}
-    {amics.length > 0 && (
-      <ul class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-4">
-        {amics.map((s) => (
-          <li>
-            <a
-              href={s.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              class="block rounded-lg bg-white/30 backdrop-blur-sm border border-brand-light/20
-                     shadow-md hover:shadow-lg transform hover:-translate-y-0.5 hover:scale-105
-                     transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-brand-light/20"
-              aria-label={`Obrir el lloc de ${s.name} (s'obre en nova pestanya)`}
-            >
-              <div class="p-3 flex items-center justify-center">
-                <img src={s.logo} alt={s.alt || s.name} class="object-contain w-full max-h-12" loading="lazy" />
-              </div>
-            </a>
-          </li>
-        ))}
-      </ul>
-    )}
+    <div class="mt-4 rounded-2xl bg-brand-dark p-6 md:p-8 flex flex-col md:flex-row items-center justify-between gap-5">
+      <div>
+        <p class="text-white font-extrabold text-lg">Vols ser patrocinador?</p>
+        <p class="text-white/60 text-sm mt-1">Des de 200 € · Visibilitat local i digital · Associació amb valors positius.</p>
+      </div>
+      <div class="flex gap-3 flex-shrink-0">
+        <a href="/docs/dossier-patrocinadors.pdf" target="_blank" rel="noopener noreferrer"
+           class="rounded-pill bg-white text-brand-dark px-5 py-2.5 text-sm font-bold hover:bg-brand-light transition-colors shadow-lg">
+          Descarregar dossier
+        </a>
+        <a href="/contacto"
+           class="rounded-pill bg-brand-light text-brand-dark px-5 py-2.5 text-sm font-bold hover:bg-white transition-colors shadow-lg">
+          Contactar
+        </a>
+      </div>
+    </div>
 
   </div>
 </section>

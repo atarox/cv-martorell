@@ -1,0 +1,204 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const page = {
+  title: "El Club – CV Martorell",
+  description: "Coneix la història, els valors i el projecte del Club Voleibol Martorell, fundat l'any 1975 i referent del voleibol a Catalunya.",
+};
+
+const valors = [
+  { icon: "💪", label: "Esforç",      desc: "Cada punt es guanya amb constància i treball en equip." },
+  { icon: "🤝", label: "Inclusió",    desc: "Obert a nois i noies de totes les edats i capacitats." },
+  { icon: "❤️", label: "Salut",       desc: "Fomentam hàbits de vida actius i saludables." },
+  { icon: "📚", label: "Educació",    desc: "Transmetem valors educatius a través de l'esport." },
+  { icon: "🏘️", label: "Comunitat",  desc: "Un espai de convivència que reforça el teixit social." },
+];
+
+const xifres = [
+  { valor: "1975",  label: "Any de fundació" },
+  { valor: "+180",  label: "Jugadors i famílies" },
+  { valor: "+18",   label: "Equips federats" },
+  { valor: "+1800", label: "Seguidors a xarxes" },
+];
+
+const fites = [
+  { any: "1975",      text: "Primers partits amistosos a Martorell, sense club formal encara." },
+  { any: "1977–78",   text: "Constitució oficial del Club Voleibol Martorell. Primer president: Joan Armengol." },
+  { any: "Anys 80",   text: "Organització de dos tornejos internacionals amb equips d'elit en edicions consecutives." },
+  { any: "Anys 90",   text: "Participació a la Primera Catalana i col·laboracions socials amb la presó de Can Brians." },
+  { any: "2005",      text: "Impuls de l'Esco Vòlei: es potencia la línia femenina i l'activitat escolar de base." },
+  { any: "2019",      text: "Martorell és reconeguda com a «Ciutat de l'Esport». El CV Martorell n'és un dels clubs referents." },
+  { any: "Avui",      text: "Més de 18 equips en totes les categories, línia femenina completa i únic club de Catalunya avalat per la FCV en Sitting Voley." },
+];
+---
+
+<BaseLayout title={page.title} description={page.description}>
+
+  <!-- Hero -->
+  <div class="relative bg-brand-dark overflow-hidden">
+    <div class="absolute inset-0 opacity-10"
+         style="background-image: radial-gradient(circle at 15% 50%, #76AFC2 0%, transparent 55%), radial-gradient(circle at 85% 20%, #2B6E7F 0%, transparent 50%);"></div>
+    <div class="relative container mx-auto px-6 pt-32 pb-16 text-center">
+      <p class="text-brand-light text-sm font-semibold uppercase tracking-widest mb-3">Des de 1975</p>
+      <h1 class="text-4xl md:text-6xl font-extrabold text-white tracking-tight">El nostre club</h1>
+      <p class="mt-4 text-white/60 text-lg max-w-2xl mx-auto">
+        Una entitat sense ànim de lucre dedicada a la formació i promoció del voleibol a Martorell i la comarca del Baix Llobregat.
+      </p>
+    </div>
+  </div>
+
+  <!-- Xifres clau -->
+  <section class="bg-brand-dark border-t border-white/10">
+    <div class="container mx-auto px-6 py-10 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+      {xifres.map(x => (
+        <div>
+          <p class="text-3xl md:text-4xl font-extrabold text-brand-light">{x.valor}</p>
+          <p class="text-white/50 text-sm mt-1">{x.label}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- Qui som -->
+  <section class="container mx-auto px-4 md:px-6 py-16 max-w-4xl">
+    <div class="grid md:grid-cols-2 gap-10 items-center">
+      <div>
+        <p class="text-brand-light text-sm font-semibold uppercase tracking-widest mb-2">Qui som</p>
+        <h2 class="text-3xl md:text-4xl font-extrabold text-brand-dark mb-5 leading-tight">
+          Formant jugadors,<br/>construint persones
+        </h2>
+        <p class="text-ui-text leading-relaxed mb-4">
+          El Club Voleibol Martorell és una entitat esportiva sense ànim de lucre, dedicada a la formació i promoció del voleibol a la nostra ciutat i comarca. Fundat l'any 1975, reuneix més de 18 equips de jugadors i jugadores en categories des de la base fins a sènior.
+        </p>
+        <p class="text-ui-text leading-relaxed">
+          El nostre objectiu és formar esportistes i persones a través dels valors de l'esport, amb l'orgull de ser un referent de Martorell a Catalunya.
+        </p>
+      </div>
+      <div class="rounded-2xl bg-brand-dark p-8 text-white">
+        <p class="text-brand-light text-xs font-bold uppercase tracking-widest mb-4">Martorell, Ciutat de l'Esport</p>
+        <p class="text-white/80 text-sm leading-relaxed mb-4">
+          Martorell va ser reconeguda com a «Ciutat de l'Esport» l'any 2019, un distintiu que posa en valor la trajectòria del municipi en la promoció de l'activitat física i el suport a l'esport de base.
+        </p>
+        <p class="text-white/80 text-sm leading-relaxed">
+          El CV Martorell se sent plenament identificat amb aquest reconeixement: competitius i formatius alhora, amb la mirada posada en el futur.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Valors -->
+  <section class="bg-ui-bg py-16">
+    <div class="container mx-auto px-4 md:px-6">
+      <p class="text-brand-light text-sm font-semibold uppercase tracking-widest mb-2 text-center">El nostre ADN</p>
+      <h2 class="text-2xl md:text-3xl font-extrabold text-brand-dark mb-10 text-center">Els nostres valors</h2>
+      <div class="grid grid-cols-2 md:grid-cols-5 gap-4 max-w-4xl mx-auto">
+        {valors.map(v => (
+          <div class="rounded-2xl bg-white border border-brand-light/20 shadow-soft p-5 text-center hover:-translate-y-1 transition-transform duration-200">
+            <span class="text-3xl block mb-3">{v.icon}</span>
+            <p class="font-extrabold text-brand-dark text-sm mb-1">{v.label}</p>
+            <p class="text-ui-text text-xs leading-relaxed">{v.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Història / Timeline -->
+  <section class="container mx-auto px-4 md:px-6 py-16 max-w-3xl">
+    <p class="text-brand-light text-sm font-semibold uppercase tracking-widest mb-2 text-center">La nostra trajectòria</p>
+    <h2 class="text-2xl md:text-3xl font-extrabold text-brand-dark mb-10 text-center">Gairebé 50 anys d'història</h2>
+    <ol class="relative border-l-2 border-brand-light/30 space-y-8 pl-8">
+      {fites.map((f, i) => (
+        <li class="relative">
+          <span class="absolute -left-[2.15rem] flex items-center justify-center w-8 h-8 rounded-full bg-brand-dark border-2 border-brand-light text-white text-xs font-bold">
+            {i + 1}
+          </span>
+          <p class="text-xs font-bold text-brand-light uppercase tracking-widest mb-1">{f.any}</p>
+          <p class="text-brand-dark text-sm leading-relaxed">{f.text}</p>
+        </li>
+      ))}
+    </ol>
+  </section>
+
+  <!-- Sitting Voley -->
+  <section class="bg-brand-dark py-16">
+    <div class="container mx-auto px-4 md:px-6 max-w-4xl">
+      <div class="grid md:grid-cols-2 gap-10 items-center">
+        <div>
+          <p class="text-brand-light text-sm font-semibold uppercase tracking-widest mb-2">Projecte especial</p>
+          <h2 class="text-2xl md:text-3xl font-extrabold text-white mb-5">Sitting Voley</h2>
+          <p class="text-white/70 leading-relaxed mb-4">
+            El Sitting Voley és una modalitat inclusiva del voleibol reconeguda per la Federació Internacional i present als Jocs Paralímpics. Es juga assegut, en una pista reduïda i amb la xarxa a menor alçada, la qual cosa permet la pràctica conjunta de persones amb i sense diversitat funcional.
+          </p>
+          <p class="text-white/70 leading-relaxed">
+            Som l'<strong class="text-white">únic club de Catalunya</strong> avalat per la Federació Catalana de Voleibol en aquesta especialitat, impulsant a més la creació d'una Selecció Catalana de Sitting Voley que participa en competicions d'àmbit nacional i europeu.
+          </p>
+        </div>
+        <div class="grid grid-cols-2 gap-4">
+          {["Igualtat", "Superació", "Convivència", "Inclusió"].map(v => (
+            <div class="rounded-xl bg-white/5 border border-white/10 p-5 text-center">
+              <p class="text-white font-bold text-sm">{v}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Activitat esportiva i campus -->
+  <section class="bg-ui-bg py-16">
+    <div class="container mx-auto px-4 md:px-6 max-w-4xl">
+      <p class="text-brand-light text-sm font-semibold uppercase tracking-widest mb-2 text-center">Més que competició</p>
+      <h2 class="text-2xl md:text-3xl font-extrabold text-brand-dark mb-10 text-center">Activitat i comunitat</h2>
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="rounded-2xl bg-white border border-brand-light/20 shadow-soft p-6">
+          <span class="text-2xl mb-3 block">🏫</span>
+          <h3 class="font-extrabold text-brand-dark mb-2">Àmbit escolar</h3>
+          <p class="text-ui-text text-sm leading-relaxed">
+            Col·laborem amb escoles i instituts de Martorell portant entrenadors i material directament als centres, perquè l'alumnat no s'hagi de desplaçar fins al pavelló.
+          </p>
+        </div>
+        <div class="rounded-2xl bg-white border border-brand-light/20 shadow-soft p-6">
+          <span class="text-2xl mb-3 block">☀️</span>
+          <h3 class="font-extrabold text-brand-dark mb-2">Campus d'Estiu</h3>
+          <p class="text-ui-text text-sm leading-relaxed">
+            Una proposta esportiva i lúdica per a infants i joves durant l'estiu: entrenaments adaptats, sortides a la piscina i activitats d'oci. Esport, convivència i diversió en un entorn saludable.
+          </p>
+        </div>
+        <div class="rounded-2xl bg-white border border-brand-light/20 shadow-soft p-6">
+          <span class="text-2xl mb-3 block">🏆</span>
+          <h3 class="font-extrabold text-brand-dark mb-2">Competició</h3>
+          <p class="text-ui-text text-sm leading-relaxed">
+            Equips federats en totes les categories participant en lligues autonòmiques, tornejos comarcals i campionats. Formació d'entrenadors i staff tècnic propi.
+          </p>
+        </div>
+        <div class="rounded-2xl bg-white border border-brand-light/20 shadow-soft p-6">
+          <span class="text-2xl mb-3 block">📣</span>
+          <h3 class="font-extrabold text-brand-dark mb-2">Presència local</h3>
+          <p class="text-ui-text text-sm leading-relaxed">
+            Aparicions freqüents a la premsa i ràdio locals. Activitat setmanal al Pavelló Municipal amb entrenaments i partits que reuneixen famílies i públic de Martorell.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA patrocini -->
+  <section class="bg-brand-dark py-14">
+    <div class="container mx-auto px-6 text-center">
+      <h2 class="text-2xl font-extrabold text-white mb-2">Vols formar part del projecte?</h2>
+      <p class="text-white/60 mb-8 max-w-md mx-auto">Uneix-te com a patrocinador o posa't en contacte amb nosaltres per a qualsevol consulta.</p>
+      <div class="flex flex-col sm:flex-row gap-3 justify-center">
+        <a href="/docs/dossier-patrocinadors.pdf" target="_blank" rel="noopener noreferrer"
+           class="inline-flex items-center gap-2 rounded-pill bg-white text-brand-dark px-6 py-3 font-bold hover:bg-brand-light transition-colors shadow-lg">
+          Descarregar dossier
+        </a>
+        <a href="/contacto"
+           class="inline-flex items-center gap-2 rounded-pill bg-brand-light text-brand-dark px-6 py-3 font-bold hover:bg-white transition-colors shadow-lg">
+          Contactar
+        </a>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>
