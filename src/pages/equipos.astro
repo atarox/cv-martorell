@@ -8,26 +8,36 @@ const page = {
 
 interface Equip {
   categoria: string;
-  genere: "Masculí" | "Femení";
+  genere: "Masculí" | "Femení" | "Mixt";
   icon: string;
   edats: string;
   color: string;
   accent: string;
+  equip?: string;
 }
 
 const equips: Equip[] = [
-  { categoria: "Aleví",     genere: "Masculí", icon: "🏐", edats: "Sub-12", color: "from-sky-900/80 to-brand-dark/90",    accent: "#76AFC2" },
-  { categoria: "Aleví",     genere: "Femení",  icon: "🏐", edats: "Sub-12", color: "from-sky-900/80 to-brand-dark/90",    accent: "#76AFC2" },
+  // Aleví: categoria mixta
+  { categoria: "Aleví",     genere: "Mixt",    icon: "🏐", edats: "Sub-12", color: "from-sky-900/80 to-brand-dark/90",    accent: "#76AFC2" },
+
+  // Infantil: només masculí
   { categoria: "Infantil",  genere: "Masculí", icon: "🏐", edats: "Sub-14", color: "from-teal-900/80 to-brand-dark/90",   accent: "#2B6E7F" },
-  { categoria: "Infantil",  genere: "Femení",  icon: "🏐", edats: "Sub-14", color: "from-teal-900/80 to-brand-dark/90",   accent: "#2B6E7F" },
-  { categoria: "Cadet",     genere: "Masculí", icon: "🏐", edats: "Sub-16", color: "from-cyan-900/80 to-brand-dark/90",   accent: "#F2CB40" },
-  { categoria: "Cadet",     genere: "Femení",  icon: "🏐", edats: "Sub-16", color: "from-cyan-900/80 to-brand-dark/90",   accent: "#F2CB40" },
-  { categoria: "Juvenil",   genere: "Masculí", icon: "🏐", edats: "Sub-18", color: "from-indigo-900/80 to-brand-dark/90", accent: "#C4372B" },
-  { categoria: "Juvenil",   genere: "Femení",  icon: "🏐", edats: "Sub-18", color: "from-indigo-900/80 to-brand-dark/90", accent: "#C4372B" },
-  { categoria: "Júnior",    genere: "Masculí", icon: "🏐", edats: "Sub-20", color: "from-slate-800/80 to-brand-dark/90",  accent: "#76AFC2" },
-  { categoria: "Júnior",    genere: "Femení",  icon: "🏐", edats: "Sub-20", color: "from-slate-800/80 to-brand-dark/90",  accent: "#76AFC2" },
-  { categoria: "Sènior",    genere: "Masculí", icon: "🏐", edats: "Absolut", color: "from-zinc-800/80 to-brand-dark/90",  accent: "#F2CB40" },
-  { categoria: "Sènior",    genere: "Femení",  icon: "🏐", edats: "Absolut", color: "from-zinc-800/80 to-brand-dark/90",  accent: "#F2CB40" },
+
+  // A partir d'aquí: dues línies femenines (Negre i Blau)
+  { categoria: "Infantil",  genere: "Femení",  icon: "🏐", edats: "Sub-14", color: "from-teal-900/80 to-brand-dark/90",   accent: "#2B6E7F", equip: "Negre" },
+  { categoria: "Infantil",  genere: "Femení",  icon: "🏐", edats: "Sub-14", color: "from-teal-900/80 to-brand-dark/90",   accent: "#76AFC2", equip: "Blau"  },
+
+  { categoria: "Cadet",     genere: "Femení",  icon: "🏐", edats: "Sub-16", color: "from-cyan-900/80 to-brand-dark/90",   accent: "#F2CB40", equip: "Negre" },
+  { categoria: "Cadet",     genere: "Femení",  icon: "🏐", edats: "Sub-16", color: "from-cyan-900/80 to-brand-dark/90",   accent: "#76AFC2", equip: "Blau"  },
+
+  { categoria: "Juvenil",   genere: "Femení",  icon: "🏐", edats: "Sub-18", color: "from-indigo-900/80 to-brand-dark/90", accent: "#C4372B", equip: "Negre" },
+  { categoria: "Juvenil",   genere: "Femení",  icon: "🏐", edats: "Sub-18", color: "from-indigo-900/80 to-brand-dark/90", accent: "#76AFC2", equip: "Blau"  },
+
+  { categoria: "Júnior",    genere: "Femení",  icon: "🏐", edats: "Sub-20", color: "from-slate-800/80 to-brand-dark/90",  accent: "#C4372B", equip: "Negre" },
+  { categoria: "Júnior",    genere: "Femení",  icon: "🏐", edats: "Sub-20", color: "from-slate-800/80 to-brand-dark/90",  accent: "#76AFC2", equip: "Blau"  },
+
+  { categoria: "Sènior",    genere: "Femení",  icon: "🏐", edats: "Absolut", color: "from-zinc-800/80 to-brand-dark/90",  accent: "#C4372B", equip: "Negre" },
+  { categoria: "Sènior",    genere: "Femení",  icon: "🏐", edats: "Absolut", color: "from-zinc-800/80 to-brand-dark/90",  accent: "#76AFC2", equip: "Blau"  },
 ];
 
 const categories = [...new Set(equips.map(e => e.categoria))];
@@ -95,16 +105,25 @@ const categories = [...new Set(equips.map(e => e.categoria))];
                       style={`color: ${equip.accent};`}>
                   {equip.edats}
                 </span>
-                <h2 class="text-2xl font-extrabold text-white mt-1">{equip.categoria}</h2>
+                <h2 class="text-2xl font-extrabold text-white mt-1">
+                  {equip.categoria}
+                  {equip.equip && <span class="ml-2 text-lg font-bold opacity-70">{equip.equip}</span>}
+                </h2>
               </div>
               <div class="flex items-center gap-1.5 rounded-pill px-3 py-1 text-xs font-semibold bg-white/10 text-white/80 border border-white/10">
-                {equip.genere === "Masculí" ? (
+                {equip.genere === "Masculí" && (
                   <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor">
                     <path d="M9 2a7 7 0 1 0 4.95 11.95L16 16H14v2h4v-4h-2l-2.05-2.05A7 7 0 0 0 9 2zm0 2a5 5 0 1 1 0 10A5 5 0 0 1 9 4z"/>
                   </svg>
-                ) : (
+                )}
+                {equip.genere === "Femení" && (
                   <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor">
                     <path d="M12 2a7 7 0 1 0 0 14A7 7 0 0 0 12 2zm0 2a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm-1 12h2v3h3v2h-3v1h-2v-1H8v-2h3v-3z"/>
+                  </svg>
+                )}
+                {equip.genere === "Mixt" && (
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 2a5 5 0 1 1 0 10A5 5 0 0 1 12 2zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6zm0 10c-5 0-8 2.5-8 4v1h16v-1c0-1.5-3-4-8-4z"/>
                   </svg>
                 )}
                 {equip.genere}
