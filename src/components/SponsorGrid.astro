@@ -244,7 +244,7 @@ const colaboradors = sponsors.filter(s => s.tier === "col·laborador");
 </style>
 
 <script is:inline>
-  // Reveal escalonat en scroll
+{
   const reveals = document.querySelectorAll('.sponsor-reveal');
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry, i) => {
@@ -255,4 +255,5 @@ const colaboradors = sponsors.filter(s => s.tier === "col·laborador");
     });
   }, { threshold: 0.15 });
   reveals.forEach(el => observer.observe(el));
+}
 </script>
