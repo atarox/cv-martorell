@@ -8,116 +8,175 @@ interface Sponsor {
 }
 
 const sponsors: Sponsor[] = [
-  { name: "Maipizza",   logo: "/images/sponsors/sponsor1.png", url: "#", tier: "or",           alt: "Maipizza, patrocinador or" },
-  { name: "La Secre",   logo: "/images/sponsors/sponsor2.png", url: "#", tier: "plata",        alt: "La Secre, patrocinador plata" },
-  { name: "El Cortijo", logo: "/images/sponsors/sponsor4.png", url: "#", tier: "bronze",       alt: "El Cortijo, patrocinador bronze" },
+  { name: "Maipizza",   logo: "/images/sponsors/sponsor1.png", url: "#", tier: "or",            alt: "Maipizza, patrocinador or" },
+  { name: "La Secre",   logo: "/images/sponsors/sponsor2.png", url: "#", tier: "plata",         alt: "La Secre, patrocinador plata" },
+  { name: "El Cortijo", logo: "/images/sponsors/sponsor4.png", url: "#", tier: "bronze",        alt: "El Cortijo, patrocinador bronze" },
   { name: "Sanjo",      logo: "/images/sponsors/sponsor3.png", url: "#", tier: "col·laborador", alt: "Sanjo, col·laborador" },
 ];
 
-const tiers = [
-  {
-    key: "or",
-    label: "Or",
-    desc: "Des de 3.000 €",
-    accent: "#F2CB40",
-    bg: "from-yellow-900/70 to-brand-dark/90",
-    badge: "border-yellow-400/40 text-yellow-300 bg-yellow-400/10",
-    grid: "grid-cols-1 sm:grid-cols-2",
-    imgH: "min-h-[140px]",
-  },
-  {
-    key: "plata",
-    label: "Plata",
-    desc: "Des de 1.000 €",
-    accent: "#CBD5E1",
-    bg: "from-slate-600/70 to-brand-dark/90",
-    badge: "border-slate-300/40 text-slate-200 bg-slate-300/10",
-    grid: "grid-cols-2 md:grid-cols-3",
-    imgH: "min-h-[110px]",
-  },
-  {
-    key: "bronze",
-    label: "Bronze",
-    desc: "Des de 500 €",
-    accent: "#C97C3A",
-    bg: "from-orange-900/70 to-brand-dark/90",
-    badge: "border-orange-400/40 text-orange-300 bg-orange-400/10",
-    grid: "grid-cols-2 md:grid-cols-4",
-    imgH: "min-h-[90px]",
-  },
-  {
-    key: "col·laborador",
-    label: "Col·laborador",
-    desc: "Des de 200 €",
-    accent: "#76AFC2",
-    bg: "from-sky-900/70 to-brand-dark/90",
-    badge: "border-sky-400/40 text-sky-300 bg-sky-400/10",
-    grid: "grid-cols-3 md:grid-cols-5",
-    imgH: "min-h-[70px]",
-  },
-];
+const or           = sponsors.filter(s => s.tier === "or");
+const plata        = sponsors.filter(s => s.tier === "plata");
+const bronze       = sponsors.filter(s => s.tier === "bronze");
+const colaboradors = sponsors.filter(s => s.tier === "col·laborador");
 ---
 
-<section class="py-16 bg-ui-bg" aria-labelledby="patrocinadors">
-  <div class="max-w-6xl mx-auto px-6">
+<section class="relative py-24 overflow-hidden bg-brand-dark" aria-labelledby="patrocinadors">
 
-    <h2 id="patrocinadors" class="text-2xl md:text-3xl font-extrabold tracking-tight text-brand-dark mb-2 text-center">
-      Els nostres patrocinadors
-    </h2>
-    <p class="text-ui-text text-center mb-10">Gràcies a ells el voleibol segueix viu a Martorell.</p>
+  <!-- Fons: malla de punts subtil -->
+  <div class="absolute inset-0 opacity-[0.04]"
+       style="background-image: radial-gradient(circle, #76AFC2 1px, transparent 1px); background-size: 32px 32px;"></div>
 
-    {tiers.map(tier => {
-      const tierSponsors = sponsors.filter(s => s.tier === tier.key);
-      if (tierSponsors.length === 0) return null;
-      return (
-        <div class="mb-12">
-          <div class="flex items-center gap-3 mb-5">
-            <span class={`text-xs font-bold rounded-pill px-3 py-1 border ${tier.badge}`}>
-              {tier.label} · {tier.desc}
-            </span>
-            <div class="flex-1 h-px bg-brand-light/20"></div>
-          </div>
-          <ul class={`grid gap-5 ${tier.grid}`}>
-            {tierSponsors.map(s => (
-              <li>
-                <a
-                  href={s.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class={`group block rounded-2xl overflow-hidden bg-gradient-to-br ${tier.bg} shadow-soft
-                          hover:shadow-hard transform hover:-translate-y-1 hover:scale-[1.02]
-                          transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-white/20`}
-                  aria-label={`Obrir el lloc de ${s.name}`}
-                >
-                  <div class="h-0.5 w-full" style={`background-color: ${tier.accent};`}></div>
-                  <div class={`flex items-center justify-center p-6 ${tier.imgH}`}>
-                    <img
-                      src={s.logo}
-                      alt={s.alt || s.name}
-                      class="object-contain w-full max-h-full opacity-90 group-hover:opacity-100 transition-opacity"
-                      loading="lazy"
-                    />
-                  </div>
-                </a>
-              </li>
-            ))}
-          </ul>
-        </div>
-      );
-    })}
+  <!-- Llum ambient central -->
+  <div class="absolute inset-0 pointer-events-none"
+       style="background: radial-gradient(ellipse 80% 60% at 50% 40%, rgba(118,175,194,0.08) 0%, transparent 70%);"></div>
 
-    <div class="mt-4 rounded-2xl bg-brand-dark p-6 md:p-8 flex flex-col md:flex-row items-center justify-between gap-5">
-      <div>
-        <p class="text-white font-extrabold text-lg">Vols ser patrocinador?</p>
-        <p class="text-white/60 text-sm mt-1">Des de 200 € · Visibilitat local i digital · Associació amb valors positius.</p>
+  <div class="relative max-w-6xl mx-auto px-6">
+
+    <!-- Capçalera -->
+    <div class="text-center mb-16 sponsor-reveal">
+      <p class="text-brand-light text-xs font-bold uppercase tracking-[0.3em] mb-3">Els qui fan possible el club</p>
+      <h2 id="patrocinadors" class="text-3xl md:text-5xl font-extrabold text-white tracking-tight">
+        Patrocinadors
+      </h2>
+      <div class="mt-4 mx-auto w-12 h-0.5 bg-gradient-to-r from-transparent via-brand-light to-transparent"></div>
+    </div>
+
+    <!-- OR: protagonisme total, spotlights individuals -->
+    {or.length > 0 && (
+      <div class="mb-16 sponsor-reveal">
+        <ul class={`grid gap-4 ${or.length === 1 ? 'grid-cols-1 max-w-md mx-auto' : 'grid-cols-1 sm:grid-cols-2'}`}>
+          {or.map(s => (
+            <li class="sponsor-or-item">
+              <a href={s.url} target="_blank" rel="noopener noreferrer"
+                 class="sponsor-or group relative flex items-center justify-center rounded-3xl overflow-hidden
+                        bg-gradient-to-br from-yellow-950/60 to-brand-dark
+                        border border-yellow-500/20 shadow-2xl
+                        transition-all duration-500 focus:outline-none focus:ring-2 focus:ring-yellow-400/40"
+                 style="min-height: 180px;"
+                 aria-label={s.name}>
+
+                <!-- Glow de fons en hover -->
+                <div class="sponsor-glow absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+                     style="background: radial-gradient(ellipse 60% 50% at 50% 50%, rgba(242,203,64,0.12) 0%, transparent 70%);"></div>
+
+                <!-- Línia or superior animada -->
+                <div class="absolute top-0 left-0 right-0 h-px"
+                     style="background: linear-gradient(90deg, transparent, #F2CB40, transparent);"></div>
+
+                <!-- Partícules or (CSS) -->
+                <div class="particles absolute inset-0 pointer-events-none overflow-hidden opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <span class="particle"></span>
+                  <span class="particle"></span>
+                  <span class="particle"></span>
+                  <span class="particle"></span>
+                  <span class="particle"></span>
+                </div>
+
+                <img src={s.logo} alt={s.alt || s.name}
+                     class="relative z-10 object-contain w-full max-h-28 px-12
+                            opacity-80 group-hover:opacity-100 group-hover:scale-105
+                            transition-all duration-500 drop-shadow-lg"
+                     loading="lazy" />
+              </a>
+            </li>
+          ))}
+        </ul>
       </div>
-      <div class="flex gap-3 flex-shrink-0">
+    )}
+
+    <!-- PLATA -->
+    {plata.length > 0 && (
+      <div class="mb-10 sponsor-reveal">
+        <ul class={`grid gap-3 ${plata.length <= 2 ? 'grid-cols-2 max-w-lg mx-auto' : 'grid-cols-2 md:grid-cols-3'}`}>
+          {plata.map(s => (
+            <li>
+              <a href={s.url} target="_blank" rel="noopener noreferrer"
+                 class="group relative flex items-center justify-center rounded-2xl overflow-hidden
+                        bg-white/[0.04] border border-white/10
+                        hover:bg-white/[0.08] hover:border-slate-300/30
+                        transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-white/20"
+                 style="min-height: 120px;"
+                 aria-label={s.name}>
+                <div class="absolute top-0 left-0 right-0 h-px"
+                     style="background: linear-gradient(90deg, transparent, #CBD5E1, transparent);"></div>
+                <img src={s.logo} alt={s.alt || s.name}
+                     class="object-contain w-full max-h-16 px-8
+                            opacity-60 group-hover:opacity-90 group-hover:scale-105
+                            transition-all duration-300"
+                     loading="lazy" />
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    )}
+
+    <!-- BRONZE -->
+    {bronze.length > 0 && (
+      <div class="mb-10 sponsor-reveal">
+        <ul class={`grid gap-3 ${bronze.length <= 3 ? 'grid-cols-3 max-w-xl mx-auto' : 'grid-cols-2 md:grid-cols-4'}`}>
+          {bronze.map(s => (
+            <li>
+              <a href={s.url} target="_blank" rel="noopener noreferrer"
+                 class="group relative flex items-center justify-center rounded-xl overflow-hidden
+                        bg-white/[0.03] border border-white/[0.07]
+                        hover:bg-white/[0.06] hover:border-orange-400/20
+                        transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-white/10"
+                 style="min-height: 90px;"
+                 aria-label={s.name}>
+                <div class="absolute top-0 left-0 right-0 h-px opacity-60"
+                     style="background: linear-gradient(90deg, transparent, #C97C3A, transparent);"></div>
+                <img src={s.logo} alt={s.alt || s.name}
+                     class="object-contain w-full max-h-12 px-6
+                            opacity-50 group-hover:opacity-80 group-hover:scale-105
+                            transition-all duration-300"
+                     loading="lazy" />
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    )}
+
+    <!-- COL·LABORADORS -->
+    {colaboradors.length > 0 && (
+      <div class="mb-16 sponsor-reveal">
+        <ul class={`grid gap-2 ${colaboradors.length <= 4 ? 'grid-cols-4 max-w-xl mx-auto' : 'grid-cols-4 md:grid-cols-6'}`}>
+          {colaboradors.map(s => (
+            <li>
+              <a href={s.url} target="_blank" rel="noopener noreferrer"
+                 class="group flex items-center justify-center rounded-lg overflow-hidden
+                        bg-white/[0.02] border border-white/[0.05]
+                        hover:bg-white/[0.05] hover:border-white/10
+                        transition-all duration-300 focus:outline-none"
+                 style="min-height: 64px;"
+                 aria-label={s.name}>
+                <img src={s.logo} alt={s.alt || s.name}
+                     class="object-contain w-full max-h-8 px-4
+                            opacity-35 group-hover:opacity-65 transition-opacity duration-300"
+                     loading="lazy" />
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    )}
+
+    <!-- CTA -->
+    <div class="sponsor-reveal border-t border-white/10 pt-12 flex flex-col md:flex-row items-center justify-between gap-6">
+      <div>
+        <p class="text-white font-extrabold text-xl">Vols ser patrocinador?</p>
+        <p class="text-white/40 text-sm mt-1">Visibilitat local i digital · Associació amb valors positius.</p>
+      </div>
+      <div class="flex gap-3">
         <a href="/docs/dossier-patrocinadors.pdf" target="_blank" rel="noopener noreferrer"
-           class="rounded-pill bg-white text-brand-dark px-5 py-2.5 text-sm font-bold hover:bg-brand-light transition-colors shadow-lg">
+           class="rounded-pill bg-white/10 text-white border border-white/20 px-5 py-2.5 text-sm font-bold
+                  hover:bg-white hover:text-brand-dark transition-all duration-300 shadow-lg backdrop-blur">
           Descarregar dossier
         </a>
         <a href="/contacto"
-           class="rounded-pill bg-brand-light text-brand-dark px-5 py-2.5 text-sm font-bold hover:bg-white transition-colors shadow-lg">
+           class="rounded-pill bg-brand-light text-brand-dark px-5 py-2.5 text-sm font-bold
+                  hover:bg-white transition-colors shadow-lg">
           Contactar
         </a>
       </div>
@@ -125,3 +184,75 @@ const tiers = [
 
   </div>
 </section>
+
+<style>
+  /* Partícules or */
+  .particles { position: absolute; inset: 0; }
+  .particle {
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    background: #F2CB40;
+    animation: float-particle 3s ease-in-out infinite;
+    opacity: 0;
+  }
+  .particle:nth-child(1) { left: 20%; top: 70%; animation-delay: 0s;    animation-duration: 2.8s; }
+  .particle:nth-child(2) { left: 40%; top: 80%; animation-delay: 0.4s;  animation-duration: 3.2s; }
+  .particle:nth-child(3) { left: 60%; top: 75%; animation-delay: 0.8s;  animation-duration: 2.5s; }
+  .particle:nth-child(4) { left: 75%; top: 65%; animation-delay: 1.2s;  animation-duration: 3.5s; }
+  .particle:nth-child(5) { left: 85%; top: 55%; animation-delay: 0.2s;  animation-duration: 2.9s; }
+
+  @keyframes float-particle {
+    0%   { transform: translateY(0)   scale(0); opacity: 0; }
+    20%  { opacity: 0.8; }
+    80%  { opacity: 0.4; }
+    100% { transform: translateY(-60px) scale(1.5); opacity: 0; }
+  }
+
+  /* Reveal en scroll */
+  .sponsor-reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .sponsor-reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Or: shimmer border en hover */
+  .sponsor-or {
+    position: relative;
+  }
+  .sponsor-or::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(135deg, transparent 30%, rgba(242,203,64,0.4), transparent 70%);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+  }
+  .sponsor-or:hover::after { opacity: 1; }
+</style>
+
+<script is:inline>
+  // Reveal escalonat en scroll
+  const reveals = document.querySelectorAll('.sponsor-reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 120);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+  reveals.forEach(el => observer.observe(el));
+</script>
