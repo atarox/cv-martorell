@@ -1,0 +1,139 @@
+---
+interface Equip {
+  categoria: string;
+  genere: string;
+  icon: string;
+  edats: string;
+  color: string;
+  accent: string;
+  equip?: string;
+}
+
+const equips: Equip[] = [
+  { categoria: "Aleví",    genere: "Mixt",    icon: "🏐", edats: "Sub-12",  color: "from-sky-900/80 to-brand-dark/90",    accent: "#76AFC2" },
+  { categoria: "Infantil", genere: "Masculí", icon: "🏐", edats: "Sub-14",  color: "from-teal-900/80 to-brand-dark/90",   accent: "#2B6E7F" },
+  { categoria: "Infantil", genere: "Femení",  icon: "🏐", edats: "Sub-14",  color: "from-teal-900/80 to-brand-dark/90",   accent: "#2B6E7F", equip: "Negre" },
+  { categoria: "Infantil", genere: "Femení",  icon: "🏐", edats: "Sub-14",  color: "from-teal-900/80 to-brand-dark/90",   accent: "#76AFC2", equip: "Blau"  },
+  { categoria: "Cadet",    genere: "Femení",  icon: "🏐", edats: "Sub-16",  color: "from-cyan-900/80 to-brand-dark/90",   accent: "#F2CB40", equip: "Negre" },
+  { categoria: "Cadet",    genere: "Femení",  icon: "🏐", edats: "Sub-16",  color: "from-cyan-900/80 to-brand-dark/90",   accent: "#76AFC2", equip: "Blau"  },
+  { categoria: "Juvenil",  genere: "Femení",  icon: "🏐", edats: "Sub-18",  color: "from-indigo-900/80 to-brand-dark/90", accent: "#C4372B", equip: "Negre" },
+  { categoria: "Juvenil",  genere: "Femení",  icon: "🏐", edats: "Sub-18",  color: "from-indigo-900/80 to-brand-dark/90", accent: "#76AFC2", equip: "Blau"  },
+  { categoria: "Júnior",   genere: "Femení",  icon: "🏐", edats: "Sub-20",  color: "from-slate-800/80 to-brand-dark/90",  accent: "#C4372B", equip: "Negre" },
+  { categoria: "Júnior",   genere: "Femení",  icon: "🏐", edats: "Sub-20",  color: "from-slate-800/80 to-brand-dark/90",  accent: "#76AFC2", equip: "Blau"  },
+  { categoria: "Sènior",   genere: "Femení",  icon: "🏐", edats: "Absolut", color: "from-zinc-800/80 to-brand-dark/90",   accent: "#C4372B", equip: "Negre" },
+  { categoria: "Sènior",   genere: "Femení",  icon: "🏐", edats: "Absolut", color: "from-zinc-800/80 to-brand-dark/90",   accent: "#76AFC2", equip: "Blau"  },
+];
+---
+
+<section class="relative bg-brand-dark py-12 overflow-hidden" aria-labelledby="equips-title">
+
+  <!-- Llum ambient -->
+  <div class="absolute inset-0 pointer-events-none"
+       style="background: radial-gradient(ellipse 70% 80% at 50% 50%, rgba(118,175,194,0.05) 0%, transparent 70%);"></div>
+
+  <div class="relative max-w-6xl mx-auto px-6">
+
+    <!-- Capçalera compacta -->
+    <div class="flex items-end justify-between mb-8 equips-reveal">
+      <div>
+        <p class="text-brand-light text-xs font-bold uppercase tracking-[0.3em] mb-1">Temporada 2025–26</p>
+        <h2 id="equips-title" class="text-2xl md:text-3xl font-extrabold text-white tracking-tight">
+          Els nostres equips
+        </h2>
+        <p class="text-white/40 text-sm mt-1">Més de 10 equips competint cada setmana</p>
+      </div>
+      <a href="/equips"
+         class="hidden md:inline-flex items-center gap-2 text-brand-light text-sm font-bold
+                hover:text-white transition-colors group">
+        Veure tots
+        <span class="group-hover:translate-x-1 transition-transform">→</span>
+      </a>
+    </div>
+
+    <!-- Scroll horitzontal de targetes -->
+    <div class="equips-reveal">
+      <div class="equips-track flex gap-3 overflow-x-auto pb-4 -mx-6 px-6 md:mx-0 md:px-0 md:flex-wrap">
+        {equips.map((e) => (
+          <div
+            class={`equip-card flex-shrink-0 relative rounded-xl overflow-hidden bg-gradient-to-br ${e.color}
+                    border border-white/[0.08] w-36 md:w-40`}
+            style={`--accent: ${e.accent};`}
+          >
+            <!-- Accent line top -->
+            <div class="absolute top-0 left-0 right-0 h-[2px]"
+                 style={`background: linear-gradient(90deg, transparent, ${e.accent}, transparent);`}></div>
+
+            <div class="p-4">
+              <!-- Categoria + equip -->
+              <p class="text-white font-extrabold text-sm leading-tight">
+                {e.categoria}
+                {e.equip && <span class="font-normal text-white/50"> {e.equip}</span>}
+              </p>
+              <!-- Gènere -->
+              <p class="text-xs mt-0.5 font-medium" style={`color: ${e.accent};`}>
+                {e.genere}
+              </p>
+              <!-- Edat -->
+              <p class="text-white/30 text-xs mt-2 uppercase tracking-wide">{e.edats}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- CTA mòbil -->
+    <div class="mt-6 text-center md:hidden equips-reveal">
+      <a href="/equips"
+         class="inline-flex items-center gap-2 text-brand-light text-sm font-bold
+                hover:text-white transition-colors">
+        Veure tots els equips →
+      </a>
+    </div>
+
+  </div>
+
+</section>
+
+<style>
+  /* Scroll suau i sense scrollbar visible */
+  .equips-track {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  .equips-track::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Reveal en scroll */
+  .equips-reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .equips-reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Hover subtil a les targetes */
+  .equip-card {
+    transition: transform 0.2s ease, border-color 0.2s ease;
+  }
+  .equip-card:hover {
+    transform: translateY(-3px);
+    border-color: rgba(255,255,255,0.18);
+  }
+</style>
+
+<script is:inline>
+  const reveals = document.querySelectorAll('.equips-reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 100);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  reveals.forEach(el => observer.observe(el));
+</script>
