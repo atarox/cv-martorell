@@ -7,33 +7,49 @@ interface Equip {
   color: string;
   accent: string;
   equip?: string;
+  foto?: string;
+  entrenador?: string;
+  divisio?: string;
+  slug?: string;
 }
 
 const equips: Equip[] = [
-  { categoria: "Aleví",    genere: "Mixt",    icon: "🏐", edats: "Sub-12",  color: "from-sky-900/80 to-brand-dark/90",    accent: "#76AFC2" },
-  { categoria: "Infantil", genere: "Masculí", icon: "🏐", edats: "Sub-14",  color: "from-teal-900/80 to-brand-dark/90",   accent: "#2B6E7F" },
-  { categoria: "Infantil", genere: "Femení",  icon: "🏐", edats: "Sub-14",  color: "from-teal-900/80 to-brand-dark/90",   accent: "#2B6E7F", equip: "Negre" },
-  { categoria: "Infantil", genere: "Femení",  icon: "🏐", edats: "Sub-14",  color: "from-teal-900/80 to-brand-dark/90",   accent: "#76AFC2", equip: "Blau"  },
-  { categoria: "Cadet",    genere: "Femení",  icon: "🏐", edats: "Sub-16",  color: "from-cyan-900/80 to-brand-dark/90",   accent: "#F2CB40", equip: "Negre" },
-  { categoria: "Cadet",    genere: "Femení",  icon: "🏐", edats: "Sub-16",  color: "from-cyan-900/80 to-brand-dark/90",   accent: "#76AFC2", equip: "Blau"  },
-  { categoria: "Juvenil",  genere: "Femení",  icon: "🏐", edats: "Sub-18",  color: "from-indigo-900/80 to-brand-dark/90", accent: "#C4372B", equip: "Negre" },
-  { categoria: "Juvenil",  genere: "Femení",  icon: "🏐", edats: "Sub-18",  color: "from-indigo-900/80 to-brand-dark/90", accent: "#76AFC2", equip: "Blau"  },
-  { categoria: "Júnior",   genere: "Femení",  icon: "🏐", edats: "Sub-20",  color: "from-slate-800/80 to-brand-dark/90",  accent: "#C4372B", equip: "Negre" },
-  { categoria: "Júnior",   genere: "Femení",  icon: "🏐", edats: "Sub-20",  color: "from-slate-800/80 to-brand-dark/90",  accent: "#76AFC2", equip: "Blau"  },
-  { categoria: "Sènior",   genere: "Femení",  icon: "🏐", edats: "Absolut", color: "from-zinc-800/80 to-brand-dark/90",   accent: "#C4372B", equip: "Negre" },
-  { categoria: "Sènior",   genere: "Femení",  icon: "🏐", edats: "Absolut", color: "from-zinc-800/80 to-brand-dark/90",   accent: "#76AFC2", equip: "Blau"  },
+  { categoria: "Aleví",    genere: "Mixt",    icon: "🏐", edats: "Sub-12",  color: "from-sky-900/80 to-brand-dark/90",    accent: "#76AFC2",
+    slug: "alevi-mixt" },
+  { categoria: "Infantil", genere: "Masculí", icon: "🏐", edats: "Sub-14",  color: "from-teal-900/80 to-brand-dark/90",   accent: "#2B6E7F",
+    slug: "infantil-masculi-negre" },
+  { categoria: "Infantil", genere: "Femení",  icon: "🏐", edats: "Sub-14",  color: "from-teal-900/80 to-brand-dark/90",   accent: "#2B6E7F",
+    equip: "Negre", foto: "/images/equips/infantil-femeni-negre.jpg", entrenador: "José Meoniz", divisio: "2a Divisió Femenina",
+    slug: "infantil-femeni-negre" },
+  { categoria: "Infantil", genere: "Femení",  icon: "🏐", edats: "Sub-14",  color: "from-teal-900/80 to-brand-dark/90",   accent: "#76AFC2",
+    equip: "Blau", slug: "infantil-femeni-blau" },
+  { categoria: "Infantil", genere: "Femení",  icon: "🏐", edats: "Sub-14",  color: "from-teal-900/80 to-brand-dark/90",   accent: "#C4372B",
+    equip: "Vermell", slug: "infantil-femeni-vermell" },
+  { categoria: "Cadet",    genere: "Femení",  icon: "🏐", edats: "Sub-16",  color: "from-cyan-900/80 to-brand-dark/90",   accent: "#F2CB40",
+    equip: "Negre", slug: "cadet-femeni-negre" },
+  { categoria: "Cadet",    genere: "Femení",  icon: "🏐", edats: "Sub-16",  color: "from-cyan-900/80 to-brand-dark/90",   accent: "#76AFC2",
+    equip: "Blau", slug: "cadet-femeni-blau" },
+  { categoria: "Juvenil",  genere: "Femení",  icon: "🏐", edats: "Sub-18",  color: "from-indigo-900/80 to-brand-dark/90", accent: "#C4372B",
+    equip: "Negre", slug: "juvenil-femeni-negre" },
+  { categoria: "Juvenil",  genere: "Femení",  icon: "🏐", edats: "Sub-18",  color: "from-indigo-900/80 to-brand-dark/90", accent: "#76AFC2",
+    equip: "Blau", slug: "juvenil-femeni-blau" },
+  { categoria: "Júnior",   genere: "Femení",  icon: "🏐", edats: "Sub-20",  color: "from-slate-800/80 to-brand-dark/90",  accent: "#C4372B",
+    equip: "Negre", slug: "junior-femeni-negre" },
+  { categoria: "Sènior",   genere: "Femení",  icon: "🏐", edats: "Absolut", color: "from-zinc-800/80 to-brand-dark/90",   accent: "#C4372B",
+    equip: "Negre", slug: "senior-femeni-negre" },
+  { categoria: "Sènior",   genere: "Femení",  icon: "🏐", edats: "Absolut", color: "from-zinc-800/80 to-brand-dark/90",   accent: "#76AFC2",
+    equip: "Blau", slug: "senior-femeni-blau" },
+  { categoria: "Màster",   genere: "Mixt",    icon: "🏐", edats: "Absolut", color: "from-sky-900/80 to-brand-dark/90",    accent: "#76AFC2" },
 ];
 ---
 
 <section class="relative bg-brand-dark pt-12 pb-24 overflow-hidden" aria-labelledby="equips-title">
 
-  <!-- Llum ambient -->
   <div class="absolute inset-0 pointer-events-none"
        style="background: radial-gradient(ellipse 70% 80% at 50% 50%, rgba(118,175,194,0.05) 0%, transparent 70%);"></div>
 
   <div class="relative max-w-6xl mx-auto px-6">
 
-    <!-- Capçalera compacta -->
     <div class="flex items-end justify-between mb-8 equips-reveal">
       <div>
         <p class="text-brand-light text-xs font-bold uppercase tracking-[0.3em] mb-1">Temporada 2025–26</p>
@@ -50,49 +66,89 @@ const equips: Equip[] = [
       </a>
     </div>
 
+    <!-- Sitting Volei -->
+    <div class="equips-reveal mb-6">
+      <a href="/equips#sitting"
+         class="sitting-card group relative flex items-center gap-5 rounded-2xl overflow-hidden
+                border border-catalan-yellow/30 bg-gradient-to-r from-yellow-950/60 to-brand-dark
+                px-6 py-5 hover:border-catalan-yellow/60 transition-all duration-300">
+        <div class="absolute left-0 top-0 bottom-0 w-1 bg-catalan-yellow/80 rounded-l-2xl"></div>
+        <div class="flex-shrink-0 w-12 h-12 rounded-xl flex items-center justify-center
+                    bg-catalan-yellow/10 border border-catalan-yellow/20 text-2xl">♿</div>
+        <div class="flex-grow min-w-0">
+          <div class="flex items-center gap-2 flex-wrap">
+            <p class="text-white font-extrabold text-base leading-tight">Volei Terra</p>
+            <span class="text-xs font-bold uppercase tracking-wider px-2 py-0.5 rounded-full
+                         bg-catalan-yellow/15 border border-catalan-yellow/30" style="color: #F2CB40;">
+              Únics a Catalunya
+            </span>
+          </div>
+          <p class="text-white/40 text-xs mt-1">Sitting Volei · Mixt · Absolut</p>
+        </div>
+        <div class="flex-shrink-0 text-catalan-yellow/50 group-hover:text-catalan-yellow
+                    group-hover:translate-x-1 transition-all duration-200 text-lg">→</div>
+        <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+             style="background: radial-gradient(ellipse 60% 80% at 20% 50%, rgba(242,203,64,0.06) 0%, transparent 70%);"></div>
+      </a>
+    </div>
+
     <!-- Scroll horitzontal de targetes -->
     <div class="equips-reveal">
       <div class="equips-track flex gap-3 overflow-x-auto pb-4 -mx-6 px-6 md:mx-0 md:px-0 md:flex-wrap">
-        {equips.map((e) => (
-          <div
-            class={`equip-card flex-shrink-0 relative rounded-xl overflow-hidden bg-gradient-to-br ${e.color}
-                    border border-white/[0.08] w-36 md:w-40`}
-            style={`--accent: ${e.accent};`}
-          >
-            <!-- Accent line top -->
-            <div class="absolute top-0 left-0 right-0 h-[2px]"
-                 style={`background: linear-gradient(90deg, transparent, ${e.accent}, transparent);`}></div>
+        {equips.map((e) => {
+          const inner = (
+            <div class={`equip-pill relative rounded-xl overflow-hidden w-36 md:w-40
+                         ${e.foto ? '' : `bg-gradient-to-br ${e.color}`}
+                         border border-white/[0.08] ${e.slug ? 'hover:border-white/20' : ''}`}
+                 style={`--accent: ${e.accent};`}>
 
-            <div class="p-4">
-              <!-- Categoria + equip -->
-              <p class="text-white font-extrabold text-sm leading-tight">
-                {e.categoria}
-                {e.equip && <span class="font-normal text-white/50"> {e.equip}</span>}
-              </p>
-              <!-- Gènere -->
-              <p class="text-xs mt-0.5 font-medium" style={`color: ${e.accent};`}>
-                {e.genere}
-              </p>
-              <!-- Edat -->
-              <p class="text-white/30 text-xs mt-2 uppercase tracking-wide">{e.edats}</p>
+              {e.foto && (
+                <div class="absolute inset-0">
+                  <img src={e.foto} alt={`${e.categoria} ${e.equip ?? ''}`}
+                       class="w-full h-full object-cover object-top" loading="lazy" />
+                  <div class="absolute inset-0"
+                       style="background: linear-gradient(to top, #0D1C23 0%, #0D1C23cc 40%, rgba(13,28,35,0.5) 100%);"></div>
+                </div>
+              )}
+
+              <div class="absolute top-0 left-0 right-0 h-[2px]"
+                   style={`background: linear-gradient(90deg, transparent, ${e.accent}, transparent);`}></div>
+
+              <div class="relative p-4">
+                <p class="text-white font-extrabold text-sm leading-tight">
+                  {e.categoria}
+                  {e.equip && <span class="font-normal text-white/50"> {e.equip}</span>}
+                </p>
+                <p class="text-xs mt-0.5 font-medium" style={`color: ${e.accent};`}>{e.genere}</p>
+                {e.divisio && <p class="text-white/60 text-xs mt-1 leading-tight">{e.divisio}</p>}
+                <p class="text-white/30 text-xs mt-2 uppercase tracking-wide">{e.edats}</p>
+                {e.entrenador && <p class="text-white/25 text-xs mt-1 italic">{e.entrenador}</p>}
+                {e.slug && (
+                  <p class="text-xs mt-2 font-semibold" style={`color: ${e.accent};`}>
+                    Veure stats →
+                  </p>
+                )}
+              </div>
             </div>
-          </div>
-        ))}
+          );
+
+          return e.slug ? (
+            <a href={`/equips/${e.slug}`} class="flex-shrink-0 block">{inner}</a>
+          ) : (
+            <div class="flex-shrink-0">{inner}</div>
+          );
+        })}
       </div>
     </div>
 
-    <!-- CTA mòbil -->
     <div class="mt-6 text-center md:hidden equips-reveal">
-      <a href="/equips"
-         class="inline-flex items-center gap-2 text-brand-light text-sm font-bold
-                hover:text-white transition-colors">
+      <a href="/equips" class="inline-flex items-center gap-2 text-brand-light text-sm font-bold hover:text-white transition-colors">
         Veure tots els equips →
       </a>
     </div>
 
   </div>
 
-  <!-- OLA DE SORTIDA: EquipsSummary (#0D1C23) → ClubActivity (#E2F4FB) -->
   <div class="absolute bottom-0 left-0 right-0 pointer-events-none" style="line-height: 0;">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 80" preserveAspectRatio="none"
          style="display:block; width:100%; height:80px;">
@@ -103,34 +159,12 @@ const equips: Equip[] = [
 </section>
 
 <style>
-  /* Scroll suau i sense scrollbar visible */
-  .equips-track {
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-  }
-  .equips-track::-webkit-scrollbar {
-    display: none;
-  }
-
-  /* Reveal en scroll */
-  .equips-reveal {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.6s ease, transform 0.6s ease;
-  }
-  .equips-reveal.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  /* Hover subtil a les targetes */
-  .equip-card {
-    transition: transform 0.2s ease, border-color 0.2s ease;
-  }
-  .equip-card:hover {
-    transform: translateY(-3px);
-    border-color: rgba(255,255,255,0.18);
-  }
+  .equips-track { scrollbar-width: none; -ms-overflow-style: none; }
+  .equips-track::-webkit-scrollbar { display: none; }
+  .equips-reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  .equips-reveal.visible { opacity: 1; transform: translateY(0); }
+  .equip-pill { transition: transform 0.2s ease, border-color 0.2s ease; }
+  .equip-pill:hover { transform: translateY(-3px); }
 </style>
 
 <script is:inline>

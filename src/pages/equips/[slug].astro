@@ -1,0 +1,285 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+export async function getStaticPaths() {
+  return [
+    { params: { slug: "alevi-mixt" } },
+    { params: { slug: "infantil-masculi-negre" } },
+    { params: { slug: "infantil-femeni-negre" } },
+    { params: { slug: "infantil-femeni-blau" } },
+    { params: { slug: "infantil-femeni-vermell" } },
+    { params: { slug: "cadet-femeni-negre" } },
+    { params: { slug: "cadet-femeni-blau" } },
+    { params: { slug: "juvenil-femeni-negre" } },
+    { params: { slug: "juvenil-femeni-blau" } },
+    { params: { slug: "junior-femeni-negre" } },
+    { params: { slug: "senior-femeni-negre" } },
+    { params: { slug: "senior-femeni-blau" } },
+  ];
+}
+
+const { slug } = Astro.params;
+
+const WORKER_URL = "https://cv-martorell-worker.atarox.workers.dev";
+
+// Mapa de fotos per slug — afegeix les que tinguis
+const FOTOS: Record<string, string> = {
+  "infantil-femeni-negre": "/images/equips/infantil-femeni-negre.jpg",
+  // "cadet-femeni-negre": "/images/equips/cadet-femeni-negre.jpg",
+  // afegeix més quan tinguis les fotos
+};
+
+const foto = FOTOS[slug] ?? null;
+
+let dades: any = null;
+let error: string | null = null;
+try {
+  const res = await fetch(`${WORKER_URL}/equip/${slug}`);
+  if (res.ok) dades = await res.json();
+  else error = "No s'han pogut carregar les dades.";
+} catch (e) {
+  error = "Error de connexió amb el worker.";
+}
+
+const accentLight = "#76AFC2";
+
+function esMartorell(nom: string): boolean {
+  return nom.toUpperCase().includes("MARTORELL");
+}
+
+function formatData(data: string | null): string {
+  return data ? data.trim() : "—";
+}
+---
+
+<BaseLayout
+  title={dades ? `${dades.nom} – CV Martorell` : "Equip – CV Martorell"}
+  description={dades ? `Resultats i classificació de ${dades.nom}` : ""}
+>
+
+  <!-- Hero amb foto o gradient -->
+  <div class="relative overflow-hidden" style="min-height: 560px;">
+
+    <!-- Foto de fons si existeix -->
+    {foto ? (
+      <div class="absolute inset-0">
+        <img src={foto}
+             alt={dades?.nom ?? slug}
+             class="w-full h-full object-cover object-top" />
+        <!-- Gradient fosc per llegibilitat — més fort a baix on hi ha el text -->
+        <div class="absolute inset-0"
+             style="background: linear-gradient(to top, #0D1C23 0%, rgba(13,28,35,0.85) 40%, rgba(13,28,35,0.2) 100%);"></div>
+      </div>
+    ) : (
+      <div class="absolute inset-0 bg-brand-dark">
+        <div class="absolute inset-0 opacity-10"
+             style="background-image: radial-gradient(circle at 20% 50%, #76AFC2 0%, transparent 60%), radial-gradient(circle at 80% 20%, #2B6E7F 0%, transparent 50%);"></div>
+      </div>
+    )}
+
+    <!-- Contingut del hero -->
+    <div class="relative container mx-auto px-6 pt-32 pb-16 flex flex-col justify-end h-full" style="min-height: 560px;">
+      <a href="/equips" class="inline-flex items-center gap-2 text-white/50 hover:text-white/90 text-sm mb-6 transition-colors w-fit">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+        </svg>
+        Tots els equips
+      </a>
+
+      <p class="text-sm font-semibold uppercase tracking-widest mb-2" style={`color: ${accentLight};`}>
+        Temporada 2025–26
+      </p>
+
+      <h1 class="text-4xl md:text-6xl font-extrabold text-white tracking-tight drop-shadow-lg">
+        {dades ? dades.nom : slug}
+      </h1>
+
+      {dades?.posicio && (
+        <div class="mt-6 inline-flex items-center gap-3 rounded-2xl px-5 py-3 border border-white/10 bg-black/30 backdrop-blur-sm w-fit">
+          <span class="text-3xl font-extrabold" style={`color: ${accentLight};`}>
+            #{dades.posicio.pos}
+          </span>
+          <div>
+            <p class="text-white/40 text-xs uppercase tracking-wider">Posició</p>
+            <p class="text-white text-sm font-semibold">
+              {dades.posicio.gan}V · {dades.posicio.per}D · {dades.posicio.punts} pts
+            </p>
+          </div>
+        </div>
+      )}
+    </div>
+  </div>
+
+  {error && (
+    <div class="container mx-auto px-6 py-16 text-center text-white/50">
+      <p>{error}</p>
+    </div>
+  )}
+
+  {dades && (
+    <section class="container mx-auto px-4 md:px-6 py-16 space-y-12">
+
+      <!-- Últim resultat + Proper partit -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+        <div class="rounded-2xl bg-brand-dark border border-white/10 p-6 shadow-soft">
+          <p class="text-xs font-bold uppercase tracking-widest mb-4" style={`color: ${accentLight};`}>
+            Últim resultat
+          </p>
+          {dades.ultimResultat ? (
+            <div class="space-y-4">
+              <div class="flex items-center justify-between gap-4">
+                <div class="flex-1 text-right">
+                  <p class={`text-sm font-bold leading-tight ${esMartorell(dades.ultimResultat.local) ? 'text-white' : 'text-white/40'}`}>
+                    {dades.ultimResultat.local}
+                  </p>
+                </div>
+                <div class="flex-shrink-0 px-4 text-center">
+                  <span class="text-2xl font-extrabold text-white tabular-nums">
+                    {dades.ultimResultat.marcador ?? "—"}
+                  </span>
+                </div>
+                <div class="flex-1 text-left">
+                  <p class={`text-sm font-bold leading-tight ${esMartorell(dades.ultimResultat.visitant) ? 'text-white' : 'text-white/40'}`}>
+                    {dades.ultimResultat.visitant}
+                  </p>
+                </div>
+              </div>
+              <p class="text-white/30 text-xs text-center">{formatData(dades.ultimResultat.data)}</p>
+            </div>
+          ) : (
+            <p class="text-white/30 text-sm">Encara no hi ha resultats.</p>
+          )}
+        </div>
+
+        <div class="rounded-2xl bg-brand-dark border border-white/10 p-6 shadow-soft">
+          <p class="text-xs font-bold uppercase tracking-widest mb-4" style={`color: ${accentLight};`}>
+            Proper partit
+          </p>
+          {dades.propersPartits.length > 0 ? (
+            <div class="space-y-4">
+              <div class="flex items-center justify-between gap-4">
+                <div class="flex-1 text-right">
+                  <p class={`text-sm font-bold leading-tight ${esMartorell(dades.propersPartits[0].local) ? 'text-white' : 'text-white/40'}`}>
+                    {dades.propersPartits[0].local}
+                  </p>
+                </div>
+                <div class="flex-shrink-0 px-4 text-center">
+                  <span class="text-lg font-extrabold text-white/30">VS</span>
+                </div>
+                <div class="flex-1 text-left">
+                  <p class={`text-sm font-bold leading-tight ${esMartorell(dades.propersPartits[0].visitant) ? 'text-white' : 'text-white/40'}`}>
+                    {dades.propersPartits[0].visitant}
+                  </p>
+                </div>
+              </div>
+              <p class="text-white/30 text-xs text-center">{formatData(dades.propersPartits[0].data)}</p>
+            </div>
+          ) : (
+            <p class="text-white/30 text-sm">No hi ha partits programats.</p>
+          )}
+        </div>
+      </div>
+
+      <!-- Classificació -->
+      {dades.clasificacion.length > 0 && (
+        <div class="rounded-2xl bg-brand-dark border border-white/10 shadow-soft overflow-hidden">
+          <div class="px-6 py-4 border-b border-white/10">
+            <p class="text-xs font-bold uppercase tracking-widest" style={`color: ${accentLight};`}>Classificació</p>
+          </div>
+          <div class="overflow-x-auto">
+            <table class="w-full text-sm">
+              <thead>
+                <tr class="text-white/30 text-xs uppercase tracking-wider border-b border-white/10">
+                  <th class="px-6 py-3 text-left w-8">#</th>
+                  <th class="px-6 py-3 text-left">Equip</th>
+                  <th class="px-4 py-3 text-center">PJ</th>
+                  <th class="px-4 py-3 text-center">G</th>
+                  <th class="px-4 py-3 text-center">P</th>
+                  <th class="px-4 py-3 text-center">Pts</th>
+                </tr>
+              </thead>
+              <tbody>
+                {dades.clasificacion.map((fila: any) => (
+                  <tr class={`border-b border-white/5 ${esMartorell(fila.equip) ? 'bg-white/5' : 'hover:bg-white/5'} transition-colors`}>
+                    <td class="px-6 py-3 text-white/40 font-mono">{fila.pos}</td>
+                    <td class="px-6 py-3">
+                      <span class={`font-semibold ${esMartorell(fila.equip) ? 'text-white' : 'text-white/60'}`}>
+                        {esMartorell(fila.equip) && (
+                          <span class="inline-block w-1.5 h-1.5 rounded-full mr-2 mb-0.5 align-middle" style={`background: ${accentLight};`}></span>
+                        )}
+                        {fila.equip}
+                      </span>
+                    </td>
+                    <td class="px-4 py-3 text-center text-white/50">{fila.jug}</td>
+                    <td class="px-4 py-3 text-center text-white/50">{fila.gan}</td>
+                    <td class="px-4 py-3 text-center text-white/50">{fila.per}</td>
+                    <td class="px-4 py-3 text-center font-bold" style={esMartorell(fila.equip) ? `color: ${accentLight};` : 'color: rgba(255,255,255,0.6);'}>
+                      {fila.punts}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      )}
+
+      <!-- Partits jugats -->
+      {dades.jugats.length > 0 && (
+        <div class="rounded-2xl bg-brand-dark border border-white/10 shadow-soft overflow-hidden">
+          <div class="px-6 py-4 border-b border-white/10">
+            <p class="text-xs font-bold uppercase tracking-widest" style={`color: ${accentLight};`}>Partits jugats</p>
+          </div>
+          <div class="divide-y divide-white/5">
+            {dades.jugats.map((p: any) => (
+              <div class="px-6 py-4 flex items-center gap-4">
+                <div class="flex-1 text-right">
+                  <p class={`text-sm font-semibold leading-tight ${esMartorell(p.local) ? 'text-white' : 'text-white/40'}`}>{p.local}</p>
+                </div>
+                <div class="flex-shrink-0 text-center min-w-[80px]">
+                  <span class="text-lg font-extrabold text-white tabular-nums">{p.marcador ?? "—"}</span>
+                  <p class="text-white/20 text-xs mt-0.5">{formatData(p.data)}</p>
+                </div>
+                <div class="flex-1 text-left">
+                  <p class={`text-sm font-semibold leading-tight ${esMartorell(p.visitant) ? 'text-white' : 'text-white/40'}`}>{p.visitant}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
+      <!-- Propers partits -->
+      {dades.propersPartits.length > 0 && (
+        <div class="rounded-2xl bg-brand-dark border border-white/10 shadow-soft overflow-hidden">
+          <div class="px-6 py-4 border-b border-white/10">
+            <p class="text-xs font-bold uppercase tracking-widest" style={`color: ${accentLight};`}>Propers partits</p>
+          </div>
+          <div class="divide-y divide-white/5">
+            {dades.propersPartits.map((p: any) => (
+              <div class="px-6 py-4 flex items-center gap-4">
+                <div class="flex-1 text-right">
+                  <p class={`text-sm font-semibold leading-tight ${esMartorell(p.local) ? 'text-white' : 'text-white/40'}`}>{p.local}</p>
+                </div>
+                <div class="flex-shrink-0 text-center min-w-[80px]">
+                  <span class="text-sm font-bold text-white/30">VS</span>
+                  <p class="text-white/20 text-xs mt-0.5">{formatData(p.data)}</p>
+                </div>
+                <div class="flex-1 text-left">
+                  <p class={`text-sm font-semibold leading-tight ${esMartorell(p.visitant) ? 'text-white' : 'text-white/40'}`}>{p.visitant}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
+      <p class="text-white/20 text-xs text-center">
+        Actualitzat: {new Date(dades.actualitzat).toLocaleString("ca-ES", { dateStyle: "medium", timeStyle: "short" })}
+      </p>
+
+    </section>
+  )}
+
+</BaseLayout>

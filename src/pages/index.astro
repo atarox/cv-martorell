@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Hero from "../components/Hero.astro";
+import Separador from "../components/Separador.astro";
 import EquipsSummary from "../components/EquipsSummary.astro";
 import ClubActivity from "../components/ClubActivity.astro";
 import SponsorGrid from "../components/SponsorGrid.astro";
@@ -12,9 +13,23 @@ const page = {
 ---
 <BaseLayout title={page.title} description={page.description}>
   <main id="contenido" class="flex-grow">
+
     <Hero />
-    <EquipsSummary/>
-    <ClubActivity/>
-    <SponsorGrid/>
+
+    <!-- Hero (#0D1C23) → EquipsSummary (#0D1C23): mateix color, separador decoratiu -->
+    <Separador fromColor="#0D1C23" toColor="#0D1C23" accent="#76AFC2" />
+
+    <EquipsSummary />
+
+    <!-- EquipsSummary (#0D1C23) → ClubActivity (#E2F4FB) -->
+    <Separador fromColor="#0D1C23" toColor="#E2F4FB" accent="#76AFC2" flip={true} />
+
+    <ClubActivity />
+
+    <!-- ClubActivity (#E2F4FB) → SponsorGrid (#0D1C23): accent daurat per anticipar la secció premium -->
+    <Separador fromColor="#E2F4FB" toColor="#0D1C23" accent="#F2CB40" />
+
+    <SponsorGrid />
+
   </main>
 </BaseLayout>
