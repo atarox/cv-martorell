@@ -20,7 +20,7 @@ const bronze       = sponsors.filter(s => s.tier === "bronze");
 const colaboradors = sponsors.filter(s => s.tier === "col·laborador");
 ---
 
-<section class="relative py-24 overflow-hidden bg-brand-dark" aria-labelledby="patrocinadors">
+<section class="relative py-24 overflow-hidden bg-brand-dark text-white" aria-labelledby="patrocinadors">
 
   <!-- Fons: malla de punts subtil -->
   <div class="absolute inset-0 opacity-[0.04]"
@@ -50,31 +50,30 @@ const colaboradors = sponsors.filter(s => s.tier === "col·laborador");
               <a href={s.url} target="_blank" rel="noopener noreferrer"
                  class="sponsor-or group relative flex items-center justify-center rounded-3xl overflow-hidden
                         bg-gradient-to-br from-yellow-950/60 to-brand-dark
-                        border border-yellow-500/20 shadow-2xl
-                        transition-all duration-500 focus:outline-none focus:ring-2 focus:ring-yellow-400/40"
+                        border border-catalan-yellow/20 shadow-2xl
+                        transition-all duration-500 focus:outline-none focus:ring-2 focus:ring-catalan-yellow/40"
                  style="min-height: 180px;"
                  aria-label={s.name}>
 
                 <!-- Glow de fons en hover -->
-                <div class="sponsor-glow absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+                <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
                      style="background: radial-gradient(ellipse 60% 50% at 50% 50%, rgba(242,203,64,0.12) 0%, transparent 70%);"></div>
 
-                <!-- Línia or superior animada -->
+                <!-- Línia or superior -->
                 <div class="absolute top-0 left-0 right-0 h-px"
                      style="background: linear-gradient(90deg, transparent, #F2CB40, transparent);"></div>
 
                 <!-- BADGE "Patrocinador Oficial" -->
                 <div class="absolute top-3 right-3 z-20 flex items-center gap-1.5
                             rounded-full px-3 py-1
-                            border border-yellow-400/40 bg-yellow-400/10 backdrop-blur-sm">
-                  <!-- Estrella SVG -->
-                  <svg xmlns="http://www.w3.org/2000/svg" class="w-3 h-3 flex-shrink-0" viewBox="0 0 24 24" fill="#F2CB40">
+                            border border-catalan-yellow/40 bg-catalan-yellow/10 backdrop-blur-sm">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-3 h-3 flex-shrink-0 text-catalan-yellow" viewBox="0 0 24 24" fill="currentColor">
                     <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
                   </svg>
-                  <span class="text-[10px] font-bold uppercase tracking-widest" style="color: #F2CB40;">Patrocinador Principal</span>
+                  <span class="text-[10px] font-bold uppercase tracking-widest text-catalan-yellow">Patrocinador Oficial</span>
                 </div>
 
-                <!-- Partícules or (CSS) -->
+                <!-- Partícules or -->
                 <div class="particles absolute inset-0 pointer-events-none overflow-hidden opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   <span class="particle"></span>
                   <span class="particle"></span>
@@ -89,9 +88,10 @@ const colaboradors = sponsors.filter(s => s.tier === "col·laborador");
                             transition-all duration-500 drop-shadow-lg"
                      loading="lazy" />
 
-                <!-- Nom del sponsor -->
-                <span class="absolute bottom-3 left-0 right-0 text-center text-[11px] font-semibold uppercase tracking-widest opacity-30 group-hover:opacity-60 transition-opacity duration-300"
-                      style="color: #F2CB40;">{s.name}</span>
+                <span class="absolute bottom-3 left-0 right-0 text-center text-[11px] font-semibold uppercase tracking-widest
+                             opacity-30 group-hover:opacity-60 transition-opacity duration-300 text-catalan-yellow">
+                  {s.name}
+                </span>
               </a>
             </li>
           ))}
@@ -119,7 +119,10 @@ const colaboradors = sponsors.filter(s => s.tier === "col·laborador");
                             opacity-60 group-hover:opacity-90 group-hover:scale-105
                             transition-all duration-300"
                      loading="lazy" />
-                <span class="absolute bottom-2 left-0 right-0 text-center text-[10px] font-semibold uppercase tracking-widest opacity-20 group-hover:opacity-50 transition-opacity duration-300 text-white">{s.name}</span>
+                <span class="absolute bottom-2 left-0 right-0 text-center text-[10px] font-semibold uppercase tracking-widest
+                             opacity-20 group-hover:opacity-50 transition-opacity duration-300 text-white">
+                  {s.name}
+                </span>
               </a>
             </li>
           ))}
@@ -147,7 +150,10 @@ const colaboradors = sponsors.filter(s => s.tier === "col·laborador");
                             opacity-50 group-hover:opacity-80 group-hover:scale-105
                             transition-all duration-300"
                      loading="lazy" />
-                <span class="absolute bottom-1.5 left-0 right-0 text-center text-[9px] font-semibold uppercase tracking-widest opacity-20 group-hover:opacity-50 transition-opacity duration-300 text-white">{s.name}</span>
+                <span class="absolute bottom-1.5 left-0 right-0 text-center text-[9px] font-semibold uppercase tracking-widest
+                             opacity-20 group-hover:opacity-50 transition-opacity duration-300 text-white">
+                  {s.name}
+                </span>
               </a>
             </li>
           ))}
@@ -155,46 +161,41 @@ const colaboradors = sponsors.filter(s => s.tier === "col·laborador");
       </div>
     )}
 
-	<!-- COL·LABORADORS: franja marquee -->
-	{colaboradors.length > 0 && (
-	  <div class="mb-16 sponsor-reveal">
+    <!-- COL·LABORADORS: franja marquee -->
+    {colaboradors.length > 0 && (
+      <div class="mb-16 sponsor-reveal">
 
-		<!-- Label centrat amb línies -->
-		<div class="flex items-center gap-4 mb-5">
-		  <div class="flex-1 h-px bg-gradient-to-r from-transparent via-brand-light/20 to-transparent"></div>
-		  <span class="text-brand-light/45 text-[10px] font-bold uppercase tracking-[0.3em] whitespace-nowrap">
-			Col·laboradors del club
-		  </span>
-		  <div class="flex-1 h-px bg-gradient-to-r from-transparent via-brand-light/20 to-transparent"></div>
-		</div>
+        <!-- Label centrat amb línies -->
+        <div class="flex items-center gap-4 mb-5">
+          <div class="flex-1 h-px" style="background: linear-gradient(90deg, transparent, rgba(118,175,194,0.2), transparent);"></div>
+          <span class="text-brand-light/45 text-[10px] font-bold uppercase tracking-[0.3em] whitespace-nowrap">
+            Col·laboradors del club
+          </span>
+          <div class="flex-1 h-px" style="background: linear-gradient(90deg, transparent, rgba(118,175,194,0.2), transparent);"></div>
+        </div>
 
-		<!-- Marquee -->
-		<div class="relative overflow-hidden
-					before:absolute before:inset-y-0 before:left-0 before:w-20 before:z-10
-					before:bg-gradient-to-r before:from-brand-dark before:to-transparent
-					after:absolute after:inset-y-0 after:right-0 after:w-20 after:z-10
-					after:bg-gradient-to-l after:from-brand-dark after:to-transparent">
-		  <ul class="flex w-max animate-marquee hover:[animation-play-state:paused]">
-			{/* Dos sets per a loop infinit */}
-			{[...colaboradors, ...colaboradors].map((s, i) => (
-			  <li key={i}>
-				<a href={s.url} target="_blank" rel="noopener noreferrer"
-				   aria-label={s.name}
-				   class="flex items-center justify-center h-16 px-8 min-w-[120px]
-						  border-r border-brand-light/[0.07]
-						  opacity-40 hover:opacity-80 hover:bg-brand-light/[0.04]
-						  transition-all duration-300">
-				  <img src={s.logo} alt={s.alt || s.name}
-					   class="object-contain max-h-8 max-w-[100px]"
-					   loading="lazy" />
-				</a>
-			  </li>
-			))}
-		  </ul>
-		</div>
+        <!-- Marquee -->
+        <div class="relative overflow-hidden marquee-outer">
+          <ul class="flex w-max animate-marquee hover:[animation-play-state:paused]">
+            {[...colaboradors, ...colaboradors].map((s, i) => (
+              <li key={i}>
+                <a href={s.url} target="_blank" rel="noopener noreferrer"
+                   aria-label={s.name}
+                   class="flex items-center justify-center h-16 px-8 min-w-[120px]
+                          border-r border-brand-light/[0.07]
+                          opacity-40 hover:opacity-80 hover:bg-brand-light/[0.04]
+                          transition-all duration-300">
+                  <img src={s.logo} alt={s.alt || s.name}
+                       class="object-contain max-h-8 max-w-[100px]"
+                       loading="lazy" />
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
 
-	  </div>
-	)}
+      </div>
+    )}
 
     <!-- ENTITATS VINCULADES -->
     <div class="sponsor-reveal border-t border-white/[0.06] pt-10 mb-12">
@@ -215,32 +216,32 @@ const colaboradors = sponsors.filter(s => s.tier === "col·laborador");
       </div>
     </div>
 
-    <!-- CTA -->
-    <div class="sponsor-reveal border-t border-white/10 pt-12 flex flex-col md:flex-row items-center justify-between gap-6">
-      <div>
-        <p class="text-white font-extrabold text-xl">Vols ser patrocinador?</p>
-        <p class="text-white/40 text-sm mt-1">Visibilitat local i digital · Associació amb valors positius.</p>
-      </div>
-      <div class="flex gap-3">
-        <a href="/docs/dossier-patrocinadors.pdf" target="_blank" rel="noopener noreferrer"
-           class="rounded-pill bg-white/10 text-white border border-white/20 px-5 py-2.5 text-sm font-bold
-                  hover:bg-white hover:text-brand-dark transition-all duration-300 shadow-lg backdrop-blur">
-          Descarregar dossier
-        </a>
-        <a href="/contacte"
-           class="rounded-pill bg-brand-light text-brand-dark px-5 py-2.5 text-sm font-bold
-                  hover:bg-white transition-colors shadow-lg">
-          Contactar
-        </a>
-      </div>
-    </div>
+
 
   </div>
 </section>
 
 <style>
+  /* Fades laterals del marquee */
+  .marquee-outer::before,
+  .marquee-outer::after {
+    content: '';
+    position: absolute;
+    top: 0; bottom: 0;
+    width: 80px;
+    z-index: 2;
+    pointer-events: none;
+  }
+  .marquee-outer::before {
+    left: 0;
+    background: linear-gradient(90deg, #0D1C23, transparent);
+  }
+  .marquee-outer::after {
+    right: 0;
+    background: linear-gradient(-90deg, #0D1C23, transparent);
+  }
+
   /* Partícules or */
-  .particles { position: absolute; inset: 0; }
   .particle {
     position: absolute;
     width: 3px;
@@ -250,31 +251,20 @@ const colaboradors = sponsors.filter(s => s.tier === "col·laborador");
     animation: float-particle 3s ease-in-out infinite;
     opacity: 0;
   }
-  .particle:nth-child(1) { left: 20%; top: 70%; animation-delay: 0s;    animation-duration: 2.8s; }
-  .particle:nth-child(2) { left: 40%; top: 80%; animation-delay: 0.4s;  animation-duration: 3.2s; }
-  .particle:nth-child(3) { left: 60%; top: 75%; animation-delay: 0.8s;  animation-duration: 2.5s; }
-  .particle:nth-child(4) { left: 75%; top: 65%; animation-delay: 1.2s;  animation-duration: 3.5s; }
-  .particle:nth-child(5) { left: 85%; top: 55%; animation-delay: 0.2s;  animation-duration: 2.9s; }
+  .particle:nth-child(1) { left: 20%; top: 70%; animation-delay: 0s;   animation-duration: 2.8s; }
+  .particle:nth-child(2) { left: 40%; top: 80%; animation-delay: 0.4s; animation-duration: 3.2s; }
+  .particle:nth-child(3) { left: 60%; top: 75%; animation-delay: 0.8s; animation-duration: 2.5s; }
+  .particle:nth-child(4) { left: 75%; top: 65%; animation-delay: 1.2s; animation-duration: 3.5s; }
+  .particle:nth-child(5) { left: 85%; top: 55%; animation-delay: 0.2s; animation-duration: 2.9s; }
 
   @keyframes float-particle {
-    0%   { transform: translateY(0)   scale(0); opacity: 0; }
+    0%   { transform: translateY(0)    scale(0);   opacity: 0; }
     20%  { opacity: 0.8; }
     80%  { opacity: 0.4; }
     100% { transform: translateY(-60px) scale(1.5); opacity: 0; }
   }
 
-  /* Reveal en scroll */
-  .sponsor-reveal {
-    opacity: 0;
-    transform: translateY(24px);
-    transition: opacity 0.7s ease, transform 0.7s ease;
-  }
-  .sponsor-reveal.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  /* Or: shimmer border en hover */
+  /* Shimmer border en hover (tier or) */
   .sponsor-or {
     position: relative;
   }
@@ -294,6 +284,17 @@ const colaboradors = sponsors.filter(s => s.tier === "col·laborador");
     pointer-events: none;
   }
   .sponsor-or:hover::after { opacity: 1; }
+
+  /* Reveal en scroll */
+  .sponsor-reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .sponsor-reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
 </style>
 
 <script is:inline>

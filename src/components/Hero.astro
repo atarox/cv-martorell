@@ -274,7 +274,7 @@ const slides = [
           const img = activeSlide.querySelector('.hero-slide-img');
           if (img && window.scrollY < hero.offsetHeight) {
             // Aplica parallax com a translació addicional sobre la transform Ken Burns
-            img.style.setProperty('--parallax', `${window.scrollY * 0.15}px`);
+            img.style.transform = `translateY(${window.scrollY * 0.12}px)`;
           }
         }
         ticking = false;

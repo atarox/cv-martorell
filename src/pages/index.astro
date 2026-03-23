@@ -5,23 +5,26 @@ import Separador from "../components/Separador.astro";
 import EquipsSummary from "../components/EquipsSummary.astro";
 import ClubActivity from "../components/ClubActivity.astro";
 import SponsorGrid from "../components/SponsorGrid.astro";
+
 const page = {
   title: "El voleibol viu a Martorell – CV Martorell",
   description: "Entrenaments, partits i moments del CV Martorell. Descobreix el nostre dia a dia i segueix-nos a Instagram.",
 };
 ---
 <BaseLayout title={page.title} description={page.description}>
-    <Hero />
-    <!-- Hero (azul oscuro club) → SponsorGrid -->
-    <Separador fromColor="#0B2A3A" toColor="#0B2A3A" accent="#F2CB40" />
-    <SponsorGrid />
 
-    <!-- Sponsors → Equips -->
-    <Separador fromColor="#0B2A3A" toColor="#0B2A3A" accent="#3FA7D6" />
-    <EquipsSummary />
+  <Hero />
 
-    <!-- Equips → Activitat del club -->
-    <Separador fromColor="#0B2A3A" toColor="#E6F3FA" accent="#3FA7D6" flip={true} />
-    <ClubActivity />
+  <!-- Hero (#0D1C23) → SponsorGrid (#0D1C23): separador daurat -->
+  <Separador fromColor="#0D1C23" toColor="#0D1C23" accent="#F2CB40" />
+  <SponsorGrid />
+
+  <!-- SponsorGrid (#0D1C23) → EquipsSummary (#0D1C23): separador blau -->
+  <Separador fromColor="#0D1C23" toColor="#0D1C23" accent="#76AFC2" />
+  <EquipsSummary />
+
+  <!-- EquipsSummary (#0D1C23) → ClubActivity (#E2F4FB): transició a clar -->
+  <Separador fromColor="#0D1C23" toColor="#E2F4FB" accent="#76AFC2" flip={true} />
+  <ClubActivity />
+
 </BaseLayout>
- 

@@ -1,39 +1,59 @@
+/* src/styles/global.css
+   Estils globals CV Martorell
+   ─────────────────────────────────────────────────────────────────────────── */
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Design tokens (CSS variables) */
+/* ── Variables CSS (per usar fora de Tailwind si cal) ───────────────────── */
 :root {
-  --bg: #E2F4FB;
-  --fg: #0D1C23;
-  --muted: #6A8B96;
-  --brand: #76AFC2;
-  --brand-dark: #0D1C23;
-  --accent: #2B6E7F;
-  --warn: #F2CB40;
-  --alert: #C4372B;
+  --color-brand-dark:      #0D1C23;
+  --color-brand-light:     #76AFC2;
+  --color-catalan-yellow:  #F2CB40;
+  --color-catalan-red:     #C4372B;
+  --color-secondary-blue:  #2B6E7F;
+  --color-ui-bg:           #E2F4FB;
+  --color-ui-text:         #6A8B96;
 }
 
-.dark {
-  --bg: #0D1C23;
-  --fg: #E2F4FB;
-  --muted: #9fb5be;
-  --brand: #76AFC2; /* mantiene identidad */
-  --brand-dark: #E2F4FB;
-  --accent: #76AFC2;
-  --warn: #E8C75E;
-  --alert: #DB5A4F;
+/* ── Reset / base ────────────────────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
 }
-/* Utilidades que combinan variables con Tailwind */
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background-color: var(--color-brand-dark);
+  color: var(--color-brand-light);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ── Àlies semàntics per al BaseLayout ──────────────────────────────────────
+   BaseLayout usa: class="bg-app text-app"
+   Tailwind generarà bg-app-bg i text-app-text des del config,
+   però si vols les classes curtes bg-app / text-app, les definim aquí:       */
 @layer utilities {
-  .bg-app { background-color: var(--bg); }
-  .text-app { color: var(--fg); }
-  .text-muted { color: var(--muted); }
-  .ring-brand { --tw-ring-color: var(--brand); }
+  .bg-app   { background-color: var(--color-brand-dark); }
+  .text-app { color: var(--color-brand-light); }
 }
 
-/* Base tipográfico fino */
-@layer base {
-  html { scroll-behavior: smooth; }
-  body { @apply antialiased; }
+/* ── Scrollbar (opcional, millora estètica en desktop) ──────────────────── */
+@media (pointer: fine) {
+  ::-webkit-scrollbar       { width: 6px; }
+  ::-webkit-scrollbar-track { background: var(--color-brand-dark); }
+  ::-webkit-scrollbar-thumb { background: var(--color-secondary-blue); border-radius: 3px; }
+  ::-webkit-scrollbar-thumb:hover { background: var(--color-brand-light); }
+}
+
+/* ── Focus visible accessible ───────────────────────────────────────────── */
+:focus-visible {
+  outline: 2px solid var(--color-brand-light);
+  outline-offset: 3px;
 }

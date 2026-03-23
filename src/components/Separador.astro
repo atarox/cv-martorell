@@ -5,7 +5,6 @@ interface Props {
   accent?: string;
   flip?: boolean;
 }
-
 const {
   fromColor = "#0D1C23",
   toColor = "#0D1C23",
@@ -13,94 +12,62 @@ const {
   flip = false,
 } = Astro.props;
 ---
+<div class="relative w-full overflow-hidden" style={`background: linear-gradient(to bottom, ${fromColor} 50%, ${toColor} 50%); height: 95px;`}>
 
-<div
-  class="relative w-full overflow-hidden"
-  style={`background: linear-gradient(to bottom, ${fromColor} 50%, ${toColor} 50%); height: 95px;`}
->
-  <svg
-    viewBox="0 0 1200 95"
-    preserveAspectRatio="xMidYMid meet"
-    xmlns="http://www.w3.org/2000/svg"
-    class="w-full h-full"
-    style={flip ? "transform: scaleX(-1);" : ""}
-  >
-
-    <defs>
-      <filter id="shadow">
-        <feDropShadow dx="0" dy="1.5" stdDeviation="1.5" flood-opacity="0.25"/>
-      </filter>
-    </defs>
-
-    <!-- red -->
-    <path
-      d="M0 50 Q600 62 1200 50"
-      fill="none"
-      stroke={accent}
-      stroke-width="2"
-      stroke-opacity="0.65"
-    />
-
-    <!-- malla simplificada -->
+  <!-- SVG solo para la red y la malla -->
+  <svg viewBox="0 0 1200 95" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"
+       class="absolute inset-0 w-full h-full" style={flip ? "transform: scaleX(-1);" : ""}>
+    <path d="M0 50 Q600 62 1200 50" fill="none" stroke={accent} stroke-width="2" stroke-opacity="0.65"/>
     <g stroke={accent} stroke-opacity="0.12" stroke-width="1">
       <line x1="0" y1="68" x2="1200" y2="68"/>
       <line x1="300" y1="52" x2="300" y2="68"/>
       <line x1="600" y1="55" x2="600" y2="68"/>
       <line x1="900" y1="52" x2="900" y2="68"/>
     </g>
-
-    <!-- balón -->
-    <g transform="translate(600 42)" class="ball" filter="url(#shadow)">
-
-      <circle
-        r="18"
-        fill={fromColor}
-        stroke={accent}
-        stroke-width="1.4"
-      />
-
-      <path d="M-12,-4 Q0,-16 12,-4"
-        fill="none"
-        stroke={accent}
-        stroke-width="1.1"
-        stroke-linecap="round"/>
-
-      <path d="M-14,5 Q0,-4 14,5"
-        fill="none"
-        stroke={accent}
-        stroke-width="1.1"
-        stroke-linecap="round"/>
-
-      <path d="M-8,13 Q0,2 8,13"
-        fill="none"
-        stroke={accent}
-        stroke-width="1.1"
-        stroke-linecap="round"/>
-
-      <circle cx="-5" cy="-6" r="2.5" fill="white" opacity="0.15"/>
-
-    </g>
-
   </svg>
+
+  <!-- Balón con animación propia y sombra -->
+  <div class="absolute left-[50%] top-[42px] -translate-x-1/2">
+    <div class="ball-wrapper relative w-12 h-12">
+      <div class="ball-shadow absolute w-full h-2 bg-black/25 rounded-full blur-sm bottom-0"></div>
+      <div class="ball relative w-12 h-12 rounded-full bg-[var(--fromColor)] border-[1.4px] border-[var(--accent)]">
+        <svg viewBox="-18 -18 36 36" class="w-full h-full">
+          <path d="M-12,-4 Q0,-16 12,-4" fill="none" stroke={accent} stroke-width="1.1" stroke-linecap="round"/>
+          <path d="M-14,5 Q0,-4 14,5" fill="none" stroke={accent} stroke-width="1.1" stroke-linecap="round"/>
+          <path d="M-8,13 Q0,2 8,13" fill="none" stroke={accent} stroke-width="1.1" stroke-linecap="round"/>
+          <circle cx="-5" cy="-6" r="2.5" fill="white" opacity="0.15"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+
 </div>
 
 <style>
-
-.ball {
-  animation: ballFloat 4s ease-in-out infinite;
-  transform-origin: center;
+:root {
+  --fromColor: ${fromColor};
+  --accent: ${accent};
 }
 
-@keyframes ballFloat {
-
-  0%,100% {
-    transform: translateY(0);
-  }
-
-  50% {
-    transform: translateY(-5px);
-  }
-
+/* Animación parabólica del balón con cubic-bezier */
+.ball-wrapper {
+  animation: ballArc 2s cubic-bezier(.42,.0,.58,1) infinite alternate;
+}
+.ball-shadow {
+  animation: shadowPulse 2s cubic-bezier(.42,.0,.58,1) infinite alternate;
 }
 
+/* Balón sube y baja en parábola */
+@keyframes ballArc {
+  0%   { transform: translate(-50%, 0) translateX(-100px) translateY(0); }
+  50%  { transform: translate(-50%, -35px) translateX(0) translateY(-35px); }
+  100% { transform: translate(-50%, 0) translateX(100px) translateY(0); }
+}
+
+/* Sombra sigue al balón */
+@keyframes shadowPulse {
+  0%   { transform: scaleX(0.8) translateX(-100px); opacity: 0.3; }
+  50%  { transform: scaleX(1) translateX(0); opacity: 0.5; }
+  100% { transform: scaleX(0.8) translateX(100px); opacity: 0.3; }
+}
 </style>
