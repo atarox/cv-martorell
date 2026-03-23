@@ -1,11 +1,10 @@
 ---
 interface Props {
-  fromColor?: string; // color de fons de la secció anterior
-  toColor?: string;   // color de fons de la secció següent
-  accent?: string;    // color de l'accent (per defecte brand-light)
-  flip?: boolean;     // invertir direcció de la diagonal
+  fromColor?: string;
+  toColor?: string;
+  accent?: string;
+  flip?: boolean;
 }
-
 const {
   fromColor = "#0D1C23",
   toColor = "#0D1C23",
@@ -14,91 +13,53 @@ const {
 } = Astro.props;
 ---
 
-<div class="separador-wrap relative w-full overflow-hidden"
-     style={`background: linear-gradient(to bottom, ${fromColor} 50%, ${toColor} 50%); height: 64px;`}>
-
+<div class="relative w-full"
+     style={`background: linear-gradient(to bottom, ${fromColor} 50%, ${toColor} 50%); height: 100px;`}>
   <svg
-    class="separador-svg absolute inset-0 w-full h-full"
-    viewBox="0 0 1440 64"
+    viewBox="0 0 1200 100"
     preserveAspectRatio="none"
     xmlns="http://www.w3.org/2000/svg"
+    class="absolute inset-0 w-full h-full"
     style={flip ? "transform: scaleX(-1);" : ""}
   >
-    <!-- Línia 1: més gruixuda, opacitat baixa -->
-    <line
-      x1="-40" y1="52"
-      x2="1480" y2="12"
-      stroke={accent}
-      stroke-width="1.5"
-      stroke-opacity="0.18"
-    />
-    <!-- Línia 2: més fina, opacitat molt baixa, offset -->
-    <line
-      x1="-40" y1="44"
-      x2="1480" y2="4"
-      stroke={accent}
-      stroke-width="0.8"
-      stroke-opacity="0.10"
-    />
+    <!-- Corda superior de la xarxa -->
+    <line x1="0" y1="55" x2="1200" y2="55"
+          stroke={accent} stroke-width="2" stroke-opacity="0.6"/>
 
-    <!-- Destell de velocitat (motion blur manual) -->
-    <line
-      x1="580" y1="38"
-      x2="720" y2="32"
-      stroke={accent}
-      stroke-width="2"
-      stroke-opacity="0.35"
-      stroke-linecap="round"
-    />
-    <line
-      x1="600" y1="37"
-      x2="700" y2="33"
-      stroke="white"
-      stroke-width="0.8"
-      stroke-opacity="0.15"
-      stroke-linecap="round"
-    />
-
-    <!-- Pelota de voleibol SVG inline, centrada a la línia -->
-    <!-- Centre: x=720, y=32 (intersecció aproximada de la línia 1) -->
-    <g transform="translate(720, 32)" class="separador-ball">
-      <!-- Cercle base -->
-      <circle r="13" fill="#0D1C23" stroke={accent} stroke-width="1.5" stroke-opacity="0.9"/>
-      <!-- Línies internes de la pilota (estil voleibol) -->
-      <path d="M-13,0 Q-6,-10 0,-13" stroke={accent} stroke-width="1" fill="none" stroke-opacity="0.7" stroke-linecap="round"/>
-      <path d="M0,-13 Q8,-8 13,0"    stroke={accent} stroke-width="1" fill="none" stroke-opacity="0.7" stroke-linecap="round"/>
-      <path d="M13,0 Q8,8 0,13"     stroke={accent} stroke-width="1" fill="none" stroke-opacity="0.7" stroke-linecap="round"/>
-      <path d="M0,13 Q-8,8 -13,0"   stroke={accent} stroke-width="1" fill="none" stroke-opacity="0.7" stroke-linecap="round"/>
-      <path d="M-6,-11 Q0,0 6,11"   stroke={accent} stroke-width="0.8" fill="none" stroke-opacity="0.4" stroke-linecap="round"/>
-      <path d="M6,-11 Q0,0 -6,11"   stroke={accent} stroke-width="0.8" fill="none" stroke-opacity="0.4" stroke-linecap="round"/>
-      <!-- Brillantor -->
-      <circle cx="-4" cy="-5" r="2.5" fill="white" opacity="0.12"/>
+    <!-- Malla -->
+    <g stroke={accent} stroke-opacity="0.15" stroke-width="1">
+      <line x1="0"    y1="72" x2="1200" y2="72"/>
+      <line x1="150"  y1="55" x2="150"  y2="72"/>
+      <line x1="300"  y1="55" x2="300"  y2="72"/>
+      <line x1="450"  y1="55" x2="450"  y2="72"/>
+      <line x1="600"  y1="55" x2="600"  y2="72"/>
+      <line x1="750"  y1="55" x2="750"  y2="72"/>
+      <line x1="900"  y1="55" x2="900"  y2="72"/>
+      <line x1="1050" y1="55" x2="1050" y2="72"/>
     </g>
 
-    <!-- Punt de llum al centre (destell daurat) -->
-    <circle cx="720" cy="32" r="18"
-            fill={accent} opacity="0.04"/>
-    <circle cx="720" cy="32" r="8"
-            fill={accent} opacity="0.06"/>
+    <!-- Pilota amb bounce -->
+    <g transform="translate(600, 45)" class="separador-ball">
+      <circle r="20" fill={fromColor} stroke={accent} stroke-width="1.5" stroke-opacity="0.9"/>
+      <path d="M-14,-5 Q0,-18 14,-5"  fill="none" stroke={accent} stroke-width="1.2" stroke-opacity="0.8" stroke-linecap="round"/>
+      <path d="M-16,5  Q0,-5  16,5"   fill="none" stroke={accent} stroke-width="1.2" stroke-opacity="0.8" stroke-linecap="round"/>
+      <path d="M-9,15  Q0,3   9,15"   fill="none" stroke={accent} stroke-width="1.2" stroke-opacity="0.8" stroke-linecap="round"/>
+      <circle cx="-5" cy="-6" r="3" fill="white" opacity="0.10"/>
+    </g>
 
+    <!-- Pals esquerre i dret -->
+    <line x1="0"    y1="35" x2="0"    y2="78" stroke={accent} stroke-width="3" stroke-opacity="0.3"/>
+    <line x1="1200" y1="35" x2="1200" y2="78" stroke={accent} stroke-width="3" stroke-opacity="0.3"/>
   </svg>
 </div>
 
 <style>
   .separador-ball {
-    animation: ball-pulse 3s ease-in-out infinite;
+    animation: ball-bounce 4s ease-in-out infinite;
+    transform-origin: center;
   }
-  @keyframes ball-pulse {
-    0%, 100% { opacity: 0.85; transform: scale(1); }
-    50%       { opacity: 1;    transform: scale(1.08); }
-  }
-
-  /* Línies amb shimmer subtil */
-  .separador-svg line:first-child {
-    animation: line-shimmer 4s ease-in-out infinite;
-  }
-  @keyframes line-shimmer {
-    0%, 100% { stroke-opacity: 0.18; }
-    50%       { stroke-opacity: 0.30; }
+  @keyframes ball-bounce {
+    0%, 100% { transform: translateY(0); }
+    50%       { transform: translateY(-6px); }
   }
 </style>
