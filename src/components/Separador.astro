@@ -16,89 +16,70 @@ const {
 
 <div
   class="relative w-full overflow-hidden"
-  style={`background: linear-gradient(to bottom, ${fromColor} 50%, ${toColor} 50%); height: 110px;`}
+  style={`background: linear-gradient(to bottom, ${fromColor} 50%, ${toColor} 50%); height: 95px;`}
 >
   <svg
-    viewBox="0 0 1200 110"
-    preserveAspectRatio="none"
+    viewBox="0 0 1200 95"
+    preserveAspectRatio="xMidYMid meet"
     xmlns="http://www.w3.org/2000/svg"
-    class="absolute inset-0 w-full h-full"
+    class="w-full h-full"
     style={flip ? "transform: scaleX(-1);" : ""}
   >
 
-    <!-- sombra balón -->
     <defs>
       <filter id="shadow">
-        <feDropShadow dx="0" dy="2" stdDeviation="2" flood-opacity="0.25"/>
+        <feDropShadow dx="0" dy="1.5" stdDeviation="1.5" flood-opacity="0.25"/>
       </filter>
     </defs>
 
-    <!-- red (curvada) -->
+    <!-- red -->
     <path
-      class="net-top"
-      d="M0 60 Q600 72 1200 60"
+      d="M0 50 Q600 62 1200 50"
       fill="none"
       stroke={accent}
       stroke-width="2"
-      stroke-opacity="0.6"
+      stroke-opacity="0.65"
     />
 
-    <!-- malla -->
+    <!-- malla simplificada -->
     <g stroke={accent} stroke-opacity="0.12" stroke-width="1">
-
-      <line x1="0" y1="80" x2="1200" y2="80"/>
-
-      <line x1="200" y1="60" x2="200" y2="80"/>
-      <line x1="400" y1="62" x2="400" y2="80"/>
-      <line x1="600" y1="65" x2="600" y2="80"/>
-      <line x1="800" y1="62" x2="800" y2="80"/>
-      <line x1="1000" y1="60" x2="1000" y2="80"/>
-
+      <line x1="0" y1="68" x2="1200" y2="68"/>
+      <line x1="300" y1="52" x2="300" y2="68"/>
+      <line x1="600" y1="55" x2="600" y2="68"/>
+      <line x1="900" y1="52" x2="900" y2="68"/>
     </g>
 
     <!-- balón -->
-    <g transform="translate(600,50)" class="ball" filter="url(#shadow)">
+    <g transform="translate(600 42)" class="ball" filter="url(#shadow)">
 
       <circle
-        r="20"
+        r="18"
         fill={fromColor}
         stroke={accent}
-        stroke-width="1.5"
-        stroke-opacity="0.9"
+        stroke-width="1.4"
       />
 
-      <path d="M-14,-5 Q0,-18 14,-5"
+      <path d="M-12,-4 Q0,-16 12,-4"
         fill="none"
         stroke={accent}
-        stroke-width="1.2"
-        stroke-opacity="0.8"
+        stroke-width="1.1"
         stroke-linecap="round"/>
 
-      <path d="M-16,5 Q0,-5 16,5"
+      <path d="M-14,5 Q0,-4 14,5"
         fill="none"
         stroke={accent}
-        stroke-width="1.2"
-        stroke-opacity="0.8"
+        stroke-width="1.1"
         stroke-linecap="round"/>
 
-      <path d="M-9,15 Q0,3 9,15"
+      <path d="M-8,13 Q0,2 8,13"
         fill="none"
         stroke={accent}
-        stroke-width="1.2"
-        stroke-opacity="0.8"
+        stroke-width="1.1"
         stroke-linecap="round"/>
 
-      <!-- brillo -->
-      <circle cx="-6" cy="-7" r="3" fill="white" opacity="0.12"/>
+      <circle cx="-5" cy="-6" r="2.5" fill="white" opacity="0.15"/>
 
     </g>
-
-    <!-- postes -->
-    <line x1="0" y1="35" x2="0" y2="82"
-      stroke={accent} stroke-width="3" stroke-opacity="0.35"/>
-
-    <line x1="1200" y1="35" x2="1200" y2="82"
-      stroke={accent} stroke-width="3" stroke-opacity="0.35"/>
 
   </svg>
 </div>
@@ -106,38 +87,18 @@ const {
 <style>
 
 .ball {
-  animation: ballBounce 4s ease-in-out infinite;
+  animation: ballFloat 4s ease-in-out infinite;
   transform-origin: center;
 }
 
-.net-top {
-  animation: netWave 4s ease-in-out infinite;
-}
-
-@keyframes ballBounce {
+@keyframes ballFloat {
 
   0%,100% {
-    transform: translateY(0) scale(1);
-  }
-
-  45% {
-    transform: translateY(-8px) scale(1.05);
+    transform: translateY(0);
   }
 
   50% {
-    transform: translateY(-6px) scale(1.03);
-  }
-
-}
-
-@keyframes netWave {
-
-  0%,100% {
-    d: path("M0 60 Q600 72 1200 60");
-  }
-
-  50% {
-    d: path("M0 60 Q600 76 1200 60");
+    transform: translateY(-5px);
   }
 
 }

@@ -11,17 +11,17 @@ const page = {
 };
 ---
 <BaseLayout title={page.title} description={page.description}>
-  <main id="contenido" class="flex-grow">
     <Hero />
-    <!-- Hero (#0D1C23) → SponsorGrid (#0D1C23): mateix color, separador daurat per anticipar secció premium -->
-    <Separador fromColor="#0D1C23" toColor="#0D1C23" accent="#F2CB40" />
+    <!-- Hero (azul oscuro club) → SponsorGrid -->
+    <Separador fromColor="#0B2A3A" toColor="#0B2A3A" accent="#F2CB40" />
     <SponsorGrid />
-    <!-- SponsorGrid (#0D1C23) → EquipsSummary (#0D1C23): mateix color, separador decoratiu -->
-    <Separador fromColor="#0D1C23" toColor="#0D1C23" accent="#76AFC2" />
+
+    <!-- Sponsors → Equips -->
+    <Separador fromColor="#0B2A3A" toColor="#0B2A3A" accent="#3FA7D6" />
     <EquipsSummary />
-    <!-- EquipsSummary (#0D1C23) → ClubActivity (#E2F4FB) -->
-    <Separador fromColor="#0D1C23" toColor="#E2F4FB" accent="#76AFC2" flip={true} />
+
+    <!-- Equips → Activitat del club -->
+    <Separador fromColor="#0B2A3A" toColor="#E6F3FA" accent="#3FA7D6" flip={true} />
     <ClubActivity />
-  </main>
 </BaseLayout>
  

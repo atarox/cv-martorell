@@ -71,7 +71,7 @@ const colaboradors = sponsors.filter(s => s.tier === "col·laborador");
                   <svg xmlns="http://www.w3.org/2000/svg" class="w-3 h-3 flex-shrink-0" viewBox="0 0 24 24" fill="#F2CB40">
                     <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
                   </svg>
-                  <span class="text-[10px] font-bold uppercase tracking-widest" style="color: #F2CB40;">Patrocinador Oficial</span>
+                  <span class="text-[10px] font-bold uppercase tracking-widest" style="color: #F2CB40;">Patrocinador Principal</span>
                 </div>
 
                 <!-- Partícules or (CSS) -->
@@ -155,29 +155,46 @@ const colaboradors = sponsors.filter(s => s.tier === "col·laborador");
       </div>
     )}
 
-    <!-- COL·LABORADORS -->
-    {colaboradors.length > 0 && (
-      <div class="mb-16 sponsor-reveal">
-        <ul class={`grid gap-2 ${colaboradors.length <= 4 ? 'grid-cols-4 max-w-xl mx-auto' : 'grid-cols-4 md:grid-cols-6'}`}>
-          {colaboradors.map(s => (
-            <li>
-              <a href={s.url} target="_blank" rel="noopener noreferrer"
-                 class="group flex items-center justify-center rounded-lg overflow-hidden
-                        bg-white/[0.02] border border-white/[0.05]
-                        hover:bg-white/[0.05] hover:border-white/10
-                        transition-all duration-300 focus:outline-none"
-                 style="min-height: 64px;"
-                 aria-label={s.name}>
-                <img src={s.logo} alt={s.alt || s.name}
-                     class="object-contain w-full max-h-8 px-4
-                            opacity-35 group-hover:opacity-65 transition-opacity duration-300"
-                     loading="lazy" />
-              </a>
-            </li>
-          ))}
-        </ul>
-      </div>
-    )}
+	<!-- COL·LABORADORS: franja marquee -->
+	{colaboradors.length > 0 && (
+	  <div class="mb-16 sponsor-reveal">
+
+		<!-- Label centrat amb línies -->
+		<div class="flex items-center gap-4 mb-5">
+		  <div class="flex-1 h-px bg-gradient-to-r from-transparent via-brand-light/20 to-transparent"></div>
+		  <span class="text-brand-light/45 text-[10px] font-bold uppercase tracking-[0.3em] whitespace-nowrap">
+			Col·laboradors del club
+		  </span>
+		  <div class="flex-1 h-px bg-gradient-to-r from-transparent via-brand-light/20 to-transparent"></div>
+		</div>
+
+		<!-- Marquee -->
+		<div class="relative overflow-hidden
+					before:absolute before:inset-y-0 before:left-0 before:w-20 before:z-10
+					before:bg-gradient-to-r before:from-brand-dark before:to-transparent
+					after:absolute after:inset-y-0 after:right-0 after:w-20 after:z-10
+					after:bg-gradient-to-l after:from-brand-dark after:to-transparent">
+		  <ul class="flex w-max animate-marquee hover:[animation-play-state:paused]">
+			{/* Dos sets per a loop infinit */}
+			{[...colaboradors, ...colaboradors].map((s, i) => (
+			  <li key={i}>
+				<a href={s.url} target="_blank" rel="noopener noreferrer"
+				   aria-label={s.name}
+				   class="flex items-center justify-center h-16 px-8 min-w-[120px]
+						  border-r border-brand-light/[0.07]
+						  opacity-40 hover:opacity-80 hover:bg-brand-light/[0.04]
+						  transition-all duration-300">
+				  <img src={s.logo} alt={s.alt || s.name}
+					   class="object-contain max-h-8 max-w-[100px]"
+					   loading="lazy" />
+				</a>
+			  </li>
+			))}
+		  </ul>
+		</div>
+
+	  </div>
+	)}
 
     <!-- ENTITATS VINCULADES -->
     <div class="sponsor-reveal border-t border-white/[0.06] pt-10 mb-12">

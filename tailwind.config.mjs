@@ -32,7 +32,16 @@ export default {
       borderRadius: {
         xl: "1rem",
         pill: "9999px",
-      }
+      },
+      animation: {
+        marquee: "marquee 20s linear infinite",
+      },
+      keyframes: {
+        marquee: {
+          from: { transform: "translateX(0)" },
+          to:   { transform: "translateX(-50%)" },
+        },
+      },
     },
   },
   plugins: [
