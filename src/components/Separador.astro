@@ -5,6 +5,7 @@ interface Props {
   accent?: string;
   flip?: boolean;
 }
+
 const {
   fromColor = "#0D1C23",
   toColor = "#0D1C23",
@@ -13,53 +14,132 @@ const {
 } = Astro.props;
 ---
 
-<div class="relative w-full"
-     style={`background: linear-gradient(to bottom, ${fromColor} 50%, ${toColor} 50%); height: 100px;`}>
+<div
+  class="relative w-full overflow-hidden"
+  style={`background: linear-gradient(to bottom, ${fromColor} 50%, ${toColor} 50%); height: 110px;`}
+>
   <svg
-    viewBox="0 0 1200 100"
+    viewBox="0 0 1200 110"
     preserveAspectRatio="none"
     xmlns="http://www.w3.org/2000/svg"
     class="absolute inset-0 w-full h-full"
     style={flip ? "transform: scaleX(-1);" : ""}
   >
-    <!-- Corda superior de la xarxa -->
-    <line x1="0" y1="55" x2="1200" y2="55"
-          stroke={accent} stroke-width="2" stroke-opacity="0.6"/>
 
-    <!-- Malla -->
-    <g stroke={accent} stroke-opacity="0.15" stroke-width="1">
-      <line x1="0"    y1="72" x2="1200" y2="72"/>
-      <line x1="150"  y1="55" x2="150"  y2="72"/>
-      <line x1="300"  y1="55" x2="300"  y2="72"/>
-      <line x1="450"  y1="55" x2="450"  y2="72"/>
-      <line x1="600"  y1="55" x2="600"  y2="72"/>
-      <line x1="750"  y1="55" x2="750"  y2="72"/>
-      <line x1="900"  y1="55" x2="900"  y2="72"/>
-      <line x1="1050" y1="55" x2="1050" y2="72"/>
+    <!-- sombra balón -->
+    <defs>
+      <filter id="shadow">
+        <feDropShadow dx="0" dy="2" stdDeviation="2" flood-opacity="0.25"/>
+      </filter>
+    </defs>
+
+    <!-- red (curvada) -->
+    <path
+      class="net-top"
+      d="M0 60 Q600 72 1200 60"
+      fill="none"
+      stroke={accent}
+      stroke-width="2"
+      stroke-opacity="0.6"
+    />
+
+    <!-- malla -->
+    <g stroke={accent} stroke-opacity="0.12" stroke-width="1">
+
+      <line x1="0" y1="80" x2="1200" y2="80"/>
+
+      <line x1="200" y1="60" x2="200" y2="80"/>
+      <line x1="400" y1="62" x2="400" y2="80"/>
+      <line x1="600" y1="65" x2="600" y2="80"/>
+      <line x1="800" y1="62" x2="800" y2="80"/>
+      <line x1="1000" y1="60" x2="1000" y2="80"/>
+
     </g>
 
-    <!-- Pilota amb bounce -->
-    <g transform="translate(600, 45)" class="separador-ball">
-      <circle r="20" fill={fromColor} stroke={accent} stroke-width="1.5" stroke-opacity="0.9"/>
-      <path d="M-14,-5 Q0,-18 14,-5"  fill="none" stroke={accent} stroke-width="1.2" stroke-opacity="0.8" stroke-linecap="round"/>
-      <path d="M-16,5  Q0,-5  16,5"   fill="none" stroke={accent} stroke-width="1.2" stroke-opacity="0.8" stroke-linecap="round"/>
-      <path d="M-9,15  Q0,3   9,15"   fill="none" stroke={accent} stroke-width="1.2" stroke-opacity="0.8" stroke-linecap="round"/>
-      <circle cx="-5" cy="-6" r="3" fill="white" opacity="0.10"/>
+    <!-- balón -->
+    <g transform="translate(600,50)" class="ball" filter="url(#shadow)">
+
+      <circle
+        r="20"
+        fill={fromColor}
+        stroke={accent}
+        stroke-width="1.5"
+        stroke-opacity="0.9"
+      />
+
+      <path d="M-14,-5 Q0,-18 14,-5"
+        fill="none"
+        stroke={accent}
+        stroke-width="1.2"
+        stroke-opacity="0.8"
+        stroke-linecap="round"/>
+
+      <path d="M-16,5 Q0,-5 16,5"
+        fill="none"
+        stroke={accent}
+        stroke-width="1.2"
+        stroke-opacity="0.8"
+        stroke-linecap="round"/>
+
+      <path d="M-9,15 Q0,3 9,15"
+        fill="none"
+        stroke={accent}
+        stroke-width="1.2"
+        stroke-opacity="0.8"
+        stroke-linecap="round"/>
+
+      <!-- brillo -->
+      <circle cx="-6" cy="-7" r="3" fill="white" opacity="0.12"/>
+
     </g>
 
-    <!-- Pals esquerre i dret -->
-    <line x1="0"    y1="35" x2="0"    y2="78" stroke={accent} stroke-width="3" stroke-opacity="0.3"/>
-    <line x1="1200" y1="35" x2="1200" y2="78" stroke={accent} stroke-width="3" stroke-opacity="0.3"/>
+    <!-- postes -->
+    <line x1="0" y1="35" x2="0" y2="82"
+      stroke={accent} stroke-width="3" stroke-opacity="0.35"/>
+
+    <line x1="1200" y1="35" x2="1200" y2="82"
+      stroke={accent} stroke-width="3" stroke-opacity="0.35"/>
+
   </svg>
 </div>
 
 <style>
-  .separador-ball {
-    animation: ball-bounce 4s ease-in-out infinite;
-    transform-origin: center;
+
+.ball {
+  animation: ballBounce 4s ease-in-out infinite;
+  transform-origin: center;
+}
+
+.net-top {
+  animation: netWave 4s ease-in-out infinite;
+}
+
+@keyframes ballBounce {
+
+  0%,100% {
+    transform: translateY(0) scale(1);
   }
-  @keyframes ball-bounce {
-    0%, 100% { transform: translateY(0); }
-    50%       { transform: translateY(-6px); }
+
+  45% {
+    transform: translateY(-8px) scale(1.05);
   }
+
+  50% {
+    transform: translateY(-6px) scale(1.03);
+  }
+
+}
+
+@keyframes netWave {
+
+  0%,100% {
+    d: path("M0 60 Q600 72 1200 60");
+  }
+
+  50% {
+    d: path("M0 60 Q600 76 1200 60");
+  }
+
+}
+
 </style>
