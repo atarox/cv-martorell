@@ -1,51 +1,39 @@
 ---
 /**
  * ClubActivity.astro
- * - Identitat de color amb Tailwind (paleta del club).
- * - Accessibilitat (roles, ids, aria).
- * - Rendiment (skeleton + min-height per evitar CLS).
- * - Carrega correcta del widget Behold.
+ * Instagram oficial del club (sin scraping)
  */
 ---
 
-<!-- OLA D'ENTRADA: ClubActivity (#E2F4FB) ve del Hero (#0D1C23) — ja inclosa al Hero -->
-
 <section class="relative pt-16 pb-32 bg-ui-bg">
   <div class="max-w-6xl mx-auto px-6">
-    <!-- Encapçalaments semàntics -->
+
     <h2
       id="el-club-esta-vivo"
       class="text-3xl font-bold text-brand-dark mb-1 tracking-tight"
     >
       Entrenem. Competim. Creixem.
     </h2>
+
     <p class="text-ui-text mb-8">
       Últims partits i moments del club.
     </p>
-    <!-- Contenidor del feed -->
-    <div class="rounded-xl overflow-hidden bg-white/70 shadow-soft">
-      <div
-        class="behold-container relative"
-        role="region"
-        aria-labelledby="el-club-esta-vivo"
-      >
-        <!-- Skeleton de càrrega -->
-        <div class="behold-skeleton grid grid-cols-2 md:grid-cols-3 gap-2 p-2">
-          <div class="aspect-[4/3] bg-ui-bg animate-pulse rounded"></div>
-          <div class="aspect-[4/3] bg-ui-bg animate-pulse rounded"></div>
-          <div class="aspect-[4/3] bg-ui-bg animate-pulse rounded"></div>
-          <div class="aspect-[4/3] bg-ui-bg animate-pulse rounded"></div>
-          <div class="aspect-[4/3] bg-ui-bg animate-pulse rounded"></div>
-          <div class="aspect-[4/3] bg-ui-bg animate-pulse rounded"></div>
-        </div>
-        <!-- Widget Behold -->
-        <behold-widget
-          feed-id="nnRTrJZgZn0albuCTE5Q"
-          class="block"
-        ></behold-widget>
-      </div>
+
+    <!-- Instagram embed -->
+    <div class="rounded-xl overflow-hidden bg-white/70 shadow-soft p-4 flex justify-center">
+
+      <iframe
+        src="https://www.instagram.com/clubvoleimartorell/embed"
+        class="w-full max-w-xl"
+        height="600"
+        frameborder="0"
+        scrolling="no"
+        allowtransparency="true"
+      ></iframe>
+
     </div>
-    <!-- CTA Instagram (UN SOL) -->
+
+    <!-- CTA Instagram -->
     <div class="text-center mt-8">
       <a
         href="https://instagram.com/clubvoleimartorell"
@@ -54,34 +42,10 @@
         class="inline-flex items-center gap-2 rounded-pill bg-brand-dark text-white px-6 py-3
                shadow-soft hover:bg-secondary-blue transition-colors
                focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-dark"
-        aria-label="Segueix-nos a Instagram"
       >
         Segueix-nos a Instagram
       </a>
     </div>
-  </div>
 
-  <!-- Script oficial de Behold (IMPRESCINDIBLE) -->
-  <script type="module" src="https://w.behold.so/widget.js"></script>
-  <!-- Fallback sense JS -->
-  <noscript>
-    <div class="max-w-6xl mx-auto px-6 mt-6 text-center text-ui-text">
-      Activa JavaScript per veure el feed del club o visita
-      <a
-        href="https://instagram.com/clubvoleimartorell"
-        class="underline"
-      >
-        Instagram
-      </a>.
-    </div>
-  </noscript>
-  <!-- Estils globals mínims -->
-  <style is:global>
-    .behold-container {
-      min-height: 420px;
-    }
-    .behold-container:has(behold-widget) .behold-skeleton {
-      display: none;
-    }
-  </style>
+  </div>
 </section>
