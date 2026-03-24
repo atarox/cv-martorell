@@ -20,76 +20,68 @@ const bronze       = sponsors.filter(s => s.tier === "bronze");
 const colaboradors = sponsors.filter(s => s.tier === "col·laborador");
 ---
 
-<section class="relative py-24 overflow-hidden bg-brand-dark text-white" aria-labelledby="patrocinadors">
+<section class="relative py-24 overflow-hidden bg-ui-bg" aria-labelledby="patrocinadors">
 
   <!-- Fons: malla de punts subtil -->
-  <div class="absolute inset-0 opacity-[0.04]"
-       style="background-image: radial-gradient(circle, #76AFC2 1px, transparent 1px); background-size: 32px 32px;"></div>
-
-  <!-- Llum ambient central -->
-  <div class="absolute inset-0 pointer-events-none"
-       style="background: radial-gradient(ellipse 80% 60% at 50% 40%, rgba(118,175,194,0.08) 0%, transparent 70%);"></div>
+  <div class="absolute inset-0 opacity-[0.06]"
+       style="background-image: radial-gradient(circle, #0D1C23 1px, transparent 1px); background-size: 32px 32px;"></div>
 
   <div class="relative max-w-6xl mx-auto px-6">
 
     <!-- Capçalera -->
     <div class="text-center mb-16 sponsor-reveal">
-      <p class="text-brand-light text-xs font-bold uppercase tracking-[0.3em] mb-3">Els qui fan possible el club</p>
-      <h2 id="patrocinadors" class="text-3xl md:text-5xl font-extrabold text-white tracking-tight">
+      <p class="text-secondary-blue text-xs font-bold uppercase tracking-[0.3em] mb-3">Els qui fan possible el club</p>
+      <h2 id="patrocinadors" class="text-3xl md:text-5xl font-extrabold text-brand-dark tracking-tight">
         Patrocinadors
       </h2>
-      <div class="mt-4 mx-auto w-12 h-0.5 bg-gradient-to-r from-transparent via-brand-light to-transparent"></div>
+      <div class="mt-4 mx-auto w-12 h-0.5 bg-gradient-to-r from-transparent via-secondary-blue to-transparent"></div>
     </div>
 
-    <!-- OR: protagonisme total -->
+    <!-- OR: blanc amb accent daurat, visible sobre fons clar -->
     {or.length > 0 && (
       <div class="mb-16 sponsor-reveal">
         <ul class={`grid gap-4 ${or.length === 1 ? 'grid-cols-1 max-w-md mx-auto' : 'grid-cols-1 sm:grid-cols-2'}`}>
           {or.map(s => (
-            <li class="sponsor-or-item">
+            <li>
               <a href={s.url} target="_blank" rel="noopener noreferrer"
                  class="sponsor-or group relative flex items-center justify-center rounded-3xl overflow-hidden
-                        bg-gradient-to-br from-yellow-950/60 to-brand-dark
-                        border border-catalan-yellow/20 shadow-2xl
+                        bg-white border-2 border-catalan-yellow/40 shadow-lg
+                        hover:shadow-xl hover:border-catalan-yellow/80
                         transition-all duration-500 focus:outline-none focus:ring-2 focus:ring-catalan-yellow/40"
                  style="min-height: 180px;"
                  aria-label={s.name}>
 
-                <!-- Glow de fons en hover -->
-                <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
-                     style="background: radial-gradient(ellipse 60% 50% at 50% 50%, rgba(242,203,64,0.12) 0%, transparent 70%);"></div>
-
                 <!-- Línia or superior -->
-                <div class="absolute top-0 left-0 right-0 h-px"
+                <div class="absolute top-0 left-0 right-0 h-1 rounded-t-3xl"
                      style="background: linear-gradient(90deg, transparent, #F2CB40, transparent);"></div>
 
-                <!-- BADGE "Patrocinador Oficial" -->
+                <!-- Glow daurat subtil de fons -->
+                <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none rounded-3xl"
+                     style="background: radial-gradient(ellipse 60% 50% at 50% 50%, rgba(242,203,64,0.08) 0%, transparent 70%);"></div>
+
+                <!-- BADGE -->
                 <div class="absolute top-3 right-3 z-20 flex items-center gap-1.5
-                            rounded-full px-3 py-1
-                            border border-catalan-yellow/40 bg-catalan-yellow/10 backdrop-blur-sm">
+                            rounded-full px-3 py-1 bg-catalan-yellow/15 border border-catalan-yellow/40">
                   <svg xmlns="http://www.w3.org/2000/svg" class="w-3 h-3 flex-shrink-0 text-catalan-yellow" viewBox="0 0 24 24" fill="currentColor">
                     <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
                   </svg>
                   <span class="text-[10px] font-bold uppercase tracking-widest text-catalan-yellow">Patrocinador Oficial</span>
                 </div>
 
-                <!-- Partícules or -->
+                <!-- Partícules -->
                 <div class="particles absolute inset-0 pointer-events-none overflow-hidden opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <span class="particle"></span>
-                  <span class="particle"></span>
-                  <span class="particle"></span>
-                  <span class="particle"></span>
-                  <span class="particle"></span>
+                  <span class="particle"></span><span class="particle"></span><span class="particle"></span>
+                  <span class="particle"></span><span class="particle"></span>
                 </div>
 
                 <img src={s.logo} alt={s.alt || s.name}
                      class="relative z-10 object-contain w-full max-h-28 px-12
-                            opacity-80 group-hover:opacity-100 group-hover:scale-105
-                            transition-all duration-500 drop-shadow-lg"
+                            opacity-90 group-hover:opacity-100 group-hover:scale-105
+                            transition-all duration-500"
                      loading="lazy" />
 
                 <span class="absolute bottom-3 left-0 right-0 text-center text-[11px] font-semibold uppercase tracking-widest
-                             opacity-30 group-hover:opacity-60 transition-opacity duration-300 text-catalan-yellow">
+                             text-brand-dark/30 group-hover:text-brand-dark/60 transition-colors duration-300">
                   {s.name}
                 </span>
               </a>
@@ -99,7 +91,7 @@ const colaboradors = sponsors.filter(s => s.tier === "col·laborador");
       </div>
     )}
 
-    <!-- PLATA -->
+    <!-- PLATA: blanc amb vora visible -->
     {plata.length > 0 && (
       <div class="mb-10 sponsor-reveal">
         <ul class={`grid gap-3 ${plata.length <= 2 ? 'grid-cols-2 max-w-lg mx-auto' : 'grid-cols-2 md:grid-cols-3'}`}>
@@ -107,20 +99,20 @@ const colaboradors = sponsors.filter(s => s.tier === "col·laborador");
             <li>
               <a href={s.url} target="_blank" rel="noopener noreferrer"
                  class="group relative flex items-center justify-center rounded-2xl overflow-hidden
-                        bg-white/[0.04] border border-white/10
-                        hover:bg-white/[0.08] hover:border-slate-300/30
-                        transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-white/20"
+                        bg-white border border-brand-dark/12
+                        hover:border-secondary-blue/40 hover:shadow-md
+                        transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-secondary-blue/30"
                  style="min-height: 120px;"
                  aria-label={s.name}>
                 <div class="absolute top-0 left-0 right-0 h-px"
                      style="background: linear-gradient(90deg, transparent, #CBD5E1, transparent);"></div>
                 <img src={s.logo} alt={s.alt || s.name}
                      class="object-contain w-full max-h-16 px-8
-                            opacity-60 group-hover:opacity-90 group-hover:scale-105
+                            opacity-75 group-hover:opacity-100 group-hover:scale-105
                             transition-all duration-300"
                      loading="lazy" />
                 <span class="absolute bottom-2 left-0 right-0 text-center text-[10px] font-semibold uppercase tracking-widest
-                             opacity-20 group-hover:opacity-50 transition-opacity duration-300 text-white">
+                             text-brand-dark/30 group-hover:text-brand-dark/60 transition-colors duration-300">
                   {s.name}
                 </span>
               </a>
@@ -130,7 +122,7 @@ const colaboradors = sponsors.filter(s => s.tier === "col·laborador");
       </div>
     )}
 
-    <!-- BRONZE -->
+    <!-- BRONZE: blanc amb vora més lleugera -->
     {bronze.length > 0 && (
       <div class="mb-10 sponsor-reveal">
         <ul class={`grid gap-3 ${bronze.length <= 3 ? 'grid-cols-3 max-w-xl mx-auto' : 'grid-cols-2 md:grid-cols-4'}`}>
@@ -138,20 +130,20 @@ const colaboradors = sponsors.filter(s => s.tier === "col·laborador");
             <li>
               <a href={s.url} target="_blank" rel="noopener noreferrer"
                  class="group relative flex items-center justify-center rounded-xl overflow-hidden
-                        bg-white/[0.03] border border-white/[0.07]
-                        hover:bg-white/[0.06] hover:border-orange-400/20
-                        transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-white/10"
+                        bg-white border border-brand-dark/10
+                        hover:border-brand-dark/25 hover:shadow-sm
+                        transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-brand-dark/20"
                  style="min-height: 90px;"
                  aria-label={s.name}>
                 <div class="absolute top-0 left-0 right-0 h-px opacity-60"
                      style="background: linear-gradient(90deg, transparent, #C97C3A, transparent);"></div>
                 <img src={s.logo} alt={s.alt || s.name}
                      class="object-contain w-full max-h-12 px-6
-                            opacity-50 group-hover:opacity-80 group-hover:scale-105
+                            opacity-65 group-hover:opacity-100 group-hover:scale-105
                             transition-all duration-300"
                      loading="lazy" />
                 <span class="absolute bottom-1.5 left-0 right-0 text-center text-[9px] font-semibold uppercase tracking-widest
-                             opacity-20 group-hover:opacity-50 transition-opacity duration-300 text-white">
+                             text-brand-dark/25 group-hover:text-brand-dark/55 transition-colors duration-300">
                   {s.name}
                 </span>
               </a>
@@ -163,18 +155,15 @@ const colaboradors = sponsors.filter(s => s.tier === "col·laborador");
 
     <!-- COL·LABORADORS: franja marquee -->
     {colaboradors.length > 0 && (
-      <div class="mb-16 sponsor-reveal">
-
-        <!-- Label centrat amb línies -->
+      <div class="mb-10 sponsor-reveal">
         <div class="flex items-center gap-4 mb-5">
-          <div class="flex-1 h-px" style="background: linear-gradient(90deg, transparent, rgba(118,175,194,0.2), transparent);"></div>
-          <span class="text-brand-light/45 text-[10px] font-bold uppercase tracking-[0.3em] whitespace-nowrap">
+          <div class="flex-1 h-px" style="background: linear-gradient(90deg, transparent, rgba(43,110,127,0.25), transparent);"></div>
+          <span class="text-secondary-blue/60 text-[10px] font-bold uppercase tracking-[0.3em] whitespace-nowrap">
             Col·laboradors del club
           </span>
-          <div class="flex-1 h-px" style="background: linear-gradient(90deg, transparent, rgba(118,175,194,0.2), transparent);"></div>
+          <div class="flex-1 h-px" style="background: linear-gradient(90deg, transparent, rgba(43,110,127,0.25), transparent);"></div>
         </div>
 
-        <!-- Marquee -->
         <div class="relative overflow-hidden marquee-outer">
           <ul class="flex w-max animate-marquee hover:[animation-play-state:paused]">
             {[...colaboradors, ...colaboradors].map((s, i) => (
@@ -182,9 +171,9 @@ const colaboradors = sponsors.filter(s => s.tier === "col·laborador");
                 <a href={s.url} target="_blank" rel="noopener noreferrer"
                    aria-label={s.name}
                    class="flex items-center justify-center h-16 px-8 min-w-[120px]
-                          border-r border-brand-light/[0.07]
-                          opacity-40 hover:opacity-80 hover:bg-brand-light/[0.04]
-                          transition-all duration-300">
+                          border-r border-brand-dark/[0.08]
+                          opacity-50 hover:opacity-100
+                          transition-opacity duration-300">
                   <img src={s.logo} alt={s.alt || s.name}
                        class="object-contain max-h-8 max-w-[100px]"
                        loading="lazy" />
@@ -193,36 +182,13 @@ const colaboradors = sponsors.filter(s => s.tier === "col·laborador");
             ))}
           </ul>
         </div>
-
       </div>
     )}
-
-    <!-- ENTITATS VINCULADES -->
-    <div class="sponsor-reveal border-t border-white/[0.06] pt-10 mb-12">
-      <p class="text-center text-white/30 text-xs font-bold uppercase tracking-[0.3em] mb-8">Amb el suport de</p>
-      <div class="flex items-center justify-center gap-16">
-        <a href="https://www.martorell.cat" target="_blank" rel="noopener noreferrer"
-           aria-label="Ajuntament de Martorell"
-           class="opacity-60 hover:opacity-90 transition-opacity duration-300">
-          <img src="/images/sponsors/ajmartorell.png" alt="Ajuntament de Martorell"
-               class="h-16 object-contain" loading="lazy" />
-        </a>
-        <a href="https://www.fcvolei.cat" target="_blank" rel="noopener noreferrer"
-           aria-label="Federació Catalana de Voleibol"
-           class="opacity-60 hover:opacity-90 transition-opacity duration-300">
-          <img src="/images/sponsors/fcvb.webp" alt="Federació Catalana de Voleibol"
-               class="h-16 object-contain" loading="lazy" />
-        </a>
-      </div>
-    </div>
-
-
 
   </div>
 </section>
 
 <style>
-  /* Fades laterals del marquee */
   .marquee-outer::before,
   .marquee-outer::after {
     content: '';
@@ -234,18 +200,16 @@ const colaboradors = sponsors.filter(s => s.tier === "col·laborador");
   }
   .marquee-outer::before {
     left: 0;
-    background: linear-gradient(90deg, #0D1C23, transparent);
+    background: linear-gradient(90deg, #E2F4FB, transparent);
   }
   .marquee-outer::after {
     right: 0;
-    background: linear-gradient(-90deg, #0D1C23, transparent);
+    background: linear-gradient(-90deg, #E2F4FB, transparent);
   }
 
-  /* Partícules or */
   .particle {
     position: absolute;
-    width: 3px;
-    height: 3px;
+    width: 3px; height: 3px;
     border-radius: 50%;
     background: #F2CB40;
     animation: float-particle 3s ease-in-out infinite;
@@ -258,23 +222,19 @@ const colaboradors = sponsors.filter(s => s.tier === "col·laborador");
   .particle:nth-child(5) { left: 85%; top: 55%; animation-delay: 0.2s; animation-duration: 2.9s; }
 
   @keyframes float-particle {
-    0%   { transform: translateY(0)    scale(0);   opacity: 0; }
-    20%  { opacity: 0.8; }
-    80%  { opacity: 0.4; }
+    0%   { transform: translateY(0) scale(0);    opacity: 0; }
+    20%  { opacity: 0.6; }
+    80%  { opacity: 0.3; }
     100% { transform: translateY(-60px) scale(1.5); opacity: 0; }
   }
 
-  /* Shimmer border en hover (tier or) */
-  .sponsor-or {
-    position: relative;
-  }
   .sponsor-or::after {
     content: '';
     position: absolute;
     inset: 0;
     border-radius: inherit;
-    padding: 1px;
-    background: linear-gradient(135deg, transparent 30%, rgba(242,203,64,0.4), transparent 70%);
+    padding: 2px;
+    background: linear-gradient(135deg, transparent 30%, rgba(242,203,64,0.5), transparent 70%);
     -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
     mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
     -webkit-mask-composite: xor;
@@ -285,7 +245,6 @@ const colaboradors = sponsors.filter(s => s.tier === "col·laborador");
   }
   .sponsor-or:hover::after { opacity: 1; }
 
-  /* Reveal en scroll */
   .sponsor-reveal {
     opacity: 0;
     transform: translateY(24px);

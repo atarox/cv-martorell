@@ -15,16 +15,16 @@ const page = {
 
   <Hero />
 
-  <!-- Hero (#0D1C23) → SponsorGrid (#0D1C23): separador daurat -->
-  <Separador fromColor="#0D1C23" toColor="#0D1C23" accent="#F2CB40" />
+  <!-- Hero (#0D1C23) → SponsorGrid (#E2F4FB): transició a clar, accent daurat -->
+  <Separador fromColor="#0D1C23" toColor="#E2F4FB" accent="#F2CB40" />
   <SponsorGrid />
 
-  <!-- SponsorGrid (#0D1C23) → EquipsSummary (#0D1C23): separador blau -->
-  <Separador fromColor="#0D1C23" toColor="#0D1C23" accent="#76AFC2" />
+  <!-- SponsorGrid (#E2F4FB) → EquipsSummary (#0D1C23): transició a fosc -->
+  <Separador fromColor="#E2F4FB" toColor="#0D1C23" accent="#76AFC2" flip={true} />
   <EquipsSummary />
 
   <!-- EquipsSummary (#0D1C23) → ClubActivity (#E2F4FB): transició a clar -->
-  <Separador fromColor="#0D1C23" toColor="#E2F4FB" accent="#76AFC2" flip={true} />
+  <Separador fromColor="#0D1C23" toColor="#E2F4FB" accent="#76AFC2" />
   <ClubActivity />
 
 </BaseLayout>
