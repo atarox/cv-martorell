@@ -5,6 +5,7 @@ import Separador from "../components/Separador.astro";
 import EquipsSummary from "../components/EquipsSummary.astro";
 import ClubActivity from "../components/ClubActivity.astro";
 import SponsorGrid from "../components/SponsorGrid.astro";
+import PropersPartits from "../components/PropersPartits.astro";
 
 const page = {
   title: "El voleibol viu a Martorell – CV Martorell",
@@ -14,7 +15,7 @@ const page = {
 <BaseLayout title={page.title} description={page.description}>
 
   <Hero />
-
+  <PropersPartits />
   <!-- Hero (#0D1C23) → SponsorGrid (#E2F4FB): transició a clar, accent daurat -->
   <Separador fromColor="#0D1C23" toColor="#E2F4FB" accent="#F2CB40" />
   <SponsorGrid />

@@ -1,0 +1,68 @@
+---
+const WORKER_URL = "https://cv-martorell-worker.atarox.workers.dev";
+
+let partits: any[] = [];
+let error: string | null = null;
+
+try {
+  const res = await fetch(`${WORKER_URL}/propers-partits`);
+  if (res.ok) {
+    partits = await res.json();
+  } else {
+    error = "No s'han pogut carregar els partits.";
+  }
+} catch {
+  error = "Error de connexió amb el servei de partits.";
+}
+
+function formatData(data: string) {
+  return new Date(data).toLocaleString("ca-ES", {
+    weekday: "short",
+    day: "2-digit",
+    month: "short",
+    hour: "2-digit",
+    minute: "2-digit",
+  });
+}
+---
+
+<!-- ✅ FALDÓN SIEMPRE VISIBLE (ESTILO ESPN) -->
+<div class="w-full bg-black text-white border-y border-white/10 overflow-hidden">
+  <div class="flex items-center gap-6 px-6 py-3 text-sm font-semibold whitespace-nowrap">
+
+    <!-- Label fijo -->
+    <div class="flex items-center gap-2 text-catalan-yellow font-extrabold tracking-widest uppercase flex-shrink-0">
+      <span class="block h-3 w-3 bg-catalan-yellow"></span>
+      Propers partits
+    </div>
+
+    <!-- Contenido -->
+    {error && (
+      <span class="text-white/50 text-sm">
+        {error}
+      </span>
+    )}
+
+    {!error && partits.length === 0 && (
+      <span class="text-white/50 text-sm">
+        No hi ha partits programats
+      </span>
+    )}
+
+    {!error && partits.length > 0 && (
+      <div class="flex items-center gap-8 animate-marquee">
+        {partits.map((p) => (
+          <div class="flex items-center gap-3">
+            <span class="text-white">
+              {p.local} vs {p.visitant}
+            </span>
+            <span class="text-white/40 text-xs">
+              {formatData(p.data)}
+            </span>
+            <span class="text-white/20">│</span>
+          </div>
+        ))}
+      </div>
+    )}
+  </div>
+</div>
