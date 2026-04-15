@@ -64,7 +64,10 @@ try {
 }
 
 function formatData(data: string) {
-  return new Date(data).toLocaleString("ca-ES", {
+  if (!data) return "—";
+  const d = new Date(data);
+  if (isNaN(d.getTime())) return data.trim(); // si falla, muestra el string crudo
+  return d.toLocaleString("ca-ES", {
     weekday: "short",
     day: "2-digit",
     month: "short",
@@ -76,47 +79,37 @@ function formatData(data: string) {
 
 <!-- FALDÓ ESPN -->
 <div class="w-full bg-black text-white border-y border-white/10 overflow-hidden">
-  <div class="flex items-center gap-6 px-6 py-3 text-sm font-semibold whitespace-nowrap">
+  <div class="relative flex items-center h-11">
 
-    <!-- Etiqueta fixa -->
-    <div class="flex items-center gap-2 text-catalan-yellow font-extrabold uppercase tracking-widest flex-shrink-0">
-      <span class="block w-3 h-3 bg-catalan-yellow"></span>
+    <!-- Etiqueta fixa — z-index per sobre del scroll -->
+    <div class="relative z-10 flex items-center gap-2 px-4 h-full
+                bg-black border-r border-white/10
+                text-[#F5C518] font-extrabold uppercase tracking-widest text-xs
+                flex-shrink-0">
+      <span class="block w-2.5 h-2.5 bg-[#F5C518]"></span>
       Propers partits
     </div>
 
-    <!-- Estat error -->
-    {error && (
-      <span class="text-white/50 text-sm">
-        {error}
-      </span>
-    )}
+    <!-- Zona scrollable -->
+    <div class="flex-1 overflow-hidden h-full flex items-center">
+      {error && <span class="px-6 text-white/50 text-sm">{error}</span>}
+      {!error && partits.length === 0 && (
+        <span class="px-6 text-white/50 text-sm">No hi ha partits programats</span>
+      )}
+      {!error && partits.length > 0 && (
+        <div class="flex items-center gap-8 px-6 animate-marquee whitespace-nowrap">
+          {partits.map((p) => (
+            <div class="flex items-center gap-3">
+              <a href={`/equips/${p.slug}`} class="hover:underline text-white text-sm font-semibold">
+                {p.local} <span class="text-white/30">vs</span> {p.visitant}
+              </a>
+              <span class="text-white/40 text-xs">{formatData(p.data)}</span>
+              <span class="text-white/20">│</span>
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
 
-    <!-- Sense partits -->
-    {!error && partits.length === 0 && (
-      <span class="text-white/50 text-sm">
-        No hi ha partits programats
-      </span>
-    )}
-
-    <!-- Llista de partits -->
-    {!error && partits.length > 0 && (
-      <div class="flex items-center gap-8 animate-marquee">
-        {partits.map((p) => (
-          <div class="flex items-center gap-3">
-            <a
-              href={`/equips/${p.slug}`}
-              class="hover:underline text-white"
-            >
-              {p.local} vs {p.visitant}
-            </a>
-            <span class="text-white/40 text-xs">
-              {formatData(p.data)}
-            </span>
-            <span class="text-white/20">│</span>
-          </div>
-        ))}
-      </div>
-    )}
   </div>
 </div>
-``
