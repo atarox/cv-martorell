@@ -22,6 +22,38 @@ const { slug } = Astro.params;
 
 const WORKER_URL = "https://cv-martorell-worker.atarox.workers.dev";
 
+// Patrocinador principal per equip (logo de foto post-partit)
+const PATROCINADOR: Record<string, {
+  nom: string;
+  logo: string;
+  url: string;
+}> = {
+  "infantil-femeni-negre": {
+    nom: "Maipizza",
+    logo: "/images/sponsors/sponsor1.png",
+    url: "https://martorell.cat",
+  },
+
+  "infantil-masculi-negre": {
+    nom: "La Secre",
+    logo: "/images/sponsors/sponsor2.png",
+    url: "https://martorell.cat",
+  },
+
+  "senior-femeni-negre": {
+    nom: "Sanjo",
+    logo: "/images/sponsors/sponsor3.png",
+    url: "https://martorell.cat",
+  },
+  "juvenil-femeni-negre": {
+    nom: "El Cortijo",
+    logo: "/images/sponsors/sponsor4.png",
+    url: "https://martorell.cat",
+  },
+};
+
+
+
 // Mapa de fotos per slug — afegeix les que tinguis 
 const FOTOS: Record<string, string> = {
   "alevi-mixt": "/images/equips/alevi-mixt.jpg",
@@ -45,6 +77,7 @@ const FOTOS: Record<string, string> = {
 ``
 
 const foto = FOTOS[slug] ?? null;
+const patro = PATROCINADOR[slug] ?? null
 
 let dades: any = null;
 let error: string | null = null;
@@ -91,39 +124,76 @@ function formatData(data: string | null): string {
              style="background-image: radial-gradient(circle at 20% 50%, #76AFC2 0%, transparent 60%), radial-gradient(circle at 80% 20%, #2B6E7F 0%, transparent 50%);"></div>
       </div>
     )}
+ 
+  <!-- Contingut del hero -->
+<div
+  class="relative container mx-auto px-6 pt-32 pb-16 flex flex-col justify-end h-full"
+  style="min-height: 560px;"
+>
+  <a
+    href="/equips"
+    class="inline-flex items-center gap-2 text-white/50 hover:text-white/90 text-sm mb-6 transition-colors w-fit"
+  >
+    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+    </svg>
+    Tots els equips
+  </a>
 
-    <!-- Contingut del hero -->
-    <div class="relative container mx-auto px-6 pt-32 pb-16 flex flex-col justify-end h-full" style="min-height: 560px;">
-      <a href="/equips" class="inline-flex items-center gap-2 text-white/50 hover:text-white/90 text-sm mb-6 transition-colors w-fit">
-        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
-        </svg>
-        Tots els equips
-      </a>
+  <p
+    class="text-sm font-semibold uppercase tracking-widest mb-2"
+    style={`color: ${accentLight};`}
+  >
+    Temporada 2025–26
+  </p>
 
-      <p class="text-sm font-semibold uppercase tracking-widest mb-2" style={`color: ${accentLight};`}>
-        Temporada 2025–26
-      </p>
+  <h1 class="text-4xl md:text-6xl font-extrabold text-white tracking-tight drop-shadow-lg">
+    {dades ? dades.nom : slug}
+  </h1>
 
-      <h1 class="text-4xl md:text-6xl font-extrabold text-white tracking-tight drop-shadow-lg">
-        {dades ? dades.nom : slug}
-      </h1>
+  <!-- ✅ PATROCINADOR OFICIAL -->
+  {patro && (
+    <a
+      href={patro.url}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="mt-5 inline-flex items-center gap-4 rounded-2xl px-5 py-3
+             bg-black/30 backdrop-blur-sm border border-white/20
+             hover:bg-black/40 transition-all duration-300 w-fit"
+      aria-label={`Patrocinador del ${dades?.nom ?? slug}: ${patro.nom}`}
+    >
+      <img
+        src={patro.logo}
+        alt={patro.nom}
+        class="h-10 max-w-[140px] object-contain"
+        loading="lazy"
+      />
 
-      {dades?.posicio && (
-        <div class="mt-6 inline-flex items-center gap-3 rounded-2xl px-5 py-3 border border-white/10 bg-black/30 backdrop-blur-sm w-fit">
-          <span class="text-3xl font-extrabold" style={`color: ${accentLight};`}>
-            #{dades.posicio.pos}
-          </span>
-          <div>
-            <p class="text-white/40 text-xs uppercase tracking-wider">Posició</p>
-            <p class="text-white text-sm font-semibold">
-              {dades.posicio.gan}V · {dades.posicio.per}D · {dades.posicio.punts} pts
-            </p>
-          </div>
-        </div>
-      )}
+      <div class="text-left">
+        <p class="text-white/40 text-xs uppercase tracking-widest">
+          Patrocinador oficial
+        </p>
+        <p class="text-white font-semibold text-sm">
+          {patro.nom}
+        </p>
+      </div>
+    </a>
+  )}
+
+  {dades?.posicio && (
+    <div class="mt-6 inline-flex items-center gap-3 rounded-2xl px-5 py-3 border border-white/10 bg-black/30 backdrop-blur-sm w-fit">
+      <span class="text-3xl font-extrabold" style={`color: ${accentLight};`}>
+        #{dades.posicio.pos}
+      </span>
+      <div>
+        <p class="text-white/40 text-xs uppercase tracking-wider">Posició</p>
+        <p class="text-white text-sm font-semibold">
+          {dades.posicio.gan}V · {dades.posicio.per}D · {dades.posicio.punts} pts
+        </p>
+      </div>
     </div>
-  </div>
+  )}
+</div>
 
   {error && (
     <div class="container mx-auto px-6 py-16 text-center text-white/50">
