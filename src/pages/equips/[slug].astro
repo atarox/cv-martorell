@@ -106,7 +106,7 @@ function formatData(data: string | null): string {
 >
 
   <!-- Hero amb foto o gradient -->
-  <div class="relative overflow-hidden" style="min-height: 560px;">
+  <div class="relative overflow-hidden h-screen" style="min-height: 600px; max-height: 900px;">
 
     <!-- Foto de fons si existeix -->
     {foto ? (
@@ -193,6 +193,7 @@ function formatData(data: string | null): string {
       </div>
     </div>
   )}
+</div>
 </div>
 
   {error && (
