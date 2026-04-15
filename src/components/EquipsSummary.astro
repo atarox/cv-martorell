@@ -35,14 +35,14 @@ const equips: Equip[] = [
     equip: "Negre", foto: "/images/equips/cadet-femeni-negre.jpg", entrenador: "Rafa Corts", divisio: "3a Divisió Cadet",
     slug: "cadet-femeni-negre" },
   { categoria: "Cadet", genere: "Femení", icon: "🏐", edats: "Sub-16", color: "from-cyan-900/80 to-brand-dark/90", accent: "#76AFC2",
-    equip: "Blau", entrenador: "per confirmar", divisio: "4a Divisió Cadet",
-    slug: "cadet-femeni-blau" },
+    equip: "Blau", entrenador: "per confirmar", divisio: "4a Divisió Cadet", foto: "/images/equips/cadet-femeni-blau.jpg",
+    slug: "cadet-femeni-blau",entrenador: "Águeda Núñez" },
   { categoria: "Juvenil", genere: "Femení", icon: "🏐", edats: "Sub-18", color: "from-indigo-900/80 to-brand-dark/90", accent: "#C4372B",
     equip: "Negre", foto: "/images/equips/juvenil-femeni-negre.jpg", entrenador: "Rafa Corts", divisio: "3a Divisió Juvenil",
     slug: "juvenil-femeni-negre" },
   { categoria: "Juvenil", genere: "Femení", icon: "🏐", edats: "Sub-18", color: "from-indigo-900/80 to-brand-dark/90", accent: "#76AFC2",
-    equip: "Blau", divisio: "4a Divisió Juvenil",
-    slug: "juvenil-femeni-blau" },
+    equip: "Blau", divisio: "4a Divisió Juvenil",foto: "/images/equips/juvenil-femeni-blau.jpg",
+    slug: "juvenil-femeni-blau" ,  entrenador: "Juanjo Ibáñez" },
   { categoria: "Juvenil", genere: "Mixt", icon: "🏐", edats: "Sub-18", color: "from-indigo-900/80 to-brand-dark/90", accent: "#C4372B",
     equip: "Vermell", foto: "/images/equips/juvenil-mixt-vermell.jpg", entrenador: "Ana Tena" },
   { categoria: "Júnior", genere: "Femení", icon: "🏐", edats: "Sub-20", color: "from-slate-800/80 to-brand-dark/90", accent: "#C4372B",
@@ -52,11 +52,12 @@ const equips: Equip[] = [
     equip: "Negre", foto: "/images/equips/senior-femeni-negre.jpg", entrenador: "Richard Álvarez", divisio: "3a Divisió Sènior",
     slug: "senior-femeni-negre" },
   { categoria: "Sènior", genere: "Femení", icon: "🏐", edats: "Absolut", color: "from-zinc-800/80 to-brand-dark/90", accent: "#76AFC2",
-    equip: "Blau", divisio: "4a Divisió Sènior",
-    slug: "senior-femeni-blau" },
+    equip: "Blau", divisio: "4a Divisió Sènior", foto: "/images/equips/senior-femeni-blau.jpg",
+    slug: "senior-femeni-blau",  entrenador: "Juanjo Ibáñez" },
   { categoria: "Màster", genere: "Mixt", icon: "🏐", edats: "Absolut", color: "from-sky-900/80 to-brand-dark/90", accent: "#76AFC2",
     foto: "/images/equips/master-mixt.jpg", entrenador: "José Meoniz" },
 ];
+
 ---
 
 <section class="relative bg-brand-dark pt-12 pb-24 overflow-hidden" aria-labelledby="equips-title">
@@ -82,31 +83,74 @@ const equips: Equip[] = [
       </a>
     </div>
 
-    <!-- Sitting Volei -->
-    <div class="equips-reveal mb-6">
-      <a href="/equips#sitting"
-         class="sitting-card group relative flex items-center gap-5 rounded-2xl overflow-hidden
-                border border-catalan-yellow/30 bg-gradient-to-r from-yellow-950/60 to-brand-dark
-                px-6 py-5 hover:border-catalan-yellow/60 transition-all duration-300">
-        <div class="absolute left-0 top-0 bottom-0 w-1 bg-catalan-yellow/80 rounded-l-2xl"></div>
-        <div class="flex-shrink-0 w-12 h-12 rounded-xl flex items-center justify-center
-                    bg-catalan-yellow/10 border border-catalan-yellow/20 text-2xl">♿</div>
-        <div class="flex-grow min-w-0">
-          <div class="flex items-center gap-2 flex-wrap">
-            <p class="text-white font-extrabold text-base leading-tight">Volei Terra</p>
-            <span class="text-xs font-bold uppercase tracking-wider px-2 py-0.5 rounded-full
-                         bg-catalan-yellow/15 border border-catalan-yellow/30" style="color: #F2CB40;">
-              Únics a Catalunya
-            </span>
-          </div>
-          <p class="text-white/40 text-xs mt-1">Sitting Volei · Mixt · Absolut</p>
-        </div>
-        <div class="flex-shrink-0 text-catalan-yellow/50 group-hover:text-catalan-yellow
-                    group-hover:translate-x-1 transition-all duration-200 text-lg">→</div>
-        <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
-             style="background: radial-gradient(ellipse 60% 80% at 20% 50%, rgba(242,203,64,0.06) 0%, transparent 70%);"></div>
-      </a>
+  <!-- Sitting Volei -->
+<div class="equips-reveal mb-6">
+  <a
+    href="/equips#sitting"
+    class="sitting-card group relative flex items-center gap-5 rounded-2xl overflow-hidden
+           border border-catalan-yellow/30 bg-gradient-to-r from-yellow-950/60 to-brand-dark
+           px-6 py-5 hover:border-catalan-yellow/60 transition-all duration-300"
+  >
+
+    <!-- ✅ FOTO DE FONDO -->
+    <div class="absolute inset-0">
+      <img
+        src="/images/equips/terra.jpg"
+        alt="Vòlei Terra – Sitting Volei"
+        class="w-full h-full object-cover object-center opacity-15"
+      />
     </div>
+
+    <!-- ✅ OVERLAY OSCURO PARA LEGIBILIDAD -->
+    <div class="absolute inset-0 bg-brand-dark/60"></div>
+
+    <!-- Barra lateral -->
+    <div class="absolute left-0 top-0 bottom-0 w-1 bg-catalan-yellow/80 rounded-l-2xl"></div>
+
+    <!-- Icono -->
+    <div
+      class="relative flex-shrink-0 w-12 h-12 rounded-xl flex items-center justify-center
+             bg-catalan-yellow/10 border border-catalan-yellow/20 text-2xl"
+    >
+      ♿
+    </div>
+
+    <!-- Texto -->
+    <div class="relative flex-grow min-w-0">
+      <div class="flex items-center gap-2 flex-wrap">
+        <p class="text-white font-extrabold text-base leading-tight">
+          Vòlei Terra
+        </p>
+        <span
+          class="text-xs font-bold uppercase tracking-wider px-2 py-0.5 rounded-full
+                 bg-catalan-yellow/15 border border-catalan-yellow/30"
+          style="color: #F2CB40;"
+        >
+          Únics a Catalunya
+        </span>
+      </div>
+      <p class="text-white/40 text-xs mt-1">
+        Sitting Volei · Mixt · Absolut
+      </p>
+    </div>
+
+    <!-- Flecha -->
+    <div
+      class="relative flex-shrink-0 text-catalan-yellow/50 group-hover:text-catalan-yellow
+             group-hover:translate-x-1 transition-all duration-200 text-lg"
+    >
+      →
+    </div>
+
+    <!-- Glow hover -->
+    <div
+      class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+      style="background: radial-gradient(ellipse 60% 80% at 20% 50%, rgba(242,203,64,0.06) 0%, transparent 70%);"
+    ></div>
+
+  </a>
+</div>
+
 
     <!-- Scroll horitzontal de targetes -->
     <div class="equips-reveal">

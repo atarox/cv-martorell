@@ -22,12 +22,27 @@ const { slug } = Astro.params;
 
 const WORKER_URL = "https://cv-martorell-worker.atarox.workers.dev";
 
-// Mapa de fotos per slug — afegeix les que tinguis
+// Mapa de fotos per slug — afegeix les que tinguis 
 const FOTOS: Record<string, string> = {
+  "alevi-mixt": "/images/equips/alevi-mixt.jpg",
+
+  "infantil-masculi-negre": "/images/equips/infantil-masculi-negre.jpg",
   "infantil-femeni-negre": "/images/equips/infantil-femeni-negre.jpg",
-  // "cadet-femeni-negre": "/images/equips/cadet-femeni-negre.jpg",
-  // afegeix més quan tinguis les fotos
+  "infantil-femeni-blau": "/images/equips/infantil-femeni-blau.jpg",
+  "infantil-femeni-vermell": "/images/equips/infantil-femeni-vermell.jpg",
+
+  "cadet-femeni-negre": "/images/equips/cadet-femeni-negre.jpg",
+  "cadet-femeni-blau": "/images/equips/cadet-femeni-blau.jpg",
+
+  "juvenil-femeni-negre": "/images/equips/juvenil-femeni-negre.jpg",
+  "juvenil-femeni-blau": "/images/equips/juvenil-femeni-blau.jpg",
+
+  "junior-femeni-negre": "/images/equips/junior-femeni-negre.jpg",
+
+  "senior-femeni-negre": "/images/equips/senior-femeni-negre.jpg",
+  "senior-femeni-blau": "/images/equips/senior-femeni-blau.jpg",
 };
+``
 
 const foto = FOTOS[slug] ?? null;
 
@@ -65,7 +80,7 @@ function formatData(data: string | null): string {
       <div class="absolute inset-0">
         <img src={foto}
              alt={dades?.nom ?? slug}
-             class="w-full h-full object-cover object-top" />
+             class="w-full h-full object-cover object-center" />
         <!-- Gradient fosc per llegibilitat — més fort a baix on hi ha el text -->
         <div class="absolute inset-0"
              style="background: linear-gradient(to top, #0D1C23 0%, rgba(13,28,35,0.85) 40%, rgba(13,28,35,0.2) 100%);"></div>

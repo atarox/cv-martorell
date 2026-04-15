@@ -42,14 +42,14 @@ const equips: Equip[] = [
     equip: "Negre", foto: "/images/equips/cadet-femeni-negre.jpg", entrenador: "Rafa Corts", divisio: "3a Divisió Cadet",
     slug: "cadet-femeni-negre" },
   { categoria: "Cadet", genere: "Femení", icon: "🏐", edats: "Sub-16", color: "from-cyan-900/80 to-brand-dark/90", accent: "#76AFC2",
-    equip: "Blau", entrenador: "per confirmar", divisio: "4a Divisió Cadet",
-    slug: "cadet-femeni-blau" },
+    equip: "Blau", entrenador: "per confirmar", divisio: "4a Divisió Cadet", foto: "/images/equips/cadet-femeni-blau.jpg",
+    slug: "cadet-femeni-blau",entrenador: "Águeda Núñez" },
   { categoria: "Juvenil", genere: "Femení", icon: "🏐", edats: "Sub-18", color: "from-indigo-900/80 to-brand-dark/90", accent: "#C4372B",
     equip: "Negre", foto: "/images/equips/juvenil-femeni-negre.jpg", entrenador: "Rafa Corts", divisio: "3a Divisió Juvenil",
     slug: "juvenil-femeni-negre" },
   { categoria: "Juvenil", genere: "Femení", icon: "🏐", edats: "Sub-18", color: "from-indigo-900/80 to-brand-dark/90", accent: "#76AFC2",
-    equip: "Blau", divisio: "4a Divisió Juvenil",
-    slug: "juvenil-femeni-blau" },
+    equip: "Blau", divisio: "4a Divisió Juvenil",foto: "/images/equips/juvenil-femeni-blau.jpg",
+    slug: "juvenil-femeni-blau" ,  entrenador: "Juanjo Ibáñez" },
   { categoria: "Juvenil", genere: "Mixt", icon: "🏐", edats: "Sub-18", color: "from-indigo-900/80 to-brand-dark/90", accent: "#C4372B",
     equip: "Vermell", foto: "/images/equips/juvenil-mixt-vermell.jpg", entrenador: "Ana Tena" },
   { categoria: "Júnior", genere: "Femení", icon: "🏐", edats: "Sub-20", color: "from-slate-800/80 to-brand-dark/90", accent: "#C4372B",
@@ -59,8 +59,8 @@ const equips: Equip[] = [
     equip: "Negre", foto: "/images/equips/senior-femeni-negre.jpg", entrenador: "Richard Álvarez", divisio: "3a Divisió Sènior",
     slug: "senior-femeni-negre" },
   { categoria: "Sènior", genere: "Femení", icon: "🏐", edats: "Absolut", color: "from-zinc-800/80 to-brand-dark/90", accent: "#76AFC2",
-    equip: "Blau", divisio: "4a Divisió Sènior",
-    slug: "senior-femeni-blau" },
+    equip: "Blau", divisio: "4a Divisió Sènior", foto: "/images/equips/senior-femeni-blau.jpg",
+    slug: "senior-femeni-blau",  entrenador: "Juanjo Ibáñez" },
   { categoria: "Màster", genere: "Mixt", icon: "🏐", edats: "Absolut", color: "from-sky-900/80 to-brand-dark/90", accent: "#76AFC2",
     foto: "/images/equips/master-mixt.jpg", entrenador: "José Meoniz" },
 ];
@@ -110,6 +110,15 @@ const categories = [...new Set(equips.map(e => e.categoria))];
                class="col-span-1 sm:col-span-2 lg:col-span-3 group relative rounded-2xl overflow-hidden
                       border border-catalan-yellow/30 bg-gradient-to-r from-yellow-950/60 to-brand-dark
                       shadow-soft hover:shadow-hard hover:-translate-y-1 transition-all duration-300">
+					  
+		<div class="absolute inset-0">
+		  <img
+			src="/images/equips/terra.jpg"
+			alt="Vòlei Terra - Sitting Vòlei CV Martorell"
+			class="w-full h-full object-cover object-center opacity-20"
+		  >
+		</div>
+
         <div class="absolute top-0 left-0 right-0 h-1"
              style="background: linear-gradient(90deg, transparent, #F2CB40, transparent);"></div>
         <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
