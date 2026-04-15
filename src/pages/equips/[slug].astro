@@ -1,98 +1,48 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import { equips } from "../../data/equips";
 
 export async function getStaticPaths() {
-  return [
-    { params: { slug: "alevi-mixt" } },
-    { params: { slug: "infantil-masculi-negre" } },
-    { params: { slug: "infantil-femeni-negre" } },
-    { params: { slug: "infantil-femeni-blau" } },
-    { params: { slug: "infantil-femeni-vermell" } },
-    { params: { slug: "cadet-femeni-negre" } },
-    { params: { slug: "cadet-femeni-blau" } },
-    { params: { slug: "juvenil-femeni-negre" } },
-    { params: { slug: "juvenil-femeni-blau" } },
-    { params: { slug: "junior-femeni-negre" } },
-    { params: { slug: "senior-femeni-negre" } },
-    { params: { slug: "senior-femeni-blau" } },
-  ];
+  return equips
+    .filter(e => e.slug)
+    .map(e => ({
+      params: { slug: e.slug }
+    }));
 }
 
 const { slug } = Astro.params;
 
+// 🔥 única fuente de verdad
+const equip = equips.find(e => e.slug === slug);
+
+// seguridad básica
+if (!equip) {
+  return Astro.redirect("/equips");
+}
+
+const foto = equip.foto;
+const patro = equip.patrocinador ?? null;
+
 const WORKER_URL = "https://cv-martorell-worker.atarox.workers.dev";
 
-// Patrocinador principal per equip (logo de foto post-partit)
-const PATROCINADOR: Record<string, {
-  nom: string;
-  logo: string;
-  url: string;
-}> = {
-  "infantil-femeni-negre": {
-    nom: "Maipizza",
-    logo: "/images/sponsors/sponsor1.png",
-    url: "https://martorell.cat",
-  },
-
-  "infantil-masculi-negre": {
-    nom: "La Secre",
-    logo: "/images/sponsors/sponsor2.png",
-    url: "https://martorell.cat",
-  },
-
-  "senior-femeni-negre": {
-    nom: "Sanjo",
-    logo: "/images/sponsors/sponsor3.png",
-    url: "https://martorell.cat",
-  },
-  "juvenil-femeni-negre": {
-    nom: "El Cortijo",
-    logo: "/images/sponsors/sponsor4.png",
-    url: "https://martorell.cat",
-  },
-};
-
-
-
-// Mapa de fotos per slug — afegeix les que tinguis 
-const FOTOS: Record<string, string> = {
-  "alevi-mixt": "/images/equips/alevi-mixt.jpg",
-
-  "infantil-masculi-negre": "/images/equips/infantil-masculi-negre.jpg",
-  "infantil-femeni-negre": "/images/equips/infantil-femeni-negre.jpg",
-  "infantil-femeni-blau": "/images/equips/infantil-femeni-blau.jpg",
-  "infantil-femeni-vermell": "/images/equips/infantil-femeni-vermell.jpg",
-
-  "cadet-femeni-negre": "/images/equips/cadet-femeni-negre.jpg",
-  "cadet-femeni-blau": "/images/equips/cadet-femeni-blau.jpg",
-
-  "juvenil-femeni-negre": "/images/equips/juvenil-femeni-negre.jpg",
-  "juvenil-femeni-blau": "/images/equips/juvenil-femeni-blau.jpg",
-
-  "junior-femeni-negre": "/images/equips/junior-femeni-negre.jpg",
-
-  "senior-femeni-negre": "/images/equips/senior-femeni-negre.jpg",
-  "senior-femeni-blau": "/images/equips/senior-femeni-blau.jpg",
-};
-``
-
-const foto = FOTOS[slug] ?? null;
-const patro = PATROCINADOR[slug] ?? null
-
+// datos dinámicos (iSquad / clasificación / partidos)
 let dades: any = null;
 let error: string | null = null;
+
 try {
   const res = await fetch(`${WORKER_URL}/equip/${slug}`);
   if (res.ok) dades = await res.json();
   else error = "No s'han pogut carregar les dades.";
-} catch (e) {
+} catch {
   error = "Error de connexió amb el worker.";
 }
 
-const accentLight = "#76AFC2";
+// color del equip (fallback seguro)
+const accentLight = equip.accent ?? "#76AFC2";
 
+// helpers
 function esMartorell(nom: string): boolean {
-  return nom.toUpperCase().includes("MARTORELL");
+  return nom?.toUpperCase().includes("MARTORELL");
 }
 
 function formatData(data: string | null): string {
@@ -101,217 +51,172 @@ function formatData(data: string | null): string {
 ---
 
 <BaseLayout
-  title={dades ? `${dades.nom} – CV Martorell` : "Equip – CV Martorell"}
-  description={dades ? `Resultats i classificació de ${dades.nom}` : ""}
+  title={dades ? `${dades.nom} – CV Martorell` : `${equip.nom} – CV Martorell`}
+  description={dades ? `Resultats i classificació de ${dades.nom}` : equip.nom}
 >
 
-  <!-- Hero amb foto o gradient -->
+  <!-- HERO -->
   <div class="relative overflow-hidden h-screen" style="min-height: 600px; max-height: 900px;">
 
-    <!-- Foto de fons si existeix -->
     {foto ? (
       <div class="absolute inset-0">
-        <img src={foto}
-             alt={dades?.nom ?? slug}
-             class="w-full h-full object-cover object-center" />
-        <!-- Gradient fosc per llegibilitat — més fort a baix on hi ha el text -->
+        <img
+          src={foto}
+          alt={equip.nom}
+          class="w-full h-full object-cover object-center"
+        />
         <div class="absolute inset-0"
-             style="background: linear-gradient(to top, #0D1C23 0%, rgba(13,28,35,0.85) 40%, rgba(13,28,35,0.2) 100%);"></div>
+          style="background: linear-gradient(to top, #0D1C23 0%, rgba(13,28,35,0.85) 40%, rgba(13,28,35,0.2) 100%);">
+        </div>
       </div>
     ) : (
       <div class="absolute inset-0 bg-brand-dark">
         <div class="absolute inset-0 opacity-10"
-             style="background-image: radial-gradient(circle at 20% 50%, #76AFC2 0%, transparent 60%), radial-gradient(circle at 80% 20%, #2B6E7F 0%, transparent 50%);"></div>
+          style="background-image: radial-gradient(circle at 20% 50%, #76AFC2 0%, transparent 60%), radial-gradient(circle at 80% 20%, #2B6E7F 0%, transparent 50%);">
+        </div>
       </div>
     )}
- 
-  <!-- Contingut del hero -->
-<div
-  class="relative container mx-auto px-6 pt-32 pb-16 flex flex-col justify-end h-full"
-  style="min-height: 560px;"
->
-  <a
-    href="/equips"
-    class="inline-flex items-center gap-2 text-white/50 hover:text-white/90 text-sm mb-6 transition-colors w-fit"
-  >
-    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
-    </svg>
-    Tots els equips
-  </a>
 
-  <p
-    class="text-sm font-semibold uppercase tracking-widest mb-2"
-    style={`color: ${accentLight};`}
-  >
-    Temporada 2025–26
-  </p>
+    <!-- CONTENIDO HERO -->
+    <div class="relative container mx-auto px-6 pt-32 pb-16 flex flex-col justify-end h-full">
 
-  <h1 class="text-4xl md:text-6xl font-extrabold text-white tracking-tight drop-shadow-lg">
-    {dades ? dades.nom : slug}
-  </h1>
+      <a href="/equips"
+        class="inline-flex items-center gap-2 text-white/50 hover:text-white/90 text-sm mb-6 w-fit">
+        ← Tots els equips
+      </a>
 
-  <!-- ✅ PATROCINADOR OFICIAL -->
-  {patro && (
-    <a
-      href={patro.url}
-      target="_blank"
-      rel="noopener noreferrer"
-      class="mt-5 inline-flex items-center gap-4 rounded-2xl px-5 py-3
-             bg-black/30 backdrop-blur-sm border border-white/20
-             hover:bg-black/40 transition-all duration-300 w-fit"
-      aria-label={`Patrocinador del ${dades?.nom ?? slug}: ${patro.nom}`}
-    >
-      <img
-        src={patro.logo}
-        alt={patro.nom}
-        class="h-10 max-w-[140px] object-contain"
-        loading="lazy"
-      />
+      <p class="text-sm font-semibold uppercase tracking-widest mb-2"
+        style={`color: ${accentLight};`}>
+        Temporada 2025–26
+      </p>
 
-      <div class="text-left">
-        <p class="text-white/40 text-xs uppercase tracking-widest">
-          Patrocinador oficial
-        </p>
-        <p class="text-white font-semibold text-sm">
-          {patro.nom}
-        </p>
-      </div>
-    </a>
-  )}
+      <h1 class="text-4xl md:text-6xl font-extrabold text-white tracking-tight">
+        {dades?.nom ?? equip.nom}
+      </h1>
 
-  {dades?.posicio && (
-    <div class="mt-6 inline-flex items-center gap-3 rounded-2xl px-5 py-3 border border-white/10 bg-black/30 backdrop-blur-sm w-fit">
-      <span class="text-3xl font-extrabold" style={`color: ${accentLight};`}>
-        #{dades.posicio.pos}
-      </span>
-      <div>
-        <p class="text-white/40 text-xs uppercase tracking-wider">Posició</p>
-        <p class="text-white text-sm font-semibold">
-          {dades.posicio.gan}V · {dades.posicio.per}D · {dades.posicio.punts} pts
-        </p>
-      </div>
+      <!-- PATROCINADOR -->
+      {patro && (
+        <a
+          href={patro.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="mt-5 inline-flex items-center gap-4 rounded-2xl px-5 py-3
+                 bg-black/30 backdrop-blur-sm border border-white/20
+                 hover:bg-black/40 transition-all w-fit"
+        >
+          <img
+            src={patro.logo}
+            alt={patro.nom}
+            class="h-10 max-w-[140px] object-contain"
+          />
+
+          <div>
+            <p class="text-white/40 text-xs uppercase tracking-widest">
+              Patrocinador oficial
+            </p>
+            <p class="text-white font-semibold text-sm">
+              {patro.nom}
+            </p>
+          </div>
+        </a>
+      )}
+
+      {dades?.posicio && (
+        <div class="mt-6 inline-flex items-center gap-3 rounded-2xl px-5 py-3 bg-black/30 backdrop-blur-sm w-fit">
+          <span class="text-3xl font-extrabold" style={`color: ${accentLight};`}>
+            #{dades.posicio.pos}
+          </span>
+          <div>
+            <p class="text-white/40 text-xs uppercase">Posició</p>
+            <p class="text-white text-sm font-semibold">
+              {dades.posicio.gan}V · {dades.posicio.per}D · {dades.posicio.punts} pts
+            </p>
+          </div>
+        </div>
+      )}
+
     </div>
-  )}
-</div>
-</div>
+  </div>
 
+  <!-- ERROR -->
   {error && (
     <div class="container mx-auto px-6 py-16 text-center text-white/50">
-      <p>{error}</p>
+      {error}
     </div>
   )}
 
   {dades && (
     <section class="container mx-auto px-4 md:px-6 py-16 space-y-12">
 
-      <!-- Últim resultat + Proper partit -->
+      <!-- ÚLTIMO RESULTADO + PRÓXIMO -->
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 
-        <div class="rounded-2xl bg-brand-dark border border-white/10 p-6 shadow-soft">
-          <p class="text-xs font-bold uppercase tracking-widest mb-4" style={`color: ${accentLight};`}>
+        <!-- Último resultado -->
+        <div class="rounded-2xl bg-brand-dark border border-white/10 p-6">
+          <p class="text-xs uppercase tracking-widest mb-4" style={`color: ${accentLight};`}>
             Últim resultat
           </p>
+
           {dades.ultimResultat ? (
-            <div class="space-y-4">
-              <div class="flex items-center justify-between gap-4">
-                <div class="flex-1 text-right">
-                  <p class={`text-sm font-bold leading-tight ${esMartorell(dades.ultimResultat.local) ? 'text-white' : 'text-white/40'}`}>
-                    {dades.ultimResultat.local}
-                  </p>
-                </div>
-                <div class="flex-shrink-0 px-4 text-center">
-                  <span class="text-2xl font-extrabold text-white tabular-nums">
-                    {dades.ultimResultat.marcador ?? "—"}
-                  </span>
-                </div>
-                <div class="flex-1 text-left">
-                  <p class={`text-sm font-bold leading-tight ${esMartorell(dades.ultimResultat.visitant) ? 'text-white' : 'text-white/40'}`}>
-                    {dades.ultimResultat.visitant}
-                  </p>
-                </div>
-              </div>
-              <p class="text-white/30 text-xs text-center">{formatData(dades.ultimResultat.data)}</p>
+            <div class="flex justify-between items-center">
+              <span class={esMartorell(dades.ultimResultat.local) ? "text-white" : "text-white/40"}>
+                {dades.ultimResultat.local}
+              </span>
+
+              <span class="text-xl font-bold text-white">
+                {dades.ultimResultat.marcador}
+              </span>
+
+              <span class={esMartorell(dades.ultimResultat.visitant) ? "text-white" : "text-white/40"}>
+                {dades.ultimResultat.visitant}
+              </span>
             </div>
           ) : (
-            <p class="text-white/30 text-sm">Encara no hi ha resultats.</p>
+            <p class="text-white/30">Sense dades</p>
           )}
         </div>
 
-        <div class="rounded-2xl bg-brand-dark border border-white/10 p-6 shadow-soft">
-          <p class="text-xs font-bold uppercase tracking-widest mb-4" style={`color: ${accentLight};`}>
+        <!-- Próximo partido -->
+        <div class="rounded-2xl bg-brand-dark border border-white/10 p-6">
+          <p class="text-xs uppercase tracking-widest mb-4" style={`color: ${accentLight};`}>
             Proper partit
           </p>
-          {dades.propersPartits.length > 0 ? (
-            <div class="space-y-4">
-              <div class="flex items-center justify-between gap-4">
-                <div class="flex-1 text-right">
-                  <p class={`text-sm font-bold leading-tight ${esMartorell(dades.propersPartits[0].local) ? 'text-white' : 'text-white/40'}`}>
-                    {dades.propersPartits[0].local}
-                  </p>
-                </div>
-                <div class="flex-shrink-0 px-4 text-center">
-                  <span class="text-lg font-extrabold text-white/30">VS</span>
-                </div>
-                <div class="flex-1 text-left">
-                  <p class={`text-sm font-bold leading-tight ${esMartorell(dades.propersPartits[0].visitant) ? 'text-white' : 'text-white/40'}`}>
-                    {dades.propersPartits[0].visitant}
-                  </p>
-                </div>
-              </div>
-              <p class="text-white/30 text-xs text-center">{formatData(dades.propersPartits[0].data)}</p>
+
+          {dades.propersPartits?.[0] ? (
+            <div class="flex justify-between items-center">
+              <span>{dades.propersPartits[0].local}</span>
+              <span class="text-white/30">VS</span>
+              <span>{dades.propersPartits[0].visitant}</span>
             </div>
           ) : (
-            <p class="text-white/30 text-sm">No hi ha partits programats.</p>
+            <p class="text-white/30">Sense partits</p>
           )}
         </div>
+
       </div>
 
-      <!-- Classificació -->
-      {dades.clasificacion.length > 0 && (
-        <div class="rounded-2xl bg-brand-dark border border-white/10 shadow-soft overflow-hidden">
-          <div class="px-6 py-4 border-b border-white/10">
-            <p class="text-xs font-bold uppercase tracking-widest" style={`color: ${accentLight};`}>Classificació</p>
+      <!-- CLASIFICACIÓN -->
+      {dades.clasificacion?.length > 0 && (
+        <div class="rounded-2xl bg-brand-dark border border-white/10 overflow-hidden">
+          <div class="p-4 border-b border-white/10">
+            <p class="text-xs uppercase tracking-widest" style={`color: ${accentLight};`}>
+              Classificació
+            </p>
           </div>
-          <div class="overflow-x-auto">
-            <table class="w-full text-sm">
-              <thead>
-                <tr class="text-white/30 text-xs uppercase tracking-wider border-b border-white/10">
-                  <th class="px-6 py-3 text-left w-8">#</th>
-                  <th class="px-6 py-3 text-left">Equip</th>
-                  <th class="px-4 py-3 text-center">PJ</th>
-                  <th class="px-4 py-3 text-center">G</th>
-                  <th class="px-4 py-3 text-center">P</th>
-                  <th class="px-4 py-3 text-center">Pts</th>
-                </tr>
-              </thead>
-              <tbody>
-                {dades.clasificacion.map((fila: any) => (
-                  <tr class={`border-b border-white/5 ${esMartorell(fila.equip) ? 'bg-white/5' : 'hover:bg-white/5'} transition-colors`}>
-                    <td class="px-6 py-3 text-white/40 font-mono">{fila.pos}</td>
-                    <td class="px-6 py-3">
-                      <span class={`font-semibold ${esMartorell(fila.equip) ? 'text-white' : 'text-white/60'}`}>
-                        {esMartorell(fila.equip) && (
-                          <span class="inline-block w-1.5 h-1.5 rounded-full mr-2 mb-0.5 align-middle" style={`background: ${accentLight};`}></span>
-                        )}
-                        {fila.equip}
-                      </span>
-                    </td>
-                    <td class="px-4 py-3 text-center text-white/50">{fila.jug}</td>
-                    <td class="px-4 py-3 text-center text-white/50">{fila.gan}</td>
-                    <td class="px-4 py-3 text-center text-white/50">{fila.per}</td>
-                    <td class="px-4 py-3 text-center font-bold" style={esMartorell(fila.equip) ? `color: ${accentLight};` : 'color: rgba(255,255,255,0.6);'}>
-                      {fila.punts}
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+
+          <div class="divide-y divide-white/5">
+            {dades.clasificacion.map((fila: any) => (
+              <div class="flex justify-between p-4">
+                <span>{fila.pos}</span>
+                <span>{fila.equip}</span>
+                <span>{fila.punts}</span>
+              </div>
+            ))}
           </div>
         </div>
       )}
-
-      <!-- Partits jugats -->
+	  
+	        <!-- Partits jugats -->
       {dades.jugats.length > 0 && (
         <div class="rounded-2xl bg-brand-dark border border-white/10 shadow-soft overflow-hidden">
           <div class="px-6 py-4 border-b border-white/10">
@@ -361,8 +266,11 @@ function formatData(data: string | null): string {
         </div>
       )}
 
-      <p class="text-white/20 text-xs text-center">
-        Actualitzat: {new Date(dades.actualitzat).toLocaleString("ca-ES", { dateStyle: "medium", timeStyle: "short" })}
+      <!-- FOOT -->
+      <p class="text-center text-white/20 text-xs">
+        Actualitzat: {dades?.actualitzat
+          ? new Date(dades.actualitzat).toLocaleString("ca-ES")
+          : "—"}
       </p>
 
     </section>
