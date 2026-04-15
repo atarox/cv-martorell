@@ -1,18 +1,66 @@
 ---
+/**
+ * Faldó informatiu - Propers partits (estil ESPN)
+ * Agrega els propers partits de tots els equips amb slug
+ */
+
 const WORKER_URL = "https://cv-martorell-worker.atarox.workers.dev";
 
-let partits: any[] = [];
+// Slugs dels equips amb pàgina de stats
+const SLUGS_EQUIPS = [
+  "alevi-mixt",
+  "infantil-masculi-negre",
+  "infantil-femeni-negre",
+  "infantil-femeni-blau",
+  "infantil-femeni-vermell",
+  "cadet-femeni-negre",
+  "cadet-femeni-blau",
+  "juvenil-femeni-negre",
+  "juvenil-femeni-blau",
+  "junior-femeni-negre",
+  "senior-femeni-negre",
+  "senior-femeni-blau",
+];
+
+type ProperPartit = {
+  local: string;
+  visitant: string;
+  data: string;
+  slug: string;
+};
+
+let partits: ProperPartit[] = [];
 let error: string | null = null;
 
 try {
-  const res = await fetch(`${WORKER_URL}/propers-partits`);
-  if (res.ok) {
-    partits = await res.json();
-  } else {
-    error = "No s'han pogut carregar els partits.";
-  }
-} catch {
-  error = "Error de connexió amb el servei de partits.";
+  const responses = await Promise.all(
+    SLUGS_EQUIPS.map(async (slug) => {
+      const res = await fetch(`${WORKER_URL}/equip/${slug}`);
+      if (!res.ok) return null;
+
+      const data = await res.json();
+      const proper = data?.propersPartits?.[0];
+      if (!proper) return null;
+
+      return {
+        local: proper.local,
+        visitant: proper.visitant,
+        data: proper.data,
+        slug,
+      };
+    })
+  );
+
+  partits = responses
+    .filter(Boolean)
+    .sort(
+      (a, b) =>
+        new Date(a!.data).getTime() - new Date(b!.data).getTime()
+    )
+    .slice(0, 8) as ProperPartit[];
+
+} catch (e) {
+  error = "No s'han pogut carregar els propers partits.";
 }
 
 function formatData(data: string) {
@@ -26,36 +74,41 @@ function formatData(data: string) {
 }
 ---
 
-<!-- ✅ FALDÓN SIEMPRE VISIBLE (ESTILO ESPN) -->
+<!-- FALDÓ ESPN -->
 <div class="w-full bg-black text-white border-y border-white/10 overflow-hidden">
   <div class="flex items-center gap-6 px-6 py-3 text-sm font-semibold whitespace-nowrap">
 
-    <!-- Label fijo -->
-    <div class="flex items-center gap-2 text-catalan-yellow font-extrabold tracking-widest uppercase flex-shrink-0">
-      <span class="block h-3 w-3 bg-catalan-yellow"></span>
+    <!-- Etiqueta fixa -->
+    <div class="flex items-center gap-2 text-catalan-yellow font-extrabold uppercase tracking-widest flex-shrink-0">
+      <span class="block w-3 h-3 bg-catalan-yellow"></span>
       Propers partits
     </div>
 
-    <!-- Contenido -->
+    <!-- Estat error -->
     {error && (
       <span class="text-white/50 text-sm">
         {error}
       </span>
     )}
 
+    <!-- Sense partits -->
     {!error && partits.length === 0 && (
       <span class="text-white/50 text-sm">
         No hi ha partits programats
       </span>
     )}
 
+    <!-- Llista de partits -->
     {!error && partits.length > 0 && (
       <div class="flex items-center gap-8 animate-marquee">
         {partits.map((p) => (
           <div class="flex items-center gap-3">
-            <span class="text-white">
+            <a
+              href={`/equips/${p.slug}`}
+              class="hover:underline text-white"
+            >
               {p.local} vs {p.visitant}
-            </span>
+            </a>
             <span class="text-white/40 text-xs">
               {formatData(p.data)}
             </span>
@@ -66,3 +119,4 @@ function formatData(data: string) {
     )}
   </div>
 </div>
+``
