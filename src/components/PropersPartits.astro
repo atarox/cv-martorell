@@ -1,12 +1,8 @@
 ---
-/**
- * Faldó informatiu - Propers partits (estil ESPN)
- * Agrega els propers partits de tots els equips amb slug
- */
+// ProperPartits.astro  — faldó ticker estil ESPN
 
 const WORKER_URL = "https://cv-martorell-worker.atarox.workers.dev";
 
-// Slugs dels equips amb pàgina de stats
 const SLUGS_EQUIPS = [
   "alevi-mixt",
   "infantil-masculi-negre",
@@ -37,74 +33,62 @@ try {
     SLUGS_EQUIPS.map(async (slug) => {
       const res = await fetch(`${WORKER_URL}/equip/${slug}`);
       if (!res.ok) return null;
-
       const data = await res.json();
       const proper = data?.propersPartits?.[0];
       if (!proper) return null;
-
-      return {
-        local: proper.local,
-        visitant: proper.visitant,
-        data: proper.data,
-        slug,
-      };
+      return { local: proper.local, visitant: proper.visitant, data: proper.data, slug };
     })
   );
-
   partits = responses
     .filter(Boolean)
-    .sort(
-      (a, b) =>
-        new Date(a!.data).getTime() - new Date(b!.data).getTime()
-    )
+    .sort((a, b) => new Date(a!.data).getTime() - new Date(b!.data).getTime())
     .slice(0, 8) as ProperPartit[];
-
-} catch (e) {
+} catch {
   error = "No s'han pogut carregar els propers partits.";
 }
 
 function formatData(data: string) {
   if (!data) return "—";
   const d = new Date(data);
-  if (isNaN(d.getTime())) return data.trim(); // si falla, muestra el string crudo
+  if (isNaN(d.getTime())) return data.trim();
   return d.toLocaleString("ca-ES", {
-    weekday: "short",
-    day: "2-digit",
-    month: "short",
-    hour: "2-digit",
-    minute: "2-digit",
+    weekday: "short", day: "2-digit", month: "short",
+    hour: "2-digit", minute: "2-digit",
   });
 }
 ---
 
-<!-- FALDÓ ESPN -->
-<div class="w-full bg-black text-white border-y border-white/10 overflow-hidden">
+<!-- Ticker: fons clar (section-light) amb etiqueta oscura -->
+<div class="ticker-root section-light border-y border-brand-light/30 overflow-hidden">
   <div class="relative flex items-center h-11">
 
-    <!-- Etiqueta fixa — z-index per sobre del scroll -->
-    <div class="relative z-10 flex items-center gap-2 px-4 h-full
-                bg-black border-r border-white/10
-                text-[#F5C518] font-extrabold uppercase tracking-widest text-xs
-                flex-shrink-0">
-      <span class="block w-2.5 h-2.5 bg-[#F5C518]"></span>
+    <!-- Etiqueta -->
+    <div class="ticker-label section-hero flex items-center gap-2 px-4 h-full flex-shrink-0
+                font-extrabold uppercase tracking-widest text-xs">
+      <span class="block w-2.5 h-2.5 bg-accent-yellow rounded-sm"></span>
       Propers partits
     </div>
 
-    <!-- Zona scrollable -->
+    <!-- Contingut del scroll -->
     <div class="flex-1 overflow-hidden h-full flex items-center">
-      {error && <span class="px-6 text-white/50 text-sm">{error}</span>}
+      {error && (
+        <span class="px-6 text-ui-textMuted text-sm">{error}</span>
+      )}
       {!error && partits.length === 0 && (
-        <span class="px-6 text-white/50 text-sm">No hi ha partits programats</span>
+        <span class="px-6 text-ui-textMuted text-sm">No hi ha partits programats</span>
       )}
       {!error && partits.length > 0 && (
         <div class="flex items-center gap-8 px-6 animate-marquee whitespace-nowrap">
           {partits.map((p) => (
             <div class="flex items-center gap-3">
-              <a href={`/equips/${p.slug}`} class="hover:underline text-white text-sm font-semibold">
-                {p.local} <span class="text-white/30">vs</span> {p.visitant}
+              <a href={`/equips/${p.slug}`}
+                 class="ticker-link text-sm font-semibold hover:underline">
+                {p.local}
+                <span class="text-ui-textMuted mx-1">vs</span>
+                {p.visitant}
               </a>
-              <span class="text-white/40 text-xs">{formatData(p.data)}</span>
-              <span class="text-white/20">│</span>
+              <span class="text-ui-textMuted text-xs">{formatData(p.data)}</span>
+              <span class="ticker-divider">│</span>
             </div>
           ))}
         </div>
@@ -113,3 +97,16 @@ function formatData(data: string) {
 
   </div>
 </div>
+
+<style>
+  .ticker-root { background: var(--bg-muted); }
+
+  /* L'etiqueta reutilitza section-hero però amb mida compacta */
+  .ticker-label {
+    background: var(--brand-dark);
+    color: var(--accent-yellow);
+  }
+
+  .ticker-link  { color: var(--text-primary); }
+  .ticker-divider { color: var(--text-muted); }
+</style>

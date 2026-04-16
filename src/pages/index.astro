@@ -1,7 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Hero from "../components/Hero.astro";
-import Separador from "../components/Separador.astro";
 import EquipsSummary from "../components/EquipsSummary.astro";
 import ClubActivity from "../components/ClubActivity.astro";
 import SponsorGrid from "../components/SponsorGrid.astro";
@@ -9,23 +8,29 @@ import PropersPartits from "../components/PropersPartits.astro";
 
 const page = {
   title: "El voleibol viu a Martorell – CV Martorell",
-  description: "Entrenaments, partits i moments del CV Martorell. Descobreix el nostre dia a dia i segueix-nos a Instagram.",
+  description:
+    "Entrenaments, partits i moments del CV Martorell. Descobreix el nostre dia a dia i segueix-nos a Instagram.",
 };
 ---
+
 <BaseLayout title={page.title} description={page.description}>
 
+  <!-- HERO (oscuro controlado por componente) -->
   <Hero />
-  <PropersPartits />
-  <!-- Hero (#0D1C23) → SponsorGrid (#E2F4FB): transició a clar, accent daurat -->
-  <Separador fromColor="#0D1C23" toColor="#E2F4FB" accent="#F2CB40" />
-  <SponsorGrid />
 
-  <!-- SponsorGrid (#E2F4FB) → EquipsSummary (#0D1C23): transició a fosc -->
-  <Separador fromColor="#E2F4FB" toColor="#0D1C23" accent="#76AFC2" flip={true} />
-  <EquipsSummary />
+  <!-- BLOQUE PRINCIPAL (YA CLARO POR SISTEMA) -->
+  <section class="bg-ui-page">
+    <div class="space-y-12 py-12">
 
-  <!-- EquipsSummary (#0D1C23) → ClubActivity (#E2F4FB): transició a clar -->
-  <Separador fromColor="#0D1C23" toColor="#E2F4FB" accent="#76AFC2" />
-  <ClubActivity />
+      <PropersPartits />
+
+      <SponsorGrid />
+
+      <EquipsSummary />
+
+      <ClubActivity />
+
+    </div>
+  </section>
 
 </BaseLayout>

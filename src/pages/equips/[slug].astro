@@ -5,27 +5,18 @@ import { equips } from "../../data/equips";
 export async function getStaticPaths() {
   return equips
     .filter(e => e.slug)
-    .map(e => ({
-      params: { slug: e.slug }
-    }));
+    .map(e => ({ params: { slug: e.slug } }));
 }
 
 const { slug } = Astro.params;
-
-// 🔥 única fuente de verdad
 const equip = equips.find(e => e.slug === slug);
 
-// seguridad básica
-if (!equip) {
-  return Astro.redirect("/equips");
-}
+if (!equip) return Astro.redirect("/equips");
 
 const foto = equip.foto;
 const patro = equip.patrocinador ?? null;
-
 const WORKER_URL = "https://cv-martorell-worker.atarox.workers.dev";
 
-// datos dinámicos (iSquad / clasificación / partidos)
 let dades: any = null;
 let error: string | null = null;
 
@@ -37,10 +28,8 @@ try {
   error = "Error de connexió amb el worker.";
 }
 
-// color del equip (fallback seguro)
-const accentLight = equip.accent ?? "#76AFC2";
+const accentLight = equip.accent ?? "var(--brand-light)";
 
-// helpers
 function esMartorell(nom: string): boolean {
   return nom?.toUpperCase().includes("MARTORELL");
 }
@@ -55,38 +44,30 @@ function formatData(data: string | null): string {
   description={dades ? `Resultats i classificació de ${dades.nom}` : equip.nom}
 >
 
-  <!-- HERO -->
-  <div class="relative overflow-hidden h-screen" style="min-height: 600px; max-height: 900px;">
+  <!-- ── HERO ── -->
+  <div class="section-hero relative overflow-hidden" style="min-height: min(100svh, 900px);">
 
     {foto ? (
       <div class="absolute inset-0">
-        <img
-          src={foto}
-          alt={equip.nom}
-          class="w-full h-full object-cover object-center"
-        />
-        <div class="absolute inset-0"
-          style="background: linear-gradient(to top, #0D1C23 0%, rgba(13,28,35,0.85) 40%, rgba(13,28,35,0.2) 100%);">
-        </div>
+        <img src={foto} alt={equip.nom} class="w-full h-full object-cover object-center" />
+        <div class="absolute inset-0 hero-gradient"></div>
       </div>
     ) : (
-      <div class="absolute inset-0 bg-brand-dark">
-        <div class="absolute inset-0 opacity-10"
-          style="background-image: radial-gradient(circle at 20% 50%, #76AFC2 0%, transparent 60%), radial-gradient(circle at 80% 20%, #2B6E7F 0%, transparent 50%);">
-        </div>
+      <div class="absolute inset-0">
+        <div class="absolute inset-0 hero-ambient"></div>
       </div>
     )}
 
-    <!-- CONTENIDO HERO -->
-    <div class="relative container mx-auto px-6 pt-32 pb-16 flex flex-col justify-end h-full">
+    <div class="relative container mx-auto px-6 pt-32 pb-16 flex flex-col justify-end h-full"
+         style="min-height: inherit;">
 
       <a href="/equips"
-        class="inline-flex items-center gap-2 text-white/50 hover:text-white/90 text-sm mb-6 w-fit">
+         class="inline-flex items-center gap-2 text-white/50 hover:text-white/90 text-sm mb-6 w-fit transition-colors">
         ← Tots els equips
       </a>
 
       <p class="text-sm font-semibold uppercase tracking-widest mb-2"
-        style={`color: ${accentLight};`}>
+         style={`color: ${accentLight};`}>
         Temporada 2025–26
       </p>
 
@@ -94,35 +75,20 @@ function formatData(data: string | null): string {
         {dades?.nom ?? equip.nom}
       </h1>
 
-      <!-- PATROCINADOR -->
       {patro && (
-        <a
-          href={patro.url}
-          target="_blank"
-          rel="noopener noreferrer"
-          class="mt-5 inline-flex items-center gap-4 rounded-2xl px-5 py-3
-                 bg-black/30 backdrop-blur-sm border border-white/20
-                 hover:bg-black/40 transition-all w-fit"
-        >
-          <img
-            src={patro.logo}
-            alt={patro.nom}
-            class="h-10 max-w-[140px] object-contain"
-          />
-
+        <a href={patro.url} target="_blank" rel="noopener noreferrer"
+           class="sponsor-badge mt-5 inline-flex items-center gap-4 rounded-2xl px-5 py-3 w-fit
+                  hover:bg-black/40 transition-all">
+          <img src={patro.logo} alt={patro.nom} class="h-10 max-w-[140px] object-contain" />
           <div>
-            <p class="text-white/40 text-xs uppercase tracking-widest">
-              Patrocinador oficial
-            </p>
-            <p class="text-white font-semibold text-sm">
-              {patro.nom}
-            </p>
+            <p class="text-white/40 text-xs uppercase tracking-widest">Patrocinador oficial</p>
+            <p class="text-white font-semibold text-sm">{patro.nom}</p>
           </div>
         </a>
       )}
 
       {dades?.posicio && (
-        <div class="mt-6 inline-flex items-center gap-3 rounded-2xl px-5 py-3 bg-black/30 backdrop-blur-sm w-fit">
+        <div class="stat-badge mt-6 inline-flex items-center gap-3 rounded-2xl px-5 py-3 w-fit">
           <span class="text-3xl font-extrabold" style={`color: ${accentLight};`}>
             #{dades.posicio.pos}
           </span>
@@ -134,146 +100,190 @@ function formatData(data: string | null): string {
           </div>
         </div>
       )}
-
     </div>
   </div>
 
-  <!-- ERROR -->
+  <!-- ── ERROR ── -->
   {error && (
-    <div class="container mx-auto px-6 py-16 text-center text-white/50">
-      {error}
+    <div class="section-light">
+      <div class="container mx-auto px-6 py-16 text-center text-ui-textMuted">{error}</div>
     </div>
   )}
 
+  <!-- ── CONTINGUT ── -->
   {dades && (
-    <section class="container mx-auto px-4 md:px-6 py-16 space-y-12">
+    <section class="section-light">
+      <div class="container mx-auto px-4 md:px-6 py-16 space-y-6">
 
-      <!-- ÚLTIMO RESULTADO + PRÓXIMO -->
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <!-- Últim resultat + proper partit -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 
-        <!-- Último resultado -->
-        <div class="rounded-2xl bg-brand-dark border border-white/10 p-6">
-          <p class="text-xs uppercase tracking-widest mb-4" style={`color: ${accentLight};`}>
-            Últim resultat
-          </p>
+          <div class="data-card">
+            <p class="card-label" style={`color: ${accentLight};`}>Últim resultat</p>
+            {dades.ultimResultat ? (
+              <div class="flex justify-between items-center mt-4">
+                <span class={esMartorell(dades.ultimResultat.local) ? "team-name--us" : "team-name--them"}>
+                  {dades.ultimResultat.local}
+                </span>
+                <span class="score">{dades.ultimResultat.marcador}</span>
+                <span class={esMartorell(dades.ultimResultat.visitant) ? "team-name--us" : "team-name--them"}>
+                  {dades.ultimResultat.visitant}
+                </span>
+              </div>
+            ) : (
+              <p class="text-white/30 mt-4">Sense dades</p>
+            )}
+          </div>
 
-          {dades.ultimResultat ? (
-            <div class="flex justify-between items-center">
-              <span class={esMartorell(dades.ultimResultat.local) ? "text-white" : "text-white/40"}>
-                {dades.ultimResultat.local}
-              </span>
-
-              <span class="text-xl font-bold text-white">
-                {dades.ultimResultat.marcador}
-              </span>
-
-              <span class={esMartorell(dades.ultimResultat.visitant) ? "text-white" : "text-white/40"}>
-                {dades.ultimResultat.visitant}
-              </span>
-            </div>
-          ) : (
-            <p class="text-white/30">Sense dades</p>
-          )}
+          <div class="data-card">
+            <p class="card-label" style={`color: ${accentLight};`}>Proper partit</p>
+            {dades.propersPartits?.[0] ? (
+              <div class="flex justify-between items-center mt-4">
+                <span class="team-name--us">{dades.propersPartits[0].local}</span>
+                <span class="text-white/30 text-sm font-bold">VS</span>
+                <span class="team-name--us">{dades.propersPartits[0].visitant}</span>
+              </div>
+            ) : (
+              <p class="text-white/30 mt-4">Sense partits</p>
+            )}
+          </div>
         </div>
 
-        <!-- Próximo partido -->
-        <div class="rounded-2xl bg-brand-dark border border-white/10 p-6">
-          <p class="text-xs uppercase tracking-widest mb-4" style={`color: ${accentLight};`}>
-            Proper partit
-          </p>
-
-          {dades.propersPartits?.[0] ? (
-            <div class="flex justify-between items-center">
-              <span>{dades.propersPartits[0].local}</span>
-              <span class="text-white/30">VS</span>
-              <span>{dades.propersPartits[0].visitant}</span>
+        <!-- Classificació -->
+        {dades.clasificacion?.length > 0 && (
+          <div class="data-card !p-0 overflow-hidden">
+            <div class="px-6 py-4 border-b border-white/10">
+              <p class="card-label" style={`color: ${accentLight};`}>Classificació</p>
             </div>
-          ) : (
-            <p class="text-white/30">Sense partits</p>
-          )}
-        </div>
+            <div class="divide-y divide-white/5">
+              {dades.clasificacion.map((fila: any) => (
+                <div class="flex justify-between px-6 py-3 text-sm text-white/80">
+                  <span class="w-8 text-white/40">{fila.pos}</span>
+                  <span class="flex-1">{fila.equip}</span>
+                  <span class="font-bold text-white">{fila.punts}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
+        <!-- Partits jugats -->
+        {dades.jugats.length > 0 && (
+          <div class="data-card !p-0 overflow-hidden">
+            <div class="px-6 py-4 border-b border-white/10">
+              <p class="card-label" style={`color: ${accentLight};`}>Partits jugats</p>
+            </div>
+            <div class="divide-y divide-white/5">
+              {dades.jugats.map((p: any) => (
+                <div class="px-6 py-4 flex items-center gap-4">
+                  <div class="flex-1 text-right">
+                    <p class={`text-sm font-semibold leading-tight ${esMartorell(p.local) ? "team-name--us" : "team-name--them"}`}>
+                      {p.local}
+                    </p>
+                  </div>
+                  <div class="flex-shrink-0 text-center min-w-[80px]">
+                    <span class="score">{p.marcador ?? "—"}</span>
+                    <p class="text-white/20 text-xs mt-0.5">{formatData(p.data)}</p>
+                  </div>
+                  <div class="flex-1 text-left">
+                    <p class={`text-sm font-semibold leading-tight ${esMartorell(p.visitant) ? "team-name--us" : "team-name--them"}`}>
+                      {p.visitant}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
+        <!-- Propers partits -->
+        {dades.propersPartits.length > 0 && (
+          <div class="data-card !p-0 overflow-hidden">
+            <div class="px-6 py-4 border-b border-white/10">
+              <p class="card-label" style={`color: ${accentLight};`}>Propers partits</p>
+            </div>
+            <div class="divide-y divide-white/5">
+              {dades.propersPartits.map((p: any) => (
+                <div class="px-6 py-4 flex items-center gap-4">
+                  <div class="flex-1 text-right">
+                    <p class={`text-sm font-semibold leading-tight ${esMartorell(p.local) ? "team-name--us" : "team-name--them"}`}>
+                      {p.local}
+                    </p>
+                  </div>
+                  <div class="flex-shrink-0 text-center min-w-[80px]">
+                    <span class="text-sm font-bold text-white/30">VS</span>
+                    <p class="text-white/20 text-xs mt-0.5">{formatData(p.data)}</p>
+                  </div>
+                  <div class="flex-1 text-left">
+                    <p class={`text-sm font-semibold leading-tight ${esMartorell(p.visitant) ? "team-name--us" : "team-name--them"}`}>
+                      {p.visitant}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
+        <p class="text-center text-ui-textMuted text-xs pt-4">
+          Actualitzat: {dades?.actualitzat
+            ? new Date(dades.actualitzat).toLocaleString("ca-ES")
+            : "—"}
+        </p>
 
       </div>
-
-      <!-- CLASIFICACIÓN -->
-      {dades.clasificacion?.length > 0 && (
-        <div class="rounded-2xl bg-brand-dark border border-white/10 overflow-hidden">
-          <div class="p-4 border-b border-white/10">
-            <p class="text-xs uppercase tracking-widest" style={`color: ${accentLight};`}>
-              Classificació
-            </p>
-          </div>
-
-          <div class="divide-y divide-white/5">
-            {dades.clasificacion.map((fila: any) => (
-              <div class="flex justify-between p-4">
-                <span>{fila.pos}</span>
-                <span>{fila.equip}</span>
-                <span>{fila.punts}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      )}
-	  
-	        <!-- Partits jugats -->
-      {dades.jugats.length > 0 && (
-        <div class="rounded-2xl bg-brand-dark border border-white/10 shadow-soft overflow-hidden">
-          <div class="px-6 py-4 border-b border-white/10">
-            <p class="text-xs font-bold uppercase tracking-widest" style={`color: ${accentLight};`}>Partits jugats</p>
-          </div>
-          <div class="divide-y divide-white/5">
-            {dades.jugats.map((p: any) => (
-              <div class="px-6 py-4 flex items-center gap-4">
-                <div class="flex-1 text-right">
-                  <p class={`text-sm font-semibold leading-tight ${esMartorell(p.local) ? 'text-white' : 'text-white/40'}`}>{p.local}</p>
-                </div>
-                <div class="flex-shrink-0 text-center min-w-[80px]">
-                  <span class="text-lg font-extrabold text-white tabular-nums">{p.marcador ?? "—"}</span>
-                  <p class="text-white/20 text-xs mt-0.5">{formatData(p.data)}</p>
-                </div>
-                <div class="flex-1 text-left">
-                  <p class={`text-sm font-semibold leading-tight ${esMartorell(p.visitant) ? 'text-white' : 'text-white/40'}`}>{p.visitant}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      )}
-
-      <!-- Propers partits -->
-      {dades.propersPartits.length > 0 && (
-        <div class="rounded-2xl bg-brand-dark border border-white/10 shadow-soft overflow-hidden">
-          <div class="px-6 py-4 border-b border-white/10">
-            <p class="text-xs font-bold uppercase tracking-widest" style={`color: ${accentLight};`}>Propers partits</p>
-          </div>
-          <div class="divide-y divide-white/5">
-            {dades.propersPartits.map((p: any) => (
-              <div class="px-6 py-4 flex items-center gap-4">
-                <div class="flex-1 text-right">
-                  <p class={`text-sm font-semibold leading-tight ${esMartorell(p.local) ? 'text-white' : 'text-white/40'}`}>{p.local}</p>
-                </div>
-                <div class="flex-shrink-0 text-center min-w-[80px]">
-                  <span class="text-sm font-bold text-white/30">VS</span>
-                  <p class="text-white/20 text-xs mt-0.5">{formatData(p.data)}</p>
-                </div>
-                <div class="flex-1 text-left">
-                  <p class={`text-sm font-semibold leading-tight ${esMartorell(p.visitant) ? 'text-white' : 'text-white/40'}`}>{p.visitant}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      )}
-
-      <!-- FOOT -->
-      <p class="text-center text-white/20 text-xs">
-        Actualitzat: {dades?.actualitzat
-          ? new Date(dades.actualitzat).toLocaleString("ca-ES")
-          : "—"}
-      </p>
-
     </section>
   )}
 
 </BaseLayout>
+
+<style>
+  /* ── Hero overlays ── */
+  .hero-gradient {
+    background: linear-gradient(
+      to top,
+      var(--brand-dark) 0%,
+      rgba(13, 28, 35, 0.85) 40%,
+      rgba(13, 28, 35, 0.2) 100%
+    );
+  }
+  .hero-ambient {
+    opacity: 0.1;
+    background-image:
+      radial-gradient(circle at 20% 50%, var(--brand-light) 0%, transparent 60%),
+      radial-gradient(circle at 80% 20%, var(--brand-mid) 0%, transparent 50%);
+  }
+
+  /* ── Badges sobre el hero ── */
+  .sponsor-badge,
+  .stat-badge {
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  /* ── Data cards (sobre fons clar) ── */
+  .data-card {
+    background: var(--brand-dark);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 1rem;
+    padding: 1.5rem;
+  }
+
+  .card-label {
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+  }
+
+  .score {
+    font-size: 1.125rem;
+    font-weight: 800;
+    color: white;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .team-name--us   { font-size: 0.875rem; font-weight: 600; color: white; }
+  .team-name--them { font-size: 0.875rem; font-weight: 600; color: rgba(255,255,255,0.35); }
+</style>

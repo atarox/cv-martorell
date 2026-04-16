@@ -4,256 +4,243 @@ import { equips } from "../data/equips";
 
 const page = {
   title: "Equips – CV Martorell",
-  description: "Tots els equips del Club Voleibol Martorell: aleví, infantil, cadet, juvenil, júnior i sènior, masculí i femení.",
+  description:
+    "Tots els equips del Club Voleibol Martorell: aleví, infantil, cadet, juvenil, júnior i sènior, masculí i femení.",
 };
 
- 
-
-const categories = [...new Set(equips.map(e => e.categoria))];
+const categories = [...new Set(equips.map((e) => e.categoria))];
 ---
 
 <BaseLayout title={page.title} description={page.description}>
 
-  <!-- Hero compacte -->
-  <div class="relative bg-brand-dark overflow-hidden">
-    <div class="absolute inset-0 opacity-10"
-         style="background-image: radial-gradient(circle at 20% 50%, #76AFC2 0%, transparent 60%), radial-gradient(circle at 80% 20%, #2B6E7F 0%, transparent 50%);"></div>
-    <div class="relative container mx-auto px-6 pt-32 pb-16 text-center">
-      <p class="text-brand-light text-sm font-semibold uppercase tracking-widest mb-3">Club Voleibol Martorell</p>
-      <h1 class="text-4xl md:text-6xl font-extrabold text-white tracking-tight">Els nostres equips</h1>
+  <!-- HERO -->
+  <div class="relative bg-brand-dark text-white overflow-hidden">
+    <div class="absolute inset-0 opacity-10 pointer-events-none"
+      style="background: radial-gradient(circle at 30% 40%, #76AFC2 0%, transparent 60%)"></div>
+
+    <div class="container mx-auto px-6 pt-32 pb-16 text-center relative">
+      <p class="text-brand-light text-sm font-semibold uppercase tracking-widest mb-3">
+        Club Voleibol Martorell
+      </p>
+
+      <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight">
+        Els nostres equips
+      </h1>
+
       <p class="mt-4 text-white/60 text-lg max-w-xl mx-auto">
-        Sis categories, dos gèneres, un sol club. De l'aleví al sènior, tots juguen amb el cor.
+        Sis categories, dos gèneres, un sol club.
       </p>
     </div>
   </div>
 
-  <!-- Filtre per categoria -->
-  <div class="sticky top-0 z-10 bg-ui-bg/90 backdrop-blur border-b border-brand-light/20 shadow-sm">
-    <div class="container mx-auto px-6 py-3 flex gap-2 overflow-x-auto scrollbar-hide">
-      <button data-filter="tots"
-        class="filter-btn active flex-shrink-0 rounded-pill px-4 py-1.5 text-sm font-semibold bg-brand-dark text-white transition-all">
+  <!-- FILTROS -->
+  <div class="sticky top-0 z-10 bg-ui-bg/90 backdrop-blur border-b border-brand-light/20">
+    <div class="container mx-auto px-6 py-3 flex gap-2 overflow-x-auto">
+
+      <button
+        data-filter="tots"
+        class="filter-btn active flex-shrink-0 rounded-full px-4 py-1.5 text-sm font-semibold
+               bg-brand-dark text-white"
+      >
         Tots
       </button>
-      {categories.map(cat => (
-        <button data-filter={cat.toLowerCase()}
-          class="filter-btn flex-shrink-0 rounded-pill px-4 py-1.5 text-sm font-semibold
-                 bg-white/60 text-brand-dark border border-brand-light/30
-                 hover:bg-brand-dark hover:text-white transition-all">
+
+      {categories.map((cat) => (
+        <button
+          data-filter={cat.toLowerCase()}
+          class="filter-btn flex-shrink-0 rounded-full px-4 py-1.5 text-sm font-semibold
+                 bg-white text-ui-text border border-brand-light/30
+                 hover:bg-brand-light hover:text-white transition"
+        >
           {cat}
         </button>
       ))}
     </div>
   </div>
 
-  <!-- Grid d'equips -->
-  <section class="container mx-auto px-4 md:px-6 py-16">
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" id="equips-grid">
+  <!-- GRID -->
+  <section class="bg-ui-bg">
+    <div class="container mx-auto px-6 py-16">
 
-      <!-- VOLEI TERRA -->
-      <article id="sitting"
-               class="col-span-1 sm:col-span-2 lg:col-span-3 group relative rounded-2xl overflow-hidden
-                      border border-catalan-yellow/30 bg-gradient-to-r from-yellow-950/60 to-brand-dark
-                      shadow-soft hover:shadow-hard hover:-translate-y-1 transition-all duration-300">
-					  
-		<div class="absolute inset-0">
-		  <img
-			src="/images/equips/terra.jpg"
-			alt="Vòlei Terra - Sitting Vòlei CV Martorell"
-			class="w-full h-full object-cover object-center opacity-20"
-		  >
-		</div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" id="equips-grid">
 
-        <div class="absolute top-0 left-0 right-0 h-1"
-             style="background: linear-gradient(90deg, transparent, #F2CB40, transparent);"></div>
-        <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
-             style="background: radial-gradient(ellipse 50% 80% at 10% 50%, rgba(242,203,64,0.06) 0%, transparent 60%);"></div>
-        <div class="relative p-8 flex flex-col md:flex-row md:items-center gap-6">
-          <div class="flex-shrink-0 w-16 h-16 rounded-2xl flex items-center justify-center text-3xl
-                      bg-catalan-yellow/10 border border-catalan-yellow/20">♿</div>
-          <div class="flex-grow">
-            <div class="flex items-center gap-3 flex-wrap mb-2">
-              <h2 class="text-3xl font-extrabold text-white">Volei Terra</h2>
-              <span class="text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full
-                           bg-catalan-yellow/15 border border-catalan-yellow/30" style="color: #F2CB40;">
-                Únics a Catalunya
-              </span>
-            </div>
-            <p class="text-white/50 text-sm max-w-xl">
-              Som l'únic club de Catalunya avalat per la Federació Catalana de Voleibol en aquesta especialitat,
-              impulsant la creació d'una Selecció Catalana de Sitting Volei que participa en competicions
-              d'àmbit nacional i europeu.
-            </p>
-            <div class="flex gap-6 mt-4">
-              <div><p class="text-white/30 text-xs uppercase tracking-wider">Modalitat</p><p class="text-white text-sm font-semibold mt-0.5">Sitting Volei</p></div>
-              <div><p class="text-white/30 text-xs uppercase tracking-wider">Gènere</p><p class="text-white text-sm font-semibold mt-0.5">Mixt</p></div>
-              <div><p class="text-white/30 text-xs uppercase tracking-wider">Categoria</p><p class="text-white text-sm font-semibold mt-0.5">Absolut</p></div>
-            </div>
-          </div>
-          <div class="flex-shrink-0">
-            <a href="/contacte"
-               class="inline-flex items-center gap-2 rounded-pill px-6 py-3 text-sm font-bold
-                      border border-catalan-yellow/40 text-catalan-yellow
-                      hover:bg-catalan-yellow hover:text-brand-dark transition-all duration-300 group-hover:gap-3">
-              Contacta'ns
-              <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-              </svg>
-            </a>
-          </div>
-        </div>
-      </article>
+     <article
+  id="sitting"
+  class="group w-full rounded-2xl overflow-hidden
+         bg-brand-dark text-white shadow-card
+         hover:shadow-hover transition"
+>
 
-      {equips.map((equip) => (
-        <article
-          data-categoria={equip.categoria.toLowerCase()}
-          class="equip-card group relative rounded-2xl overflow-hidden shadow-soft
-                 hover:shadow-hard transition-all duration-300 hover:-translate-y-1 bg-brand-dark"
-          style={equip.slug ? "cursor:pointer;" : ""}
-        >
-          <!-- Foto de fons si existeix -->
-          {equip.foto ? (
-            <div class="relative h-64 overflow-hidden">
-              <img src={equip.foto}
-                   alt={`${equip.categoria} ${equip.genere} ${equip.equip ?? ''}`}
-                   class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
-                   loading="lazy" />
-              <div class="absolute inset-0"
-                   style="background: linear-gradient(to top, #0D1C23 0%, rgba(13,28,35,0.2) 50%, transparent 100%);"></div>
-            </div>
-          ) : (
-            <div class={`h-12 bg-gradient-to-br ${equip.color}`}></div>
-          )}
+<!-- IMAGE (ARRIBA) -->
+<div class="relative h-48 md:h-56 overflow-hidden">
 
-          <div class="absolute top-0 left-0 right-0 h-1" style={`background-color: ${equip.accent};`}></div>
+  <!-- Imagen -->
+  <img
+    src="/images/equips/terra.jpg"
+    alt="Vòlei Terra – Sitting Volei"
+    class="absolute inset-0 w-full h-full object-cover"
+  />
 
-          <div class="relative p-6 flex flex-col gap-4">
-            <div class="flex items-start justify-between">
-              <div>
-                <span class="text-xs font-bold uppercase tracking-widest" style={`color: ${equip.accent};`}>
-                  {equip.edats}
-                </span>
-                <h2 class="text-2xl font-extrabold text-white mt-1">
-                  {equip.categoria}
-                  {equip.equip && <span class="ml-2 text-lg font-bold opacity-70">{equip.equip}</span>}
-                </h2>
-              </div>
-              <div class="flex items-center gap-1.5 rounded-pill px-3 py-1 text-xs font-semibold bg-white/10 text-white/80 border border-white/10">
-                {equip.genere === "Masculí" && (
-                  <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M9 2a7 7 0 1 0 4.95 11.95L16 16H14v2h4v-4h-2l-2.05-2.05A7 7 0 0 0 9 2zm0 2a5 5 0 1 1 0 10A5 5 0 0 1 9 4z"/>
-                  </svg>
-                )}
-                {equip.genere === "Femení" && (
-                  <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M12 2a7 7 0 1 0 0 14A7 7 0 0 0 12 2zm0 2a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm-1 12h2v3h3v2h-3v1h-2v-1H8v-2h3v-3z"/>
-                  </svg>
-                )}
-                {equip.genere === "Mixt" && (
-                  <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M12 2a5 5 0 1 1 0 10A5 5 0 0 1 12 2zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6zm0 10c-5 0-8 2.5-8 4v1h16v-1c0-1.5-3-4-8-4z"/>
-                  </svg>
-                )}
-                {equip.genere}
+  <!-- Overlay -->
+  <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent"></div>
+
+  <!-- Badge -->
+  <span
+    class="absolute top-4 left-4 z-10 text-xs font-bold uppercase px-2 py-1 rounded-full
+           bg-catalan-yellow/20 text-catalan-yellow border border-catalan-yellow/30"
+  >
+    Únic a Catalunya
+  </span>
+
+  <!-- Icon -->
+  <div
+    class="absolute bottom-4 right-4 z-10
+           w-14 h-14 rounded-xl flex items-center justify-center
+           bg-catalan-yellow/10 border border-catalan-yellow/30 text-2xl"
+  >
+    ♿
+  </div>
+
+</div>
+
+  <!-- CONTENT (ABAJO) -->
+  <div class="p-6 md:p-8">
+
+    <h2 class="text-2xl font-extrabold">
+      Vòlei Terra
+    </h2>
+
+    <p class="mt-2 text-sm text-white/70 max-w-3xl">
+      Sitting vòlei mixt amb projecció competitiva.
+      Projecte inclusiu i únic dins del voleibol català.
+    </p>
+
+    <a
+      href="/contacte"
+      class="inline-flex mt-4 text-sm font-semibold text-catalan-yellow
+             hover:text-white transition"
+    >
+      Contacta →
+    </a>
+
+  </div>
+</article>
+
+        <!-- EQUIP CARDS -->
+        {equips.map((equip) => (
+          <article
+            data-categoria={equip.categoria.toLowerCase()}
+            class="group bg-white rounded-2xl overflow-hidden shadow-card hover:shadow-hover transition"
+          >
+
+            <!-- IMAGE -->
+            <div class="relative h-56 overflow-hidden">
+              {equip.foto ? (
+                <img
+                  src={equip.foto}
+                  class="w-full h-full object-cover group-hover:scale-105 transition duration-500"
+                />
+              ) : (
+                <div class={`h-full bg-gradient-to-br ${equip.color}`}></div>
+              )}
+
+              <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
+
+              <div
+                class="absolute top-3 left-3 text-xs font-bold px-2 py-1 rounded-full text-white"
+                style={`background:${equip.accent}`}
+              >
+                {equip.edats}
               </div>
             </div>
 
-            <div class="rounded-xl bg-white/5 border border-white/10 p-4 space-y-2">
-              {equip.divisio ? (
-                <div class="flex items-center gap-2 text-white/80 text-sm">
-                  <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/>
-                  </svg>
-                  <span style={`color: ${equip.accent};`} class="font-semibold">{equip.divisio}</span>
-                </div>
-              ) : (
-                <div class="flex items-center gap-2 text-white/30 text-sm">
-                  <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/>
-                  </svg>
-                  <span>Divisió per confirmar</span>
-                </div>
-              )}
-              {equip.entrenador ? (
-                <div class="flex items-center gap-2 text-white/80 text-sm">
-                  <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
-                  </svg>
-                  <span>{equip.entrenador}</span>
-                </div>
-              ) : (
-                <div class="flex items-center gap-2 text-white/30 text-sm">
-                  <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
-                  </svg>
-                  <span>Entrenador/a per confirmar</span>
-                </div>
-              )}
-            </div>
+            <!-- CONTENT -->
+            <div class="p-5">
 
-            <!-- CTA: si té slug → veure stats, si no → contacte -->
-            {equip.slug ? (
-              <a href={`/equips/${equip.slug}`}
-                 class="mt-1 inline-flex items-center gap-2 text-sm font-semibold transition-all duration-200 group-hover:gap-3"
-                 style={`color: ${equip.accent};`}>
-                Veure resultats i classificació
-                <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                </svg>
-              </a>
-            ) : (
-              <a href="/contacte"
-                 class="mt-1 inline-flex items-center gap-2 text-sm font-semibold transition-all duration-200 group-hover:gap-3"
-                 style={`color: ${equip.accent};`}>
-                Contacta'ns
-                <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                </svg>
-              </a>
-            )}
-          </div>
-        </article>
-      ))}
+              <h2 class="text-lg font-extrabold text-ui-text">
+                {equip.categoria}
+                {equip.equip && (
+                  <span class="ml-1 text-sm font-semibold text-ui-muted">
+                    {equip.equip}
+                  </span>
+                )}
+              </h2>
+
+              <p class="text-sm text-ui-muted mt-1">
+                {equip.genere} · {equip.divisio}
+              </p>
+
+              <p class="text-xs text-ui-muted mt-3">
+                {equip.entrenador}
+              </p>
+
+              {equip.slug && (
+                <a
+                  href={`/equips/${equip.slug}`}
+                  class="inline-flex mt-4 text-sm font-semibold text-brand-light hover:text-brand-dark transition"
+                >
+                  Veure stats →
+                </a>
+              )}
+
+				{equip.patrocinador?.logo && (
+				  <div class="mt-4 flex items-center gap-2">
+					<a
+					  href={equip.patrocinador.url}
+					  target="_blank"
+					  rel="noopener noreferrer"
+					  class="inline-flex items-center"
+					  title={equip.patrocinador.nom}
+					>
+					  <img
+						src={equip.patrocinador.logo}
+						alt={equip.patrocinador.nom}
+						class="h-6 object-contain opacity-80 hover:opacity-100 transition"
+						loading="lazy"
+					  />
+					</a>
+				  </div>
+				)}
+
+            </div>
+          </article>
+        ))}
+      </div>
     </div>
   </section>
 
-  <section class="bg-brand-dark py-16">
-    <div class="container mx-auto px-6 text-center">
-      <h2 class="text-2xl md:text-3xl font-extrabold text-white mb-3">Vols unir-te al club?</h2>
-      <p class="text-white/60 mb-8 max-w-lg mx-auto">
-        Estem oberts a nous jugadors i jugadores en totes les categories. Posa't en contacte amb nosaltres i t'informem.
-      </p>
-      <a href="/contacte"
-         class="inline-flex items-center gap-2 rounded-pill bg-brand-light text-brand-dark px-8 py-3
-                font-bold hover:bg-white transition-colors shadow-lg">
-        Contactar amb el club
-      </a>
-    </div>
+  <!-- CTA FINAL -->
+  <section class="bg-brand-dark text-white py-16 text-center">
+    <h2 class="text-2xl font-extrabold">Vols unir-te al club?</h2>
+    <p class="text-white/60 mt-2 mb-6">
+      Escriu-nos i t’informem de les proves.
+    </p>
+
+    <a href="/contacte"
+       class="inline-flex items-center px-6 py-3 rounded-full bg-brand-light text-brand-dark font-bold">
+      Contactar
+    </a>
   </section>
 
 </BaseLayout>
 
-<style>
-  .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
-  .scrollbar-hide::-webkit-scrollbar { display: none; }
-  .filter-btn.active { background-color: #0D1C23; color: white; }
-  .equip-card.hidden { display: none; }
-</style>
-
 <script is:inline>
 {
-  const btns = document.querySelectorAll('.filter-btn');
-  const cards = document.querySelectorAll('.equip-card');
-  btns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      btns.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
+  const btns = document.querySelectorAll(".filter-btn");
+  const cards = document.querySelectorAll("[data-categoria]");
+
+  btns.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      btns.forEach((b) => b.classList.remove("active"));
+      btn.classList.add("active");
+
       const filter = btn.dataset.filter;
-      cards.forEach(card => {
-        if (filter === 'tots' || card.dataset.categoria === filter) {
-          card.classList.remove('hidden');
-        } else {
-          card.classList.add('hidden');
-        }
+
+      cards.forEach((card) => {
+        const match =
+          filter === "tots" || card.dataset.categoria === filter;
+
+        card.classList.toggle("hidden", !match);
       });
     });
   });

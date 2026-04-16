@@ -1,76 +1,151 @@
-/* src/styles/global.css
-   Estils globals CV Martorell
-   ─────────────────────────────────────────────────────────────────────────── */
-
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-/* ── Variables CSS (per usar fora de Tailwind si cal) ───────────────────── */
+/* ─────────────────────────────────────────────────────
+   TOKENS CSS
+   Única fuente de verdad para valores que necesitan
+   vivir en CSS vanilla (SVGs, JS inline, pseudo-elements)
+   Los colores deben coincidir exactamente con tailwind.config
+──────────────────────────────────────────────────────── */
 :root {
-  --color-brand-dark:      #0D1C23;
-  --color-brand-light:     #76AFC2;
-  --color-catalan-yellow:  #F2CB40;
-  --color-catalan-red:     #C4372B;
-  --color-secondary-blue:  #2B6E7F;
-  --color-ui-bg:           #E2F4FB;
-  --color-ui-text:         #6A8B96;
+  /* Brand */
+  --brand-dark:  #0D1C23;
+  --brand-mid:   #2B6E7F;
+  --brand-light: #76AFC2;
+
+  /* Accents */
+  --accent-yellow: #F2CB40;
+  --accent-red:    #C4372B;
+
+  /* Superficies (modo claro) */
+  --bg-page:    #F5F8FA;
+  --bg-surface: #FFFFFF;
+  --bg-muted:   #EAF2F6;
+
+  /* Texto */
+  --text-primary:   #0D1C23;
+  --text-secondary: #516b75;
+  --text-muted:     #7a8f98;
+
+  /* Roles visuales — apuntan a los tokens de arriba */
+  --bg-hero:   var(--brand-dark);
+  --bg-footer: var(--brand-dark);
+  --color-hero-text:   #ffffff;
+  --color-footer-text: #ffffff;
 }
 
-/* ── Reset / base ────────────────────────────────────────────────────────── */
-*, *::before, *::after {
-  box-sizing: border-box;
-}
 
+/* ─────────────────────────────────────────────────────
+   BASE
+──────────────────────────────────────────────────────── */
 html {
   scroll-behavior: smooth;
-  -webkit-text-size-adjust: 100%;
 }
-
-
-@keyframes marquee {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
-}
-
-.animate-marquee {
-  animation: marquee 35s linear infinite;
-}
-
 
 body {
   margin: 0;
-  background-color: var(--color-brand-dark);
-  color: var(--color-brand-light);
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  background: var(--bg-page);
+  color: var(--text-primary);
+  font-family: "Inter", system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 }
 
-/* ── Àlies semàntics per al BaseLayout ──────────────────────────────────────
-   BaseLayout usa: class="bg-app text-app"
-   Tailwind generarà bg-app-bg i text-app-text des del config,
-   però si vols les classes curtes bg-app / text-app, les definim aquí:       */
-@layer utilities {
-  .bg-app   { background-color: var(--color-brand-dark); }
-  .text-app { color: var(--color-brand-light); }
-}
-
-/* ── Scrollbar (opcional, millora estètica en desktop) ──────────────────── */
-@media (pointer: fine) {
-  ::-webkit-scrollbar       { width: 6px; }
-  ::-webkit-scrollbar-track { background: var(--color-brand-dark); }
-  ::-webkit-scrollbar-thumb { background: var(--color-secondary-blue); border-radius: 3px; }
-  ::-webkit-scrollbar-thumb:hover { background: var(--color-brand-light); }
-}
-
-
-
-/* ── Focus visible accessible ───────────────────────────────────────────── */
 :focus-visible {
-  outline: 2px solid var(--color-brand-light);
+  outline: 2px solid var(--brand-light);
   outline-offset: 3px;
 }
+
+
+/* ─────────────────────────────────────────────────────
+   SECCIONES SEMÁNTICAS
+   Aplicar UNA clase por sección en el HTML.
+   El resto de estilos hereda del contexto.
+──────────────────────────────────────────────────────── */
+
+/* Hero y footer: oscuros */
+.section-hero,
+.section-footer {
+  background: var(--bg-hero);
+  color: var(--color-hero-text);
+}
+
+/* Sección principal: fondo azul clarito */
+.section-light {
+  background: var(--bg-page);
+  color: var(--text-primary);
+}
+
+/* Sección alternada: un punto más oscura */
+.section-muted {
+  background: var(--bg-muted);
+  color: var(--text-primary);
+}
+
+/* Sección de énfasis: surface blanca */
+.section-surface {
+  background: var(--bg-surface);
+  color: var(--text-primary);
+}
+
+/* Texto secundario dentro de sección oscura */
+.section-hero .text-dim,
+.section-footer .text-dim {
+  color: rgba(255, 255, 255, 0.65);
+}
+
+
+/* ─────────────────────────────────────────────────────
+   CARD
+   Componente base. Variantes por modificador.
+──────────────────────────────────────────────────────── */
+.card {
+  background: var(--bg-surface);
+  border: 1px solid rgba(13, 28, 35, 0.08);
+  border-radius: 1.25rem;
+  padding: 1.25rem;
+}
+
+.card--muted {
+  background: var(--bg-muted);
+}
+
+
+/* ─────────────────────────────────────────────────────
+   SCROLLBAR
+──────────────────────────────────────────────────────── */
+::-webkit-scrollbar        { width: 6px; }
+::-webkit-scrollbar-track  { background: var(--bg-page); }
+::-webkit-scrollbar-thumb  { background: var(--brand-mid); border-radius: 3px; }
+
+
+/* ─────────────────────────────────────────────────────
+   ANIMACIONES
+   Las keyframes viven aquí; las clases de utilidad
+   (animate-marquee, animate-fadeIn) se definen en
+   tailwind.config para poder usarse como utilidades.
+──────────────────────────────────────────────────────── */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Ken Burns (para carruseles Hero) */
+@keyframes kenBurns {
+  from { transform: scale(1);    }
+  to   { transform: scale(1.08); }
+}
+
+/* Crossfade (para transiciones de imagen) */
+@keyframes crossfade {
+  0%,  45% { opacity: 1; }
+  55%, 100% { opacity: 0; }
+}
+
+
+/* ─────────────────────────────────────────────────────
+   TAILWIND LAYERS
+──────────────────────────────────────────────────────── */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
