@@ -60,6 +60,68 @@ const fites = [
   </section>
 
   <!-- Qui som -->
+    <!-- Junta Directiva i Coordinadors -->
+  <section class="container mx-auto px-4 md:px-6 py-16 max-w-5xl">
+    <p class="text-brand-light text-sm font-semibold uppercase tracking-widest mb-2 text-center">
+      Organització
+    </p>
+    <h2 class="text-2xl md:text-3xl font-extrabold text-brand-dark mb-12 text-center">
+      Junta Directiva i Coordinadors
+    </h2>
+
+    <!-- Junta Directiva -->
+    <div class="mb-14">
+      <h3 class="text-xl font-extrabold text-brand-dark mb-6 text-center">
+        Junta Directiva
+      </h3>
+
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-6">
+        {[
+          { nom: "Josep Maria Puerta", rol: "President",foto: "/images/junta/nom.jpg" },
+          { nom: "Elisabeth Bonilla", rol: "Vicepresidenta",foto: "/images/junta/nom.jpg" },
+          { nom: "Daniel Cruces", rol: "Secretari",foto: "/images/junta/nom.jpg" },
+          { nom: "Anabel Martínez", rol: "Tresorera" ,foto: "/images/junta/nom.jpg"},
+          { nom: "Eiko Ortiz", rol: "Vocal",foto: "/images/junta/nom.jpg" },
+          { nom: "Rosana Martín", rol: "Vocal",foto: "/images/junta/nom.jpg" },
+        ].map(p => (
+          <div class="bg-white border border-brand-light/20 rounded-2xl p-5 text-center shadow-soft">
+            <div class="w-20 h-20 mx-auto mb-4 rounded-full bg-ui-bg flex items-center justify-center text-xs text-ui-text">
+              Foto
+            </div>
+            <p class="font-extrabold text-brand-dark text-sm">{p.nom}</p>
+            <p class="text-ui-text text-xs">{p.rol}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Coordinadors -->
+    <div>
+      <h3 class="text-xl font-extrabold text-brand-dark mb-6 text-center">
+        Coordinadors
+      </h3>
+
+      <div class="grid grid-cols-2 md:grid-cols-2 gap-6 max-w-md mx-auto">
+        {[
+          { nom: "Jose Meoniz" ,foto: "../images/club/junta/coord1.jpg"},
+          { nom: "Raul Luque",foto: "../images/club/junta/coord2.jpg"},
+        ].map(p => (
+          <div class="bg-white border border-brand-light/20 rounded-2xl p-5 text-center shadow-soft">
+			<div class="w-20 h-20 mx-auto mb-4 rounded-full overflow-hidden border-2 border-brand-light shadow-md">
+			  <img 
+				src={p.foto} 
+				alt={p.nom}
+				class="w-full h-full object-cover transition-transform duration-300 hover:scale-110"
+			  />
+			</div>
+            <p class="font-extrabold text-brand-dark text-sm">{p.nom}</p>
+            <p class="text-ui-text text-xs">Coordinador</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
   <section class="container mx-auto px-4 md:px-6 py-16 max-w-4xl">
     <div class="grid md:grid-cols-2 gap-10 items-center">
       <div>
@@ -182,7 +244,6 @@ const fites = [
       </div>
     </div>
   </section>
-
   <!-- CTA patrocini -->
   <section class="bg-brand-dark py-14">
     <div class="container mx-auto px-6 text-center">
