@@ -15,7 +15,7 @@ if (!equip) return Astro.redirect("/equips");
 
 const foto = equip.foto;
 const patro = equip.patrocinador ?? null;
-const WORKER_URL = "https://cv-martorell-worker.atarox.workers.dev";
+const WORKER_URL = "https://cv-martorell-worker.informatica-179.workers.dev";
 
 let dades: any = null;
 let error: string | null = null;
@@ -25,7 +25,7 @@ try {
   if (res.ok) dades = await res.json();
   else error = "No s'han pogut carregar les dades.";
 } catch {
-  error = "Error de connexió amb el worker.";
+  error = `Error de connexió: ${e instanceof Error ? e.message : String(e)}`;
 }
 
 const accentLight = equip.accent ?? "var(--brand-light)";
