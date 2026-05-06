@@ -2,10 +2,11 @@ name = "cv-martorell-worker"
 main = "src/index.ts"
 compatibility_date = "2024-11-01"
 workers_dev = true
+account_id = "17991fbb083137619c613799d4990c05"
 
 [triggers]
 crons = ["0 0 * * *"]  # cada dia a les 00:00 UTC
 
 [[kv_namespaces]]
 binding = "EQUIPS_DATA"
-id = "75054d0638834cd18546bdbd8abdfbde"
+id = "a0d5c37d6d384ffd85a97d69ee8c966b"
