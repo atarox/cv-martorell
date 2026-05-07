@@ -47,14 +47,8 @@ try {
   error = "No s'han pogut carregar els propers partits.";
 }
 
-function formatData(data: string) {
-  if (!data) return "—";
-  const d = new Date(data);
-  if (isNaN(d.getTime())) return data.trim();
-  return d.toLocaleString("ca-ES", {
-    weekday: "short", day: "2-digit", month: "short",
-    hour: "2-digit", minute: "2-digit",
-  });
+function formatData(data: string | null): string {
+  return data ? data.trim() : "—";
 }
 ---
 
