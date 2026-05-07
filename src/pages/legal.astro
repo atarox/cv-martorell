@@ -1,0 +1,114 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const page = {
+  title: "Política de privacitat",
+  description: "Informació sobre el tractament de dades personals del Club Voleibol Martorell.",
+};
+---
+
+<BaseLayout title={page.title} description={page.description}>
+
+  <!-- Hero -->
+  <div class="relative bg-brand-dark overflow-hidden">
+    <div class="absolute inset-0 opacity-10"
+         style="background-image: radial-gradient(circle at 70% 30%, #76AFC2 0%, transparent 55%), radial-gradient(circle at 20% 80%, #2B6E7F 0%, transparent 50%);"></div>
+    <div class="relative container mx-auto px-6 pt-32 pb-16 text-center">
+      <p class="text-brand-light text-sm font-semibold uppercase tracking-widest mb-3">Estem aquí per ajudar-te</p>
+      <h1 class="text-4xl md:text-6xl font-extrabold text-white tracking-tight">Política de privacitat</h1>
+      <p class="mt-4 text-white/60 text-lg max-w-xl mx-auto">
+        Qualsevol dubte sobre equips, inscripcions o patrocinis, escriu-nos i et responem aviat.
+      </p>
+    </div>
+  </div>
+
+
+  <section class="bg-ui-bg text-ui-text">
+    <div class="container mx-auto px-6 py-20 max-w-3xl">
+
+      <h1 class="text-3xl font-extrabold mb-6 text-brand-dark">
+        Política de privacitat
+      </h1>
+
+      <p class="text-sm text-ui-text/70 mb-8">
+        En compliment del Reglament (UE) 2016/679 (RGPD) i la Llei Orgànica 3/2018, de Protecció de Dades Personals i garantia dels drets digitals, s’informa als usuaris del tractament de les seves dades personals.
+      </p>
+
+      <!-- 1. Responsable -->
+      <h2 class="text-xl font-bold mt-8 mb-2">1. Responsable del tractament</h2>
+      <p class="text-sm text-ui-text/80">
+        Club Voleibol Martorell<br/>
+        Correu electrònic: info@cvmartorell.cat
+      </p>
+
+      <!-- 2. Finalidad -->
+      <h2 class="text-xl font-bold mt-8 mb-2">2. Finalitat del tractament</h2>
+      <p class="text-sm text-ui-text/80">
+        Les dades personals recollides a través del formulari de contacte s’utilitzen únicament per gestionar i respondre les consultes enviades pels usuaris.
+      </p>
+
+      <!-- 3. Datos -->
+      <h2 class="text-xl font-bold mt-8 mb-2">3. Dades que es recullen</h2>
+      <p class="text-sm text-ui-text/80">
+        A través del formulari es poden recollir les següents dades:
+      </p>
+      <ul class="list-disc ml-6 mt-2 text-sm text-ui-text/80 space-y-1">
+        <li>Nom i cognoms</li>
+        <li>Correu electrònic</li>
+        <li>Telèfon (opcional)</li>
+        <li>Missatge lliurat per l’usuari</li>
+      </ul>
+
+      <!-- 4. Legitimación -->
+      <h2 class="text-xl font-bold mt-8 mb-2">4. Legitimació</h2>
+      <p class="text-sm text-ui-text/80">
+        La base legal per al tractament de les dades és el consentiment de l’usuari, que s’atorga en enviar el formulari de contacte.
+      </p>
+
+      <!-- 5. Conservación -->
+      <h2 class="text-xl font-bold mt-8 mb-2">5. Conservació de les dades</h2>
+      <p class="text-sm text-ui-text/80">
+        Les dades no s’emmagatzemen en cap base de dades. Únicament es reben per correu electrònic i es conserven el temps necessari per gestionar la consulta i la possible relació posterior.
+      </p>
+
+      <!-- 6. Destinatarios -->
+      <h2 class="text-xl font-bold mt-8 mb-2">6. Destinataris</h2>
+      <p class="text-sm text-ui-text/80">
+        No es cedeixen dades a tercers, excepte obligació legal. Les dades es transmeten exclusivament a través del sistema de correu electrònic utilitzat pel club.
+      </p>
+
+      <!-- 7. Derechos -->
+      <h2 class="text-xl font-bold mt-8 mb-2">7. Drets de les persones usuàries</h2>
+      <p class="text-sm text-ui-text/80">
+        Les persones usuàries poden exercir els següents drets:
+      </p>
+      <ul class="list-disc ml-6 mt-2 text-sm text-ui-text/80 space-y-1">
+        <li>Accés a les seves dades personals</li>
+        <li>Rectificació de dades incorrectes</li>
+        <li>Supressió de les dades</li>
+        <li>Limitació del tractament</li>
+        <li>Oposició al tractament</li>
+      </ul>
+      <p class="text-sm text-ui-text/80 mt-3">
+        Per exercir aquests drets es pot contactar a: <strong>info@cvmartorell.cat</strong>
+      </p>
+
+      <!-- 8. Seguridad -->
+      <h2 class="text-xl font-bold mt-8 mb-2">8. Seguretat de les dades</h2>
+      <p class="text-sm text-ui-text/80">
+        El Club Voleibol Martorell adopta mesures tècniques i organitzatives adequades per garantir la seguretat de les dades personals i evitar-ne la pèrdua, mal ús o accés no autoritzat.
+      </p>
+
+      <!-- 9. Cambios -->
+      <h2 class="text-xl font-bold mt-8 mb-2">9. Modificacions</h2>
+      <p class="text-sm text-ui-text/80">
+        Aquesta política de privacitat pot ser actualitzada per adaptar-se a canvis normatius o millores del servei.
+      </p>
+
+      <div class="mt-10 p-4 rounded-xl bg-brand-dark text-white text-sm">
+        Última actualització: maig 2026
+      </div>
+
+    </div>
+  </section>
+</BaseLayout>

@@ -25,7 +25,7 @@ try {
   if (res.ok) dades = await res.json();
   else error = "No s'han pogut carregar les dades.";
 } catch {
-  error = `Error de connexió: ${e instanceof Error ? e.message : String(e)}`;
+  error = `Error de connexió`;
 }
 
 const accentLight = equip.accent ?? "var(--brand-light)";

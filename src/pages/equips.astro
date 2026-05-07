@@ -128,10 +128,10 @@ const categories = [...new Set(equips.map((e) => e.categoria))];
 
         <!-- EQUIP CARDS -->
         {equips.map((equip) => (
-          <article
-            data-categoria={equip.categoria.toLowerCase()}
-            class="group bg-white rounded-2xl overflow-hidden shadow-card hover:shadow-hover transition"
-          >
+		<article
+		  data-categoria={equip.categoria.toLowerCase()}
+		  class="group bg-brand-dark rounded-2xl overflow-hidden shadow-card hover:shadow-hover transition flex flex-col"
+		>
 
             <!-- IMAGE -->
             <div class="relative h-56 overflow-hidden">
@@ -153,57 +153,60 @@ const categories = [...new Set(equips.map((e) => e.categoria))];
                 {equip.edats}
               </div>
             </div>
+<!-- CONTENT -->
+<div class="p-5 bg-brand-dark text-white border-t border-white/10">
 
-            <!-- CONTENT -->
-            <div class="p-5">
+  <h2 class="text-lg font-extrabold">
+    {equip.categoria}
 
-              <h2 class="text-lg font-extrabold text-ui-text">
-                {equip.categoria}
-                {equip.equip && (
-                  <span class="ml-1 text-sm font-semibold text-ui-muted">
-                    {equip.equip}
-                  </span>
-                )}
-              </h2>
+    {equip.equip && (
+      <span class="ml-1 text-sm font-semibold text-white/70">
+        {equip.equip}
+      </span>
+    )}
+  </h2>
 
-              <p class="text-sm text-ui-muted mt-1">
-                {equip.genere} · {equip.divisio}
-              </p>
+  <p class="text-sm mt-1 text-white/70">
+    {equip.genere} · {equip.divisio}
+  </p>
 
-              <p class="text-xs text-ui-muted mt-3">
-                {equip.entrenador}
-              </p>
+  <p class="text-xs mt-3 text-white/50">
+    {equip.entrenador}
+  </p>
 
-              {equip.slug && (
-                <a
-                  href={`/equips/${equip.slug}`}
-                  class="inline-flex mt-4 text-sm font-semibold text-brand-light hover:text-brand-dark transition"
-                >
-                  Veure stats →
-                </a>
-              )}
+  <div class="flex items-center justify-between mt-4">
 
-				{equip.patrocinador?.logo && (
-				  <div class="mt-4 flex items-center gap-2">
-					<a
-					  href={equip.patrocinador.url}
-					  target="_blank"
-					  rel="noopener noreferrer"
-					  class="inline-flex items-center"
-					  title={equip.patrocinador.nom}
-					>
-					  <img
-						src={equip.patrocinador.logo}
-						alt={equip.patrocinador.nom}
-						class="h-6 object-contain opacity-80 hover:opacity-100 transition"
-						loading="lazy"
-					  />
-					</a>
-				  </div>
-				)}
+    {equip.slug ? (
+      <a
+        href={`/equips/${equip.slug}`}
+        class="inline-flex text-sm font-semibold text-catalan-yellow
+               hover:text-white transition"
+      >
+        Veure stats →
+      </a>
+    ) : (
+      <div></div>
+    )}
 
-            </div>
-          </article>
+    {equip.patrocinador?.logo && (
+      <a
+        href={equip.patrocinador.url}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center bg-white/5 rounded-lg px-2 py-1"
+        title={equip.patrocinador.nom}
+      >
+        <img
+          src={equip.patrocinador.logo}
+          alt={equip.patrocinador.nom}
+          class="h-6 object-contain opacity-80 hover:opacity-100 transition"
+          loading="lazy"
+        />
+      </a>
+    )}
+
+  </div>
+</div>          </article>
         ))}
       </div>
     </div>
