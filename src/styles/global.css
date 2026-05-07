@@ -53,56 +53,66 @@ body {
 
 
 /* ─────────────────────────────────────────────────────
-   SECCIONES SEMÁNTICAS
-   Aplicar UNA clase por sección en el HTML.
-   El resto de estilos hereda del contexto.
+   TAILWIND LAYERS
 ──────────────────────────────────────────────────────── */
-
-/* Hero y footer: oscuros */
-.section-hero,
-.section-footer {
-  background: var(--bg-hero);
-  color: var(--color-hero-text);
-}
-
-/* Sección principal: fondo azul clarito */
-.section-light {
-  background: var(--bg-page);
-  color: var(--text-primary);
-}
-
-/* Sección alternada: un punto más oscura */
-.section-muted {
-  background: var(--bg-muted);
-  color: var(--text-primary);
-}
-
-/* Sección de énfasis: surface blanca */
-.section-surface {
-  background: var(--bg-surface);
-  color: var(--text-primary);
-}
-
-/* Texto secundario dentro de sección oscura */
-.section-hero .text-dim,
-.section-footer .text-dim {
-  color: rgba(255, 255, 255, 0.65);
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 
 /* ─────────────────────────────────────────────────────
-   CARD
-   Componente base. Variantes por modificador.
+   SECCIONES SEMÀNIQUES
+   Aplicar UNA clase por sección en el HTML.
+   El resto de estilos hereda del contexto.
 ──────────────────────────────────────────────────────── */
-.card {
-  background: var(--bg-surface);
-  border: 1px solid rgba(13, 28, 35, 0.08);
-  border-radius: 1.25rem;
-  padding: 1.25rem;
-}
+@layer components {
 
-.card--muted {
-  background: var(--bg-muted);
+  /* Hero y footer: oscuros */
+  .section-hero,
+  .section-footer {
+    background: var(--bg-hero);
+    color: var(--color-hero-text);
+  }
+
+  /* Sección principal: fondo azul clarito */
+  .section-light {
+    background: var(--bg-page);
+    color: var(--text-primary);
+  }
+
+  /* Sección alternada: un punto más oscura */
+  .section-muted {
+    background: var(--bg-muted);
+    color: var(--text-primary);
+  }
+
+  /* Sección de énfasis: surface blanca */
+  .section-surface {
+    background: var(--bg-surface);
+    color: var(--text-primary);
+  }
+
+  /* Texto secundario dentro de sección oscura */
+  .section-hero .text-dim,
+  .section-footer .text-dim {
+    color: rgba(255, 255, 255, 0.65);
+  }
+
+  /* Card base */
+  .card {
+    background: var(--bg-surface);
+    border: 1px solid rgba(13, 28, 35, 0.08);
+    border-radius: 1.25rem;
+    padding: 1.25rem;
+  }
+
+  .card--muted {
+    background: var(--bg-muted);
+  }
+  .text-ui-text    { color: var(--text-primary); }
+  .text-ui-muted   { color: var(--text-secondary); }
+  .text-ui-dimmed  { color: var(--text-muted); }
+
 }
 
 
@@ -116,9 +126,6 @@ body {
 
 /* ─────────────────────────────────────────────────────
    ANIMACIONES
-   Las keyframes viven aquí; las clases de utilidad
-   (animate-marquee, animate-fadeIn) se definen en
-   tailwind.config para poder usarse como utilidades.
 ──────────────────────────────────────────────────────── */
 @keyframes marquee {
   from { transform: translateX(0); }
@@ -130,22 +137,12 @@ body {
   to   { opacity: 1; transform: translateY(0); }
 }
 
-/* Ken Burns (para carruseles Hero) */
 @keyframes kenBurns {
   from { transform: scale(1);    }
   to   { transform: scale(1.08); }
 }
 
-/* Crossfade (para transiciones de imagen) */
 @keyframes crossfade {
   0%,  45% { opacity: 1; }
   55%, 100% { opacity: 0; }
 }
-
-
-/* ─────────────────────────────────────────────────────
-   TAILWIND LAYERS
-──────────────────────────────────────────────────────── */
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
