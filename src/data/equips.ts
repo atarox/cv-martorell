@@ -28,7 +28,7 @@ export const equips: Equip[] = [
     edats: "Sub-12",
     color: "from-sky-900/80 to-brand-dark/90",
     accent: "#76AFC2",
-    equip: "3x3",
+    equip: "Federat",
     foto: "/images/equips/alevi-mixt.jpg",
     entrenador: "Laia Balastegui i Aina Cabrera",
     divisio: "Competició 3x3",
@@ -59,13 +59,7 @@ export const equips: Equip[] = [
     foto: "/images/equips/infantil-masculi-negre.jpg",
     entrenador: "Águeda Núñez",
     divisio: "2a Divisió Masculina",
-    slug: "infantil-masculi-negre",
-
-    patrocinador: {
-      nom: "La Secre",
-      logo: "/images/sponsors/sponsor2.png",
-      url: "https://martorell.cat",
-    },
+    slug: "infantil-masculi-negre"
   },
 
   {
@@ -79,13 +73,7 @@ export const equips: Equip[] = [
     foto: "/images/equips/infantil-femeni-negre.jpg",
     entrenador: "José Meoniz",
     divisio: "2a Divisió Femenina",
-    slug: "infantil-femeni-negre",
-
-    patrocinador: {
-      nom: "Maipizza",
-      logo: "/images/sponsors/sponsor1.png",
-      url: "https://martorell.cat",
-    },
+    slug: "infantil-femeni-negre" 
   },
 
   {
@@ -111,7 +99,7 @@ export const equips: Equip[] = [
     accent: "#C4372B",
     equip: "Vermell",
     foto: "/images/equips/infantil-femeni-vermell.jpg",
-    entrenador: "Dídac Ondoño",
+    entrenador: "Dídac Ondoño i Aroa Carpio",
     divisio: "Preferente Infantil",
     slug: "infantil-femeni-vermell",
   },
@@ -158,9 +146,9 @@ export const equips: Equip[] = [
     slug: "juvenil-femeni-negre",
 
     patrocinador: {
-      nom: "El Cortijo",
-      logo: "/images/sponsors/sponsor4.png",
-      url: "https://martorell.cat",
+      nom: "NOVA AUTOESCOLA",
+      logo: "https://www.08760nova.com/images/logo.png",
+      url: "https://www.08760nova.com",
     },
   },
 
@@ -216,12 +204,6 @@ export const equips: Equip[] = [
     entrenador: "Richard Álvarez",
     divisio: "3a Divisió Sènior",
     slug: "senior-femeni-negre",
-
-    patrocinador: {
-      nom: "Sanjo",
-      logo: "/images/sponsors/sponsor3.png",
-      url: "https://martorell.cat",
-    },
   },
 
   {
