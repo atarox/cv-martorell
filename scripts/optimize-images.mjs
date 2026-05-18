@@ -89,10 +89,11 @@ for (const { dir, width, quality } of TARGETS) {
     const originalSize = (await stat(src)).size;
 
     try {
-      const { size: optimizedSize } = await sharp(src)
-        .resize({ width, withoutEnlargement: true })
-        .webp({ quality })
-        .toFile(dest);
+		const { size: optimizedSize } = await sharp(src)
+		  .rotate()
+		  .resize({ width, withoutEnlargement: true })
+		  .webp({ quality })
+		  .toFile(dest);
 
       const saving = (((originalSize - optimizedSize) / originalSize) * 100).toFixed(1);
       console.log(
