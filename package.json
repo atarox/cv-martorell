@@ -7,7 +7,8 @@
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+	"optimize-images": "node scripts/optimize-images.mjs"
   },
   "dependencies": {
     "@astrojs/starlight": "^0.37.4",
@@ -20,4 +21,5 @@
     "postcss": "^8.5.6",
     "tailwindcss": "^3.4.19"
   }
+  
 }
