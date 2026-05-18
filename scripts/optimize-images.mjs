@@ -15,22 +15,22 @@ import { join, extname, basename, dirname } from "path";
 // ─── Configuració per carpeta ────────────────────────────────────────────────
 const TARGETS = [
   {
-    dir: "public/images/club",
+    dir: "../public/images/club",
     width: 1920,   // Hero fullscreen → necessita resolució alta
     quality: 82,
   },
   {
-    dir: "public/images/equips",
+    dir: "../public/images/equips",
     width: 1200,   // Cards d'equip → resolució mitjana és suficient
     quality: 80,
   },
   {
-    dir: "public/images/club/junta",
+    dir: "../public/images/club/junta",
     width: 400,    // Fotos de persones petites → molt menys pes
     quality: 78,
   },
   {
-    dir: "public/images/sponsors",
+    dir: "../public/images/sponsors",
     width: 400,
     quality: 85,   // Logos: una mica més de qualitat per text net
   },
@@ -63,6 +63,10 @@ async function getImages(dir) {
         files.push(join(dir, e.name));
       }
     }
+	
+	console.log(`📂 Revisando: ${dir}`);
+	console.log(`📸 Encontradas:`, files);
+
   } catch {
     console.warn(`⚠️  Carpeta no trobada: ${dir}`);
   }
@@ -90,7 +94,6 @@ for (const { dir, width, quality } of TARGETS) {
 
     try {
 		const { size: optimizedSize } = await sharp(src)
-		  .rotate()
 		  .resize({ width, withoutEnlargement: true })
 		  .webp({ quality })
 		  .toFile(dest);
