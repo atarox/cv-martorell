@@ -1,0 +1,86 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const page = {
+  title: "Política de cookies",
+  description: "Informació sobre l'ús de cookies al lloc web del Club Voleibol Martorell.",
+};
+---
+
+<BaseLayout title={page.title} description={page.description}>
+
+  <!-- Hero -->
+  <div class="relative bg-brand-dark overflow-hidden">
+    <div class="absolute inset-0 opacity-10"
+         style="background-image: radial-gradient(circle at 70% 30%, #76AFC2 0%, transparent 55%), radial-gradient(circle at 20% 80%, #2B6E7F 0%, transparent 50%);"></div>
+    <div class="relative container mx-auto px-6 pt-32 pb-16 text-center">
+      <p class="text-brand-light text-sm font-semibold uppercase tracking-widest mb-3">Transparència</p>
+      <h1 class="text-4xl md:text-6xl font-extrabold text-white tracking-tight">Política de cookies</h1>
+      <p class="mt-4 text-white/60 text-lg max-w-xl mx-auto">
+        Informació sobre com utilitzem les cookies en aquest lloc web.
+      </p>
+    </div>
+  </div>
+
+  <section class="bg-ui-bg text-ui-text">
+    <div class="container mx-auto px-6 py-20 max-w-3xl">
+
+      <h1 class="text-3xl font-extrabold mb-6 text-brand-dark">
+        Política de cookies
+      </h1>
+
+      <p class="text-sm text-ui-text/70 mb-8">
+        En compliment de la Llei 34/2002, d'11 de juliol, de Serveis de la Societat de la Informació i Comerç Electrònic (LSSICE), t'informem sobre l'ús de cookies en aquest lloc web.
+      </p>
+
+      <!-- 1. Què són -->
+      <h2 class="text-xl font-bold mt-8 mb-2">1. Què són les cookies?</h2>
+      <p class="text-sm text-ui-text/80">
+        Les cookies són petits fitxers de text que els llocs web emmagatzemen al navegador de l'usuari quan els visita. Serveixen per recordar preferències, analitzar el comportament de navegació o habilitar certes funcionalitats.
+      </p>
+
+      <!-- 2. Usem cookies? -->
+      <h2 class="text-xl font-bold mt-8 mb-2">2. Usem cookies en aquest lloc web?</h2>
+      <p class="text-sm text-ui-text/80">
+        <strong>No.</strong> El lloc web del Club Voleibol Martorell és un lloc estàtic que <strong>no emmagatzema cap cookie pròpia</strong> al dispositiu de l'usuari. No utilitzem cookies d'analítica, de seguiment, de publicitat ni de cap altra mena.
+      </p>
+
+      <!-- 3. Cookies de tercers -->
+      <h2 class="text-xl font-bold mt-8 mb-2">3. Cookies de tercers</h2>
+      <p class="text-sm text-ui-text/80">
+        Algunes funcionalitats del lloc web inclouen contingut o enllaços externs (com ara formularis de Google o xarxes socials). Aquests serveis de tercers poden establir les seves pròpies cookies quan l'usuari interactua amb ells, d'acord amb les seves respectives polítiques de privacitat:
+      </p>
+      <ul class="list-disc ml-6 mt-2 text-sm text-ui-text/80 space-y-1">
+        <li><a href="https://policies.google.com/privacy" target="_blank" rel="noopener" class="underline hover:text-brand-mid">Política de privacitat de Google</a> (Google Forms)</li>
+        <li><a href="https://www.facebook.com/privacy/policy" target="_blank" rel="noopener" class="underline hover:text-brand-mid">Política de privacitat de Meta</a> (Facebook, Instagram)</li>
+      </ul>
+      <p class="text-sm text-ui-text/80 mt-3">
+        El Club Voleibol Martorell no té control sobre les cookies que aquests tercers puguin instal·lar.
+      </p>
+
+      <!-- 4. Com gestionar-les -->
+      <h2 class="text-xl font-bold mt-8 mb-2">4. Com gestionar les cookies de tercers</h2>
+      <p class="text-sm text-ui-text/80">
+        Pots configurar el teu navegador per bloquejar o eliminar cookies en qualsevol moment. Aquí tens els enllaços de configuració dels navegadors més habituals:
+      </p>
+      <ul class="list-disc ml-6 mt-2 text-sm text-ui-text/80 space-y-1">
+        <li><a href="https://support.google.com/chrome/answer/95647" target="_blank" rel="noopener" class="underline hover:text-brand-mid">Google Chrome</a></li>
+        <li><a href="https://support.mozilla.org/ca/kb/activa-i-desactiva-les-galetes" target="_blank" rel="noopener" class="underline hover:text-brand-mid">Mozilla Firefox</a></li>
+        <li><a href="https://support.apple.com/ca-es/guide/safari/sfri11471/mac" target="_blank" rel="noopener" class="underline hover:text-brand-mid">Safari</a></li>
+        <li><a href="https://support.microsoft.com/ca-es/microsoft-edge/eliminar-les-cookies-a-microsoft-edge-63947406-40ac-c3b8-57b9-2a946a29ae09" target="_blank" rel="noopener" class="underline hover:text-brand-mid">Microsoft Edge</a></li>
+      </ul>
+
+      <!-- 5. Modificacions -->
+      <h2 class="text-xl font-bold mt-8 mb-2">5. Modificacions</h2>
+      <p class="text-sm text-ui-text/80">
+        Aquesta política pot actualitzar-se si canvia la naturalesa tècnica del lloc web o la normativa aplicable.
+      </p>
+
+      <div class="mt-10 p-4 rounded-xl bg-brand-dark text-white text-sm">
+        Última actualització: maig 2026
+      </div>
+
+    </div>
+  </section>
+
+</BaseLayout>
