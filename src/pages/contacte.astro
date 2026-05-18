@@ -114,33 +114,33 @@ const socials = [
 		  </ul>
 		</div>
 
-        <!-- Xarxes -->
-			<div>
-			  <h3 class="font-extrabold text-brand-dark text-sm mb-3">Segueix-nos</h3>
-			  <div class="flex flex-col gap-3">
-				{socials.map((s) => (
-				  
-					href={s.href}
-					target="_blank"
-					rel="noopener noreferrer"
-					class="inline-flex items-center gap-2 text-sm text-ui-text hover:text-brand-dark transition-colors"
-					aria-label={s.label}
-				  >
-					{s.icon === "instagram" && (
-					  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5">
-						<path d="M7.75 2h8.5C19.55 2 22 4.45 22 7.75v8.5C22 19.55 19.55 22 16.25 22h-8.5C4.45 22 2 19.55 2 16.25v-8.5C2 4.45 4.45 2 7.75 2zm0 1.5C5.68 3.5 4 5.18 4 7.25v8.5C4 18.32 5.68 20 7.75 20h8.5c2.07 0 3.75-1.68 3.75-3.75v-8.5C20 5.68 18.32 3.5 16.25 3.5h-8.5zM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 1.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7zm4.75-.88a1.12 1.12 0 1 1 0 2.25 1.12 1.12 0 0 1 0-2.25z"/>
-					  </svg>
-					)}
-					{s.icon === "facebook" && (
-					  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5">
-						<path d="M22 12a10 10 0 1 0-11.5 9.88v-6.99h-2.1V12h2.1V9.79c0-2.07 1.23-3.22 3.12-3.22.9 0 1.84.16 1.84.16v2.02h-1.04c-1.03 0-1.35.64-1.35 1.3V12h2.3l-.37 2.89h-1.93v6.99A10 10 0 0 0 22 12z"/>
-					  </svg>
-					)}
-					{s.label}
-				  </a>
-				))}
-			  </div>
-			</div>
+       <!-- Xarxes -->
+<div>
+  <h3 class="font-extrabold text-brand-dark text-sm mb-3">Segueix-nos</h3>
+  <div class="flex flex-col gap-3">
+    {socials.map((s) => (
+      
+        href={s.href}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center gap-2 text-sm text-ui-text hover:text-brand-dark transition-colors"
+        aria-label={s.label}
+      >
+        {s.icon === "instagram" && (
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5">
+            <path d="M7.75 2h8.5C19.55 2 22 4.45 22 7.75v8.5C22 19.55 19.55 22 16.25 22h-8.5C4.45 22 2 19.55 2 16.25v-8.5C2 4.45 4.45 2 7.75 2zm0 1.5C5.68 3.5 4 5.18 4 7.25v8.5C4 18.32 5.68 20 7.75 20h8.5c2.07 0 3.75-1.68 3.75-3.75v-8.5C20 5.68 18.32 3.5 16.25 3.5h-8.5zM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 1.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7zm4.75-.88a1.12 1.12 0 1 1 0 2.25 1.12 1.12 0 0 1 0-2.25z"/>
+          </svg>
+        )}
+        {s.icon === "facebook" && (
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5">
+            <path d="M22 12a10 10 0 1 0-11.5 9.88v-6.99h-2.1V12h2.1V9.79c0-2.07 1.23-3.22 3.12-3.22.9 0 1.84.16 1.84.16v2.02h-1.04c-1.03 0-1.35.64-1.35 1.3V12h2.3l-.37 2.89h-1.93v6.99A10 10 0 0 0 22 12z"/>
+          </svg>
+        )}
+        {s.label}
+      </a>
+    ))}
+  </div>
+</div>
 
       </aside>
 
