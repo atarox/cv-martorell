@@ -1,7 +1,10 @@
 backend:
+backend:
   name: github
   repo: atarox/cv-martorell
   branch: develop
+  base_url: https://clubvoleimartorell.com
+  auth_endpoint: api/auth
 
 media_folder: public/images/comunicats
 public_folder: /images/comunicats
