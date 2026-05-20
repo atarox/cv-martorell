@@ -1,12 +1,18 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import { comunicats } from "../data/comunicats";
+ 
 
 const page = {
   title: "Informació al soci – CV Martorell",
   description: "Documentació, protocols i recursos per a socis i famílies del Club Voleibol Martorell.",
 };
 
+// Llegim els comunicats des dels fitxers Markdown
+const arxius = await Astro.glob("../content/comunicats/*.md");
+const comunicats = arxius
+  .map((f) => f.frontmatter)
+  .sort((a, b) => new Date(b.data).getTime() - new Date(a.data).getTime());
+  
 const documents = [
   {
     title: "Codi de conducta",

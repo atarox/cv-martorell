@@ -1,0 +1,50 @@
+backend:
+  name: github
+  repo: atarox/cv-martorell
+  branch: develop
+
+media_folder: public/images/comunicats
+public_folder: /images/comunicats
+
+locale: ca
+
+collections:
+  - name: comunicats
+    label: Comunicats
+    label_singular: Comunicat
+    folder: src/content/comunicats
+    create: true
+    delete: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    sort_field: data
+    sort_default: desc
+    fields:
+      - label: Títol
+        name: titol
+        widget: string
+        hint: "Ex: 📄 Casal d'estiu 2026"
+
+      - label: Data
+        name: data
+        widget: datetime
+        date_format: YYYY-MM-DD
+        time_format: false
+        format: YYYY-MM-DD
+
+      - label: Missatge
+        name: cos
+        widget: text
+        hint: "El text del comunicat. Pots usar salts de línia normals."
+
+      - label: Formulari (opcional)
+        name: formulari
+        widget: string
+        required: false
+        hint: "URL del formulari de Google si n'hi ha"
+
+      - label: Text del botó del formulari
+        name: formulariLabel
+        widget: string
+        required: false
+        default: "Accedir al formulari"
+        hint: "Ex: Formulari d'inscripció"
