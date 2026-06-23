@@ -2,7 +2,7 @@ backend:
   name: github
   repo: atarox/cv-martorell
   branch: develop
-  base_url:  https://cv-martorell-cms-auth.<workers>.workers.dev/api
+  base_url: https://cv-martorell-cms-auth.informatica-179.workers.dev
   auth_endpoint: auth
 
 media_folder: public/images/comunicats

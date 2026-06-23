@@ -1,6 +1,0 @@
-name = "cv-martorell-cms-auth"
-main = "src/index.ts"
-compatibility_date = "2024-11-01"
-
-workers_dev = true
-account_id = "17991fbb083137619c613799d4990c05"
