@@ -18,7 +18,7 @@ collections:
     create: true
     delete: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
-    sort_field: data
+    sort_field: titol
     sort_default: desc
     fields:
       - label: Títol
