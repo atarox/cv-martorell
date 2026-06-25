@@ -1,15 +1,12 @@
 ---
-titol: "馃搫 Casal tecnificaci贸"
+titol: "?? Casal tecnificació"
 data: "2026-05-13"
-cos: "Benvolgudes fam铆lies,
-
-Us informem que aquest estiu, a banda del casal d'estiu habitual, tamb茅 organitzarem un Casal de Tecnificaci贸 durant el mes de juliol.
-
-Aquest casal es realitzar脿 de dilluns a dijous de 18h a 20h i estar脿 orientat a oferir un treball t猫cnic m茅s espec铆fic i personalitzat, adaptat a les necessitats i evoluci贸 dels participants.
-
-Les setmanes de tecnificaci贸 estaran subjectes a un nombre m铆nim i m脿xim d'inscripcions, ja que volem garantir una atenci贸 m茅s individualitzada i una millor qualitat del treball realitzat. Per aquest motiu, les places seran limitades.
-
-Per a m茅s informaci贸, podeu accedir al formulari adjunt clicant sobre la paraula formulari."
+cos: |
+  Benvolgudes famílies,
+  Us informem que aquest estiu, a banda del casal d'estiu habitual, també organitzarem un Casal de Tecnificació durant el mes de juliol.
+  Aquest casal es realitzarà de dilluns a dijous de 18h a 20h i estarà orientat a oferir un treball tècnic més específic i personalitzat, adaptat a les necessitats i evolució dels participants.
+  Les setmanes de tecnificació estaran subjectes a un nombre mínim i màxim d'inscripcions, ja que volem garantir una atenció més individualitzada i una millor qualitat del treball realitzat. Per aquest motiu, les places seran limitades.
+  Per a més informació, podeu accedir al formulari adjunt clicant sobre la paraula formulari.
 formulari: "https://forms.gle/DzweQnFUBMWbCVGu5"
-formulariLabel: "Formulari d'inscripci贸"
+formulariLabel: "Formulari d'inscripció"
 ---
