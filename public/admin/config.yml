@@ -17,6 +17,7 @@ collections:
     folder: src/content/comunicats
     create: true
     delete: true
+    summary: "{{titol}} — {{data}}
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     sort_field: titol
     sort_default: desc
