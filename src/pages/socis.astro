@@ -1,18 +1,17 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
- 
+import { getCollection } from 'astro:content';
+import { marked } from 'marked';
 
 const page = {
   title: "Informació al soci – CV Martorell",
   description: "Documentació, protocols i recursos per a socis i famílies del Club Voleibol Martorell.",
 };
 
-// Llegim els comunicats des dels fitxers Markdown
-const arxius = await Astro.glob("../content/comunicats/*.md");
+const arxius = await getCollection('comunicats');
 const comunicats = arxius
-  .map((f) => f.frontmatter)
-  .sort((a, b) => new Date(b.data).getTime() - new Date(a.data).getTime());
-  
+  .sort((a, b) => new Date(b.data.data).getTime() - new Date(a.data.data).getTime());
+
 const documents = [
   {
     title: "Codi de conducta",
@@ -71,55 +70,57 @@ function formatData(iso: string) {
     </div>
   </div>
 
-<!-- Comunicats -->
-<section class="container mx-auto px-4 md:px-6 py-16 max-w-2xl">
-  <p class="text-brand-light text-sm font-semibold uppercase tracking-widest mb-2 text-center">
-    Informació del club
-  </p>
+  <!-- Comunicats -->
+  <section class="container mx-auto px-4 md:px-6 py-16 max-w-2xl">
+    <p class="text-brand-light text-sm font-semibold uppercase tracking-widest mb-2 text-center">
+      Informació del club
+    </p>
 
-  <h2 class="text-2xl md:text-3xl font-extrabold text-brand-dark mb-10 text-center">
-    Comunicats
-  </h2>
+    <h2 class="text-2xl md:text-3xl font-extrabold text-brand-dark mb-10 text-center">
+      Comunicats
+    </h2>
 
-  <div class="rounded-2xl p-4 md:p-6 space-y-4" style="background:#e5ddd5">
-    {comunicats.slice(0, 3).map((c) => (
-      <article class="flex flex-col max-w-[92%] ml-auto px-1">
-        
-        <div class="rounded-2xl rounded-tr-sm px-4 py-3 shadow-sm" style="background:#dcf8c6">
+    <div class="rounded-2xl p-4 md:p-6 space-y-4" style="background:#e5ddd5">
+      {comunicats.slice(0, 3).map((c) => (
+        <article class="flex flex-col max-w-[92%] ml-auto px-1">
+          <div class="rounded-2xl rounded-tr-sm px-4 py-3 shadow-sm" style="background:#dcf8c6">
 
-          <p class="text-xs font-extrabold mb-1" style="color:#075e54">
-           ⚪ CV Martorell
-          </p>
+            <p class="text-xs font-extrabold mb-1" style="color:#075e54">
+              ⚪ CV Martorell
+            </p>
 
-          <p class="font-bold text-sm mb-2" style="color:#111">
-            {c.titol}
-          </p>
+            <p class="font-bold text-sm mb-2" style="color:#111">
+              {c.data.titol}
+            </p>
 
-          <p class="text-sm leading-relaxed whitespace-pre-line" style="color:#303030">
-            {c.cos}
-          </p>
+            <div
+              class="text-sm leading-relaxed prose prose-sm max-w-none"
+              style="color:#303030"
+              set:html={marked.parse(c.data.cos ?? '')}
+            />
 
-          {c.formulari && (
-            <a
-              href={c.formulari}
-              target="_blank"
-              rel="noopener noreferrer"
-              class="mt-3 flex items-center gap-2 rounded-xl px-3 py-2 text-sm font-semibold transition"
-              style="background:#075e54;color:white"
-            >
-              📄 {c.formulariLabel ?? "Accedir al formulari"}
-            </a>
-          )}
+            {c.data.formulari && (
+              
+                href={c.data.formulari}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="mt-3 flex items-center gap-2 rounded-xl px-3 py-2 text-sm font-semibold transition"
+                style="background:#075e54;color:white"
+              >
+                📄 {c.data.formulariLabel ?? "Accedir al formulari"}
+              </a>
+            )}
 
-          <p class="text-right text-xs mt-2" style="color:#8a8a8a">
-            {formatData(c.data)} ✓✓
-          </p>
+            <p class="text-right text-xs mt-2" style="color:#8a8a8a">
+              {formatData(c.data.data)} ✓✓
+            </p>
 
-        </div>
-      </article>
-    ))}
-  </div>
-</section>
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+
   <!-- Documents -->
   <section class="container mx-auto px-4 md:px-6 py-16">
     <h2 class="text-2xl md:text-3xl font-extrabold text-brand-dark mb-2 text-center">Documents</h2>
@@ -128,13 +129,10 @@ function formatData(iso: string) {
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
       {documents.map((doc) => (
         <article class={`group relative rounded-2xl overflow-hidden shadow-soft hover:shadow-hard transition-all duration-300 hover:-translate-y-1 bg-brand-dark`}>
-          <!-- Gradient -->
           <div class={`absolute inset-0 bg-gradient-to-br ${doc.color}`}></div>
-          <!-- Accent top -->
           <div class="absolute top-0 left-0 right-0 h-1" style={`background-color: ${doc.accent};`}></div>
 
           <div class="relative p-6 flex flex-col gap-4 h-full">
-            <!-- Icon + badge -->
             <div class="flex items-start justify-between">
               <span class="text-4xl">{doc.icon}</span>
               <span class="text-xs font-bold rounded-pill px-2.5 py-1 border"
@@ -143,14 +141,12 @@ function formatData(iso: string) {
               </span>
             </div>
 
-            <!-- Text -->
             <div class="flex-grow">
               <h3 class="text-lg font-extrabold text-white mb-2">{doc.title}</h3>
               <p class="text-white/60 text-sm leading-relaxed">{doc.description}</p>
             </div>
 
-            <!-- CTA -->
-            <a
+            
               href={doc.file}
               target="_blank"
               rel="noopener noreferrer"
@@ -205,7 +201,7 @@ function formatData(iso: string) {
     <div class="container mx-auto px-6 text-center">
       <h2 class="text-2xl font-extrabold text-white mb-2">Tens alguna altra pregunta?</h2>
       <p class="text-white/60 mb-8 max-w-md mx-auto">Escriu-nos i et respondrem el més aviat possible.</p>
-      <a
+      
         href="/contacto"
         class="inline-flex items-center gap-2 rounded-pill bg-brand-light text-brand-dark px-8 py-3
                font-bold hover:bg-white transition-colors shadow-lg"
@@ -224,12 +220,10 @@ function formatData(iso: string) {
       const icon = btn.querySelector('.faq-icon');
       const isOpen = !body.classList.contains('hidden');
 
-      // Tanca tots
       document.querySelectorAll('.faq-body').forEach(b => b.classList.add('hidden'));
       document.querySelectorAll('.faq-icon').forEach(i => i.style.transform = '');
       document.querySelectorAll('.faq-btn').forEach(b => b.setAttribute('aria-expanded', 'false'));
 
-      // Obre el clicat si estava tancat
       if (!isOpen) {
         body.classList.remove('hidden');
         icon.style.transform = 'rotate(180deg)';
