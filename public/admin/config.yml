@@ -4,12 +4,9 @@ backend:
   branch: develop
   base_url: https://cv-martorell-cms-auth.informatica-179.workers.dev
   auth_endpoint: api/auth
-
 media_folder: public/images/comunicats
 public_folder: /images/comunicats
-
 locale: ca
-
 collections:
   - name: comunicats
     label: Comunicats
@@ -17,7 +14,7 @@ collections:
     folder: src/content/comunicats
     create: true
     delete: true
-    summary: "{{titol}} — {{data}}
+    summary: "{{titol}} — {{data}}"
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     sort_field: titol
     sort_default: desc
@@ -26,25 +23,22 @@ collections:
         name: titol
         widget: string
         hint: "Ex: 📄 Casal d'estiu 2026"
-
       - label: Data
         name: data
         widget: datetime
         date_format: YYYY-MM-DD
         time_format: false
         format: YYYY-MM-DD
-
       - label: Missatge
         name: cos
-        widget: text
-        hint: "El text del comunicat. Pots usar salts de línia normals."
-
+        widget: markdown
+        minimal: true
+        hint: "El text del comunicat. Pots usar salts de línia normals i emojis."
       - label: Formulari (opcional)
         name: formulari
         widget: string
         required: false
         hint: "URL del formulari de Google si n'hi ha"
-
       - label: Text del botó del formulari
         name: formulariLabel
         widget: string
