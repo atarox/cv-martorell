@@ -1,0 +1,92 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { readdir } from 'fs/promises';
+import { join } from 'path';
+
+const page = {
+  title: "Història – CV Martorell",
+  description: "La història del Club Voleibol Martorell a través del seu còmic i la seva trajectòria de gairebé 50 anys.",
+};
+
+const historiaDir = join(process.cwd(), 'public/images/historia');
+let paginesComic: string[] = [];
+try {
+  const fitxers = await readdir(historiaDir);
+  paginesComic = fitxers
+    .filter(f => /\.(webp)$/i.test(f))
+    .sort((a, b) => {
+      const numA = parseInt(a.match(/(\d+)/)?.[1] ?? '0');
+      const numB = parseInt(b.match(/(\d+)/)?.[1] ?? '0');
+      return numA - numB;
+    })
+    .map(f => `/images/historia/${f}`);
+} catch (e) {
+  console.warn('No es pot llegir la carpeta historia:', e);
+}
+
+const fites = [
+  { any: "1975",      text: "Primers partits amistosos a Martorell, sense club formal encara." },
+  { any: "1977–78",   text: "Constitució oficial del Club Voleibol Martorell. Primer president: Joan Armengol." },
+  { any: "Anys 80",   text: "Organització de dos tornejos internacionals amb equips d'elit en edicions consecutives." },
+  { any: "Anys 90",   text: "Participació a la Primera Catalana i col·laboracions socials amb la presó de Can Brians." },
+  { any: "2005",      text: "Impuls de l'Esco Vòlei: es potencia la línia femenina i l'activitat escolar de base." },
+  { any: "2023",      text: "Martorell és reconeguda com a «Ciutat de l'Esport». El CV Martorell n'és un dels clubs referents." },
+  { any: "Avui",      text: "12 equips en totes les categories, línia femenina completa i únic club de Catalunya avalat per la Federació Catalana de Voleibol en Sitting Voley." },
+];
+---
+
+<BaseLayout title={page.title} description={page.description}>
+
+  <!-- Hero -->
+  <div class="relative bg-brand-dark overflow-hidden">
+    <div class="absolute inset-0 opacity-10"
+         style="background-image: radial-gradient(circle at 30% 60%, #76AFC2 0%, transparent 55%), radial-gradient(circle at 75% 20%, #2B6E7F 0%, transparent 50%);"></div>
+    <div class="relative container mx-auto px-6 pt-32 pb-16 text-center">
+      <p class="text-brand-light text-sm font-semibold uppercase tracking-widest mb-3">Club Voleibol Martorell</p>
+      <h1 class="text-4xl md:text-6xl font-extrabold text-white tracking-tight">La nostra història</h1>
+      <p class="mt-4 text-white/60 text-lg max-w-xl mx-auto">
+        Gairebé 50 anys de voleibol, passió i comunitat a Martorell.
+      </p>
+    </div>
+  </div>
+
+  <!-- Còmic -->
+  {paginesComic.length > 0 && (
+    <section class="bg-ui-bg py-16">
+      <div class="container mx-auto px-4 md:px-6 max-w-3xl">
+        <p class="text-brand-light text-sm font-semibold uppercase tracking-widest mb-2 text-center">Còmic</p>
+        <h2 class="text-2xl md:text-3xl font-extrabold text-brand-dark mb-10 text-center">
+          Els nostres inicis en viñetes
+        </h2>
+        <div class="flex flex-col gap-0 shadow-hard rounded-2xl overflow-hidden">
+          {paginesComic.map((src, i) => (
+            <img
+              src={src}
+              alt={`Pàgina ${i + 1} del còmic del CV Martorell`}
+              class="w-full block"
+              loading={i === 0 ? "eager" : "lazy"}
+            />
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- Timeline -->
+  <section class="container mx-auto px-4 md:px-6 py-16 max-w-3xl">
+    <p class="text-brand-light text-sm font-semibold uppercase tracking-widest mb-2 text-center">La nostra trajectòria</p>
+    <h2 class="text-2xl md:text-3xl font-extrabold text-brand-dark mb-10 text-center">Gairebé 50 anys d'història</h2>
+    <ol class="relative border-l-2 border-brand-light/30 space-y-8 pl-8">
+      {fites.map((f, i) => (
+        <li class="relative">
+          <span class="absolute -left-[2.15rem] flex items-center justify-center w-8 h-8 rounded-full bg-brand-dark border-2 border-brand-light text-white text-xs font-bold">
+            {i + 1}
+          </span>
+          <p class="text-xs font-bold text-brand-light uppercase tracking-widest mb-1">{f.any}</p>
+          <p class="text-brand-dark text-sm leading-relaxed">{f.text}</p>
+        </li>
+      ))}
+    </ol>
+  </section>
+
+</BaseLayout>

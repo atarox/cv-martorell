@@ -34,6 +34,11 @@ const TARGETS = [
     width: 400,
     quality: 85,   // Logos: una mica més de qualitat per text net
   },
+  {
+    dir: "../public/images/historia",
+    width: 1200,   // Pàgines de còmic → resolució suficient per pantalla
+    quality: 88,   // Una mica més de qualitat per preservar el dibuix
+  },
 ];
 
 const EXTENSIONS = new Set([".jpg", ".jpeg", ".png"]);

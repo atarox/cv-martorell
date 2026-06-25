@@ -20,16 +20,6 @@ const xifres = [
   { valor: "+12",   label: "Equips federats" },
   { valor: "+2000", label: "Seguidors a xarxes" },
 ];
-
-const fites = [
-  { any: "1975",      text: "Primers partits amistosos a Martorell, sense club formal encara." },
-  { any: "1977–78",   text: "Constitució oficial del Club Voleibol Martorell. Primer president: Joan Armengol." },
-  { any: "Anys 80",   text: "Organització de dos tornejos internacionals amb equips d'elit en edicions consecutives." },
-  { any: "Anys 90",   text: "Participació a la Primera Catalana i col·laboracions socials amb la presó de Can Brians." },
-  { any: "2005",      text: "Impuls de l'Esco Vòlei: es potencia la línia femenina i l'activitat escolar de base." },
-  { any: "2023",      text: "Martorell és reconeguda com a «Ciutat de l'Esport». El CV Martorell n'és un dels clubs referents." },
-  { any: "Avui",      text: "12 equips en totes les categories, línia femenina completa i únic club de Catalunya avalat per la Federació Catalana de Voleibol en Sitting Voley." },
-];
 ---
 
 <BaseLayout title={page.title} description={page.description}>
@@ -167,23 +157,6 @@ const fites = [
         ))}
       </div>
     </div>
-  </section>
-
-  <!-- Història / Timeline -->
-  <section class="container mx-auto px-4 md:px-6 py-16 max-w-3xl">
-    <p class="text-brand-light text-sm font-semibold uppercase tracking-widest mb-2 text-center">La nostra trajectòria</p>
-    <h2 class="text-2xl md:text-3xl font-extrabold text-brand-dark mb-10 text-center">Gairebé 50 anys d'història</h2>
-    <ol class="relative border-l-2 border-brand-light/30 space-y-8 pl-8">
-      {fites.map((f, i) => (
-        <li class="relative">
-          <span class="absolute -left-[2.15rem] flex items-center justify-center w-8 h-8 rounded-full bg-brand-dark border-2 border-brand-light text-white text-xs font-bold">
-            {i + 1}
-          </span>
-          <p class="text-xs font-bold text-brand-light uppercase tracking-widest mb-1">{f.any}</p>
-          <p class="text-brand-dark text-sm leading-relaxed">{f.text}</p>
-        </li>
-      ))}
-    </ol>
   </section>
 
   <!-- Sitting Voley -->
