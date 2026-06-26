@@ -1,0 +1,37 @@
+name: Optimitza imatges noves
+
+on:
+  push:
+    branches:
+      - develop
+    paths:
+      - 'public/images/**/*.jpg'
+      - 'public/images/**/*.jpeg'
+      - 'public/images/**/*.png'
+
+jobs:
+  optimize:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Instal·la sharp
+        run: npm install sharp
+
+      - name: Optimitza imatges noves
+        run: node scripts/optimize-images-ci.mjs
+
+      - name: Commit WebP generades
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "🖼️ Auto: optimitza imatges a WebP"
+          file_pattern: "public/images/**/*.webp"

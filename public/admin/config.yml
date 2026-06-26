@@ -4,8 +4,8 @@ backend:
   branch: develop
   base_url: https://cv-martorell-cms-auth.informatica-179.workers.dev
   auth_endpoint: api/auth
-media_folder: public/images/comunicats
-public_folder: /images/comunicats
+media_folder: public/images/
+public_folder: /images/
 locale: ca
 collections:
   - name: comunicats
