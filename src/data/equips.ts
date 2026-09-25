@@ -76,7 +76,7 @@ export const equips: Equip[] = [
     slug: "infantil-femeni-negre", 
 	patrocinador: {
 		nom: "NOMAD SALUD",
-		logo: "images/sponsors/sponsor5.webp",
+		logo: "/images/sponsors/sponsor5.webp",
 		url: "https://nomadsalud.com/",
 	},
    },
@@ -123,7 +123,7 @@ export const equips: Equip[] = [
     slug: "cadet-femeni-negre",
 	patrocinador: {
 		nom: "Bar Restaurante El Cortijo",
-		logo: "images/sponsors/sponsor4.webp",
+		logo: "/images/sponsors/sponsor4.webp",
 		url: "https://www.instagram.com/restauranteelcortijo81/",
 	},
   },
@@ -213,7 +213,7 @@ export const equips: Equip[] = [
     slug: "senior-femeni-negre",
 	patrocinador: {
 		nom: "Quality Blends",
-		logo: "images/sponsors/sponsor6.webp",
+		logo: "/images/sponsors/sponsor6.webp",
 		url: "https://qualityblends.coffee/",
 	},
   },
