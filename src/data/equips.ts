@@ -257,7 +257,7 @@ export const equips: Equip[] = [
     entrenador: "Laia Balastegui",
 	patrocinador: {
 		nom: "Bar Restaurante El Cortijo",
-		logo: "images/sponsors/sponsor4.webp",
+		logo: "/images/sponsors/sponsor4.webp",
 		url: "https://www.instagram.com/restauranteelcortijo81/",
 	},
   },
