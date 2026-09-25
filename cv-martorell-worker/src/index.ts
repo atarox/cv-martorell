@@ -40,18 +40,7 @@ interface DadesEquip {
 }
 
 const EQUIPS: Equip[] = [
-  { slug: "senior-femeni-negre", id_equipo: "2774", id: "2542", nom: "Sènior Femení Negre" },
-  { slug: "cadet-femeni-negre", id_equipo: "2794", id: "2572", nom: "Cadet Femení Negre" },
-  { slug: "juvenil-femeni-negre", id_equipo: "2800", id: "2564", nom: "Juvenil Femení Negre" },
-  { slug: "cadet-femeni-blau", id_equipo: "2824", id: "2520", nom: "Cadet Femení Blau" },
-  { slug: "juvenil-femeni-blau", id_equipo: "3424", id: "2509", nom: "Juvenil Femení Blau" },
-  { slug: "senior-femeni-blau", id_equipo: "3425", id: "2551", nom: "Sènior Femení Blau" },
-  { slug: "alevi-mixt", id_equipo: "3426", id: "2461", nom: "Aleví Mixt" },
-  { slug: "junior-femeni-negre", id_equipo: "3430", id: "2498", nom: "Júnior Femení Negre" },
-  { slug: "infantil-masculi-negre", id_equipo: "3431", id: "2623", nom: "Infantil Masculí Negre" },
-  { slug: "infantil-femeni-negre", id_equipo: "3432", id: "2607", nom: "Infantil Femení Negre" },
-  { slug: "infantil-femeni-blau", id_equipo: "3433", id: "2613", nom: "Infantil Femení Blau" },
-  { slug: "infantil-femeni-vermell", id_equipo: "3434", id: "2630", nom: "Infantil Femení Vermell" },
+  { slug: "cadet-masculi-negre",     id_equipo: "6409", nom: "Cadet Masculí Negre" },
 ];
 
 function stripTags(html: string): string {
