@@ -103,10 +103,11 @@ export const equips: Equip[] = [
     color: "from-cyan-900/80 to-brand-dark/90",
     accent: "#F2CB40",
     equip: "Preferent",
+	id: "4076",
     foto: "/images/equips/dummy_m.webp",
     entrenador: "Adrià Anguera",
     divisio: "Preferent Cadet",
-    slug: "cadet-masculi-preferent-INVENTED",
+    slug: "cadet-masculi-negre",
   },
 
   {
