@@ -6,17 +6,21 @@
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro build",
-    "preview": "astro preview",
+    "preview": "npx astro build && wrangler dev",
     "astro": "astro",
-    "optimize-images": "node scripts/optimize-images.mjs"
+    "optimize-images": "node scripts/optimize-images.mjs",
+    "deploy": "npx astro build && wrangler deploy",
+    "cf-typegen": "wrangler types"
   },
   "devDependencies": {
     "@astrojs/tailwind": "^6.0.2",
     "autoprefixer": "^10.4.23",
     "postcss": "^8.5.6",
-    "tailwindcss": "^3.4.19"
+    "tailwindcss": "^3.4.19",
+    "wrangler": "^4.142.0"
   },
   "dependencies": {
+    "@astrojs/cloudflare": "12",
     "marked": "^18.0.5"
   }
 }

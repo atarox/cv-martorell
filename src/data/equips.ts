@@ -59,7 +59,6 @@ export const equips: Equip[] = [
     foto: "/images/equips/dummy_f.webp",
     entrenador: "Adrià Anguera",
     divisio: "Trobades competició única",
-    slug: "infantil-mixt-escolar-INVENTED",
   },
 
   {
@@ -92,7 +91,7 @@ export const equips: Equip[] = [
     foto: "/images/equips/dummy_f.webp",
     entrenador: "Aina Cabrera",
     divisio: "Preferent Cadet",
-    slug: "cadet-femeni-preferent-INVENTED",
+    slug: "cadet-femeni-vermell",
   },
 
   {
@@ -230,7 +229,7 @@ export const equips: Equip[] = [
     foto: "/images/equips/dummy_m.webp",
     entrenador: "Águeda Núñez",
     divisio: "2a Divisió Sènior",
-    slug: "senior-masculi-negre-INVENTED",
+    slug: "senior-masculi-negre",
   },
 
   {
