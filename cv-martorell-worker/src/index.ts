@@ -254,7 +254,39 @@ export default {
       return new Response(meta ?? "{}", { headers });
 
     }
+	if (url.pathname === "/scrape") {
 
+	  if (url.searchParams.get("key") !== env.SCRAPE_SECRET) {
+		return new Response("Forbidden", { status: 403 });
+	  }
+
+	  const resultats = [];
+
+	  for (const equip of EQUIPS) {
+		try {
+		  const dades = await scrapeEquip(equip);
+
+		  await env.EQUIPS_DATA.put(
+			`equip:${equip.slug}`,
+			JSON.stringify(dades),
+			{ expirationTtl: 60 * 60 * 24 * 8 }
+		  );
+
+		  resultats.push({
+			slug: equip.slug,
+			ok: true,
+			filesClassificacio: dades.clasificacion.length,
+			partitsJugats: dades.jugats.length,
+			propers: dades.propersPartits.length,
+			posicio: dades.posicio,
+		  });
+		} catch (err) {
+		  resultats.push({ slug: equip.slug, ok: false, error: String(err) });
+		}
+	  }
+
+  return Response.json(resultats);
+}
     return new Response("CV Martorell Worker 🏐", { status: 200 });
 
   },
