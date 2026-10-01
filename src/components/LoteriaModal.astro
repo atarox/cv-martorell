@@ -1,0 +1,520 @@
+---
+const lotteryNumber = "65187";
+const phoneDisplay = "693 865 809";
+const phoneInternational = "34693865809";
+
+const whatsappMessage =
+  "Hola! Vull reservar participacions de la loteria de Nadal del CV Martorell.";
+
+const whatsappUrl = `https://wa.me/${phoneInternational}?text=${encodeURIComponent(
+  whatsappMessage
+)}`;
+---
+
+<!-- Modal -->
+<div
+  id="loteria-modal"
+  class="fixed inset-0 z-[9999] hidden overflow-y-auto bg-black/70 p-4 backdrop-blur-sm md:p-8"
+  role="dialog"
+  aria-modal="true"
+  aria-labelledby="loteria-modal-title"
+  aria-describedby="loteria-modal-description"
+>
+  <!--
+    Este contenedor garantiza margen superior e inferior.
+    Si el contenido supera la altura de la pantalla, el fondo permite scroll.
+  -->
+  <div class="flex min-h-full items-center justify-center py-4 md:py-8">
+    <div
+      id="loteria-modal-panel"
+      class="relative flex max-h-[calc(100vh-4rem)] w-full max-w-2xl flex-col overflow-hidden rounded-3xl bg-white shadow-2xl md:max-h-[calc(100vh-6rem)]"
+    >
+      <!-- Cabecera fija -->
+      <header
+        class="flex shrink-0 items-center justify-between gap-4 bg-[#075e54] px-5 py-4 text-white"
+      >
+        <div class="min-w-0">
+          <p
+            class="text-xs font-semibold uppercase tracking-wider text-white/75"
+          >
+            Club Vòlei Martorell
+          </p>
+
+          <h2
+            id="loteria-modal-title"
+            class="truncate text-lg font-extrabold md:text-xl"
+          >
+            🎄 Loteria de Nadal CvM 2026
+          </h2>
+        </div>
+
+        <button
+          id="close-loteria-icon"
+          type="button"
+          class="group flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-white/15 text-white transition duration-200 hover:rotate-90 hover:bg-white/25 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-[#075e54]"
+          aria-label="Tancar el comunicat de la loteria"
+        >
+          <span class="text-3xl font-light leading-none" aria-hidden="true">
+            ×
+          </span>
+        </button>
+      </header>
+
+      <!-- Contenido desplazable -->
+      <div class="min-h-0 flex-1 overflow-y-auto overscroll-contain p-4 md:p-6">
+        <!-- Imagen -->
+        <div
+          class="relative mb-4 overflow-hidden rounded-2xl bg-slate-100 shadow-sm"
+        >
+          <img
+            src="/images/comunicats/loteria-2026.webp"
+            alt={`Loteria de Nadal del CvM, número ${lotteryNumber}`}
+            class="block h-auto w-full object-cover"
+            loading="lazy"
+            decoding="async"
+          />
+
+          <div
+            class="absolute left-3 top-3 rounded-2xl bg-white/95 px-4 py-2 shadow-xl backdrop-blur md:left-4 md:top-4"
+          >
+            <p
+              class="text-[10px] font-bold uppercase tracking-widest text-slate-500"
+            >
+              Número
+            </p>
+
+            <p
+              class="text-2xl font-black tracking-wider text-[#075e54] md:text-3xl"
+            >
+              {lotteryNumber}
+            </p>
+          </div>
+        </div>
+
+        <!-- Aviso destacado -->
+        <div
+          class="mb-4 rounded-xl border border-amber-300 bg-amber-50 p-3 text-center"
+        >
+          <p class="font-extrabold text-amber-900">
+            🍀 No et quedis sense la teva participació del
+            <span class="whitespace-nowrap">
+              número {lotteryNumber}
+            </span>
+          </p>
+        </div>
+
+        <!-- CTA principal -->
+        <a
+          href={whatsappUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="mb-4 flex items-center justify-center gap-3 rounded-xl bg-[#25d366] px-6 py-3 text-base font-extrabold text-white shadow-lg transition duration-200 hover:-translate-y-0.5 hover:bg-[#1ebe5a] hover:shadow-xl focus:outline-none focus:ring-4 focus:ring-green-300"
+        >
+          <span
+            class="flex h-8 w-8 items-center justify-center rounded-full bg-white/20 text-xl"
+            aria-hidden="true"
+          >
+            📲
+          </span>
+
+          <span>Reservar ara per WhatsApp</span>
+        </a>
+
+        <!-- Comunicado estilo WhatsApp -->
+        <div
+          id="loteria-modal-description"
+          class="rounded-2xl p-3 md:p-4"
+          style="background-color: #e5ddd5;"
+        >
+          <article class="ml-auto flex max-w-[96%] flex-col">
+            <div
+              class="rounded-2xl rounded-tr-sm px-4 py-3 shadow-sm"
+              style="background-color: #dcf8c6;"
+            >
+              <p
+                class="mb-2 text-xs font-extrabold"
+                style="color: #075e54;"
+              >
+                ⚪ CV Martorell
+              </p>
+
+              <p class="mb-3 text-sm font-bold text-neutral-900">
+                🎄 LA LOTERIA DE NADAL DEL CvM JA ESTÀ AQUÍ! 🎄
+              </p>
+
+              <div
+                class="space-y-3 text-sm leading-relaxed text-neutral-800"
+              >
+                <p>
+                  Aquest any, al Club Vòlei Martorell tornem a vendre loteria
+                  de Nadal! ✨
+                </p>
+
+                <p>
+                  Ja podeu reservar la vostra participació i compartir la
+                  il·lusió de la sort amb nosaltres. 🍀
+                </p>
+
+                <p>
+                  🎟️ <strong>Número: {lotteryNumber}</strong>
+                </p>
+
+                <p>
+                  💶 <strong>Preu de la butlleta: 23 €</strong><br />
+                  20 € del preu original i 3 € per al club.
+                </p>
+
+                <div>
+                  <p class="mb-1">
+                    📲 <strong>Com la podeu aconseguir?</strong>
+                  </p>
+
+                  <ul class="ml-5 list-disc space-y-1">
+                    <li>
+                      Per WhatsApp, fent la vostra comanda al
+                      <strong>{phoneDisplay}</strong>.
+                    </li>
+
+                    <li>
+                      Presencialment, passant pel despatx del club els
+                      divendres de 19:30 h a 21:00 h.
+                    </li>
+                  </ul>
+                </div>
+
+                <p>
+                  Es cobrarà en efectiu. Demanem fer el pagament amb l’import
+                  exacte.
+                </p>
+
+                <p>
+                  No us quedeu sense la vostra! Molta sort a tothom i gràcies
+                  per col·laborar amb el CvM! 💙🖤
+                </p>
+
+                <p class="font-semibold">
+                  Fem club, fem família! 🏐
+                </p>
+              </div>
+
+              <p
+                class="mt-3 text-right text-xs"
+                style="color: #8a8a8a;"
+              >
+                avui ✓✓
+              </p>
+            </div>
+          </article>
+        </div>
+
+        <!-- Acciones inferiores -->
+        <div class="mt-5 grid gap-3 sm:grid-cols-2">
+          <a
+            href={whatsappUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="flex items-center justify-center gap-2 rounded-xl bg-[#25d366] px-6 py-3 font-bold text-white shadow-md transition duration-200 hover:-translate-y-0.5 hover:bg-[#1ebe5a] hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-green-300"
+          >
+            <span aria-hidden="true">📲</span>
+            Reservar per WhatsApp
+          </a>
+
+          <button
+            id="close-loteria-button"
+            type="button"
+            class="group flex items-center justify-center gap-2 rounded-xl border border-slate-200 bg-gradient-to-b from-white to-slate-50 px-6 py-3 font-bold text-slate-700 shadow-sm transition duration-200 hover:-translate-y-0.5 hover:border-slate-300 hover:shadow-md focus:outline-none focus:ring-4 focus:ring-slate-200"
+          >
+            <span
+              class="flex h-6 w-6 items-center justify-center rounded-full bg-slate-200 text-sm transition duration-200 group-hover:rotate-90 group-hover:bg-slate-300"
+              aria-hidden="true"
+            >
+              ×
+            </span>
+
+            Ara no, gràcies
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Banner flotante -->
+<div
+  id="loteria-reminder"
+  class="fixed bottom-4 left-4 right-4 z-[9998] hidden items-center gap-3 rounded-2xl border border-white/10 bg-[#075e54] p-3 text-white shadow-2xl sm:left-auto sm:right-4 sm:w-[390px]"
+  role="complementary"
+  aria-label="Recordatori de la loteria de Nadal"
+>
+  <button
+    id="open-loteria-modal"
+    type="button"
+    class="flex min-w-0 flex-1 items-center gap-3 rounded-xl text-left focus:outline-none focus:ring-2 focus:ring-white/80"
+    aria-label="Obrir informació de la loteria de Nadal"
+  >
+    <span
+      class="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-white/15 text-2xl shadow-inner"
+      aria-hidden="true"
+    >
+      🎄
+    </span>
+
+    <span class="min-w-0">
+      <span class="block text-xs font-semibold text-white/70">
+        Loteria de Nadal CvM
+      </span>
+
+      <span class="block truncate font-extrabold">
+        Número {lotteryNumber} · 23 €
+      </span>
+
+      <span class="block text-xs text-white/80">
+        Toca per veure’n els detalls
+      </span>
+    </span>
+  </button>
+
+  <a
+    href={whatsappUrl}
+    target="_blank"
+    rel="noopener noreferrer"
+    class="shrink-0 rounded-xl bg-[#25d366] px-4 py-2 text-sm font-extrabold text-white shadow-md transition hover:bg-[#1ebe5a] focus:outline-none focus:ring-2 focus:ring-white"
+  >
+    Reservar
+  </a>
+</div>
+
+<script>
+  const STORAGE_KEY = "cvm-loteria-2026-last-seen";
+
+  const DAYS_BETWEEN_POPUPS = 7;
+  const POPUP_INTERVAL_MS =
+    DAYS_BETWEEN_POPUPS * 24 * 60 * 60 * 1000;
+
+  /*
+   * Mesos de JavaScript:
+   * gener = 0
+   * octubre = 9
+   * desembre = 11
+   *
+   * La campanya finalitza el 22 de desembre de 2026 a les 23:59:59.
+   */
+  const CAMPAIGN_START = new Date(2026, 9, 1, 0, 0, 0);
+  const CAMPAIGN_END = new Date(2026, 11, 22, 23, 59, 59);
+
+  const modal = document.getElementById("loteria-modal");
+  const modalPanel = document.getElementById("loteria-modal-panel");
+
+  const closeIcon = document.getElementById("close-loteria-icon");
+  const closeButton = document.getElementById(
+    "close-loteria-button"
+  );
+
+  const reminder = document.getElementById("loteria-reminder");
+  const openModalButton = document.getElementById(
+    "open-loteria-modal"
+  );
+
+  let previousFocusedElement: HTMLElement | null = null;
+
+  function isCampaignActive(): boolean {
+    const now = new Date();
+
+    return now >= CAMPAIGN_START && now <= CAMPAIGN_END;
+  }
+
+  function shouldShowAutomaticModal(): boolean {
+    if (!isCampaignActive()) {
+      return false;
+    }
+
+    const savedTimestamp = localStorage.getItem(STORAGE_KEY);
+
+    if (!savedTimestamp) {
+      return true;
+    }
+
+    const lastSeenTimestamp = Number(savedTimestamp);
+
+    if (!Number.isFinite(lastSeenTimestamp)) {
+      localStorage.removeItem(STORAGE_KEY);
+      return true;
+    }
+
+    return Date.now() - lastSeenTimestamp >= POPUP_INTERVAL_MS;
+  }
+
+  function showReminder(): void {
+    if (!reminder || !isCampaignActive()) {
+      return;
+    }
+
+    reminder.classList.remove("hidden");
+    reminder.classList.add("flex");
+  }
+
+  function hideReminder(): void {
+    if (!reminder) {
+      return;
+    }
+
+    reminder.classList.remove("flex");
+    reminder.classList.add("hidden");
+  }
+
+  function lockPageScroll(): void {
+    document.documentElement.classList.add("overflow-hidden");
+    document.body.classList.add("overflow-hidden");
+  }
+
+  function unlockPageScroll(): void {
+    document.documentElement.classList.remove("overflow-hidden");
+    document.body.classList.remove("overflow-hidden");
+  }
+
+  function showModal(): void {
+    if (!modal || !isCampaignActive()) {
+      return;
+    }
+
+    previousFocusedElement =
+      document.activeElement instanceof HTMLElement
+        ? document.activeElement
+        : null;
+
+    hideReminder();
+
+    modal.classList.remove("hidden");
+    modal.classList.add("block");
+
+    lockPageScroll();
+
+    window.requestAnimationFrame(() => {
+      closeIcon?.focus();
+    });
+  }
+
+  function hideModal(saveTimestamp = true): void {
+    if (!modal) {
+      return;
+    }
+
+    if (saveTimestamp) {
+      localStorage.setItem(STORAGE_KEY, String(Date.now()));
+    }
+
+    modal.classList.remove("block");
+    modal.classList.add("hidden");
+
+    unlockPageScroll();
+    showReminder();
+
+    previousFocusedElement?.focus();
+  }
+
+  closeIcon?.addEventListener("click", () => {
+    hideModal(true);
+  });
+
+  closeButton?.addEventListener("click", () => {
+    hideModal(true);
+  });
+
+  openModalButton?.addEventListener("click", () => {
+    showModal();
+  });
+
+  /*
+   * Cierra el modal al pulsar sobre el fondo oscuro.
+   * Los clics dentro del panel no lo cierran.
+   */
+  modal?.addEventListener("click", (event) => {
+    if (event.target === modal) {
+      hideModal(true);
+    }
+  });
+
+  modalPanel?.addEventListener("click", (event) => {
+    event.stopPropagation();
+  });
+
+  document.addEventListener("keydown", (event) => {
+    const modalIsOpen =
+      modal?.classList.contains("block") ?? false;
+
+    if (event.key === "Escape" && modalIsOpen) {
+      hideModal(true);
+    }
+  });
+
+  /*
+   * Inicialización:
+   * - Fuera de campaña no aparece nada.
+   * - Si han pasado 7 días, aparece el modal.
+   * - Si todavía no han pasado, aparece solo el banner.
+   */
+  if (isCampaignActive()) {
+    if (shouldShowAutomaticModal()) {
+      showModal();
+    } else {
+      showReminder();
+    }
+  }
+</script>
+
+<style>
+  #loteria-modal:not(.hidden) {
+    animation: loteria-backdrop-in 180ms ease-out;
+  }
+
+  #loteria-modal:not(.hidden) #loteria-modal-panel {
+    animation: loteria-panel-in 240ms ease-out;
+  }
+
+  #loteria-reminder:not(.hidden) {
+    animation: loteria-reminder-in 240ms ease-out;
+  }
+
+  @keyframes loteria-backdrop-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes loteria-panel-in {
+    from {
+      opacity: 0;
+      transform: translateY(18px) scale(0.97);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+
+  @keyframes loteria-reminder-in {
+    from {
+      opacity: 0;
+      transform: translateY(16px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    #loteria-modal,
+    #loteria-modal-panel,
+    #loteria-reminder {
+      animation: none !important;
+      transition: none !important;
+    }
+  }
+</style>

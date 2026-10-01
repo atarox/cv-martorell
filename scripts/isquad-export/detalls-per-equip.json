@@ -1,0 +1,2026 @@
+[
+  {
+    "id_equipo": "2774",
+    "equip": "CV Martorell Negre",
+    "categoria": "CAMPIONAT DE CATALUNYA DE TERCERA DIVISIO SENIOR",
+    "fases": [
+      {
+        "id_categoria": "352",
+        "categoria": "CAMPIONAT DE CATALUNYA DE TERCERA DIVISIO SENIOR",
+        "id_competicion": "1378",
+        "competicion": "CAMPIONAT DE CATALUNYA 3a DIV. SEN FEM",
+        "id_fase": "3664",
+        "descripcion_fase": "PRIMERA FASE - GRUP A",
+        "slug_fase": "primera-fase-grup-a",
+        "id_equipo": "2774",
+        "equip": "CV Martorell Negre",
+        "url_equipo": "https://resultadosvoleibol.isquad.es/equipo.php?seleccion=0&id_equipo=2774&id=3664",
+        "files_classificacio": 8,
+        "partits": [
+          {
+            "local": "CV MARTORELL NEGRE",
+            "visitant": "ESCOLA ORLANDAI \"B\"",
+            "marcador": "3-1",
+            "data": "9:00 27/09/2026",
+            "estat": "jugat"
+          },
+          {
+            "local": "CV SANT BOI - SENIOR FEM BLAU",
+            "visitant": "CV MARTORELL NEGRE",
+            "marcador": "",
+            "data": "18:00 03/10/2026",
+            "estat": "pendent"
+          },
+          {
+            "local": "CV MARTORELL NEGRE",
+            "visitant": "DSB",
+            "marcador": "",
+            "data": "",
+            "estat": "pendent"
+          },
+          {
+            "local": "AEE JAUME BALMES",
+            "visitant": "CV MARTORELL NEGRE",
+            "marcador": "",
+            "data": "",
+            "estat": "pendent"
+          },
+          {
+            "local": "CV MARTORELL NEGRE",
+            "visitant": "CV GELIDA",
+            "marcador": "",
+            "data": "",
+            "estat": "pendent"
+          },
+          {
+            "local": "CV MARTORELL NEGRE",
+            "visitant": "CEV L'HOSPITALET",
+            "marcador": "",
+            "data": "",
+            "estat": "pendent"
+          },
+          {
+            "local": "CV TIANA SF",
+            "visitant": "CV MARTORELL NEGRE",
+            "marcador": "",
+            "data": "",
+            "estat": "pendent"
+          },
+          {
+            "local": "ESCOLA ORLANDAI \"B\"",
+            "visitant": "CV MARTORELL NEGRE",
+            "marcador": "",
+            "data": "",
+            "estat": "pendent"
+          },
+          {
+            "local": "CV MARTORELL NEGRE",
+            "visitant": "CV SANT BOI - SENIOR FEM BLAU",
+            "marcador": "",
+            "data": "",
+            "estat": "pendent"
+          },
+          {
+            "local": "DSB",
+            "visitant": "CV MARTORELL NEGRE",
+            "marcador": "",
+            "data": "",
+            "estat": "pendent"
+          },
+          {
+            "local": "CV MARTORELL NEGRE",
+            "visitant": "AEE JAUME BALMES",
+            "marcador": "",
+            "data": "",
+            "estat": "pendent"
+          },
+          {
+            "local": "CV GELIDA",
+            "visitant": "CV MARTORELL NEGRE",
+            "marcador": "",
+            "data": "",
+            "estat": "pendent"
+          },
+          {
+            "local": "CEV L'HOSPITALET",
+            "visitant": "CV MARTORELL NEGRE",
+            "marcador": "",
+            "data": "",
+            "estat": "pendent"
+          },
+          {
+            "local": "CV MARTORELL NEGRE",
+            "visitant": "CV TIANA SF",
+            "marcador": "",
+            "data": "",
+            "estat": "pendent"
+          }
+        ],
+        "partits_jugats": 1,
+        "partits_pendents": 13,
+        "classificacio": [
+          {
+            "pos": 1,
+            "equip_classificacio": "DSB",
+            "punts": 3,
+            "jug": 1,
+            "gan": 1,
+            "per": 0
+          },
+          {
+            "pos": 2,
+            "equip_classificacio": "CEV L'HOSPITALET",
+            "punts": 3,
+            "jug": 1,
+            "gan": 1,
+            "per": 0
+          },
+          {
+            "pos": 3,
+            "equip_classificacio": "AEE JAUME BALMES",
+            "punts": 3,
+            "jug": 1,
+            "gan": 1,
+            "per": 0
+          },
+          {
+            "pos": 4,
+            "equip_classificacio": "CV MARTORELL NEGRE",
+            "punts": 3,
+            "jug": 1,
+            "gan": 1,
+            "per": 0
+          },
+          {
+            "pos": 5,
+            "equip_classificacio": "ESCOLA ORLANDAI \"B\"",
+            "punts": 0,
+            "jug": 1,
+            "gan": 0,
+            "per": 1
+          },
+          {
+            "pos": 6,
+            "equip_classificacio": "CV SANT BOI - SENIOR FEM BLAU",
+            "punts": 0,
+            "jug": 1,
+            "gan": 0,
+            "per": 1
+          },
+          {
+            "pos": 7,
+            "equip_classificacio": "CV TIANA SF",
+            "punts": 0,
+            "jug": 1,
+            "gan": 0,
+            "per": 1
+          },
+          {
+            "pos": 8,
+            "equip_classificacio": "CV GELIDA",
+            "punts": 0,
+            "jug": 1,
+            "gan": 0,
+            "per": 1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id_equipo": "6410",
+    "equip": "CV Martorell Negre",
+    "categoria": "CAMPIONAT DE CATALUNYA DE TERCERA DIVISIO SENIOR",
+    "fases": [
+      {
+        "id_categoria": "352",
+        "categoria": "CAMPIONAT DE CATALUNYA DE TERCERA DIVISIO SENIOR",
+        "id_competicion": "1379",
+        "competicion": "CAMPIONAT DE CATALUNYA 3a DIV. SEN MASC",
+        "id_fase": "4077",
+        "descripcion_fase": "PRIMERA FASE - GRUP A",
+        "slug_fase": "primera-fase-grup-a",
+        "id_equipo": "6410",
+        "equip": "CV Martorell Negre",
+        "url_equipo": "https://resultadosvoleibol.isquad.es/equipo.php?seleccion=0&id_equipo=6410&id=4077",
+        "files_classificacio": 8,
+        "partits": [
+          {
+            "local": "CONSTRUCCIONS IGLESIAS - SENIOR MASC VOLEI MASQUEFA - SM",
+            "visitant": "CV MARTORELL NEGRE",
+            "marcador": "0-3",
+            "data": "13:00 26/09/2026",
+            "estat": "jugat"
+          },
+          {
+            "local": "UET SÈNIOR MASC",
+            "visitant": "CV MARTORELL NEGRE",
+            "marcador": "",
+            "data": "11:00 04/10/2026",
+            "estat": "pendent"
+          },
+          {
+            "local": "CV MARTORELL NEGRE",
+            "visitant": "CVE SENIOR MASCULI LILA",
+            "marcador": "",
+            "data": "",
+            "estat": "pendent"
+          },
+          {
+            "local": "SENIOR MASCULI CV CALAF",
+            "visitant": "CV MARTORELL NEGRE",
+            "marcador": "",
+            "data": "",
+            "estat": "pendent"
+          },
+          {
+            "local": "CV MARTORELL NEGRE",
+            "visitant": "CV PALAU D'ANGLESOLA",
+            "marcador": "",
+            "data": "",
+            "estat": "pendent"
+          },
+          {
+            "local": "CE HORTONS SM",
+            "visitant": "CV MARTORELL NEGRE",
+            "marcador": "",
+            "data": "",
+            "estat": "pendent"
+          },
+          {
+            "local": "CV MARTORELL NEGRE",
+            "visitant": "AEEDI OLESA DE M.",
+            "marcador": "",
+            "data": "",
+            "estat": "pendent"
+          },
+          {
+            "local": "CV MARTORELL NEGRE",
+            "visitant": "CONSTRUCCIONS IGLESIAS - SENIOR MASC VOLEI MASQUEFA - SM",
+            "marcador": "",
+            "data": "",
+            "estat": "pendent"
+          },
+          {
+            "local": "CV MARTORELL NEGRE",
+            "visitant": "UET SÈNIOR MASC",
+            "marcador": "",
+            "data": "",
+            "estat": "pendent"
+          },
+          {
+            "local": "CVE SENIOR MASCULI LILA",
+            "visitant": "CV MARTORELL NEGRE",
+            "marcador": "",
+            "data": "",
+            "estat": "pendent"
+          },
+          {
+            "local": "CV MARTORELL NEGRE",
+            "visitant": "SENIOR MASCULI CV CALAF",
+            "marcador": "",
+            "data": "",
+            "estat": "pendent"
+          },
+          {
+            "local": "CV PALAU D'ANGLESOLA",
+            "visitant": "CV MARTORELL NEGRE",
+            "marcador": "",
+            "data": "",
+            "estat": "pendent"
+          },
+          {
+            "local": "CV MARTORELL NEGRE",
+            "visitant": "CE HORTONS SM",
+            "marcador": "",
+            "data": "",
+            "estat": "pendent"
+          },
+          {
+            "local": "AEEDI OLESA DE M.",
+            "visitant": "CV MARTORELL NEGRE",
+            "marcador": "",
+            "data": "",
+            "estat": "pendent"
+          }
+        ],
+        "partits_jugats": 1,
+        "partits_pendents": 13,
+        "classificacio": [
+          {
+            "pos": 1,
+            "equip_classificacio": "CV MARTORELL NEGRE",
+            "punts": 3,
+            "jug": 1,
+            "gan": 1,
+            "per": 0
+          },
+          {
+            "pos": 2,
+            "equip_classificacio": "AEEDI OLESA DE M.",
+            "punts": 3,
+            "jug": 1,
+            "gan": 1,
+            "per": 0
+          },
+          {
+            "pos": 3,
+            "equip_classificacio": "CV PALAU D'ANGLESOLA",
+            "punts": 3,
+            "jug": 1,
+            "gan": 1,
+            "per": 0
+          },
+          {
+            "pos": 4,
+            "equip_classificacio": "CE HORTONS SM",
+            "punts": 3,
+            "jug": 1,
+            "gan": 1,
+            "per": 0
+          },
+          {
+            "pos": 5,
+            "equip_classificacio": "SENIOR MASCULI CV CALAF",
+            "punts": 0,
+            "jug": 1,
+            "gan": 0,
+            "per": 1
+          },
+          {
+            "pos": 6,
+            "equip_classificacio": "UET SÈNIOR MASC",
+            "punts": 0,
+            "jug": 1,
+            "gan": 0,
+            "per": 1
+          },
+          {
+            "pos": 7,
+            "equip_classificacio": "CVE SENIOR MASCULI LILA",
+            "punts": 0,
+            "jug": 1,
+            "gan": 0,
+            "per": 1
+          },
+          {
+            "pos": 8,
+            "equip_classificacio": "CONSTRUCCIONS IGLESIAS - SENIOR MASC VOLEI MASQUEFA - SM",
+            "punts": 0,
+            "jug": 1,
+            "gan": 0,
+            "per": 1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id_equipo": "3425",
+    "equip": "CV Martorell Blau",
+    "categoria": "CAMPIONAT DE CATALUNYA DE QUARTA DIVISIO SENIOR",
+    "fases": [
+      {
+        "id_categoria": "353",
+        "categoria": "CAMPIONAT DE CATALUNYA DE QUARTA DIVISIO SENIOR",
+        "id_competicion": "1380",
+        "competicion": "CAMPIONAT DE CATALUNYA 4a DIV. SEN FEM",
+        "id_fase": "4066",
+        "descripcion_fase": "PRIMERA FASE - GRUP A",
+        "slug_fase": "primera-fase-grup-a",
+        "id_equipo": "3425",
+        "equip": "CV Martorell Blau",
+        "url_equipo": "https://resultadosvoleibol.isquad.es/equipo.php?seleccion=0&id_equipo=3425&id=4066",
+        "files_classificacio": 8,
+        "partits": [
+          {
+            "local": "AE VOLEI VALLIRANA",
+            "visitant": "CV MARTORELL BLAU",
+            "marcador": "0-3",
+            "data": "16:00 27/09/2026",
+            "estat": "jugat"
+          },
+          {
+            "local": "CN TERRASSA B",
+            "visitant": "CV MARTORELL BLAU",
+            "marcador": "",
+            "data": "16:00 03/10/2026",
+            "estat": "pendent"
+          },
+          {
+            "local": "CV MARTORELL BLAU",
+            "visitant": "VOLEI SANT ESTEVE NEGRE",
+            "marcador": "",
+            "data": "",
+            "estat": "pendent"
+          },
+          {
+            "local": "SALESIANS SABADELL",
+            "visitant": "CV MARTORELL BLAU",
+            "marcador": "",
+            "data": "",
+            "estat": "pendent"
+          },
+          {
+            "local": "CV MARTORELL BLAU",
+            "visitant": "CVE SENIOR FEMENI LILA",
+            "marcador": "",
+            "data": "",
+            "estat": "pendent"
+          },
+          {
+            "local": "CLUB VOLEI SANT SADURNI",
+            "visitant": "CV MARTORELL BLAU",
+            "marcador": "",
+            "data": "",
+            "estat": "pendent"
+          },
+          {
+            "local": "CV MARTORELL BLAU",
+            "visitant": "CE HORTONS SFB",
+            "marcador": "",
+            "data": "",
+            "estat": "pendent"
+          },
+          {
+            "local": "CV MARTORELL BLAU",
+            "visitant": "AE VOLEI VALLIRANA",
+            "marcador": "",
+            "data": "",
+            "estat": "pendent"
+          },
+          {
+            "local": "CV MARTORELL BLAU",
+            "visitant": "CN TERRASSA B",
+            "marcador": "",
+            "data": "",
+            "estat": "pendent"
+          },
+          {
+            "local": "VOLEI SANT ESTEVE NEGRE",
+            "visitant": "CV MARTORELL BLAU",
+            "marcador": "",
+            "data": "",
+            "estat": "pendent"
+          },
+          {
+            "local": "CV MARTORELL BLAU",
+            "visitant": "SALESIANS SABADELL",
+            "marcador": "",
+            "data": "",
+            "estat": "pendent"
+          },
+          {
+            "local": "CVE SENIOR FEMENI LILA",
+            "visitant": "CV MARTORELL BLAU",
+            "marcador": "",
+            "data": "",
+            "estat": "pendent"
+          },
+          {
+            "local": "CV MARTORELL BLAU",
+            "visitant": "CLUB VOLEI SANT SADURNI",
+            "marcador": "",
+            "data": "",
+            "estat": "pendent"
+          },
+          {
+            "local": "CE HORTONS SFB",
+            "visitant": "CV MARTORELL BLAU",
+            "marcador": "",
+            "data": "",
+            "estat": "pendent"
+          }
+        ],
+        "partits_jugats": 1,
+        "partits_pendents": 13,
+        "classificacio": [
+          {
+            "pos": 1,
+            "equip_classificacio": "SALESIANS SABADELL",
+            "punts": 3,
+            "jug": 1,
+            "gan": 1,
+            "per": 0
+          },
+          {
+            "pos": 2,
+            "equip_classificacio": "CV MARTORELL BLAU",
+            "punts": 3,
+            "jug": 1,
+            "gan": 1,
+            "per": 0
+          },
+          {
+            "pos": 3,
+            "equip_classificacio": "CN TERRASSA B",
+            "punts": 3,
+            "jug": 1,
+            "gan": 1,
+            "per": 0
+          },
+          {
+            "pos": 4,
+            "equip_classificacio": "CE HORTONS SFB",
+            "punts": 3,
+            "jug": 1,
+            "gan": 1,
+            "per": 0
+          },
+          {
+            "pos": 5,
+            "equip_classificacio": "VOLEI SANT ESTEVE NEGRE",
+            "punts": 0,
+            "jug": 1,
+            "gan": 0,
+            "per": 1
+          },
+          {
+            "pos": 6,
+            "equip_classificacio": "CVE SENIOR FEMENI LILA",
+            "punts": 0,
+            "jug": 1,
+            "gan": 0,
+            "per": 1
+          },
+          {
+            "pos": 7,
+            "equip_classificacio": "AE VOLEI VALLIRANA",
+            "punts": 0,
+            "jug": 1,
+            "gan": 0,
+            "per": 1
+          },
+          {
+            "pos": 8,
+            "equip_classificacio": "CLUB VOLEI SANT SADURNI",
+            "punts": 0,
+            "jug": 1,
+            "gan": 0,
+            "per": 1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id_equipo": "2800",
+    "equip": "CV Martorell Negre",
+    "categoria": "CAMPIONAT DE CATALUNYA DE TERCERA DIVISIO JUVENIL",
+    "fases": [
+      {
+        "id_categoria": "358",
+        "categoria": "CAMPIONAT DE CATALUNYA DE TERCERA DIVISIO JUVENIL",
+        "id_competicion": "1389",
+        "competicion": "CAMPIONAT DE CATALUNYA 3a DIV. JUV FEM",
+        "id_fase": "4124",
+        "descripcion_fase": "PRIMERA FASE - GRUP H",
+        "slug_fase": "primera-fase-grup-h",
+        "id_equipo": "2800",
+        "equip": "CV Martorell Negre",
+        "url_equipo": "https://resultadosvoleibol.isquad.es/equipo.php?seleccion=0&id_equipo=2800&id=4124",
+        "files_classificacio": 8,
+        "partits": [
+          {
+            "local": "CECELL LLEIDA B",
+            "visitant": "CV MARTORELL NEGRE",
+            "marcador": "3-0",
+            "data": "12:45 26/09/2026",
+            "estat": "jugat"
+          },
+          {
+            "local": "CV MARTORELL NEGRE",
+            "visitant": "HUKLA CV ESPLUGUES BLAU",
+            "marcador": "",
+            "data": "12:45 04/10/2026",
+            "estat": "pendent"
+          },
+          {
+            "local": "CV VILAFRANCA VERD",
+            "visitant": "CV MARTORELL NEGRE",
+            "marcador": "",
+            "data": "",
+            "estat": "pendent"
+          },
+          {
+            "local": "CV MARTORELL NEGRE",
+            "visitant": "AE SANDOR \"A\"",
+            "marcador": "",
+            "data": "",
+            "estat": "pendent"
+          },
+          {
+            "local": "REVOLLO IVC JUVENIL FEMENI 1",
+            "visitant": "CV MARTORELL NEGRE",
+            "marcador": "",
+            "data": "",
+            "estat": "pendent"
+          },
+          {
+            "local": "CV MARTORELL NEGRE",
+            "visitant": "CV SANT ADRIÀ LILA",
+            "marcador": "",
+            "data": "",
+            "estat": "pendent"
+          },
+          {
+            "local": "VOLEI VILASSAR GROC",
+            "visitant": "CV MARTORELL NEGRE",
+            "marcador": "",
+            "data": "",
+            "estat": "pendent"
+          },
+          {
+            "local": "CV MARTORELL NEGRE",
+            "visitant": "CECELL LLEIDA B",
+            "marcador": "",
+            "data": "",
+            "estat": "pendent"
+          },
+          {
+            "local": "HUKLA CV ESPLUGUES BLAU",
+            "visitant": "CV MARTORELL NEGRE",
+            "marcador": "",
+            "data": "",
+            "estat": "pendent"
+          },
+          {
+            "local": "CV MARTORELL NEGRE",
+            "visitant": "CV VILAFRANCA VERD",
+            "marcador": "",
+            "data": "",
+            "estat": "pendent"
+          },
+          {
+            "local": "AE SANDOR \"A\"",
+            "visitant": "CV MARTORELL NEGRE",
+            "marcador": "",
+            "data": "",
+            "estat": "pendent"
+          },
+          {
+            "local": "CV MARTORELL NEGRE",
+            "visitant": "REVOLLO IVC JUVENIL FEMENI 1",
+            "marcador": "",
+            "data": "",
+            "estat": "pendent"
+          },
+          {
+            "local": "CV SANT ADRIÀ LILA",
+            "visitant": "CV MARTORELL NEGRE",
+            "marcador": "",
+            "data": "",
+            "estat": "pendent"
+          },
+          {
+            "local": "CV MARTORELL NEGRE",
+            "visitant": "VOLEI VILASSAR GROC",
+            "marcador": "",
+            "data": "",
+            "estat": "pendent"
+          }
+        ],
+        "partits_jugats": 1,
+        "partits_pendents": 13,
+        "classificacio": [
+          {
+            "pos": 1,
+            "equip_classificacio": "HUKLA CV ESPLUGUES BLAU",
+            "punts": 3,
+            "jug": 1,
+            "gan": 1,
+            "per": 0
+          },
+          {
+            "pos": 2,
+            "equip_classificacio": "CV VILAFRANCA VERD",
+            "punts": 3,
+            "jug": 1,
+            "gan": 1,
+            "per": 0
+          },
+          {
+            "pos": 3,
+            "equip_classificacio": "CECELL LLEIDA B",
+            "punts": 3,
+            "jug": 1,
+            "gan": 1,
+            "per": 0
+          },
+          {
+            "pos": 4,
+            "equip_classificacio": "REVOLLO IVC JUVENIL FEMENI 1",
+            "punts": 2,
+            "jug": 1,
+            "gan": 1,
+            "per": 0
+          },
+          {
+            "pos": 5,
+            "equip_classificacio": "AE SANDOR \"A\"",
+            "punts": 1,
+            "jug": 1,
+            "gan": 0,
+            "per": 1
+          },
+          {
+            "pos": 6,
+            "equip_classificacio": "CV MARTORELL NEGRE",
+            "punts": 0,
+            "jug": 1,
+            "gan": 0,
+            "per": 1
+          },
+          {
+            "pos": 7,
+            "equip_classificacio": "CV SANT ADRIÀ LILA",
+            "punts": 0,
+            "jug": 1,
+            "gan": 0,
+            "per": 1
+          },
+          {
+            "pos": 8,
+            "equip_classificacio": "VOLEI VILASSAR GROC",
+            "punts": 0,
+            "jug": 1,
+            "gan": 0,
+            "per": 1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id_equipo": "3424",
+    "equip": "CV Martorell Blau",
+    "categoria": "CAMPIONAT DE CATALUNYA DE QUARTA DIVISIO JUVENIL",
+    "fases": [
+      {
+        "id_categoria": "359",
+        "categoria": "CAMPIONAT DE CATALUNYA DE QUARTA DIVISIO JUVENIL",
+        "id_competicion": "1390",
+        "competicion": "CAMPIONAT DE CATALUNYA 4a DIV. JUV FEM",
+        "id_fase": "4159",
+        "descripcion_fase": "PRIMERA FASE - GRUP H",
+        "slug_fase": "primera-fase-grup-h",
+        "id_equipo": "3424",
+        "equip": "CV Martorell Blau",
+        "url_equipo": "https://resultadosvoleibol.isquad.es/equipo.php?seleccion=0&id_equipo=3424&id=4159",
+        "files_classificacio": 8,
+        "partits": [
+          {
+            "local": "ALPICAT VOLEI BLANC",
+            "visitant": "CV MARTORELL BLAU",
+            "marcador": "1-3",
+            "data": "13:00 27/09/2026",
+            "estat": "jugat"
+          },
+          {
+            "local": "CLUB VOLEI MONJOS BLAU",
+            "visitant": "CV MARTORELL BLAU",
+            "marcador": "",
+            "data": "10:45 03/10/2026",
+            "estat": "pendent"
+          },
+          {
+            "local": "CV MARTORELL BLAU",
+            "visitant": "CV ENCAMP",
+            "marcador": "",
+            "data": "",
+            "estat": "pendent"
+          },
+          {
+            "local": "CLUB VOLEI SANT SADURNI",
+            "visitant": "CV MARTORELL BLAU",
+            "marcador": "",
+            "data": "",
+            "estat": "pendent"
+          },
+          {
+            "local": "CV MARTORELL BLAU",
+            "visitant": "CECELL BLAU",
+            "marcador": "",
+            "data": "",
+            "estat": "pendent"
+          },
+          {
+            "local": "CV VILAFRANCA NEGRE",
+            "visitant": "CV MARTORELL BLAU",
+            "marcador": "",
+            "data": "",
+            "estat": "pendent"
+          },
+          {
+            "local": "CV MARTORELL BLAU",
+            "visitant": "CE HORTONS JFB",
+            "marcador": "",
+            "data": "",
+            "estat": "pendent"
+          },
+          {
+            "local": "CV MARTORELL BLAU",
+            "visitant": "ALPICAT VOLEI BLANC",
+            "marcador": "",
+            "data": "",
+            "estat": "pendent"
+          },
+          {
+            "local": "CV MARTORELL BLAU",
+            "visitant": "CLUB VOLEI MONJOS BLAU",
+            "marcador": "",
+            "data": "",
+            "estat": "pendent"
+          },
+          {
+            "local": "CV ENCAMP",
+            "visitant": "CV MARTORELL BLAU",
+            "marcador": "",
+            "data": "",
+            "estat": "pendent"
+          },
+          {
+            "local": "CV MARTORELL BLAU",
+            "visitant": "CLUB VOLEI SANT SADURNI",
+            "marcador": "",
+            "data": "",
+            "estat": "pendent"
+          },
+          {
+            "local": "CECELL BLAU",
+            "visitant": "CV MARTORELL BLAU",
+            "marcador": "",
+            "data": "",
+            "estat": "pendent"
+          },
+          {
+            "local": "CV MARTORELL BLAU",
+            "visitant": "CV VILAFRANCA NEGRE",
+            "marcador": "",
+            "data": "",
+            "estat": "pendent"
+          },
+          {
+            "local": "CE HORTONS JFB",
+            "visitant": "CV MARTORELL BLAU",
+            "marcador": "",
+            "data": "",
+            "estat": "pendent"
+          }
+        ],
+        "partits_jugats": 1,
+        "partits_pendents": 13,
+        "classificacio": [
+          {
+            "pos": 1,
+            "equip_classificacio": "CECELL BLAU",
+            "punts": 3,
+            "jug": 1,
+            "gan": 1,
+            "per": 0
+          },
+          {
+            "pos": 2,
+            "equip_classificacio": "CV MARTORELL BLAU",
+            "punts": 3,
+            "jug": 1,
+            "gan": 1,
+            "per": 0
+          },
+          {
+            "pos": 3,
+            "equip_classificacio": "CV VILAFRANCA NEGRE",
+            "punts": 3,
+            "jug": 1,
+            "gan": 1,
+            "per": 0
+          },
+          {
+            "pos": 4,
+            "equip_classificacio": "CV ENCAMP",
+            "punts": 3,
+            "jug": 1,
+            "gan": 1,
+            "per": 0
+          },
+          {
+            "pos": 5,
+            "equip_classificacio": "CE HORTONS JFB",
+            "punts": 0,
+            "jug": 1,
+            "gan": 0,
+            "per": 1
+          },
+          {
+            "pos": 6,
+            "equip_classificacio": "CLUB VOLEI SANT SADURNI",
+            "punts": 0,
+            "jug": 1,
+            "gan": 0,
+            "per": 1
+          },
+          {
+            "pos": 7,
+            "equip_classificacio": "ALPICAT VOLEI BLANC",
+            "punts": 0,
+            "jug": 1,
+            "gan": 0,
+            "per": 1
+          },
+          {
+            "pos": 8,
+            "equip_classificacio": "CLUB VOLEI MONJOS BLAU",
+            "punts": 0,
+            "jug": 1,
+            "gan": 0,
+            "per": 1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id_equipo": "2794",
+    "equip": "CV Martorell Negre",
+    "categoria": "CAMPIONAT DE CATALUNYA DE TERCERA DIVISIO CADET",
+    "fases": [
+      {
+        "id_categoria": "362",
+        "categoria": "CAMPIONAT DE CATALUNYA DE TERCERA DIVISIO CADET",
+        "id_competicion": "1394",
+        "competicion": "CAMPIONAT DE CATALUNYA 3a DIV. CAD FEM",
+        "id_fase": "4151",
+        "descripcion_fase": "PRIMERA FASE - GRUP H",
+        "slug_fase": "primera-fase-grup-h",
+        "id_equipo": "2794",
+        "equip": "CV Martorell Negre",
+        "url_equipo": "https://resultadosvoleibol.isquad.es/equipo.php?seleccion=0&id_equipo=2794&id=4151",
+        "files_classificacio": 8,
+        "partits": [
+          {
+            "local": "CECELL LLEIDA B",
+            "visitant": "CV MARTORELL NEGRE",
+            "marcador": "3-2",
+            "data": "10:45 26/09/2026",
+            "estat": "jugat"
+          },
+          {
+            "local": "CV MARTORELL NEGRE",
+            "visitant": "HUKLA CV ESPLUGUES BLAU",
+            "marcador": "",
+            "data": "11:00 04/10/2026",
+            "estat": "pendent"
+          },
+          {
+            "local": "CV VILAFRANCA VERD",
+            "visitant": "CV MARTORELL NEGRE",
+            "marcador": "",
+            "data": "",
+            "estat": "pendent"
+          },
+          {
+            "local": "CV MARTORELL NEGRE",
+            "visitant": "AE SANDOR \"A\"",
+            "marcador": "",
+            "data": "",
+            "estat": "pendent"
+          },
+          {
+            "local": "REVOLLO IVC CADET FEMENI 1",
+            "visitant": "CV MARTORELL NEGRE",
+            "marcador": "",
+            "data": "",
+            "estat": "pendent"
+          },
+          {
+            "local": "CV MARTORELL NEGRE",
+            "visitant": "CV SANT ADRIÀ LILA",
+            "marcador": "",
+            "data": "",
+            "estat": "pendent"
+          },
+          {
+            "local": "VOLEI VILASSAR GROC",
+            "visitant": "CV MARTORELL NEGRE",
+            "marcador": "",
+            "data": "",
+            "estat": "pendent"
+          },
+          {
+            "local": "CV MARTORELL NEGRE",
+            "visitant": "CECELL LLEIDA B",
+            "marcador": "",
+            "data": "",
+            "estat": "pendent"
+          },
+          {
+            "local": "HUKLA CV ESPLUGUES BLAU",
+            "visitant": "CV MARTORELL NEGRE",
+            "marcador": "",
+            "data": "",
+            "estat": "pendent"
+          },
+          {
+            "local": "CV MARTORELL NEGRE",
+            "visitant": "CV VILAFRANCA VERD",
+            "marcador": "",
+            "data": "",
+            "estat": "pendent"
+          },
+          {
+            "local": "AE SANDOR \"A\"",
+            "visitant": "CV MARTORELL NEGRE",
+            "marcador": "",
+            "data": "",
+            "estat": "pendent"
+          },
+          {
+            "local": "CV MARTORELL NEGRE",
+            "visitant": "REVOLLO IVC CADET FEMENI 1",
+            "marcador": "",
+            "data": "",
+            "estat": "pendent"
+          },
+          {
+            "local": "CV SANT ADRIÀ LILA",
+            "visitant": "CV MARTORELL NEGRE",
+            "marcador": "",
+            "data": "",
+            "estat": "pendent"
+          },
+          {
+            "local": "CV MARTORELL NEGRE",
+            "visitant": "VOLEI VILASSAR GROC",
+            "marcador": "",
+            "data": "",
+            "estat": "pendent"
+          }
+        ],
+        "partits_jugats": 1,
+        "partits_pendents": 13,
+        "classificacio": [
+          {
+            "pos": 1,
+            "equip_classificacio": "REVOLLO IVC CADET FEMENI 1",
+            "punts": 3,
+            "jug": 1,
+            "gan": 1,
+            "per": 0
+          },
+          {
+            "pos": 2,
+            "equip_classificacio": "HUKLA CV ESPLUGUES BLAU",
+            "punts": 3,
+            "jug": 1,
+            "gan": 1,
+            "per": 0
+          },
+          {
+            "pos": 3,
+            "equip_classificacio": "CECELL LLEIDA B",
+            "punts": 2,
+            "jug": 1,
+            "gan": 1,
+            "per": 0
+          },
+          {
+            "pos": 4,
+            "equip_classificacio": "CV VILAFRANCA VERD",
+            "punts": 2,
+            "jug": 1,
+            "gan": 1,
+            "per": 0
+          },
+          {
+            "pos": 5,
+            "equip_classificacio": "CV SANT ADRIÀ LILA",
+            "punts": 1,
+            "jug": 1,
+            "gan": 0,
+            "per": 1
+          },
+          {
+            "pos": 6,
+            "equip_classificacio": "CV MARTORELL NEGRE",
+            "punts": 1,
+            "jug": 1,
+            "gan": 0,
+            "per": 1
+          },
+          {
+            "pos": 7,
+            "equip_classificacio": "VOLEI VILASSAR GROC",
+            "punts": 0,
+            "jug": 1,
+            "gan": 0,
+            "per": 1
+          },
+          {
+            "pos": 8,
+            "equip_classificacio": "AE SANDOR \"A\"",
+            "punts": 0,
+            "jug": 1,
+            "gan": 0,
+            "per": 1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id_equipo": "2824",
+    "equip": "CV Martorell Blau",
+    "categoria": "CAMPIONAT DE CATALUNYA DE QUARTA DIVISIO CADET",
+    "fases": [
+      {
+        "id_categoria": "363",
+        "categoria": "CAMPIONAT DE CATALUNYA DE QUARTA DIVISIO CADET",
+        "id_competicion": "1395",
+        "competicion": "CAMPIONAT DE CATALUNYA 4a DIV. CAD FEM",
+        "id_fase": "4179",
+        "descripcion_fase": "PRIMERA FASE - GRUP H",
+        "slug_fase": "primera-fase-grup-h",
+        "id_equipo": "2824",
+        "equip": "CV Martorell Blau",
+        "url_equipo": "https://resultadosvoleibol.isquad.es/equipo.php?seleccion=0&id_equipo=2824&id=4179",
+        "files_classificacio": 8,
+        "partits": [
+          {
+            "local": "ALPICAT VOLEI BLANC",
+            "visitant": "CV MARTORELL BLAU",
+            "marcador": "0-3",
+            "data": "11:00 27/09/2026",
+            "estat": "jugat"
+          },
+          {
+            "local": "CLUB VOLEI MONJOS BLAU",
+            "visitant": "CV MARTORELL BLAU",
+            "marcador": "",
+            "data": "9:00 03/10/2026",
+            "estat": "pendent"
+          },
+          {
+            "local": "CV MARTORELL BLAU",
+            "visitant": "CV ENCAMP",
+            "marcador": "",
+            "data": "",
+            "estat": "pendent"
+          },
+          {
+            "local": "CLUB VOLEI SANT SADURNI",
+            "visitant": "CV MARTORELL BLAU",
+            "marcador": "",
+            "data": "",
+            "estat": "pendent"
+          },
+          {
+            "local": "CV MARTORELL BLAU",
+            "visitant": "CECELL BLAU",
+            "marcador": "",
+            "data": "",
+            "estat": "pendent"
+          },
+          {
+            "local": "CV VILAFRANCA NEGRE",
+            "visitant": "CV MARTORELL BLAU",
+            "marcador": "",
+            "data": "",
+            "estat": "pendent"
+          },
+          {
+            "local": "CV MARTORELL BLAU",
+            "visitant": "CE HORTONS CFB",
+            "marcador": "",
+            "data": "",
+            "estat": "pendent"
+          },
+          {
+            "local": "CV MARTORELL BLAU",
+            "visitant": "ALPICAT VOLEI BLANC",
+            "marcador": "",
+            "data": "",
+            "estat": "pendent"
+          },
+          {
+            "local": "CV MARTORELL BLAU",
+            "visitant": "CLUB VOLEI MONJOS BLAU",
+            "marcador": "",
+            "data": "",
+            "estat": "pendent"
+          },
+          {
+            "local": "CV ENCAMP",
+            "visitant": "CV MARTORELL BLAU",
+            "marcador": "",
+            "data": "",
+            "estat": "pendent"
+          },
+          {
+            "local": "CV MARTORELL BLAU",
+            "visitant": "CLUB VOLEI SANT SADURNI",
+            "marcador": "",
+            "data": "",
+            "estat": "pendent"
+          },
+          {
+            "local": "CECELL BLAU",
+            "visitant": "CV MARTORELL BLAU",
+            "marcador": "",
+            "data": "",
+            "estat": "pendent"
+          },
+          {
+            "local": "CV MARTORELL BLAU",
+            "visitant": "CV VILAFRANCA NEGRE",
+            "marcador": "",
+            "data": "",
+            "estat": "pendent"
+          },
+          {
+            "local": "CE HORTONS CFB",
+            "visitant": "CV MARTORELL BLAU",
+            "marcador": "",
+            "data": "",
+            "estat": "pendent"
+          }
+        ],
+        "partits_jugats": 1,
+        "partits_pendents": 13,
+        "classificacio": [
+          {
+            "pos": 1,
+            "equip_classificacio": "CE HORTONS CFB",
+            "punts": 3,
+            "jug": 1,
+            "gan": 1,
+            "per": 0
+          },
+          {
+            "pos": 2,
+            "equip_classificacio": "CECELL BLAU",
+            "punts": 3,
+            "jug": 1,
+            "gan": 1,
+            "per": 0
+          },
+          {
+            "pos": 3,
+            "equip_classificacio": "CV MARTORELL BLAU",
+            "punts": 3,
+            "jug": 1,
+            "gan": 1,
+            "per": 0
+          },
+          {
+            "pos": 4,
+            "equip_classificacio": "CV VILAFRANCA NEGRE",
+            "punts": 3,
+            "jug": 1,
+            "gan": 1,
+            "per": 0
+          },
+          {
+            "pos": 5,
+            "equip_classificacio": "CLUB VOLEI SANT SADURNI",
+            "punts": 0,
+            "jug": 1,
+            "gan": 0,
+            "per": 1
+          },
+          {
+            "pos": 6,
+            "equip_classificacio": "ALPICAT VOLEI BLANC",
+            "punts": 0,
+            "jug": 1,
+            "gan": 0,
+            "per": 1
+          },
+          {
+            "pos": 7,
+            "equip_classificacio": "CLUB VOLEI MONJOS BLAU",
+            "punts": 0,
+            "jug": 1,
+            "gan": 0,
+            "per": 1
+          },
+          {
+            "pos": 8,
+            "equip_classificacio": "CV ENCAMP",
+            "punts": 0,
+            "jug": 1,
+            "gan": 0,
+            "per": 1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id_equipo": "6408",
+    "equip": "CV Martorell Vermell",
+    "categoria": "CAMPIONAT DE CATALUNYA DE CADET PREFERENT",
+    "fases": [
+      {
+        "id_categoria": "365",
+        "categoria": "CAMPIONAT DE CATALUNYA DE CADET PREFERENT",
+        "id_competicion": "1402",
+        "competicion": "CAMPIONAT DE CATALUNYA PREFERENT CAD FEM",
+        "id_fase": "4108",
+        "descripcion_fase": "PRIMERA FASE - GRUP F",
+        "slug_fase": "primera-fase-grup-f",
+        "id_equipo": "6408",
+        "equip": "CV Martorell Vermell",
+        "url_equipo": "https://resultadosvoleibol.isquad.es/equipo.php?seleccion=0&id_equipo=6408&id=4108",
+        "files_classificacio": 8,
+        "partits": [
+          {
+            "local": "CV MARTORELL VERMELL",
+            "visitant": "AE VOLEI MANRESA NEGRE",
+            "marcador": "",
+            "data": "9:00 08/11/2026",
+            "estat": "pendent"
+          },
+          {
+            "local": "CV CUBELLES BLAU",
+            "visitant": "CV MARTORELL VERMELL",
+            "marcador": "",
+            "data": "10:45 04/10/2026",
+            "estat": "pendent"
+          },
+          {
+            "local": "CV MARTORELL VERMELL",
+            "visitant": "CLUB VÒLEI SANT MARTÍ CADET PREFERENT",
+            "marcador": "",
+            "data": "",
+            "estat": "pendent"
+          },
+          {
+            "local": "IGUALADA V.C. CADET FEMENI 3",
+            "visitant": "CV MARTORELL VERMELL",
+            "marcador": "",
+            "data": "",
+            "estat": "pendent"
+          },
+          {
+            "local": "CV MARTORELL VERMELL",
+            "visitant": "CLUB VOLEIBOL CUNIT",
+            "marcador": "",
+            "data": "",
+            "estat": "pendent"
+          },
+          {
+            "local": "CV MARTORELL VERMELL",
+            "visitant": "VOLEI SANTPEDOR N",
+            "marcador": "",
+            "data": "",
+            "estat": "pendent"
+          },
+          {
+            "local": "CLUB VOLEI MONJOS ROSA",
+            "visitant": "CV MARTORELL VERMELL",
+            "marcador": "",
+            "data": "",
+            "estat": "pendent"
+          },
+          {
+            "local": "AE VOLEI MANRESA NEGRE",
+            "visitant": "CV MARTORELL VERMELL",
+            "marcador": "",
+            "data": "",
+            "estat": "pendent"
+          },
+          {
+            "local": "CV MARTORELL VERMELL",
+            "visitant": "CV CUBELLES BLAU",
+            "marcador": "",
+            "data": "",
+            "estat": "pendent"
+          },
+          {
+            "local": "CLUB VÒLEI SANT MARTÍ CADET PREFERENT",
+            "visitant": "CV MARTORELL VERMELL",
+            "marcador": "",
+            "data": "",
+            "estat": "pendent"
+          },
+          {
+            "local": "CV MARTORELL VERMELL",
+            "visitant": "IGUALADA V.C. CADET FEMENI 3",
+            "marcador": "",
+            "data": "",
+            "estat": "pendent"
+          },
+          {
+            "local": "CLUB VOLEIBOL CUNIT",
+            "visitant": "CV MARTORELL VERMELL",
+            "marcador": "",
+            "data": "",
+            "estat": "pendent"
+          },
+          {
+            "local": "VOLEI SANTPEDOR N",
+            "visitant": "CV MARTORELL VERMELL",
+            "marcador": "",
+            "data": "",
+            "estat": "pendent"
+          },
+          {
+            "local": "CV MARTORELL VERMELL",
+            "visitant": "CLUB VOLEI MONJOS ROSA",
+            "marcador": "",
+            "data": "",
+            "estat": "pendent"
+          }
+        ],
+        "partits_jugats": 0,
+        "partits_pendents": 14,
+        "classificacio": [
+          {
+            "pos": 1,
+            "equip_classificacio": "CLUB VÒLEI SANT MARTÍ CADET PREFERENT",
+            "punts": 3,
+            "jug": 1,
+            "gan": 1,
+            "per": 0
+          },
+          {
+            "pos": 2,
+            "equip_classificacio": "VOLEI SANTPEDOR N",
+            "punts": 2,
+            "jug": 1,
+            "gan": 1,
+            "per": 0
+          },
+          {
+            "pos": 3,
+            "equip_classificacio": "CLUB VOLEI MONJOS ROSA",
+            "punts": 1,
+            "jug": 1,
+            "gan": 0,
+            "per": 1
+          },
+          {
+            "pos": 4,
+            "equip_classificacio": "CV CUBELLES BLAU",
+            "punts": 0,
+            "jug": 0,
+            "gan": 0,
+            "per": 0
+          },
+          {
+            "pos": 5,
+            "equip_classificacio": "IGUALADA V.C. CADET FEMENI 3",
+            "punts": 0,
+            "jug": 0,
+            "gan": 0,
+            "per": 0
+          },
+          {
+            "pos": 6,
+            "equip_classificacio": "CV MARTORELL VERMELL",
+            "punts": 0,
+            "jug": 0,
+            "gan": 0,
+            "per": 0
+          },
+          {
+            "pos": 7,
+            "equip_classificacio": "AE VOLEI MANRESA NEGRE",
+            "punts": 0,
+            "jug": 0,
+            "gan": 0,
+            "per": 0
+          },
+          {
+            "pos": 8,
+            "equip_classificacio": "CLUB VOLEIBOL CUNIT",
+            "punts": 0,
+            "jug": 1,
+            "gan": 0,
+            "per": 1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id_equipo": "6409",
+    "equip": "CV Martorell Negre",
+    "categoria": "CAMPIONAT DE CATALUNYA DE CADET PREFERENT",
+    "fases": [
+      {
+        "id_categoria": "365",
+        "categoria": "CAMPIONAT DE CATALUNYA DE CADET PREFERENT",
+        "id_competicion": "1403",
+        "competicion": "CAMPIONAT DE CATALUNYA PREFERENT CAD MASC",
+        "id_fase": "4076",
+        "descripcion_fase": "PRIMERA FASE - GRUP B",
+        "slug_fase": "primera-fase-grup-b",
+        "id_equipo": "6409",
+        "equip": "CV Martorell Negre",
+        "url_equipo": "https://resultadosvoleibol.isquad.es/equipo.php?seleccion=0&id_equipo=6409&id=4076",
+        "files_classificacio": 8,
+        "partits": [
+          {
+            "local": "CV PALAU D'ANGLESOLA",
+            "visitant": "CV MARTORELL NEGRE",
+            "marcador": "0-3",
+            "data": "10:30 27/09/2026",
+            "estat": "jugat"
+          },
+          {
+            "local": "IGUALADA V.C. CADET MASCULI 2",
+            "visitant": "CV MARTORELL NEGRE",
+            "marcador": "",
+            "data": "16:15 03/10/2026",
+            "estat": "pendent"
+          },
+          {
+            "local": "CV MARTORELL NEGRE",
+            "visitant": "CV MATARO BLAU",
+            "marcador": "",
+            "data": "",
+            "estat": "pendent"
+          },
+          {
+            "local": "CEV L'HOSPITALET",
+            "visitant": "CV MARTORELL NEGRE",
+            "marcador": "",
+            "data": "",
+            "estat": "pendent"
+          },
+          {
+            "local": "CV MARTORELL NEGRE",
+            "visitant": "CV SANT ANDREU BLAU",
+            "marcador": "",
+            "data": "",
+            "estat": "pendent"
+          },
+          {
+            "local": "CV VILAFRANCA VERD",
+            "visitant": "CV MARTORELL NEGRE",
+            "marcador": "",
+            "data": "",
+            "estat": "pendent"
+          },
+          {
+            "local": "CV MARTORELL NEGRE",
+            "visitant": "CV VALL D'HEBRON STAR",
+            "marcador": "",
+            "data": "",
+            "estat": "pendent"
+          },
+          {
+            "local": "CV MARTORELL NEGRE",
+            "visitant": "CV PALAU D'ANGLESOLA",
+            "marcador": "",
+            "data": "",
+            "estat": "pendent"
+          },
+          {
+            "local": "CV MARTORELL NEGRE",
+            "visitant": "IGUALADA V.C. CADET MASCULI 2",
+            "marcador": "",
+            "data": "",
+            "estat": "pendent"
+          },
+          {
+            "local": "CV MATARO BLAU",
+            "visitant": "CV MARTORELL NEGRE",
+            "marcador": "",
+            "data": "",
+            "estat": "pendent"
+          },
+          {
+            "local": "CV MARTORELL NEGRE",
+            "visitant": "CEV L'HOSPITALET",
+            "marcador": "",
+            "data": "",
+            "estat": "pendent"
+          },
+          {
+            "local": "CV SANT ANDREU BLAU",
+            "visitant": "CV MARTORELL NEGRE",
+            "marcador": "",
+            "data": "",
+            "estat": "pendent"
+          },
+          {
+            "local": "CV MARTORELL NEGRE",
+            "visitant": "CV VILAFRANCA VERD",
+            "marcador": "",
+            "data": "",
+            "estat": "pendent"
+          },
+          {
+            "local": "CV VALL D'HEBRON STAR",
+            "visitant": "CV MARTORELL NEGRE",
+            "marcador": "",
+            "data": "",
+            "estat": "pendent"
+          }
+        ],
+        "partits_jugats": 1,
+        "partits_pendents": 13,
+        "classificacio": [
+          {
+            "pos": 1,
+            "equip_classificacio": "CV MARTORELL NEGRE",
+            "punts": 3,
+            "jug": 1,
+            "gan": 1,
+            "per": 0
+          },
+          {
+            "pos": 2,
+            "equip_classificacio": "CV MATARO BLAU",
+            "punts": 3,
+            "jug": 1,
+            "gan": 1,
+            "per": 0
+          },
+          {
+            "pos": 3,
+            "equip_classificacio": "CV SANT ANDREU BLAU",
+            "punts": 3,
+            "jug": 1,
+            "gan": 1,
+            "per": 0
+          },
+          {
+            "pos": 4,
+            "equip_classificacio": "CV VILAFRANCA VERD",
+            "punts": 3,
+            "jug": 1,
+            "gan": 1,
+            "per": 0
+          },
+          {
+            "pos": 5,
+            "equip_classificacio": "CEV L'HOSPITALET",
+            "punts": 0,
+            "jug": 1,
+            "gan": 0,
+            "per": 1
+          },
+          {
+            "pos": 6,
+            "equip_classificacio": "IGUALADA V.C. CADET MASCULI 2",
+            "punts": 0,
+            "jug": 1,
+            "gan": 0,
+            "per": 1
+          },
+          {
+            "pos": 7,
+            "equip_classificacio": "CV VALL D'HEBRON STAR",
+            "punts": 0,
+            "jug": 1,
+            "gan": 0,
+            "per": 1
+          },
+          {
+            "pos": 8,
+            "equip_classificacio": "CV PALAU D'ANGLESOLA",
+            "punts": 0,
+            "jug": 1,
+            "gan": 0,
+            "per": 1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id_equipo": "3432",
+    "equip": "CV Martorell Negre",
+    "categoria": "CAMPIONAT DE CATALUNYA DE SEGONA DIVISIO INFANTIL",
+    "fases": [
+      {
+        "id_categoria": "368",
+        "categoria": "CAMPIONAT DE CATALUNYA DE SEGONA DIVISIO INFANTIL",
+        "id_competicion": "1398",
+        "competicion": "CAMPIONAT DE CATALUNYA 2a DIV. INF FEM",
+        "id_fase": "4138",
+        "descripcion_fase": "PRIMERA FASE - GRUP M",
+        "slug_fase": "primera-fase-grup-m",
+        "id_equipo": "3432",
+        "equip": "CV Martorell Negre",
+        "url_equipo": "https://resultadosvoleibol.isquad.es/equipo.php?seleccion=0&id_equipo=3432&id=4138",
+        "files_classificacio": 8,
+        "partits": [
+          {
+            "local": "CV MARTORELL NEGRE",
+            "visitant": "ALPICAT VOLEI VERMELL",
+            "marcador": "3-2",
+            "data": "11:00 27/09/2026",
+            "estat": "jugat"
+          },
+          {
+            "local": "CV MARTORELL NEGRE",
+            "visitant": "CLUB VÒLEI SANT MARTÍ INF NEGRE",
+            "marcador": "",
+            "data": "9:00 04/10/2026",
+            "estat": "pendent"
+          },
+          {
+            "local": "CECELL CLAVER BLANC",
+            "visitant": "CV MARTORELL NEGRE",
+            "marcador": "",
+            "data": "",
+            "estat": "pendent"
+          },
+          {
+            "local": "CV MARTORELL NEGRE",
+            "visitant": "VOLEI PAIDOS VERD",
+            "marcador": "",
+            "data": "",
+            "estat": "pendent"
+          },
+          {
+            "local": "CLUB VOLEI MONJOS BLANC",
+            "visitant": "CV MARTORELL NEGRE",
+            "marcador": "",
+            "data": "",
+            "estat": "pendent"
+          },
+          {
+            "local": "CV MARTORELL NEGRE",
+            "visitant": "LA TORRE DE CLARAMUNT VC IFA",
+            "marcador": "",
+            "data": "",
+            "estat": "pendent"
+          },
+          {
+            "local": "IGUALADA VC INFANTIL FEMENI 1",
+            "visitant": "CV MARTORELL NEGRE",
+            "marcador": "",
+            "data": "",
+            "estat": "pendent"
+          },
+          {
+            "local": "ALPICAT VOLEI VERMELL",
+            "visitant": "CV MARTORELL NEGRE",
+            "marcador": "",
+            "data": "",
+            "estat": "pendent"
+          },
+          {
+            "local": "CLUB VÒLEI SANT MARTÍ INF NEGRE",
+            "visitant": "CV MARTORELL NEGRE",
+            "marcador": "",
+            "data": "",
+            "estat": "pendent"
+          },
+          {
+            "local": "CV MARTORELL NEGRE",
+            "visitant": "CECELL CLAVER BLANC",
+            "marcador": "",
+            "data": "",
+            "estat": "pendent"
+          },
+          {
+            "local": "VOLEI PAIDOS VERD",
+            "visitant": "CV MARTORELL NEGRE",
+            "marcador": "",
+            "data": "",
+            "estat": "pendent"
+          },
+          {
+            "local": "CV MARTORELL NEGRE",
+            "visitant": "CLUB VOLEI MONJOS BLANC",
+            "marcador": "",
+            "data": "",
+            "estat": "pendent"
+          },
+          {
+            "local": "LA TORRE DE CLARAMUNT VC IFA",
+            "visitant": "CV MARTORELL NEGRE",
+            "marcador": "",
+            "data": "",
+            "estat": "pendent"
+          },
+          {
+            "local": "CV MARTORELL NEGRE",
+            "visitant": "IGUALADA VC INFANTIL FEMENI 1",
+            "marcador": "",
+            "data": "",
+            "estat": "pendent"
+          }
+        ],
+        "partits_jugats": 1,
+        "partits_pendents": 13,
+        "classificacio": [
+          {
+            "pos": 1,
+            "equip_classificacio": "VOLEI PAIDOS VERD",
+            "punts": 3,
+            "jug": 1,
+            "gan": 1,
+            "per": 0
+          },
+          {
+            "pos": 2,
+            "equip_classificacio": "IGUALADA VC INFANTIL FEMENI 1",
+            "punts": 3,
+            "jug": 1,
+            "gan": 1,
+            "per": 0
+          },
+          {
+            "pos": 3,
+            "equip_classificacio": "LA TORRE DE CLARAMUNT VC IFA",
+            "punts": 3,
+            "jug": 1,
+            "gan": 1,
+            "per": 0
+          },
+          {
+            "pos": 4,
+            "equip_classificacio": "CECELL CLAVER BLANC",
+            "punts": 1,
+            "jug": 1,
+            "gan": 0,
+            "per": 1
+          },
+          {
+            "pos": 5,
+            "equip_classificacio": "CLUB VÒLEI SANT MARTÍ INF NEGRE",
+            "punts": 1,
+            "jug": 1,
+            "gan": 0,
+            "per": 1
+          },
+          {
+            "pos": 6,
+            "equip_classificacio": "CLUB VOLEI MONJOS BLANC",
+            "punts": 1,
+            "jug": 1,
+            "gan": 0,
+            "per": 1
+          },
+          {
+            "pos": 7,
+            "equip_classificacio": "ALPICAT VOLEI VERMELL",
+            "punts": 0,
+            "jug": 0,
+            "gan": 0,
+            "per": 0
+          },
+          {
+            "pos": 8,
+            "equip_classificacio": "CV MARTORELL NEGRE",
+            "punts": 0,
+            "jug": 0,
+            "gan": 0,
+            "per": 0
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id_equipo": "3426",
+    "equip": "CV Martorell mixte",
+    "categoria": "CAMPIONAT DE CATALUNYA ALEVI (3X3)",
+    "fases": [
+      {
+        "id_categoria": "369",
+        "categoria": "CAMPIONAT DE CATALUNYA ALEVI (3X3)",
+        "id_competicion": "1405",
+        "competicion": "CAMPIONAT DE CATALUNYA ALEVÃ (3X3)",
+        "id_fase": "4341",
+        "descripcion_fase": "PRIMERA FASE - GRUP G",
+        "slug_fase": "primera-fase-grup-g",
+        "id_equipo": "3426",
+        "equip": "CV Martorell mixte",
+        "url_equipo": "https://resultadosvoleibol.isquad.es/equipo.php?seleccion=0&id_equipo=3426&id=4341",
+        "files_classificacio": 6,
+        "partits": [
+          {
+            "local": "CV MARTORELL MIXTE",
+            "visitant": "CE HORTONS AG",
+            "marcador": "",
+            "data": "",
+            "estat": "pendent"
+          },
+          {
+            "local": "VOLEI SANT ESTEVE",
+            "visitant": "CV MARTORELL MIXTE",
+            "marcador": "",
+            "data": "",
+            "estat": "pendent"
+          },
+          {
+            "local": "CV MARTORELL MIXTE",
+            "visitant": "CV VILAFRANCA AF",
+            "marcador": "",
+            "data": "",
+            "estat": "pendent"
+          },
+          {
+            "local": "IGUALADA V.C. ALEVI FEMENI TARONJA",
+            "visitant": "CV MARTORELL MIXTE",
+            "marcador": "",
+            "data": "",
+            "estat": "pendent"
+          },
+          {
+            "local": "CV MARTORELL MIXTE",
+            "visitant": "AE VOLEI MANRESA",
+            "marcador": "",
+            "data": "",
+            "estat": "pendent"
+          },
+          {
+            "local": "CE HORTONS AG",
+            "visitant": "CV MARTORELL MIXTE",
+            "marcador": "",
+            "data": "",
+            "estat": "pendent"
+          },
+          {
+            "local": "CV MARTORELL MIXTE",
+            "visitant": "VOLEI SANT ESTEVE",
+            "marcador": "",
+            "data": "",
+            "estat": "pendent"
+          },
+          {
+            "local": "CV VILAFRANCA AF",
+            "visitant": "CV MARTORELL MIXTE",
+            "marcador": "",
+            "data": "",
+            "estat": "pendent"
+          },
+          {
+            "local": "CV MARTORELL MIXTE",
+            "visitant": "IGUALADA V.C. ALEVI FEMENI TARONJA",
+            "marcador": "",
+            "data": "",
+            "estat": "pendent"
+          },
+          {
+            "local": "AE VOLEI MANRESA",
+            "visitant": "CV MARTORELL MIXTE",
+            "marcador": "",
+            "data": "",
+            "estat": "pendent"
+          }
+        ],
+        "partits_jugats": 0,
+        "partits_pendents": 10,
+        "classificacio": [
+          {
+            "pos": 0,
+            "equip_classificacio": "IGUALADA V.C. ALEVI FEMENI TARONJA",
+            "punts": 0,
+            "jug": 0,
+            "gan": 0,
+            "per": 0
+          },
+          {
+            "pos": 0,
+            "equip_classificacio": "CV MARTORELL MIXTE",
+            "punts": 0,
+            "jug": 0,
+            "gan": 0,
+            "per": 0
+          },
+          {
+            "pos": 0,
+            "equip_classificacio": "VOLEI SANT ESTEVE",
+            "punts": 0,
+            "jug": 0,
+            "gan": 0,
+            "per": 0
+          },
+          {
+            "pos": 0,
+            "equip_classificacio": "CE HORTONS AG",
+            "punts": 0,
+            "jug": 0,
+            "gan": 0,
+            "per": 0
+          },
+          {
+            "pos": 0,
+            "equip_classificacio": "CV VILAFRANCA AF",
+            "punts": 0,
+            "jug": 0,
+            "gan": 0,
+            "per": 0
+          },
+          {
+            "pos": 0,
+            "equip_classificacio": "AE VOLEI MANRESA",
+            "punts": 0,
+            "jug": 0,
+            "gan": 0,
+            "per": 0
+          }
+        ]
+      }
+    ]
+  }
+]

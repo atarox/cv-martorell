@@ -16,6 +16,7 @@ const TARGETS = [
   { dir: "public/images/club/junta", width: 400,  quality: 78 },
   { dir: "public/images/sponsors",   width: 400,  quality: 85 },
   { dir: "public/images/historia",   width: 1200, quality: 88 },
+  { dir: "public/images/comunicats",   width: 1200, quality: 88 },
 ];
 
 const EXTENSIONS = new Set([".jpg", ".jpeg", ".png"]);

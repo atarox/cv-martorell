@@ -5,6 +5,7 @@ import EquipsSummary from "../components/EquipsSummary.astro";
 import ClubActivity from "../components/ClubActivity.astro";
 import SponsorGrid from "../components/SponsorGrid.astro";
 import PropersPartits from "../components/PropersPartits.astro";
+import LoteriaModal from "../components/LoteriaModal.astro";
 
 const page = {
   title: "El voleibol viu a Martorell – CV Martorell",
@@ -14,7 +15,7 @@ const page = {
 ---
 
 <BaseLayout title={page.title} description={page.description}>
-
+ <LoteriaModal />
   <!-- HERO (oscuro controlado por componente) -->
   <Hero />
 

@@ -21,6 +21,8 @@
   },
   "dependencies": {
     "@astrojs/cloudflare": "12",
-    "marked": "^18.0.5"
+    "marked": "^18.0.5",
+    "pptxgenjs": "^4.0.1",
+    "sharp": "^0.35.5"
   }
 }

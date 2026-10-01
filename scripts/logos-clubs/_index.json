@@ -1,0 +1,1082 @@
+[
+  {
+    "nom": "ACADEMIA VOLEIBOL BARCELONA",
+    "slug": "academia-voleibol-barcelona",
+    "logo": "academia-voleibol-barcelona.jpg",
+    "src": "https://voleibol.isquad.es/images/afiliacion_clubs/206572895/square_7630706974776c6f7165.jpg",
+    "ok": true
+  },
+  {
+    "nom": "AE SANDOR",
+    "slug": "ae-sandor",
+    "logo": "ae-sandor.jpg",
+    "src": "https://voleibol.isquad.es/images/afiliacion_clubs/206572896/square_3769713574376d356533.jpg",
+    "ok": true
+  },
+  {
+    "nom": "AE VOLEI VALLIRANA",
+    "slug": "ae-volei-vallirana",
+    "logo": "ae-volei-vallirana.jpg",
+    "src": "https://voleibol.isquad.es/images/afiliacion_clubs/206572943/square_376e386f696734687938.jpg",
+    "ok": true
+  },
+  {
+    "nom": "AEE CREIXEN POVILL OLESA",
+    "slug": "aee-creixen-povill-olesa",
+    "logo": null,
+    "src": "https://voleibol.isquad.es/images/afiliacion_clubs/206573085/undefined",
+    "ok": false,
+    "error": "Error: Imatge HTTP 404"
+  },
+  {
+    "nom": "AEE DOLORS MALLAFRE I ROS",
+    "slug": "aee-dolors-mallafre-i-ros",
+    "logo": "aee-dolors-mallafre-i-ros.jpg",
+    "src": "https://voleibol.isquad.es/images/afiliacion_clubs/206572857/square_30617173777279376d63.jpg",
+    "ok": true
+  },
+  {
+    "nom": "AEE JAUME BALMES",
+    "slug": "aee-jaume-balmes",
+    "logo": "aee-jaume-balmes.jpg",
+    "src": "https://voleibol.isquad.es/images/afiliacion_clubs/206572884/square_65386966753071683969.jpg",
+    "ok": true
+  },
+  {
+    "nom": "AEE VIC VOLEI CALLIS",
+    "slug": "aee-vic-volei-callis",
+    "logo": "aee-vic-volei-callis.jpg",
+    "src": "https://voleibol.isquad.es/images/afiliacion_clubs/206572931/square_646a387769666537646f.jpg",
+    "ok": true
+  },
+  {
+    "nom": "AFA ESCOLA ORLANDAI",
+    "slug": "afa-escola-orlandai",
+    "logo": "afa-escola-orlandai.jpg",
+    "src": "https://voleibol.isquad.es/images/afiliacion_clubs/206572850/square_6f373176397066727275.jpg",
+    "ok": true
+  },
+  {
+    "nom": "AGRUPACIO VISTA ALEGRE PARROQUIA (A.V.A.P)",
+    "slug": "agrupacio-vista-alegre-parroquia-a-v-a-p",
+    "logo": "agrupacio-vista-alegre-parroquia-a-v-a-p.jpg",
+    "src": "https://voleibol.isquad.es/images/afiliacion_clubs/206572787/square_776d6965396f6763616b.jpg",
+    "ok": true
+  },
+  {
+    "nom": "ALPICAT VÃ²LEI ASSOCIACIO",
+    "slug": "alpicat-va-lei-associacio",
+    "logo": "alpicat-va-lei-associacio.jpg",
+    "src": "https://voleibol.isquad.es/images/afiliacion_clubs/206572871/square_6675726e377163707574.jpg",
+    "ok": true
+  },
+  {
+    "nom": "AMERICAN SCHOOL OF BARCELONA",
+    "slug": "american-school-of-barcelona",
+    "logo": "american-school-of-barcelona.jpg",
+    "src": "https://voleibol.isquad.es/images/afiliacion_clubs/206572950/square_6d6466773569336c7530.jpg",
+    "ok": true
+  },
+  {
+    "nom": "AMPA COLLEGI SAGRAT COR SARRIA",
+    "slug": "ampa-collegi-sagrat-cor-sarria",
+    "logo": "ampa-collegi-sagrat-cor-sarria.jpg",
+    "src": "https://voleibol.isquad.es/images/afiliacion_clubs/206572858/square_30796e65783974366774.jpg",
+    "ok": true
+  },
+  {
+    "nom": "ASSOCIACIO ESPORTIVA CARLES VALBONA",
+    "slug": "associacio-esportiva-carles-valbona",
+    "logo": "associacio-esportiva-carles-valbona.jpg",
+    "src": "https://voleibol.isquad.es/images/afiliacion_clubs/206572829/square_6e3277383370366c7866.jpg",
+    "ok": true
+  },
+  {
+    "nom": "ASSOCIACIO ESPORTIVA ESCOLAR ELISABETH SALOU",
+    "slug": "associacio-esportiva-escolar-elisabeth-salou",
+    "logo": "associacio-esportiva-escolar-elisabeth-salou.jpg",
+    "src": "https://voleibol.isquad.es/images/afiliacion_clubs/206572934/square_673038303030396a6e37.jpg",
+    "ok": true
+  },
+  {
+    "nom": "ASSOCIACIO ESPORTIVA ESCOLAR INSTITUT MONTSERRAT DE BARCELONA",
+    "slug": "associacio-esportiva-escolar-institut-montserrat-de-barcelona",
+    "logo": "associacio-esportiva-escolar-institut-montserrat-de-barcelona.jpg",
+    "src": "https://voleibol.isquad.es/images/afiliacion_clubs/206572798/square_686e7537657877616665.jpg",
+    "ok": true
+  },
+  {
+    "nom": "ASSOCIACIO ESPORTIVA VOLEI MANRESA 2019",
+    "slug": "associacio-esportiva-volei-manresa-2019",
+    "logo": "associacio-esportiva-volei-manresa-2019.jpg",
+    "src": "https://voleibol.isquad.es/images/afiliacion_clubs/206572832/square_3865727269366266786b.jpg",
+    "ok": true
+  },
+  {
+    "nom": "ASSOCIACIO ESPORTIVA VOLEI SANT POL",
+    "slug": "associacio-esportiva-volei-sant-pol",
+    "logo": "associacio-esportiva-volei-sant-pol.jpg",
+    "src": "https://voleibol.isquad.es/images/afiliacion_clubs/206572870/square_3378323734633763666b.jpg",
+    "ok": true
+  },
+  {
+    "nom": "ASSOCIACIO SANT FRUITOS D'ESPORTS",
+    "slug": "associacio-sant-fruitos-d-esports",
+    "logo": "associacio-sant-fruitos-d-esports.jpg",
+    "src": "https://voleibol.isquad.es/images/afiliacion_clubs/206572775/square_347139716674616a396c.jpg",
+    "ok": true
+  },
+  {
+    "nom": "ASSOCIACIO SET11ESPORTS",
+    "slug": "associacio-set11esports",
+    "logo": "associacio-set11esports.jpg",
+    "src": "https://voleibol.isquad.es/images/afiliacion_clubs/206572933/square_736d69613732796c6a6d.jpg",
+    "ok": true
+  },
+  {
+    "nom": "ASSOCIACIO VOLEIBOL L'AMETLLA DEL VALLÃ¨S",
+    "slug": "associacio-voleibol-l-ametlla-del-valla-s",
+    "logo": "associacio-voleibol-l-ametlla-del-valla-s.jpg",
+    "src": "https://voleibol.isquad.es/images/afiliacion_clubs/206572837/square_37716e7963396378636f.jpg",
+    "ok": true
+  },
+  {
+    "nom": "BALAFIA VOLEI LLEIDA",
+    "slug": "balafia-volei-lleida",
+    "logo": "balafia-volei-lleida.jpg",
+    "src": "https://voleibol.isquad.es/images/afiliacion_clubs/206572823/square_65763770656132796175.jpg",
+    "ok": true
+  },
+  {
+    "nom": "C.E.S BOSCO HORTA",
+    "slug": "c-e-s-bosco-horta",
+    "logo": "c-e-s-bosco-horta.jpg",
+    "src": "https://voleibol.isquad.es/images/afiliacion_clubs/206573080/square_67696772626b336b6f77.jpg",
+    "ok": true
+  },
+  {
+    "nom": "CENTRE D'ESPORTS DEL CAMP ESCOLAR DE LLEIDA",
+    "slug": "centre-d-esports-del-camp-escolar-de-lleida",
+    "logo": "centre-d-esports-del-camp-escolar-de-lleida.jpg",
+    "src": "https://voleibol.isquad.es/images/afiliacion_clubs/206572784/square_7633696c6b6137653169.jpg",
+    "ok": true
+  },
+  {
+    "nom": "CLUB DE VÃ²LEI GELIDA",
+    "slug": "club-de-va-lei-gelida",
+    "logo": "club-de-va-lei-gelida.jpg",
+    "src": "https://voleibol.isquad.es/images/afiliacion_clubs/206572842/square_67616569707773396579.jpg",
+    "ok": true
+  },
+  {
+    "nom": "CLUB DE VOLEIBOL COMETA",
+    "slug": "club-de-voleibol-cometa",
+    "logo": "club-de-voleibol-cometa.jpg",
+    "src": "https://voleibol.isquad.es/images/afiliacion_clubs/206572845/square_30307179376d786d6530.jpg",
+    "ok": true
+  },
+  {
+    "nom": "CLUB DEPORTIU ESPANYOL SENTIMENT PERICO (SD ESPANYOL)",
+    "slug": "club-deportiu-espanyol-sentiment-perico-sd-espanyol",
+    "logo": "club-deportiu-espanyol-sentiment-perico-sd-espanyol.jpg",
+    "src": "https://voleibol.isquad.es/images/afiliacion_clubs/206572816/square_70736d3739387263786d.jpg",
+    "ok": true
+  },
+  {
+    "nom": "CLUB ESPORTIU FUTSAL TORTOSA",
+    "slug": "club-esportiu-futsal-tortosa",
+    "logo": "club-esportiu-futsal-tortosa.jpg",
+    "src": "https://voleibol.isquad.es/images/afiliacion_clubs/206572833/square_70356978316c75367038.jpg",
+    "ok": true
+  },
+  {
+    "nom": "CLUB ESPORTIU HORTONS",
+    "slug": "club-esportiu-hortons",
+    "logo": "club-esportiu-hortons.jpg",
+    "src": "https://voleibol.isquad.es/images/afiliacion_clubs/206572852/square_79676a786c7366623367.jpg",
+    "ok": true
+  },
+  {
+    "nom": "CLUB ESPORTIU INEF LLEIDA",
+    "slug": "club-esportiu-inef-lleida",
+    "logo": "club-esportiu-inef-lleida.jpg",
+    "src": "https://voleibol.isquad.es/images/afiliacion_clubs/206572786/square_36323235643767377379.jpg",
+    "ok": true
+  },
+  {
+    "nom": "CLUB ESPORTIU INFANT JESUS",
+    "slug": "club-esportiu-infant-jesus",
+    "logo": null,
+    "src": "https://voleibol.isquad.es/images/afiliacion_clubs/206572955/undefined",
+    "ok": false,
+    "error": "Error: Imatge HTTP 404"
+  },
+  {
+    "nom": "CLUB ESPORTIU ROCA SANT MARTI",
+    "slug": "club-esportiu-roca-sant-marti",
+    "logo": "club-esportiu-roca-sant-marti.jpg",
+    "src": "https://voleibol.isquad.es/images/afiliacion_clubs/206572826/square_37787278346267713964.jpg",
+    "ok": true
+  },
+  {
+    "nom": "CLUB ESPORTIU SAGRAT COR DIPUTACIO",
+    "slug": "club-esportiu-sagrat-cor-diputacio",
+    "logo": "club-esportiu-sagrat-cor-diputacio.jpg",
+    "src": "https://voleibol.isquad.es/images/afiliacion_clubs/206573083/square_64656178787072697874.jpg",
+    "ok": true
+  },
+  {
+    "nom": "CLUB ESPORTIU SANT CUGAT TITANS",
+    "slug": "club-esportiu-sant-cugat-titans",
+    "logo": "club-esportiu-sant-cugat-titans.jpg",
+    "src": "https://voleibol.isquad.es/images/afiliacion_clubs/206572810/square_73346b3736746e733661.jpg",
+    "ok": true
+  },
+  {
+    "nom": "CLUB ESPORTIU SANT IGNASI",
+    "slug": "club-esportiu-sant-ignasi",
+    "logo": "club-esportiu-sant-ignasi.jpg",
+    "src": "https://voleibol.isquad.es/images/afiliacion_clubs/206572774/square_71686c71366c38337930.jpg",
+    "ok": true
+  },
+  {
+    "nom": "CLUB ESPORTIU VOLEI GIRONA",
+    "slug": "club-esportiu-volei-girona",
+    "logo": "club-esportiu-volei-girona.jpg",
+    "src": "https://voleibol.isquad.es/images/afiliacion_clubs/206572844/square_6d6768367370686e7737.jpg",
+    "ok": true
+  },
+  {
+    "nom": "CLUB ESPORTIU VOLEIBOL L'HOSPITALET",
+    "slug": "club-esportiu-voleibol-l-hospitalet",
+    "logo": "club-esportiu-voleibol-l-hospitalet.jpg",
+    "src": "https://voleibol.isquad.es/images/afiliacion_clubs/206572841/square_69366974346f676d3933.jpg",
+    "ok": true
+  },
+  {
+    "nom": "CLUB ESPORTIU VOLEIBOL TORREDEMBARRA",
+    "slug": "club-esportiu-voleibol-torredembarra",
+    "logo": "club-esportiu-voleibol-torredembarra.jpg",
+    "src": "https://voleibol.isquad.es/images/afiliacion_clubs/206572913/square_35306f61743436697676.jpg",
+    "ok": true
+  },
+  {
+    "nom": "CLUB ESPOTIU GADEX",
+    "slug": "club-espotiu-gadex",
+    "logo": "club-espotiu-gadex.jpg",
+    "src": "https://voleibol.isquad.es/images/afiliacion_clubs/206572897/square_6665646b737038793963.jpg",
+    "ok": true
+  },
+  {
+    "nom": "CLUB HANDBOL BORDILS",
+    "slug": "club-handbol-bordils",
+    "logo": "club-handbol-bordils.jpg",
+    "src": "https://voleibol.isquad.es/images/afiliacion_clubs/206572776/square_79637834713664663073.jpg",
+    "ok": true
+  },
+  {
+    "nom": "CLUB JOVENTUT LES CORTS",
+    "slug": "club-joventut-les-corts",
+    "logo": "club-joventut-les-corts.jpg",
+    "src": "https://voleibol.isquad.es/images/afiliacion_clubs/206572866/square_78763268636d36656e33.jpg",
+    "ok": true
+  },
+  {
+    "nom": "CLUB NATACIO SABADELL",
+    "slug": "club-natacio-sabadell",
+    "logo": "club-natacio-sabadell.jpg",
+    "src": "https://voleibol.isquad.es/images/afiliacion_clubs/206572827/square_6e65366862367867666c.jpg",
+    "ok": true
+  },
+  {
+    "nom": "CLUB NATACIO TERRASSA",
+    "slug": "club-natacio-terrassa",
+    "logo": "club-natacio-terrassa.jpg",
+    "src": "https://voleibol.isquad.es/images/afiliacion_clubs/206572785/square_766c6779747139646e6f.jpg",
+    "ok": true
+  },
+  {
+    "nom": "CLUB VÃ²LEI BATEA",
+    "slug": "club-va-lei-batea",
+    "logo": "club-va-lei-batea.jpg",
+    "src": "https://voleibol.isquad.es/images/afiliacion_clubs/206572923/square_6a386177387334787575.jpg",
+    "ok": true
+  },
+  {
+    "nom": "CLUB VÃ²LEI BEGUES",
+    "slug": "club-va-lei-begues",
+    "logo": "club-va-lei-begues.jpg",
+    "src": "https://voleibol.isquad.es/images/afiliacion_clubs/206572862/square_376379346b643936326a.jpg",
+    "ok": true
+  },
+  {
+    "nom": "CLUB VÃ²LEI MOLINS",
+    "slug": "club-va-lei-molins",
+    "logo": "club-va-lei-molins.jpg",
+    "src": "https://voleibol.isquad.es/images/afiliacion_clubs/206572888/square_726433716f623135346e.jpg",
+    "ok": true
+  },
+  {
+    "nom": "CLUB VÃ²LEI MONJOS",
+    "slug": "club-va-lei-monjos",
+    "logo": "club-va-lei-monjos.jpg",
+    "src": "https://voleibol.isquad.es/images/afiliacion_clubs/206572855/square_726e37336b6f30763561.jpg",
+    "ok": true
+  },
+  {
+    "nom": "CLUB VÃ²LEI SANT CELONI",
+    "slug": "club-va-lei-sant-celoni",
+    "logo": "club-va-lei-sant-celoni.jpg",
+    "src": "https://voleibol.isquad.es/images/afiliacion_clubs/206572819/square_62643566383265343234333765313038.jpg",
+    "ok": true
+  },
+  {
+    "nom": "CLUB VÃ²LEI SANT ESTEVE DE PALAUTORDERA",
+    "slug": "club-va-lei-sant-esteve-de-palautordera",
+    "logo": "club-va-lei-sant-esteve-de-palautordera.jpg",
+    "src": "https://voleibol.isquad.es/images/afiliacion_clubs/206572990/square_336d7934347734713031.jpg",
+    "ok": true
+  },
+  {
+    "nom": "CLUB VÃ²LEI VILOBI",
+    "slug": "club-va-lei-vilobi",
+    "logo": "club-va-lei-vilobi.jpg",
+    "src": "https://voleibol.isquad.es/images/afiliacion_clubs/206572927/square_6f393273656171686577.jpg",
+    "ok": true
+  },
+  {
+    "nom": "CLUB VOLEI ALELLA",
+    "slug": "club-volei-alella",
+    "logo": "club-volei-alella.jpg",
+    "src": "https://voleibol.isquad.es/images/afiliacion_clubs/206572900/square_6f756477353673776973.jpg",
+    "ok": true
+  },
+  {
+    "nom": "CLUB VOLEI ALOGES PORQUERES",
+    "slug": "club-volei-aloges-porqueres",
+    "logo": "club-volei-aloges-porqueres.jpg",
+    "src": "https://voleibol.isquad.es/images/afiliacion_clubs/206572876/square_31746273367667706736.jpg",
+    "ok": true
+  },
+  {
+    "nom": "CLUB VOLEI BADALONA",
+    "slug": "club-volei-badalona",
+    "logo": "club-volei-badalona.jpg",
+    "src": "https://voleibol.isquad.es/images/afiliacion_clubs/206572939/square_6f676d32353539327974.jpg",
+    "ok": true
+  },
+  {
+    "nom": "CLUB VOLEI BLANES",
+    "slug": "club-volei-blanes",
+    "logo": "club-volei-blanes.jpg",
+    "src": "https://voleibol.isquad.es/images/afiliacion_clubs/206572861/square_366b66776f3464757676.jpg",
+    "ok": true
+  },
+  {
+    "nom": "CLUB VOLEI CABRILS",
+    "slug": "club-volei-cabrils",
+    "logo": "club-volei-cabrils.jpg",
+    "src": "https://voleibol.isquad.es/images/afiliacion_clubs/206572935/square_677179676c7137706a69.jpg",
+    "ok": true
+  },
+  {
+    "nom": "CLUB VOLEI CALAF",
+    "slug": "club-volei-calaf",
+    "logo": "club-volei-calaf.jpg",
+    "src": "https://voleibol.isquad.es/images/afiliacion_clubs/206572851/square_6b713667346836666d68.jpg",
+    "ok": true
+  },
+  {
+    "nom": "CLUB VOLEI CANET",
+    "slug": "club-volei-canet",
+    "logo": "club-volei-canet.jpg",
+    "src": "https://voleibol.isquad.es/images/afiliacion_clubs/206572878/square_6637666469626265656b.jpg",
+    "ok": true
+  },
+  {
+    "nom": "CLUB VOLEI CASTELLET",
+    "slug": "club-volei-castellet",
+    "logo": "club-volei-castellet.jpg",
+    "src": "https://voleibol.isquad.es/images/afiliacion_clubs/206572863/square_77726c6a78366a64366a.jpg",
+    "ok": true
+  },
+  {
+    "nom": "CLUB VOLEI ESPARREGUERA",
+    "slug": "club-volei-esparreguera",
+    "logo": "club-volei-esparreguera.jpg",
+    "src": "https://voleibol.isquad.es/images/afiliacion_clubs/206572902/square_33376c306b7576757878.jpg",
+    "ok": true
+  },
+  {
+    "nom": "CLUB VOLEI FEMENI DE LLORET DE MAR",
+    "slug": "club-volei-femeni-de-lloret-de-mar",
+    "logo": "club-volei-femeni-de-lloret-de-mar.jpg",
+    "src": "https://voleibol.isquad.es/images/afiliacion_clubs/206572782/square_67346e62323464647136.jpg",
+    "ok": true
+  },
+  {
+    "nom": "CLUB VOLEI GIRONELLA",
+    "slug": "club-volei-gironella",
+    "logo": "club-volei-gironella.jpg",
+    "src": "https://voleibol.isquad.es/images/afiliacion_clubs/206572865/square_3564656c743761776466.jpg",
+    "ok": true
+  },
+  {
+    "nom": "CLUB VOLEI INTER SANT SADURNI",
+    "slug": "club-volei-inter-sant-sadurni",
+    "logo": "club-volei-inter-sant-sadurni.jpg",
+    "src": "https://voleibol.isquad.es/images/afiliacion_clubs/206572951/square_66343437356665356536346462316164.jpg",
+    "ok": true
+  },
+  {
+    "nom": "CLUB VOLEI LA LLAGOSTA",
+    "slug": "club-volei-la-llagosta",
+    "logo": "club-volei-la-llagosta.jpg",
+    "src": "https://voleibol.isquad.es/images/afiliacion_clubs/206572872/square_74317069343367306131.jpg",
+    "ok": true
+  },
+  {
+    "nom": "CLUB VOLEI LA PALMA",
+    "slug": "club-volei-la-palma",
+    "logo": "club-volei-la-palma.jpg",
+    "src": "https://voleibol.isquad.es/images/afiliacion_clubs/206572759/square_6a383662657337696f74.jpg",
+    "ok": true
+  },
+  {
+    "nom": "CLUB VOLEI PREMIA DE DALT MARESME",
+    "slug": "club-volei-premia-de-dalt-maresme",
+    "logo": "club-volei-premia-de-dalt-maresme.jpg",
+    "src": "https://voleibol.isquad.es/images/afiliacion_clubs/206572821/square_67613471306e31726639.jpg",
+    "ok": true
+  },
+  {
+    "nom": "CLUB VOLEI SANT CUGAT",
+    "slug": "club-volei-sant-cugat",
+    "logo": "club-volei-sant-cugat.jpg",
+    "src": "https://voleibol.isquad.es/images/afiliacion_clubs/206572918/square_616d6435356634333079.jpg",
+    "ok": true
+  },
+  {
+    "nom": "CLUB VOLEI SANT PERE PESCADOR",
+    "slug": "club-volei-sant-pere-pescador",
+    "logo": "club-volei-sant-pere-pescador.jpg",
+    "src": "https://voleibol.isquad.es/images/afiliacion_clubs/206572928/square_7169616c646876746671.jpg",
+    "ok": true
+  },
+  {
+    "nom": "CLUB VOLEI SANT QUIRZE DEL VALLES",
+    "slug": "club-volei-sant-quirze-del-valles",
+    "logo": "club-volei-sant-quirze-del-valles.jpg",
+    "src": "https://voleibol.isquad.es/images/afiliacion_clubs/206572899/square_39316331313437303838363732343733.jpg",
+    "ok": true
+  },
+  {
+    "nom": "CLUB VOLEI SANTPEDOR",
+    "slug": "club-volei-santpedor",
+    "logo": "club-volei-santpedor.jpg",
+    "src": "https://voleibol.isquad.es/images/afiliacion_clubs/206572812/square_37306462643366313162663731653761.jpg",
+    "ok": true
+  },
+  {
+    "nom": "CLUB VOLEI TARADELL",
+    "slug": "club-volei-taradell",
+    "logo": "club-volei-taradell.jpg",
+    "src": "https://voleibol.isquad.es/images/afiliacion_clubs/206572882/square_62673770623476336b37.jpg",
+    "ok": true
+  },
+  {
+    "nom": "CLUB VOLEI TIANA",
+    "slug": "club-volei-tiana",
+    "logo": "club-volei-tiana.jpg",
+    "src": "https://voleibol.isquad.es/images/afiliacion_clubs/206572869/square_36643833633065346434313062656338.jpg",
+    "ok": true
+  },
+  {
+    "nom": "CLUB VOLEI VILANOVA",
+    "slug": "club-volei-vilanova",
+    "logo": "club-volei-vilanova.jpg",
+    "src": "https://voleibol.isquad.es/images/afiliacion_clubs/206572772/square_6f65766833326635616e.jpg",
+    "ok": true
+  },
+  {
+    "nom": "CLUB VOLEIBOL ANDORRA",
+    "slug": "club-voleibol-andorra",
+    "logo": "club-voleibol-andorra.jpg",
+    "src": "https://voleibol.isquad.es/images/afiliacion_clubs/206572781/square_6f6934766f6e6e776c78.jpg",
+    "ok": true
+  },
+  {
+    "nom": "CLUB VOLEIBOL ARBUCIES",
+    "slug": "club-voleibol-arbucies",
+    "logo": "club-voleibol-arbucies.jpg",
+    "src": "https://voleibol.isquad.es/images/afiliacion_clubs/206572920/square_38786574387962646f65.jpg",
+    "ok": true
+  },
+  {
+    "nom": "CLUB VOLEIBOL ARENYS",
+    "slug": "club-voleibol-arenys",
+    "logo": "club-voleibol-arenys.jpg",
+    "src": "https://voleibol.isquad.es/images/afiliacion_clubs/206572924/square_3679717262716f6b6b69.jpg",
+    "ok": true
+  },
+  {
+    "nom": "CLUB VOLEIBOL AVINYO",
+    "slug": "club-voleibol-avinyo",
+    "logo": "club-voleibol-avinyo.jpg",
+    "src": "https://voleibol.isquad.es/images/afiliacion_clubs/206572813/square_333373636a3669703666.jpg",
+    "ok": true
+  },
+  {
+    "nom": "CLUB VOLEIBOL BARBERA",
+    "slug": "club-voleibol-barbera",
+    "logo": "club-voleibol-barbera.jpg",
+    "src": "https://voleibol.isquad.es/images/afiliacion_clubs/206572790/square_6d777330356163693763.jpg",
+    "ok": true
+  },
+  {
+    "nom": "CLUB VOLEIBOL BARCELONA",
+    "slug": "club-voleibol-barcelona",
+    "logo": "club-voleibol-barcelona.jpg",
+    "src": "https://voleibol.isquad.es/images/afiliacion_clubs/206572794/square_32626470363169357464.jpg",
+    "ok": true
+  },
+  {
+    "nom": "CLUB VOLEIBOL BERGA",
+    "slug": "club-voleibol-berga",
+    "logo": "club-voleibol-berga.jpg",
+    "src": "https://voleibol.isquad.es/images/afiliacion_clubs/206572889/square_77386e64327438397076.jpg",
+    "ok": true
+  },
+  {
+    "nom": "CLUB VOLEIBOL CAMBRILS",
+    "slug": "club-voleibol-cambrils",
+    "logo": "club-voleibol-cambrils.jpg",
+    "src": "https://voleibol.isquad.es/images/afiliacion_clubs/206572831/square_34663736633233303739383734616166.jpg",
+    "ok": true
+  },
+  {
+    "nom": "CLUB VOLEIBOL CANYELLES",
+    "slug": "club-voleibol-canyelles",
+    "logo": "club-voleibol-canyelles.jpg",
+    "src": "https://voleibol.isquad.es/images/afiliacion_clubs/206572820/square_36326b38707238776e61.jpg",
+    "ok": true
+  },
+  {
+    "nom": "CLUB VOLEIBOL CARDEDEU",
+    "slug": "club-voleibol-cardedeu",
+    "logo": "club-voleibol-cardedeu.jpg",
+    "src": "https://voleibol.isquad.es/images/afiliacion_clubs/206572838/square_69736d6a653937387532.jpg",
+    "ok": true
+  },
+  {
+    "nom": "CLUB VOLEIBOL CERDANYOLA",
+    "slug": "club-voleibol-cerdanyola",
+    "logo": "club-voleibol-cerdanyola.jpg",
+    "src": "https://voleibol.isquad.es/images/afiliacion_clubs/206572791/square_64693861746e30766236.jpg",
+    "ok": true
+  },
+  {
+    "nom": "CLUB VOLEIBOL CUBELLES",
+    "slug": "club-voleibol-cubelles",
+    "logo": "club-voleibol-cubelles.jpg",
+    "src": "https://voleibol.isquad.es/images/afiliacion_clubs/206572873/square_3338713231393465666a.jpg",
+    "ok": true
+  },
+  {
+    "nom": "CLUB VOLEIBOL CUNIT",
+    "slug": "club-voleibol-cunit",
+    "logo": "club-voleibol-cunit.jpg",
+    "src": "https://voleibol.isquad.es/images/afiliacion_clubs/206572828/square_733836696e3370786f78.jpg",
+    "ok": true
+  },
+  {
+    "nom": "CLUB VOLEIBOL ENCAMP",
+    "slug": "club-voleibol-encamp",
+    "logo": "club-voleibol-encamp.jpg",
+    "src": "https://voleibol.isquad.es/images/afiliacion_clubs/206572881/square_6d336b71743237326830.jpg",
+    "ok": true
+  },
+  {
+    "nom": "CLUB VOLEIBOL ESPLUGUES",
+    "slug": "club-voleibol-esplugues",
+    "logo": "club-voleibol-esplugues.jpg",
+    "src": "https://voleibol.isquad.es/images/afiliacion_clubs/206572877/square_36667075736c36306977.jpg",
+    "ok": true
+  },
+  {
+    "nom": "CLUB VOLEIBOL FIGUERES",
+    "slug": "club-voleibol-figueres",
+    "logo": "club-voleibol-figueres.jpg",
+    "src": "https://voleibol.isquad.es/images/afiliacion_clubs/206572840/square_676a32376564366d7473.jpg",
+    "ok": true
+  },
+  {
+    "nom": "CLUB VOLEIBOL GAVA",
+    "slug": "club-voleibol-gava",
+    "logo": "club-voleibol-gava.jpg",
+    "src": "https://voleibol.isquad.es/images/afiliacion_clubs/206572909/square_6c6673666e7032686579.jpg",
+    "ok": true
+  },
+  {
+    "nom": "CLUB VOLEIBOL GRANOLLERS",
+    "slug": "club-voleibol-granollers",
+    "logo": "club-voleibol-granollers.jpg",
+    "src": "https://voleibol.isquad.es/images/afiliacion_clubs/206573087/square_61396130343032646331343166633262.jpg",
+    "ok": true
+  },
+  {
+    "nom": "CLUB VOLEIBOL JOVES CALDES",
+    "slug": "club-voleibol-joves-caldes",
+    "logo": "club-voleibol-joves-caldes.jpg",
+    "src": "https://voleibol.isquad.es/images/afiliacion_clubs/206572802/square_6d79786534386e716a31.jpg",
+    "ok": true
+  },
+  {
+    "nom": "CLUB VOLEIBOL LA SELVA",
+    "slug": "club-voleibol-la-selva",
+    "logo": "club-voleibol-la-selva.jpg",
+    "src": "https://voleibol.isquad.es/images/afiliacion_clubs/206572788/square_63676b33787071636365.jpg",
+    "ok": true
+  },
+  {
+    "nom": "CLUB VOLEIBOL LES FRANQUESES",
+    "slug": "club-voleibol-les-franqueses",
+    "logo": "club-voleibol-les-franqueses.jpg",
+    "src": "https://voleibol.isquad.es/images/afiliacion_clubs/206572848/square_36637535667768763462.jpg",
+    "ok": true
+  },
+  {
+    "nom": "CLUB VOLEIBOL LLINARS DDEL VALLÃ¨S",
+    "slug": "club-voleibol-llinars-ddel-valla-s",
+    "logo": "club-voleibol-llinars-ddel-valla-s.jpg",
+    "src": "https://voleibol.isquad.es/images/afiliacion_clubs/206572853/square_696363727366796c6179.jpg",
+    "ok": true
+  },
+  {
+    "nom": "CLUB VOLEIBOL MARTORELL",
+    "slug": "club-voleibol-martorell",
+    "logo": "club-voleibol-martorell.jpg",
+    "src": "https://voleibol.isquad.es/images/afiliacion_clubs/206572860/square_7662696f396439783365.jpg",
+    "ok": true
+  },
+  {
+    "nom": "CLUB VOLEIBOL MASNOU",
+    "slug": "club-voleibol-masnou",
+    "logo": "club-voleibol-masnou.jpg",
+    "src": "https://voleibol.isquad.es/images/afiliacion_clubs/206572843/square_6a76317672706b6b7337.jpg",
+    "ok": true
+  },
+  {
+    "nom": "CLUB VOLEIBOL MASQUEFA",
+    "slug": "club-voleibol-masquefa",
+    "logo": "club-voleibol-masquefa.jpg",
+    "src": "https://voleibol.isquad.es/images/afiliacion_clubs/206572846/square_34757272646e6d676933.jpg",
+    "ok": true
+  },
+  {
+    "nom": "CLUB VOLEIBOL MATARO",
+    "slug": "club-voleibol-mataro",
+    "logo": "club-voleibol-mataro.jpg",
+    "src": "https://voleibol.isquad.es/images/afiliacion_clubs/206572795/square_35367576336774786a6e.jpg",
+    "ok": true
+  },
+  {
+    "nom": "CLUB VOLEIBOL MURS MONTJUÃC",
+    "slug": "club-voleibol-murs-montjua-c",
+    "logo": "club-voleibol-murs-montjua-c.jpg",
+    "src": "https://voleibol.isquad.es/images/afiliacion_clubs/206572875/square_386d7362707574613063.jpg",
+    "ok": true
+  },
+  {
+    "nom": "CLUB VOLEIBOL OLOT",
+    "slug": "club-voleibol-olot",
+    "logo": "club-voleibol-olot.jpg",
+    "src": "https://voleibol.isquad.es/images/afiliacion_clubs/206572783/square_6c38776b686876767765.jpg",
+    "ok": true
+  },
+  {
+    "nom": "CLUB VOLEIBOL PARETS",
+    "slug": "club-voleibol-parets",
+    "logo": "club-voleibol-parets.jpg",
+    "src": "https://voleibol.isquad.es/images/afiliacion_clubs/206572901/square_67356135373734317332.jpg",
+    "ok": true
+  },
+  {
+    "nom": "CLUB VOLEIBOL PRAT",
+    "slug": "club-voleibol-prat",
+    "logo": "club-voleibol-prat.jpg",
+    "src": "https://voleibol.isquad.es/images/afiliacion_clubs/206572765/square_32667170366676776c35.jpg",
+    "ok": true
+  },
+  {
+    "nom": "CLUB VOLEIBOL PREMIA DE MAR",
+    "slug": "club-voleibol-premia-de-mar",
+    "logo": "club-voleibol-premia-de-mar.jpg",
+    "src": "https://voleibol.isquad.es/images/afiliacion_clubs/206572818/square_72626d75646836743561.jpg",
+    "ok": true
+  },
+  {
+    "nom": "CLUB VOLEIBOL REUS",
+    "slug": "club-voleibol-reus",
+    "logo": "club-voleibol-reus.jpg",
+    "src": "https://voleibol.isquad.es/images/afiliacion_clubs/206572830/square_78667635397676336576.jpg",
+    "ok": true
+  },
+  {
+    "nom": "CLUB VOLEIBOL ROQUETES",
+    "slug": "club-voleibol-roquetes",
+    "logo": "club-voleibol-roquetes.jpg",
+    "src": "https://voleibol.isquad.es/images/afiliacion_clubs/206572904/square_6d35736d676d3968326f.jpg",
+    "ok": true
+  },
+  {
+    "nom": "CLUB VOLEIBOL RUBI",
+    "slug": "club-voleibol-rubi",
+    "logo": "club-voleibol-rubi.jpg",
+    "src": "https://voleibol.isquad.es/images/afiliacion_clubs/206572944/square_306177376f656b756878.jpg",
+    "ok": true
+  },
+  {
+    "nom": "CLUB VOLEIBOL SALOU",
+    "slug": "club-voleibol-salou",
+    "logo": "club-voleibol-salou.jpg",
+    "src": "https://voleibol.isquad.es/images/afiliacion_clubs/206572874/square_386f396f77336d6a6d6d.jpg",
+    "ok": true
+  },
+  {
+    "nom": "CLUB VOLEIBOL SANT ADRIA",
+    "slug": "club-voleibol-sant-adria",
+    "logo": "club-voleibol-sant-adria.jpg",
+    "src": "https://voleibol.isquad.es/images/afiliacion_clubs/206572779/square_65656b74336b31753968.jpg",
+    "ok": true
+  },
+  {
+    "nom": "CLUB VOLEIBOL SANT ANDREU (SECCIO ESPORTIVA 7 D'AVENTURA)",
+    "slug": "club-voleibol-sant-andreu-seccio-esportiva-7-d-aventura",
+    "logo": "club-voleibol-sant-andreu-seccio-esportiva-7-d-aventura.jpg",
+    "src": "https://voleibol.isquad.es/images/afiliacion_clubs/206572822/square_726f3376367777667232.jpg",
+    "ok": true
+  },
+  {
+    "nom": "CLUB VOLEIBOL SANT BOI",
+    "slug": "club-voleibol-sant-boi",
+    "logo": "club-voleibol-sant-boi.jpg",
+    "src": "https://voleibol.isquad.es/images/afiliacion_clubs/206572805/square_32697178636a75707378.jpg",
+    "ok": true
+  },
+  {
+    "nom": "CLUB VOLEIBOL SANT CLIMENT",
+    "slug": "club-voleibol-sant-climent",
+    "logo": "club-voleibol-sant-climent.jpg",
+    "src": "https://voleibol.isquad.es/images/afiliacion_clubs/206572780/square_6a386863376f7875776f.jpg",
+    "ok": true
+  },
+  {
+    "nom": "CLUB VOLEIBOL SANT FELIU",
+    "slug": "club-voleibol-sant-feliu",
+    "logo": "club-voleibol-sant-feliu.jpg",
+    "src": "https://voleibol.isquad.es/images/afiliacion_clubs/206573084/square_36327237686534666171.jpg",
+    "ok": true
+  },
+  {
+    "nom": "CLUB VOLEIBOL SANT PERE I SANT PAU",
+    "slug": "club-voleibol-sant-pere-i-sant-pau",
+    "logo": "club-voleibol-sant-pere-i-sant-pau.jpg",
+    "src": "https://voleibol.isquad.es/images/afiliacion_clubs/206572867/square_3231716679766e377866.jpg",
+    "ok": true
+  },
+  {
+    "nom": "CLUB VOLEIBOL TORELLO",
+    "slug": "club-voleibol-torello",
+    "logo": "club-voleibol-torello.jpg",
+    "src": "https://voleibol.isquad.es/images/afiliacion_clubs/206572835/square_75673166386c73317373.jpg",
+    "ok": true
+  },
+  {
+    "nom": "CLUB VOLEIBOL VALL D'HEBRON",
+    "slug": "club-voleibol-vall-d-hebron",
+    "logo": "club-voleibol-vall-d-hebron.jpg",
+    "src": "https://voleibol.isquad.es/images/afiliacion_clubs/206572814/square_796f3876683875793770.jpg",
+    "ok": true
+  },
+  {
+    "nom": "CLUB VOLEIBOL VILADECANS",
+    "slug": "club-voleibol-viladecans",
+    "logo": "club-voleibol-viladecans.jpg",
+    "src": "https://voleibol.isquad.es/images/afiliacion_clubs/206572926/square_62326c76663230333263.jpg",
+    "ok": true
+  },
+  {
+    "nom": "CLUB VOLEIBOL VILAFRANCA",
+    "slug": "club-voleibol-vilafranca",
+    "logo": "club-voleibol-vilafranca.jpg",
+    "src": "https://voleibol.isquad.es/images/afiliacion_clubs/206572824/square_6778726e753278763267.jpg",
+    "ok": true
+  },
+  {
+    "nom": "CLUB VOLEIBOL VILASSAR DE MAR",
+    "slug": "club-voleibol-vilassar-de-mar",
+    "logo": "club-voleibol-vilassar-de-mar.jpg",
+    "src": "https://voleibol.isquad.es/images/afiliacion_clubs/206572839/square_656d3235757333723031.jpg",
+    "ok": true
+  },
+  {
+    "nom": "CLUB VOLLEYBALL TARREGA",
+    "slug": "club-volleyball-tarrega",
+    "logo": "club-volleyball-tarrega.jpg",
+    "src": "https://voleibol.isquad.es/images/afiliacion_clubs/206572948/square_33366235766f31343333.jpg",
+    "ok": true
+  },
+  {
+    "nom": "COLEGIO ALEMAN DE BARCELONA",
+    "slug": "colegio-aleman-de-barcelona",
+    "logo": "colegio-aleman-de-barcelona.jpg",
+    "src": "https://voleibol.isquad.es/images/afiliacion_clubs/206572925/square_6e35696c6b706633796b.jpg",
+    "ok": true
+  },
+  {
+    "nom": "COLEGIO SAGRADA FAMILIA DE GAVA",
+    "slug": "colegio-sagrada-familia-de-gava",
+    "logo": "colegio-sagrada-familia-de-gava.jpg",
+    "src": "https://voleibol.isquad.es/images/afiliacion_clubs/206572936/square_75627933346c37333362.jpg",
+    "ok": true
+  },
+  {
+    "nom": "CV AA LLARS MUNDET",
+    "slug": "cv-aa-llars-mundet",
+    "logo": "cv-aa-llars-mundet.jpg",
+    "src": "https://voleibol.isquad.es/images/afiliacion_clubs/206572947/square_6d6b767331613332306b.jpg",
+    "ok": true
+  },
+  {
+    "nom": "CV CALLDETENES",
+    "slug": "cv-calldetenes",
+    "logo": "cv-calldetenes.jpg",
+    "src": "https://voleibol.isquad.es/images/afiliacion_clubs/206572910/square_62636563396771386564.jpg",
+    "ok": true
+  },
+  {
+    "nom": "CV CASTELLDEFELS",
+    "slug": "cv-castelldefels",
+    "logo": "cv-castelldefels.jpg",
+    "src": "https://voleibol.isquad.es/images/afiliacion_clubs/206572892/square_6b627136346177386b6a.jpg",
+    "ok": true
+  },
+  {
+    "nom": "CV MONTBLANC",
+    "slug": "cv-montblanc",
+    "logo": "cv-montblanc.jpg",
+    "src": "https://voleibol.isquad.es/images/afiliacion_clubs/206572893/square_357063316179376c3533.jpg",
+    "ok": true
+  },
+  {
+    "nom": "CV SANT ESTEVE SESROVIRES",
+    "slug": "cv-sant-esteve-sesrovires",
+    "logo": "cv-sant-esteve-sesrovires.jpg",
+    "src": "https://voleibol.isquad.es/images/afiliacion_clubs/206572887/square_396c7069676c6b316d66.jpg",
+    "ok": true
+  },
+  {
+    "nom": "CV SANT MARTI PALTRONETO",
+    "slug": "cv-sant-marti-paltroneto",
+    "logo": "cv-sant-marti-paltroneto.jpg",
+    "src": "https://voleibol.isquad.es/images/afiliacion_clubs/206572868/square_636b6f746b7774396e77.jpg",
+    "ok": true
+  },
+  {
+    "nom": "DAINA ISARD AEE",
+    "slug": "daina-isard-aee",
+    "logo": "daina-isard-aee.jpg",
+    "src": "https://voleibol.isquad.es/images/afiliacion_clubs/206572937/square_6437766f633631346978.jpg",
+    "ok": true
+  },
+  {
+    "nom": "FCBARCELONA",
+    "slug": "fcbarcelona",
+    "logo": "fcbarcelona.jpg",
+    "src": "https://voleibol.isquad.es/images/afiliacion_clubs/206572915/square_6e39666f6962336f6530.jpg",
+    "ok": true
+  },
+  {
+    "nom": "FEDERACIO CATALANA DE VOLEIBOL",
+    "slug": "federacio-catalana-de-voleibol",
+    "logo": "federacio-catalana-de-voleibol.jpg",
+    "src": "https://voleibol.isquad.es/images/afiliacion_clubs/206572890/square_36397573356c35726534.jpg",
+    "ok": true
+  },
+  {
+    "nom": "FINCA'T VOLEI MOIA",
+    "slug": "finca-t-volei-moia",
+    "logo": "finca-t-volei-moia.jpg",
+    "src": "https://voleibol.isquad.es/images/afiliacion_clubs/206572949/square_6434707337657077796c.jpg",
+    "ok": true
+  },
+  {
+    "nom": "FUNDACIO PRIVADA COLLSEROLA",
+    "slug": "fundacio-privada-collserola",
+    "logo": "fundacio-privada-collserola.jpg",
+    "src": "https://voleibol.isquad.es/images/afiliacion_clubs/206572941/square_37633838687279676864.jpg",
+    "ok": true
+  },
+  {
+    "nom": "FUNDACIO PRIVADA SANT GERVASI",
+    "slug": "fundacio-privada-sant-gervasi",
+    "logo": "fundacio-privada-sant-gervasi.jpg",
+    "src": "https://voleibol.isquad.es/images/afiliacion_clubs/206572905/square_676c313761346f716a65.jpg",
+    "ok": true
+  },
+  {
+    "nom": "FUTBOL SALA CASTELLAR",
+    "slug": "futbol-sala-castellar",
+    "logo": "futbol-sala-castellar.jpg",
+    "src": "https://voleibol.isquad.es/images/afiliacion_clubs/206572773/square_66626734713674747061.jpg",
+    "ok": true
+  },
+  {
+    "nom": "IGUALADA VOLEI CLUB",
+    "slug": "igualada-volei-club",
+    "logo": "igualada-volei-club.jpg",
+    "src": "https://voleibol.isquad.es/images/afiliacion_clubs/206572799/square_76676936733963316d63.jpg",
+    "ok": true
+  },
+  {
+    "nom": "LA RAPITA VOLEI CLUB",
+    "slug": "la-rapita-volei-club",
+    "logo": "la-rapita-volei-club.jpg",
+    "src": "https://voleibol.isquad.es/images/afiliacion_clubs/206572938/square_703577306e7839753369.jpg",
+    "ok": true
+  },
+  {
+    "nom": "LA TORRE DE CLARAMUNT VÒLEI CLUB",
+    "slug": "la-torre-de-claramunt-volei-club",
+    "logo": "la-torre-de-claramunt-volei-club.jpg",
+    "src": "https://voleibol.isquad.es/images/afiliacion_clubs/206572894/square_376966703476676f3932.jpg",
+    "ok": true
+  },
+  {
+    "nom": "MAGIC VOLEI VILADECANS",
+    "slug": "magic-volei-viladecans",
+    "logo": "magic-volei-viladecans.jpg",
+    "src": "https://voleibol.isquad.es/images/afiliacion_clubs/206572778/square_746c3371316634713668.jpg",
+    "ok": true
+  },
+  {
+    "nom": "MULTIVERSE VOLLEY",
+    "slug": "multiverse-volley",
+    "logo": "multiverse-volley.jpg",
+    "src": "https://voleibol.isquad.es/images/afiliacion_clubs/206572885/square_30677133373532647130.jpg",
+    "ok": true
+  },
+  {
+    "nom": "PANTERES GROGUES",
+    "slug": "panteres-grogues",
+    "logo": "panteres-grogues.jpg",
+    "src": "https://voleibol.isquad.es/images/afiliacion_clubs/206572903/square_716d6e6f766171796f35.jpg",
+    "ok": true
+  },
+  {
+    "nom": "SAFA ANOSDA SABADELL",
+    "slug": "safa-anosda-sabadell",
+    "logo": "safa-anosda-sabadell.jpg",
+    "src": "https://voleibol.isquad.es/images/afiliacion_clubs/206572825/square_6d6a6574377839737775.jpg",
+    "ok": true
+  },
+  {
+    "nom": "SAGA VOLEI SOLSONA",
+    "slug": "saga-volei-solsona",
+    "logo": "saga-volei-solsona.jpg",
+    "src": "https://voleibol.isquad.es/images/afiliacion_clubs/206573082/square_38796866366c38346636.jpg",
+    "ok": true
+  },
+  {
+    "nom": "SECCIO ESPORTIVA ESCOLA PIA CALELLA",
+    "slug": "seccio-esportiva-escola-pia-calella",
+    "logo": "seccio-esportiva-escola-pia-calella.jpg",
+    "src": "https://voleibol.isquad.es/images/afiliacion_clubs/206572880/square_79767068666676396236.jpg",
+    "ok": true
+  },
+  {
+    "nom": "SECCIO ESPORTIVA ESCUELAS SALESIANAS SAN JUAN BOSCO",
+    "slug": "seccio-esportiva-escuelas-salesianas-san-juan-bosco",
+    "logo": "seccio-esportiva-escuelas-salesianas-san-juan-bosco.jpg",
+    "src": "https://voleibol.isquad.es/images/afiliacion_clubs/206572957/square_6c686a76373333626c6c.jpg",
+    "ok": true
+  },
+  {
+    "nom": "SECCIO ESPORTIVA LA SALLE BONANOVA",
+    "slug": "seccio-esportiva-la-salle-bonanova",
+    "logo": "seccio-esportiva-la-salle-bonanova.jpg",
+    "src": "https://voleibol.isquad.es/images/afiliacion_clubs/206572811/square_736c6f65763066776872.jpg",
+    "ok": true
+  },
+  {
+    "nom": "UNIO ESPORTIVA TORRELLES (UET)",
+    "slug": "unio-esportiva-torrelles-uet",
+    "logo": "unio-esportiva-torrelles-uet.jpg",
+    "src": "https://voleibol.isquad.es/images/afiliacion_clubs/206572854/square_706970636d68796d7173.jpg",
+    "ok": true
+  },
+  {
+    "nom": "VALKIRIAS VOLEIBOL CLUB",
+    "slug": "valkirias-voleibol-club",
+    "logo": "valkirias-voleibol-club.jpg",
+    "src": "https://voleibol.isquad.es/images/afiliacion_clubs/206573088/square_32323234653138636163653463353530.jpg",
+    "ok": true
+  },
+  {
+    "nom": "VIROLAI ESPORT CLUB",
+    "slug": "virolai-esport-club",
+    "logo": "virolai-esport-club.jpg",
+    "src": "https://voleibol.isquad.es/images/afiliacion_clubs/206572919/square_783570786a377136756f.jpg",
+    "ok": true
+  },
+  {
+    "nom": "VOLEI ELS ARCS",
+    "slug": "volei-els-arcs",
+    "logo": "volei-els-arcs.jpg",
+    "src": "https://voleibol.isquad.es/images/afiliacion_clubs/206572847/square_69306a3871706f646563.jpg",
+    "ok": true
+  },
+  {
+    "nom": "VOLEI FARNERS",
+    "slug": "volei-farners",
+    "logo": "volei-farners.jpg",
+    "src": "https://voleibol.isquad.es/images/afiliacion_clubs/206572815/square_756530346b377966396d.jpg",
+    "ok": true
+  },
+  {
+    "nom": "VOLEI PLATJA MONTGAT",
+    "slug": "volei-platja-montgat",
+    "logo": "volei-platja-montgat.jpg",
+    "src": "https://voleibol.isquad.es/images/afiliacion_clubs/206572886/square_63373661643664336237626635353337.jpg",
+    "ok": true
+  },
+  {
+    "nom": "VOLEI PROA",
+    "slug": "volei-proa",
+    "logo": "volei-proa.jpg",
+    "src": "https://voleibol.isquad.es/images/afiliacion_clubs/206572946/square_64316265356364633835326439626635.jpg",
+    "ok": true
+  },
+  {
+    "nom": "VOLEI SANT MARTI SARROCA",
+    "slug": "volei-sant-marti-sarroca",
+    "logo": "volei-sant-marti-sarroca.jpg",
+    "src": "https://voleibol.isquad.es/images/afiliacion_clubs/206572864/square_716c6f796961726b6b38.jpg",
+    "ok": true
+  },
+  {
+    "nom": "VOLEIBOL SANT JUST",
+    "slug": "voleibol-sant-just",
+    "logo": "voleibol-sant-just.jpg",
+    "src": "https://voleibol.isquad.es/images/afiliacion_clubs/206572817/square_61707970796533393430.jpg",
+    "ok": true
+  },
+  {
+    "nom": "VOLEY SANT FOST",
+    "slug": "voley-sant-fost",
+    "logo": "voley-sant-fost.jpg",
+    "src": "https://voleibol.isquad.es/images/afiliacion_clubs/206573036/square_396c7732636675616566.jpg",
+    "ok": true
+  }
+]
