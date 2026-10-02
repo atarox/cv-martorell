@@ -57,15 +57,15 @@ const marqueeItems = [...half, ...half];
             <li>
               <a href={s.url} target="_blank" rel="noopener noreferrer"
                  class="sponsor-or group relative flex items-center justify-center rounded-3xl overflow-hidden
-                        bg-white border-2 border-catalan-yellow/40 shadow-lg
-                        hover:shadow-xl hover:border-catalan-yellow/80
+                        border-2 border-catalan-yellow/60 shadow-lg
+                        hover:shadow-xl hover:border-catalan-yellow
                         transition-all duration-500 focus:outline-none focus:ring-2 focus:ring-catalan-yellow/40"
-                 style="min-height: 180px;"
+                 style="min-height: 180px; background: linear-gradient(160deg, #FFFFFF 0%, #FEF8E1 100%);"
                  aria-label={s.name}>
 
                 <!-- Línia or superior -->
-                <div class="absolute top-0 left-0 right-0 h-1 rounded-t-3xl"
-                     style="background: linear-gradient(90deg, transparent, #F2CB40, transparent);"></div>
+                <div class="absolute top-0 left-0 right-0 h-[3px]"
+                     style="background: linear-gradient(90deg, transparent, #D9A91A, #F2CB40, #D9A91A, transparent);"></div>
 
                 <!-- Glow daurat subtil de fons -->
                 <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none rounded-3xl"
@@ -88,12 +88,12 @@ const marqueeItems = [...half, ...half];
 
                 <img src={s.logo} alt={s.alt || s.name}
                      class="relative z-10 object-contain w-full max-h-28 px-12
-                            opacity-90 group-hover:opacity-100 group-hover:scale-105
+                            opacity-100 group-hover:scale-105
                             transition-all duration-500"
                      loading="lazy" />
 
                 <span class="absolute bottom-3 left-0 right-0 text-center text-[11px] font-semibold uppercase tracking-widest
-                             text-brand-dark/30 group-hover:text-brand-dark/60 transition-colors duration-300">
+                             text-brand-dark/45 group-hover:text-brand-dark/70 transition-colors duration-300">
                   {s.name}
                 </span>
               </a>
@@ -118,12 +118,6 @@ const marqueeItems = [...half, ...half];
                  aria-label={s.name}>
                 <div class="absolute top-0 left-0 right-0 h-[3px]"
                      style="background: linear-gradient(90deg, transparent, #94A3B8, #E2E8F0, #94A3B8, transparent);"></div>
-
-                <!-- Badge -->
-                <div class="absolute top-2 right-2 z-20 rounded-full px-2 py-0.5
-                            bg-slate-100 border border-slate-300">
-                  <span class="text-[9px] font-bold uppercase tracking-widest text-slate-500">Plata</span>
-                </div>
 
                 <img src={s.logo} alt={s.alt || s.name}
                      class="relative z-10 object-contain w-full max-h-16 px-8
@@ -270,6 +264,19 @@ const marqueeItems = [...half, ...half];
     pointer-events: none;
   }
   .sponsor-or:hover::after { opacity: 1; }
+
+  .sponsor-or::before {
+    content: '';
+    position: absolute;
+    top: 0; bottom: 0; left: -60%;
+    width: 40%;
+    background: linear-gradient(105deg, transparent, rgba(255,255,255,0.85), transparent);
+    transform: skewX(-20deg);
+    transition: left 0.8s ease;
+    pointer-events: none;
+    z-index: 15;
+  }
+  .sponsor-or:hover::before { left: 130%; }
 
   .sponsor-plata::after {
     content: '';
