@@ -103,28 +103,35 @@ const marqueeItems = [...half, ...half];
       </div>
     )}
 
-    <!-- PLATA: blanc amb vora visible -->
+    <!-- PLATA: acabat platejat, més presència que bronze -->
     {plata.length > 0 && (
       <div class="mb-10 sponsor-reveal">
         <ul class={`grid gap-3 ${plata.length <= 2 ? 'grid-cols-2 max-w-lg mx-auto' : 'grid-cols-2 md:grid-cols-3'}`}>
           {plata.map(s => (
             <li>
               <a href={s.url} target="_blank" rel="noopener noreferrer"
-                 class="group relative flex items-center justify-center rounded-2xl overflow-hidden
-                        bg-white border border-brand-dark/12
-                        hover:border-secondary-blue/40 hover:shadow-md
-                        transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-secondary-blue/30"
-                 style="min-height: 120px;"
+                 class="sponsor-plata group relative flex items-center justify-center rounded-2xl overflow-hidden
+                        border-2 border-slate-300 shadow-md
+                        hover:border-slate-400 hover:shadow-xl
+                        transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-slate-400/50"
+                 style="min-height: 120px; background: linear-gradient(160deg, #FFFFFF 0%, #F1F5F9 100%);"
                  aria-label={s.name}>
-                <div class="absolute top-0 left-0 right-0 h-px"
-                     style="background: linear-gradient(90deg, transparent, #CBD5E1, transparent);"></div>
+                <div class="absolute top-0 left-0 right-0 h-[3px]"
+                     style="background: linear-gradient(90deg, transparent, #94A3B8, #E2E8F0, #94A3B8, transparent);"></div>
+
+                <!-- Badge -->
+                <div class="absolute top-2 right-2 z-20 rounded-full px-2 py-0.5
+                            bg-slate-100 border border-slate-300">
+                  <span class="text-[9px] font-bold uppercase tracking-widest text-slate-500">Plata</span>
+                </div>
+
                 <img src={s.logo} alt={s.alt || s.name}
-                     class="object-contain w-full max-h-16 px-8
-                            opacity-75 group-hover:opacity-100 group-hover:scale-105
+                     class="relative z-10 object-contain w-full max-h-16 px-8
+                            opacity-100 group-hover:scale-105
                             transition-all duration-300"
                      loading="lazy" />
                 <span class="absolute bottom-2 left-0 right-0 text-center text-[10px] font-semibold uppercase tracking-widest
-                             text-brand-dark/30 group-hover:text-brand-dark/60 transition-colors duration-300">
+                             text-brand-dark/45 group-hover:text-brand-dark/70 transition-colors duration-300">
                   {s.name}
                 </span>
               </a>
@@ -151,8 +158,8 @@ const marqueeItems = [...half, ...half];
               <li class="w-[calc(50%_-_0.375rem)] md:w-[calc(33.333%_-_0.5rem)]">
                 <a href={s.url} target="_blank" rel="noopener noreferrer"
                    class="group relative flex items-center justify-center rounded-2xl overflow-hidden
-                          bg-white border-2 border-[#C97C3A]/40
-                          hover:border-[#C97C3A]/80 hover:shadow-md
+                          bg-white border border-[#C97C3A]/30
+                          hover:border-[#C97C3A]/60 hover:shadow-sm
                           transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-[#C97C3A]/40"
                    style="min-height: 120px;"
                    aria-label={s.name}>
@@ -179,8 +186,8 @@ const marqueeItems = [...half, ...half];
                   <a href={s.url} target="_blank" rel="noopener noreferrer"
                      tabindex={i >= half.length ? -1 : undefined}
                      class="group relative flex items-center justify-center rounded-2xl overflow-hidden
-                            bg-white border-2 border-[#C97C3A]/40
-                            hover:border-[#C97C3A]/80 hover:shadow-md
+                            bg-white border border-[#C97C3A]/30
+                            hover:border-[#C97C3A]/60 hover:shadow-sm
                             transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-[#C97C3A]/40"
                      style="min-height: 120px;"
                      aria-label={s.name}>
@@ -263,6 +270,19 @@ const marqueeItems = [...half, ...half];
     pointer-events: none;
   }
   .sponsor-or:hover::after { opacity: 1; }
+
+  .sponsor-plata::after {
+    content: '';
+    position: absolute;
+    top: 0; bottom: 0; left: -60%;
+    width: 40%;
+    background: linear-gradient(105deg, transparent, rgba(255,255,255,0.8), transparent);
+    transform: skewX(-20deg);
+    transition: left 0.7s ease;
+    pointer-events: none;
+    z-index: 15;
+  }
+  .sponsor-plata:hover::after { left: 130%; }
 
   .sponsor-reveal {
     opacity: 0;
