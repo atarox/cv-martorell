@@ -4,44 +4,154 @@ backend:
   branch: develop
   base_url: https://cv-martorell-cms-auth.informatica-179.workers.dev
   auth_endpoint: api/auth
-media_folder: public/images/
-public_folder: /images/
+
+media_folder: public/images
+public_folder: /images
+
 locale: ca
+
 collections:
+
+  #
+  # COMUNICATS
+  #
   - name: comunicats
     label: Comunicats
     label_singular: Comunicat
+
     folder: src/content/comunicats
+
     create: true
     delete: true
+
     summary: "{{titol}} — {{data}}"
+
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+
     sort_field: titol
     sort_default: desc
+
     fields:
+
       - label: Títol
         name: titol
         widget: string
         hint: "Ex: 📄 Casal d'estiu 2026"
+
       - label: Data
         name: data
         widget: datetime
         date_format: YYYY-MM-DD
         time_format: false
         format: YYYY-MM-DD
+
       - label: Missatge
         name: cos
         widget: markdown
         minimal: true
         hint: "El text del comunicat. Pots usar salts de línia normals i emojis."
+
       - label: Formulari (opcional)
         name: formulari
         widget: string
         required: false
         hint: "URL del formulari de Google si n'hi ha"
+
       - label: Text del botó del formulari
         name: formulariLabel
         widget: string
         required: false
         default: "Accedir al formulari"
         hint: "Ex: Formulari d'inscripció"
+
+  #
+  # EQUIPS
+  #
+  - name: equips
+    label: Equips
+    label_singular: Equip
+
+    folder: src/content/equips
+
+    create: true
+    delete: false
+
+    identifier_field: nom
+
+    summary: "{{nom}}"
+
+    sortable_fields:
+      - nom
+      - entrenador
+      - divisio
+      - ordre
+
+    fields:
+
+      - label: ID
+        name: id
+        widget: string
+        hint: "Identificador intern de l'equip. No modificar."
+
+      - label: Nom
+        name: nom
+        widget: string
+
+      - label: Slug iSquad
+        name: slug
+        widget: string
+        required: false
+        hint: "Només per equips federats amb pàgina pròpia."
+
+      - label: Fotografia
+        name: foto
+        widget: image
+        allow_multiple: false
+
+      - label: Entrenador/a
+        name: entrenador
+        widget: string
+
+      - label: Divisió
+        name: divisio
+        widget: string
+
+      - label: Actiu
+        name: actiu
+        widget: boolean
+        default: true
+
+      - label: Ordre
+        name: ordre
+        widget: number
+        default: 0
+        value_type: int
+        hint: "Ordre en què apareix l'equip a la web."
+
+      - label: Patrocinador
+        name: patrocinador
+        widget: object
+        required: false
+        collapsed: true
+
+        fields:
+
+          - label: Nom
+            name: nom
+            widget: string
+            required: false
+
+          - label: Logo
+            name: logo
+            widget: image
+            required: false
+
+          - label: Web
+            name: url
+            widget: string
+            required: false
+
+      - label: Descripció
+        name: body
+        widget: markdown
+        required: false
